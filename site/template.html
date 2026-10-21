@@ -204,6 +204,35 @@ details summary .faint { font-weight: 500; }
 .tiers-cols li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; }
 .tiers-cols li span:last-child { color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
+/* My team */
+.pick { display: inline-flex; align-items: center; gap: 8px; margin: 22px 0 0 8px; vertical-align: top; font-size: 14px; font-weight: 600; color: var(--ink-2); }
+@media (min-width: 861px) {
+  nav.toc .wrap { flex-wrap: wrap; overflow-x: visible; row-gap: 0; }
+  section { scroll-margin-top: 96px; }
+}
+.pick select { font: inherit; font-weight: 600; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 5px 10px; max-width: 240px; }
+.mu.mine { outline: 3px solid var(--flag); outline-offset: -1px; }
+.side .badge { font-family: Inter, sans-serif; font-size: 10px; padding: 2px 7px; margin-left: 6px; }
+tr.mine td { background: var(--flag-soft); }
+tr.mine td:first-child { box-shadow: inset 4px 0 0 var(--flag); }
+.my-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; align-items: start; }
+.my-grid > * { min-width: 0; }
+.my-lu { padding: 20px 22px; }
+.my-lu h3 { margin-bottom: 6px; }
+.pickrow { display: flex; gap: 12px; align-items: center; padding: 9px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.pickrow:first-child { border-top: 0; }
+.pickrow input { width: 18px; height: 18px; flex: none; accent-color: var(--ink); }
+.pickrow .ref, .pickrow .game { display: block; }
+.btn { font: inherit; font-weight: 700; background: var(--flag); color: var(--flag-ink); border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; margin-top: 14px; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.msg-out { width: 100%; margin-top: 6px; font: inherit; font-size: 14px; color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; resize: none; }
+.toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 20; max-width: calc(100% - 32px); background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: 15px; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+.toast.big { font-size: 18px; padding: 16px 22px; }
+.toast .uni { font-size: 34px; vertical-align: middle; margin-right: 8px; }
+@keyframes flash { 30% { box-shadow: 0 0 0 8px var(--t-unicorn); } }
+.mu.flash { animation: flash 1.2s ease 3; }
+@media (prefers-reduced-motion: reduce) { .mu.flash { animation: none; } }
+
 .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .faq .card { padding: 20px 22px; }
 .faq h3 { font-size: 17px; margin-bottom: 8px; }
@@ -213,7 +242,7 @@ footer .stripes { margin-bottom: 24px; }
 
 @media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 860px) {
-  .score-grid, .faq, .ww, .awards { grid-template-columns: 1fr; }
+  .score-grid, .faq, .ww, .awards, .my-grid { grid-template-columns: 1fr; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
   .tiers-cols { grid-template-columns: 1fr 1fr; }
   .tiers-cols > div:nth-child(3) { border-left: 0; }
@@ -239,12 +268,21 @@ footer .stripes { margin-bottom: 24px; }
   </div>
   <p class="tag">Fantasy football where you draft the <b>refs</b>. Head-to-head every week: every flag your crews throw puts points on your board — the rarer the call, the bigger the payday.</p>
   <div class="pill" id="pill"></div>
+  <label class="pick" id="pick"></label>
   <div class="kpis" id="kpis"></div>
 </header>
 
 <nav class="toc"><div class="wrap" id="toc"></div></nav>
 
 <main class="wrap" id="main">
+
+<section id="mine" hidden>
+  <div class="sec-head"><div><h2 id="my-h">Your week</h2><p class="muted" id="my-sub"></p></div></div>
+  <div class="my-grid">
+    <div id="my-mu"></div>
+    <div class="card my-lu" id="my-lu"></div>
+  </div>
+</section>
 
 <section id="live" hidden data-nav="● Live">
   <div class="sec-head"><div><h2><span class="dot" aria-hidden="true"></span>Live now</h2>
@@ -377,6 +415,7 @@ footer .stripes { margin-bottom: 24px; }
   <p class="faint"><a href="commish.html">Commissioner page</a></p>
 </footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script id="league-data" type="application/json">__DATA__</script>
 <script>
 (function () {
@@ -404,13 +443,25 @@ footer .stripes { margin-bottom: 24px; }
   const mgr = Object.fromEntries(D.teams.map(t => [t.team, t.manager]));
   const sample = live ? '' : 'Sample league · ';
 
+  // ---- My team: picked once per browser and remembered; ?team=Name pre-selects ----
+  const store = {
+    get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set: (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} }
+  };
+  const findTeam = s => (D.teams.find(t => t.team.toLowerCase() === String(s || '').trim().toLowerCase()) || {}).team || '';
+  const qTeam = findTeam(new URLSearchParams(location.search).get('team'));
+  if (qTeam) store.set('ll-team', qTeam);
+  let myTeam = qTeam || findTeam(store.get('ll-team'));
+
   // ---- Section order: rules first in preview, league first once live ----
   const order = live
-    ? ['live', 'matchups', 'standings', 'results', 'lineups', 'week', 'how', 'scoring', 'board', 'unicorns', 'sample', 'faq']
-    : ['live', 'how', 'scoring', 'matchups', 'standings', 'results', 'lineups', 'week', 'board', 'unicorns', 'faq'];
+    ? ['mine', 'live', 'matchups', 'standings', 'results', 'lineups', 'week', 'how', 'scoring', 'board', 'unicorns', 'sample', 'faq']
+    : ['mine', 'live', 'how', 'scoring', 'matchups', 'standings', 'results', 'lineups', 'week', 'board', 'unicorns', 'faq'];
   if (!live) $('#sample').remove();
   order.forEach(id => $('#main').appendChild($('#' + id)));
-  $('#toc').innerHTML = order.map(id => `<a href="#${id}" id="nav-${id}" class="${id === 'live' ? 'live-a' : ''}" ${id === 'live' ? 'hidden' : ''}>${esc($('#' + id).dataset.nav)}</a>`).join('');
+  $('#pick').innerHTML = `My team <select id="myteam"><option value="">All teams</option>${D.teams.map(t =>
+    `<option value="${esc(t.team)}">${esc(t.team)}${t.manager ? ' (' + esc(t.manager) + ')' : ''}</option>`).join('')}</select>`;
+  $('#toc').innerHTML = order.filter(id => id !== 'mine').map(id => `<a href="#${id}" id="nav-${id}" class="${id === 'live' ? 'live-a' : ''}" ${id === 'live' ? 'hidden' : ''}>${esc($('#' + id).dataset.nav)}</a>`).join('');
 
   // ---- Header ----
   document.querySelectorAll('.lw').forEach(e => e.textContent = last);
@@ -462,22 +513,43 @@ footer .stripes { margin-bottom: 24px; }
     const out = lines.map(l => crewLine(l, ov[l.crew]));
     return { team, pts: out.reduce((a, x) => a + x.pts, 0), html: out.map(x => x.html).join('') };
   }
+  const isMine = m => !!myTeam && (m.a === myTeam || m.b === myTeam);
+  function muCard(m, ov) {
+    const A = sideLines(m, 'A', ov), B = sideLines(m, 'B', ov);
+    const lead = A.pts === B.pts ? '' : A.pts > B.pts ? 'A' : 'B';
+    const label = curW.playoff ? `${esc(m.name)} · seeds ${m.seeds[0]} v ${m.seeds[1]}` : seriesLine(m.a, m.b);
+    const any = A.pts + B.pts > 0;
+    const side = (S, k) => `<div class="side ${any && lead === k ? 'win' : ''}">
+        <div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
+        <div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div></div>`;
+    return `<div class="card mu${isMine(m) ? ' mine' : ''}"><div class="mu-top"><span>${label}</span><span>${curW.playoff ? '' : 'Week ' + curWeek}</span></div>${side(A, 'A')}${side(B, 'B')}</div>`;
+  }
+  let lastOv = {};
   function renderMatchups(ov) {
-    ov = ov || {};
+    ov = lastOv = ov || lastOv;
     $('#mu-h').textContent = curW.playoff ? `Week ${curWeek} · Playoffs` : `Week ${curWeek} matchups`;
     $('#mu-sub').textContent = sample + (curW.playoff && !curW.games[0].set
       ? 'Matchups are set after Week 17. Shown with current seeds.'
       : 'Your 2 starters count; the bench doesn\'t. Scores update live during games; official numbers post the next morning.');
-    $('#mu-grid').innerHTML = curW.games.map(m => {
-      const A = sideLines(m, 'A', ov), B = sideLines(m, 'B', ov);
-      const lead = A.pts === B.pts ? '' : A.pts > B.pts ? 'A' : 'B';
-      const label = curW.playoff ? `${esc(m.name)} · seeds ${m.seeds[0]} v ${m.seeds[1]}` : seriesLine(m.a, m.b);
-      const any = A.pts + B.pts > 0;
-      const side = (S, k) => `<div class="side ${any && lead === k ? 'win' : ''}">
-          <div><div class="tname">${esc(S.team)}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
-          <div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div></div>`;
-      return `<div class="card mu"><div class="mu-top"><span>${label}</span><span>${curW.playoff ? '' : 'Week ' + curWeek}</span></div>${side(A, 'A')}${side(B, 'B')}</div>`;
-    }).join('');
+    const games = curW.games.filter(isMine).concat(curW.games.filter(m => !isMine(m)));
+    $('#mu-grid').innerHTML = games.map(m => muCard(m, ov)).join('');
+    renderMyWeek(ov);
+  }
+  // "Your week" card: this week's game for the picked team (re-rendered with live scores)
+  function renderMyWeek(ov) {
+    $('#mine').hidden = !myTeam;
+    if (!myTeam) return;
+    const m = curW.games.find(isMine);
+    $('#my-h').textContent = `${myTeam} · Week ${curWeek}`;
+    if (!m) {
+      $('#my-sub').textContent = sample + 'Your week';
+      $('#my-mu').innerHTML = `<div class="card my-lu"><p class="muted">No game for ${esc(myTeam)} this week.</p></div>`;
+      return;
+    }
+    const opp = m.a === myTeam ? m.b : m.a;
+    $('#my-sub').innerHTML = esc(sample) + `vs <b>${esc(opp)}</b> · ` +
+      (curW.playoff ? `${esc(m.name)}${m.set ? '' : ' (if the season ended today)'}` : seriesLine(m.a, m.b));
+    $('#my-mu').innerHTML = muCard(m, ov);
   }
   renderMatchups();
 
@@ -499,11 +571,12 @@ footer .stripes { margin-bottom: 24px; }
   $('#st-sub').textContent = live
     ? (started ? 'Win–loss record first, then total points.' : `Everyone is 0–0 until Week ${D.start_week} wraps up.`)
     : `A mock 6-team league, snake-drafted by last season's points per game and played head-to-head over Weeks 1–${last} of ${SEA}. Each mock owner benches crews with the week off. Team names are placeholders.`;
-  const stTable = list => `<thead><tr><th class="r">#</th><th>Team</th><th class="r">W–L${list.some(s => s.t) ? '–T' : ''}</th><th class="r">Points for</th><th class="r hide-sm">Points against</th><th class="r hide-sm">Streak</th></tr></thead><tbody>` +
-    list.map((s, i) => `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(s.team)}</div>${s.manager ? `<div class="own">${esc(s.manager)}</div>` : ''}</td>
+  const stTable = (list, me) => `<thead><tr><th class="r">#</th><th>Team</th><th class="r">W–L${list.some(s => s.t) ? '–T' : ''}</th><th class="r">Points for</th><th class="r hide-sm">Points against</th><th class="r hide-sm">Streak</th></tr></thead><tbody>` +
+    list.map((s, i) => `<tr${me && s.team === me ? ' class="mine"' : ''}><td class="r">${i + 1}</td><td><div class="ref">${esc(s.team)}</div>${s.manager ? `<div class="own">${esc(s.manager)}</div>` : ''}</td>
       <td class="r" style="white-space:nowrap"><b>${s.w}–${s.l}${list.some(x => x.t) ? '–' + s.t : ''}</b></td><td class="r">${fmt(s.pf)}</td><td class="r hide-sm">${fmt(s.pa)}</td>
       <td class="r hide-sm"><span class="streak ${esc(s.streak[0] || '')}">${esc(s.streak || '–')}</span></td></tr>`).join('') + '</tbody>';
-  $('#st-tbl').innerHTML = stTable(D.standings);
+  const renderStandings = () => { $('#st-tbl').innerHTML = stTable(D.standings, myTeam); };
+  renderStandings();
   const po = D.weeks.find(w => w.playoff);
   $('#po-line').innerHTML = `<b>Week ${D.playoff_week}${po.games[0].set ? '' : ' if the season ended today'}:</b> ` +
     po.games.map(g => `${esc(g.name)} — ${esc(g.a)} vs ${esc(g.b)}`).join(' · ');
@@ -540,18 +613,77 @@ footer .stripes { margin-bottom: 24px; }
   }
 
   // ---- Lineups ----
-  $('#deadline').textContent = D.lineup_deadline || 'Thursday kickoff';
+  const deadline = D.lineup_deadline || 'Thursday kickoff';
+  $('#deadline').textContent = deadline;
   $('#lu-sub').textContent = `${sample}Who starts in Week ${curWeek}. ${D.starters_per_week} of ${D.crews_per_team} crews score each week.`;
   const avg3 = c => { const wk = (byRef[c] || {}).weeks || {}; const ks = Object.keys(wk).map(Number).sort((a, b) => a - b).slice(-3);
     return ks.length ? fmt(ks.reduce((a, k) => a + wk[k].pts, 0) / ks.length) : '—'; };
   const luOn = startersIn(curWeek);
-  $('#lu-tbl').innerHTML = `<thead><tr><th>Team</th><th>Starting</th><th>Bench</th></tr></thead><tbody>` +
-    D.teams.map(({ team }) => {
-      const on = luOn[team] || [], all = D.rosters[String(curWeek)][team] || [];
-      const cell = cs => cs.map(c => `<div class="ref">${esc(c)}</div><div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
-      return `<tr><td><div class="ref">${esc(team)}</div>${mgr[team] ? `<div class="own">${esc(mgr[team])}</div>` : ''}</td>
-        <td>${cell(on)}</td><td>${cell(all.filter(c => !on.includes(c)))}</td></tr>`;
-    }).join('') + '</tbody>';
+  const rosterNow = t => D.rosters[String(curWeek)][t] || [];
+  function renderLineups() {
+    const teams = D.teams.filter(t => t.team === myTeam).concat(D.teams.filter(t => t.team !== myTeam));
+    $('#lu-tbl').innerHTML = `<thead><tr><th>Team</th><th>Starting</th><th>Bench</th></tr></thead><tbody>` +
+      teams.map(({ team }) => {
+        const on = luOn[team] || [], all = rosterNow(team);
+        const cell = cs => cs.map(c => `<div class="ref">${esc(c)}</div><div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
+        return `<tr${team === myTeam ? ' class="mine"' : ''}><td><div class="ref">${esc(team)}</div>${mgr[team] ? `<div class="own">${esc(mgr[team])}</div>` : ''}</td>
+          <td>${cell(on)}</td><td>${cell(all.filter(c => !on.includes(c)))}</td></tr>`;
+      }).join('') + '</tbody>';
+  }
+  renderLineups();
+
+  // ---- Toast: short confirmations and live celebrations ----
+  let toastT;
+  function toast(html, ms, big) {
+    const t = $('#toast');
+    t.innerHTML = html; t.classList.toggle('big', !!big); t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, ms || 3500);
+  }
+
+  // ---- Your week: pick starters and send them to the commissioner ----
+  // Uses the phone's share sheet (Messages, Mail…), so no contact details live on the page.
+  function renderMyLineup() {
+    if (!myTeam) return;
+    const all = rosterNow(myTeam), on = luOn[myTeam] || [], need = D.starters_per_week;
+    if (!all.length) {
+      $('#my-lu').innerHTML = '<h3>Set your lineup</h3><p class="muted">No crews yet. Your roster shows up here once the draft is entered.</p>';
+      return;
+    }
+    $('#my-lu').innerHTML = `<h3>Set your lineup</h3>
+      <p class="faint">Tick ${need} crews to start in Week ${curWeek}, then send them to the commissioner by ${esc(deadline)}.</p>
+      <div style="margin-top:8px">${all.map(c => `<label class="pickrow"><input type="checkbox" value="${esc(c)}"${on.includes(c) ? ' checked' : ''}>
+        <span><span class="ref">${esc(c)}</span><span class="game">Last 3 games: ${avg3(c)} pts avg</span></span></label>`).join('')}</div>
+      <button class="btn" id="my-send" type="button"></button><div id="my-out"></div>`;
+    const boxes = [...document.querySelectorAll('#my-lu input')], btn = $('#my-send');
+    const sync = () => {
+      const n = boxes.filter(b => b.checked).length;
+      btn.disabled = n !== need;
+      btn.textContent = n === need ? 'Send my lineup' : `Pick ${need} crews (${n} picked)`;
+    };
+    boxes.forEach(b => b.addEventListener('change', sync));
+    sync();
+    btn.addEventListener('click', async () => {
+      const picks = boxes.filter(b => b.checked).map(b => b.value);
+      const text = `${myTeam}${mgr[myTeam] ? ' (' + mgr[myTeam] + ')' : ''}: Week ${curWeek} starters: ${picks.join(', ')}`;
+      if (navigator.share) {
+        try { await navigator.share({ text }); return; } catch (e) { if (e.name === 'AbortError') return; }
+      }
+      try { await navigator.clipboard.writeText(text); toast('Copied. Paste it into a text or email to the commissioner.'); }
+      catch (e) {
+        $('#my-out').innerHTML = `<p class="faint" style="margin-top:12px">Copy this and send it to the commissioner:</p><textarea class="msg-out" rows="2" readonly>${esc(text)}</textarea>`;
+        $('#my-out textarea').select();
+      }
+    });
+  }
+  renderMyLineup();
+
+  $('#myteam').value = myTeam;
+  $('#myteam').addEventListener('change', e => {
+    myTeam = e.target.value;
+    store.set('ll-team', myTeam);
+    renderMatchups(); renderStandings(); renderLineups(); renderMyLineup();
+    if (myTeam) $('#mine').scrollIntoView({ behavior: 'smooth' });
+  });
 
   // ---- Scoring examples ----
   const byTier = {};
@@ -652,14 +784,14 @@ footer .stripes { margin-bottom: 24px; }
       if (!p.text || seen.has(p.id) || !/PENALTY on/i.test(p.text)) return;
       seen.add(p.id);
       const r = scorePlay(p.text, p.period && p.period.number, p.clock && p.clock.displayValue);
-      r.flags.forEach(f => { flags.push(f); pts += f.pts; });
+      r.flags.forEach((f, i) => { f.id = p.id + '.' + i; flags.push(f); pts += f.pts; });
       pts += r.wipe;
     });
     const offs = (s.gameInfo && s.gameInfo.officials) || [];
     const ref = (offs.find(o => o.position && o.position.name === 'Referee') || {}).displayName;
     return { referee: refName(ref), flags, pts: Math.round(pts * 10) / 10 };
   }
-  window.LaundryLive = { scorePlay, scoreSummary, run: liveRun };   // for testing
+  window.LaundryLive = { scorePlay, scoreSummary, run: liveRun, renderLive };   // for testing
 
   async function liveRun() {
     let sb;
@@ -701,7 +833,26 @@ footer .stripes { margin-bottom: 24px; }
       const ov = {};
       games.forEach(({ e, r }) => { if (r.referee) ov[r.referee] = { pts: r.pts, state: e.status.type.state, detail: e.status.type.shortDetail, game: e.shortName }; });
       renderMatchups(ov);
+      celebrate(games);
     }
+  }
+  // Big calls by the picked team's starters: toast + flash, once per play per browser session
+  const BIG = { rare: ['🚩', 'Rare call'], unicorn: ['🦄', 'Unicorn'], ejection: ['🚨', 'Ejection'] };
+  function celebrate(games) {
+    if (!myTeam) return;
+    const mine = new Set(startersIn(curWeek)[myTeam] || []);
+    let seen;
+    try { seen = new Set(JSON.parse(sessionStorage.getItem('ll-cheered') || '[]')); } catch (e) { seen = new Set(); }
+    const fresh = [];
+    games.forEach(({ r }) => r.flags.forEach(f => {
+      if (mine.has(r.referee) && BIG[f.tier] && !seen.has(f.id)) { seen.add(f.id); fresh.push({ f, ref: r.referee }); }
+    }));
+    if (!fresh.length) return;
+    try { sessionStorage.setItem('ll-cheered', JSON.stringify([...seen])); } catch (e) {}
+    const { f, ref } = fresh[fresh.length - 1], [icon, label] = BIG[f.tier];
+    toast(`<span class="uni">${icon}</span>${label}! ${esc(ref)} crew: ${esc(f.type)} <b class="num">+${fmt(f.pts)}</b>` +
+      (fresh.length > 1 ? ` · and ${fresh.length - 1} more` : ''), 7000, true);
+    document.querySelectorAll('#my-mu .mu').forEach(c => c.classList.add('flash'));
   }
   liveRun();
 })();
