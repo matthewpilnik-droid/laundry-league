@@ -96,23 +96,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "kemp": "Alex Kemp",
   "cheffers": "Carl Cheffers",
-  "novak": "Scott Novak",
-  "vinovich": "Bill Vinovich",
-  "martin": "Clay Martin",
-  "hochuli": "Shawn Hochuli",
-  "clark": "Land Clark",
-  "hill": "Adrian Hill",
-  "moore": "Alex Moore",
-  "allen": "Brad Allen",
-  "eck": "Alan Eck",
   "smith": "Shawn Smith",
+  "clark": "Land Clark",
   "blakeman": "Clete Blakeman",
+  "hochuli": "Shawn Hochuli",
+  "kemp": "Alex Kemp",
+  "moore": "Alex Moore",
+  "vinovich": "Bill Vinovich",
+  "hill": "Adrian Hill",
+  "allen": "Brad Allen",
+  "hussey": "John Hussey",
+  "martin": "Clay Martin",
+  "novak": "Scott Novak",
+  "wrolstad": "Craig Wrolstad",
   "rogers": "Brad Rogers",
   "torbert": "Ron Torbert",
-  "hussey": "John Hussey",
-  "wrolstad": "Craig Wrolstad"
+  "eck": "Alan Eck"
  },
  "scored_espn": [
   "401872656",
@@ -692,53 +692,6 @@
    }
   },
   {
-   "referee": "Scott Novak",
-   "g25": 17,
-   "flags25": 13.6,
-   "ppg25": 67.7,
-   "g26": 6,
-   "pts26": 774.0,
-   "ppg26": 129.0,
-   "weeks": {
-    "1": {
-     "game": "BAL @ IND",
-     "flags": 17,
-     "yards": 115,
-     "pts": 79.0
-    },
-    "2": {
-     "game": "GB @ NYJ",
-     "flags": 33,
-     "yards": 289,
-     "pts": 175.3
-    },
-    "3": {
-     "game": "MIN @ TB",
-     "flags": 20,
-     "yards": 176,
-     "pts": 99.2
-    },
-    "4": {
-     "game": "LAC @ SEA",
-     "flags": 32,
-     "yards": 280,
-     "pts": 208.0
-    },
-    "5": {
-     "game": "BUF @ LA",
-     "flags": 24,
-     "yards": 196,
-     "pts": 94.2
-    },
-    "6": {
-     "game": "CHI @ ATL",
-     "flags": 19,
-     "yards": 164,
-     "pts": 118.3
-    }
-   }
-  },
-  {
    "referee": "Clete Blakeman",
    "g25": 16,
    "flags25": 14.4,
@@ -782,6 +735,53 @@
      "flags": 11,
      "yards": 92,
      "pts": 66.6
+    }
+   }
+  },
+  {
+   "referee": "Scott Novak",
+   "g25": 17,
+   "flags25": 13.6,
+   "ppg25": 67.7,
+   "g26": 6,
+   "pts26": 774.0,
+   "ppg26": 129.0,
+   "weeks": {
+    "1": {
+     "game": "BAL @ IND",
+     "flags": 17,
+     "yards": 115,
+     "pts": 79.0
+    },
+    "2": {
+     "game": "GB @ NYJ",
+     "flags": 33,
+     "yards": 289,
+     "pts": 175.3
+    },
+    "3": {
+     "game": "MIN @ TB",
+     "flags": 20,
+     "yards": 176,
+     "pts": 99.2
+    },
+    "4": {
+     "game": "LAC @ SEA",
+     "flags": 32,
+     "yards": 280,
+     "pts": 208.0
+    },
+    "5": {
+     "game": "BUF @ LA",
+     "flags": 24,
+     "yards": 196,
+     "pts": 94.2
+    },
+    "6": {
+     "game": "CHI @ ATL",
+     "flags": 19,
+     "yards": 164,
+     "pts": 118.3
     }
    }
   },
@@ -1724,23 +1724,23 @@
  ],
  "standings": [
   {
-   "team": "False Start Kids",
+   "team": "Laundry Day",
    "manager": "",
    "crews": [
-    "Alex Moore",
-    "Land Clark",
+    "Shawn Hochuli",
+    "Carl Cheffers",
     "Scott Novak"
    ],
    "weeks": {
-    "1": 191.3,
-    "2": 241.7,
-    "3": 192.1,
-    "4": 351.5,
-    "5": 182.9,
-    "6": 171.8
+    "1": 189.3,
+    "2": 241.3,
+    "3": 182.7,
+    "4": 312.1,
+    "5": 166.5,
+    "6": 213.7
    },
-   "total": 1331.3,
-   "wins": 3
+   "total": 1305.6,
+   "wins": 2
   },
   {
    "team": "Flag on the Play",
@@ -1759,7 +1759,26 @@
     "6": 282.4
    },
    "total": 1228.4,
-   "wins": 2
+   "wins": 3
+  },
+  {
+   "team": "False Start Kids",
+   "manager": "",
+   "crews": [
+    "Alex Moore",
+    "Land Clark",
+    "Clete Blakeman"
+   ],
+   "weeks": {
+    "1": 186.3,
+    "2": 128.5,
+    "3": 185.6,
+    "4": 272.4,
+    "5": 176.0,
+    "6": 120.1
+   },
+   "total": 1068.9,
+   "wins": 0
   },
   {
    "team": "Pick Up the Flag",
@@ -1778,25 +1797,6 @@
     "6": 245.8
    },
    "total": 1046.1,
-   "wins": 0
-  },
-  {
-   "team": "Laundry Day",
-   "manager": "",
-   "crews": [
-    "Shawn Hochuli",
-    "Carl Cheffers",
-    "Clete Blakeman"
-   ],
-   "weeks": {
-    "1": 184.3,
-    "2": 128.0,
-    "3": 165.1,
-    "4": 233.0,
-    "5": 130.1,
-    "6": 162.0
-   },
-   "total": 1002.5,
    "wins": 0
   },
   {
