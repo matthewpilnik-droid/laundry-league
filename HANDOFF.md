@@ -1,7 +1,8 @@
 # Laundry League handoff
 
 Everything needed to pick up The Laundry League on a new computer.
-Updated October 20, 2026, after the switch to a 6-team head-to-head format with a waiver wire.
+Updated October 21, 2026: three crews per team, two starters a week, and the 2012 Replacement Refs (the waiver wire is gone).
+~~Updated October 20, 2026, after the switch to a 6-team head-to-head format with a waiver wire.~~
 
 ## At a glance
 
@@ -11,8 +12,8 @@ Updated October 20, 2026, after the switch to a 6-team head-to-head format with 
 | Code and data | https://github.com/matthewpilnik-droid/laundry-league |
 | GitHub account | `matthewpilnik-droid`: personal account only, never a firm account |
 | Commit email | `345613117+matthewpilnik-droid@users.noreply.github.com` (GitHub's no-reply address) |
-| Format | 6 teams, 2 crews each, both count; head-to-head Weeks 8–17 (everyone plays everyone twice); Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Laundry Basket (5 v 6); 5 undrafted crews form the waiver wire |
-| League starts | Week 8, Thursday, October 29, 2026 |
+| Format | 6 teams, 3 crews each from a 3-round snake draft of all 17 crews + the 2012 Replacement Refs (scores the weekly average of crews that worked); start 2 of 3 each week, lineups carry forward; head-to-head Weeks 7–17 (everyone plays everyone twice, Week 17 repeats Week 7's pairings); Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Delicates Bowl (5 v 6) |
+| League starts | ~~Week 8, Thursday, October 29, 2026~~ → Week 7, Thursday, October 22, 2026 (moved up 2026-10-21) |
 | Status | Live in **preview mode**: draft not yet entered in `league.json` |
 
 The site updates itself. Nothing has to run on your computer. A new computer
@@ -21,17 +22,21 @@ only matters for editing code or running Claude Code against the project.
 ## Commissioner tasks (no computer setup needed)
 
 Everything below works in a web browser on github.com, signed in as `matthewpilnik-droid`.
+Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-league/commish.html
+(added 2026-10-21), builds `league.json` for the draft and weekly lineups; copy, paste into GitHub's editor, commit.
 
 - **Enter the draft:** open `league.json` → pencil icon → fill each team's `name`,
-  `manager` and 2 `crews` (referee last names are fine, e.g. `"Hochuli"`) →
+  `manager` and 3 `crews` in draft order (referee last names are fine, e.g. `"Hochuli"`;
+  the fake crew is `"Replacement Refs"`) →
   **Commit changes**. The page switches to real standings within a few minutes.
-- **Waiver claims:** owners text "add X, drop Y" by Wednesday 9 p.m. ET; worst record
-  wins ties. Add one line per approved claim to `moves` in `league.json`, e.g.
-  `{ "week": 9, "team": "Holding Pattern", "add": "Eck", "drop": "Novak" }`.
-  Each week keeps the roster it had, so moves never change past results.
-  Expect about 1–3 a week, mostly crews with no game that week.
+- **Lineups:** owners text their 2 starters by Thursday kickoff. Add a line to `lineups`
+  in `league.json` only when a team changes, e.g.
+  `{ "week": 9, "team": "Holding Pattern", "start": ["Hochuli", "Replacement Refs"] }`.
+  A lineup stands until replaced; before any entry a team starts its first 2 listed crews.
+  ~~**Waiver claims:** owners text "add X, drop Y"… add one line per approved claim to `moves`.~~
+  → 2026-10-21: waiver wire removed; all 18 picks are drafted.
 - **Crew assignments:** https://www.footballzebras.com/category/assignments/
-- **Bad name or illegal move:** the update fails, and GitHub emails you an error naming
+- **Bad name or illegal lineup:** the update fails, and GitHub emails you an error naming
   the line and listing valid names.
 - **Scores look stale:** the page header shows "updated <time>". If it's more than a day old,
   go to **Actions** → **Update scores** → **Run workflow**. If GitHub paused the schedule,
@@ -88,7 +93,7 @@ The old Mac has a `gh` sign-in for `matthewpilnik-droid`. To remove it:
   2. Whether ESPN lists the officials *during* a live game. If not, live cards show
      "Crew not posted yet" until the next update.
   Check in **Actions** → latest **Update scores** run → log line `referees: N games known, N added`.
-- **Confirm assignment timing.** The waiver wire depends on owners seeing which crews
+- **Confirm assignment timing.** Lineups depend on owners seeing which crews
   are off before Thursday. Football Zebras posted 2018 Week 7 assignments on the Tuesday
   and 2026 preseason assignments two days ahead; a 2026 regular-season post wasn't found
   in search. Check that Week 7 or 8 assignments appear before Thursday's game.
@@ -106,7 +111,7 @@ The old Mac has a `gh` sign-in for `matthewpilnik-droid`. To remove it:
 |---|---|
 | `league.json` | League settings and rosters, the only file the commissioner edits |
 | `scripts/fetch_data.py` | Downloads the nflverse schedule and play-by-play; fills missing referees from ESPN into `data/referees.json` |
-| `scripts/build_data.py` | Reads every penalty from the play text, scores it, replays `moves` week by week, runs the head-to-head schedule, standings, waiver order and weekly awards, writes `data.json` |
+| `scripts/build_data.py` | Reads every penalty from the play text, scores it, scores the Replacement Refs' weekly average, replays `lineups` week by week, runs the head-to-head schedule, standings and weekly awards, writes `data.json` |
 | `scripts/render.py` | Puts `data.json` inside `site/template.html` and writes `index.html` |
 | `site/template.html` | Page design, plus the live scorer that reads ESPN in each viewer's browser |
 | `.github/workflows/update.yml` | Runs the three scripts every 6 hours (at 17 minutes past 00, 06, 12 and 18 UTC), on edits to `league.json`, `site/` or `scripts/`, and on demand |

@@ -1,11 +1,12 @@
 {
   "league_name": "The Laundry League",
   "season": 2026,
-  "start_week": 8,
+  "start_week": 7,
   "regular_season_end": 17,
   "playoff_week": 18,
-  "crews_per_team": 2,
-  "waiver_deadline": "Wednesday 9 p.m. ET",
+  "crews_per_team": 3,
+  "starters_per_week": 2,
+  "lineup_deadline": "Thursday kickoff",
   "teams": [
     { "name": "Team 1", "manager": "", "crews": [] },
     { "name": "Team 2", "manager": "", "crews": [] },
@@ -14,5 +15,5 @@
     { "name": "Team 5", "manager": "", "crews": [] },
     { "name": "Team 6", "manager": "", "crews": [] }
   ],
-  "moves": []
+  "lineups": []
 }

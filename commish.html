@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Commissioner · The Laundry League</title>
+<style>
+:root { --ink: #1d1d1b; --ink-2: #4a4a46; --ink-3: #7a7a74; --line: #e3e1da; --bg: #f7f6f2; --card: #fff;
+        --flag: #f2c200; --bad: #c0392b; --good: #2e7d32; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.45 Inter, system-ui, -apple-system, sans-serif; color: var(--ink); background: var(--bg); }
+.wrap { max-width: 1060px; margin: 0 auto; padding: 24px 18px 60px; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+h2 { font-size: 19px; margin: 0 0 10px; }
+.muted { color: var(--ink-3); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-top: 16px; }
+.tabs { display: flex; gap: 8px; margin-top: 18px; }
+.tabs button { font: inherit; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); cursor: pointer; }
+.tabs button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-3); }
+input[type=text], select { font: inherit; width: 100%; padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+label.pick { display: flex; gap: 8px; align-items: center; padding: 3px 0; }
+.warn { color: var(--bad); font-weight: 600; }
+.ok { color: var(--good); font-weight: 600; }
+.chg { margin: 4px 0; }
+textarea { width: 100%; height: 260px; font: 12px/1.4 ui-monospace, Menlo, monospace; padding: 10px; border: 1px solid var(--line); border-radius: 8px; }
+.btn { font: inherit; font-weight: 700; padding: 9px 18px; border-radius: 8px; border: 0; background: var(--flag); color: var(--ink); cursor: pointer; text-decoration: none; display: inline-block; }
+.btn.alt { background: var(--ink); color: #fff; }
+.btn[disabled] { opacity: .4; cursor: not-allowed; }
+ol.how li { margin: 4px 0; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Commissioner page</h1>
+  <p class="muted">Builds <code>league.json</code> for you. Nothing here saves on its own: you copy the result into GitHub and commit it.
+    <a href="./">Back to the league</a></p>
+  <div class="card warn" id="load-err" hidden></div>
+
+  <div id="app" hidden>
+    <div class="tabs"><button id="tab-draft">Draft</button><button id="tab-lineups">Lineups</button></div>
+
+    <section class="card" id="draft">
+      <h2>Draft</h2>
+      <p class="muted">Three-round snake: round 1 goes Team 1→6, round 2 goes 6→1, round 3 goes 1→6. Enter each team's crews in the order drafted; the first two start until the owner sends a lineup.</p>
+      <p class="warn" id="draft-warn" hidden></p>
+      <table><thead><tr><th>Team name</th><th>Manager</th><th>Pick 1</th><th>Pick 2</th><th>Pick 3</th></tr></thead>
+        <tbody id="draft-rows"></tbody></table>
+    </section>
+
+    <section class="card" id="lineups">
+      <h2>Lineups</h2>
+      <div class="row"><span>Lineups for</span><select id="lu-week" style="width:auto"></select>
+        <span class="muted">Due by <b id="lu-deadline"></b>. Check who has the week off at
+        <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a>.</span></div>
+      <p class="muted">Ticked = starting. Current starters are pre-ticked; only change the teams that texted you. A lineup stands until it's changed.</p>
+      <p class="warn" id="lu-off" hidden>Finish the draft first.</p>
+      <table id="lu-table"><thead><tr><th>Team</th><th>Start 2 of 3</th><th></th></tr></thead><tbody id="lu-rows"></tbody></table>
+    </section>
+
+    <section class="card">
+      <h2>Save it</h2>
+      <div id="status"></div>
+      <div id="changes" style="margin:8px 0 12px"></div>
+      <ol class="how">
+        <li>Click <b>Copy</b>.</li>
+        <li>Click <b>Open GitHub editor</b> (signed in as the league's GitHub account).</li>
+        <li>Select everything in the editor, paste over it, then click <b>Commit changes</b>.</li>
+        <li>The league page updates in a few minutes. Reload this page afterwards to start from the new version.</li>
+      </ol>
+      <div class="row" style="margin:10px 0">
+        <button class="btn" id="copy">Copy</button>
+        <a class="btn alt" id="gh" target="_blank" rel="noopener" href="https://github.com/matthewpilnik-droid/laundry-league/edit/main/league.json">Open GitHub editor</a>
+        <span id="copied" class="ok"></span>
+      </div>
+      <textarea id="out" readonly></textarea>
+    </section>
+  </div>
+</div>
+
+<script>
+(async function () {
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const bust = '?t=' + Date.now();
+  let L, D;
+  try {
+    [L, D] = await Promise.all(['league.json', 'data.json'].map(f => fetch(f + bust).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); })));
+  } catch (e) {
+    $('#load-err').hidden = false;
+    $('#load-err').innerHTML = `Couldn't load the league files (${esc(e.message)}). Open this page from the live site:
+      <a href="https://matthewpilnik-droid.github.io/laundry-league/commish.html">matthewpilnik-droid.github.io/laundry-league/commish.html</a>.`;
+    return;
+  }
+  $('#app').hidden = false;
+
+  const N = L.crews_per_team, S = L.starters_per_week, REPL = D.replacement;
+  const crews = D.crews.map(c => c.referee);
+  const ppg = Object.fromEntries(D.crews.map(c => [c.referee, c.ppg25]));
+  // Same rule as build_data.py: exact name, "replacement", or an unambiguous last name.
+  const resolve = raw => {
+    const c = String(raw || '').trim();
+    if (!c) return '';
+    if (crews.includes(c)) return c;
+    if (/replacement/i.test(c)) return REPL;
+    const hits = crews.filter(r => r.split(' ').pop().toLowerCase() === c.toLowerCase());
+    return hits.length === 1 ? hits[0] : c;
+  };
+  const sameSet = (a, b) => a.length === b.length && a.every(x => b.includes(x));
+
+  // Working copy of the draft; team names may change, so lineups are tied to the team's row.
+  const oldNames = L.teams.map(t => t.name);
+  const slots = t => Array.from({ length: N }, (_, i) => resolve(t.crews[i]));
+  const orig = L.teams.map(slots);
+  const teams = L.teams.map(t => ({ name: t.name, manager: t.manager || '', crews: slots(t) }));
+  const lineupsIn = (L.lineups || []).map(l => ({ ...l, row: oldNames.indexOf(l.team), start: l.start.map(resolve) }));
+  const edits = {};   // "week|row" -> [crew, crew]
+
+  // ---- Draft ----
+  const label = c => c === REPL ? `${c} (weekly average)` : `${c} (${ppg[c] ?? '—'} pts/game last season)`;
+  function drawDraft() {
+    const taken = teams.flatMap(t => t.crews).filter(Boolean);
+    $('#draft-rows').innerHTML = teams.map((t, i) => `<tr>
+      <td><input type="text" data-i="${i}" data-k="name" value="${esc(t.name)}"></td>
+      <td><input type="text" data-i="${i}" data-k="manager" value="${esc(t.manager)}"></td>
+      ${t.crews.map((c, j) => `<td><select data-i="${i}" data-j="${j}"><option value="">—</option>${crews.map(r =>
+        `<option value="${esc(r)}" ${r === c ? 'selected' : ''} ${r !== c && taken.includes(r) ? 'disabled' : ''}>${esc(label(r))}</option>`).join('')}</select></td>`).join('')}
+    </tr>`).join('');
+  }
+  $('#draft-rows').addEventListener('input', e => {
+    const el = e.target, i = +el.dataset.i;
+    if (el.dataset.k) teams[i][el.dataset.k] = el.value;
+    else { teams[i].crews[+el.dataset.j] = el.value; drawDraft(); }
+    drawLineups(); update();
+  });
+  if (lineupsIn.length) {
+    $('#draft-warn').hidden = false;
+    $('#draft-warn').textContent = 'Lineups are already entered. Changing a team\'s crews now can make its lineups invalid.';
+  }
+
+  // ---- Lineups ----
+  const drafted = () => teams.every(t => t.name.trim() && t.crews.every(Boolean));
+  const weeks = []; for (let w = L.start_week; w <= L.playoff_week; w++) weeks.push(w);
+  const defaultWeek = D.mode === 'live' ? Math.max(L.start_week, D.current_week) : L.start_week;
+  $('#lu-week').innerHTML = weeks.map(w => `<option value="${w}" ${w === defaultWeek ? 'selected' : ''}>Week ${w}${w === L.playoff_week ? ' (playoffs)' : ''}</option>`).join('');
+  $('#lu-deadline').textContent = L.lineup_deadline || 'Thursday kickoff';
+  const week = () => +$('#lu-week').value;
+
+  // A lineup stands until replaced; before any entry, a team starts its first S crews.
+  function standing(row, w) {
+    let cur = teams[row].crews.slice(0, S);
+    lineupsIn.filter(l => l.row === row && l.week <= w).sort((a, b) => a.week - b.week).forEach(l => cur = l.start);
+    Object.entries(edits).map(([k, v]) => [k.split('|').map(Number), v]).filter(([[ew, er]]) => er === row && ew <= w)
+      .sort((a, b) => a[0][0] - b[0][0]).forEach(([, v]) => cur = v);
+    return cur;
+  }
+  function drawLineups() {
+    const ok = drafted();
+    $('#lu-off').hidden = ok; $('#lu-table').hidden = !ok;
+    if (!ok) return;
+    const w = week();
+    $('#lu-rows').innerHTML = teams.map((t, row) => {
+      const on = standing(row, w);
+      const n = on.filter(c => t.crews.includes(c)).length;
+      return `<tr><td><b>${esc(t.name)}</b><div class="muted">${esc(t.manager)}</div></td>
+        <td>${t.crews.map(c => `<label class="pick"><input type="checkbox" data-row="${row}" value="${esc(c)}" ${on.includes(c) ? 'checked' : ''}> ${esc(c)}</label>`).join('')}</td>
+        <td>${n === S ? '' : `<span class="warn">Pick exactly ${S}</span>`}</td></tr>`;
+    }).join('');
+  }
+  $('#lu-week').addEventListener('change', () => { drawLineups(); update(); });
+  $('#lu-rows').addEventListener('change', e => {
+    const row = +e.target.dataset.row;
+    edits[week() + '|' + row] = [...document.querySelectorAll(`#lu-rows input[data-row="${row}"]:checked`)].map(x => x.value);
+    drawLineups(); update();
+  });
+
+  // ---- Build league.json ----
+  function build() {
+    const problems = [], changes = [], teamChanges = [];
+    const names = teams.map(t => t.name.trim());
+    if (new Set(names).size !== names.length) problems.push('Two teams have the same name.');
+    teams.forEach((t, i) => { if (!t.name.trim()) problems.push(`Team ${i + 1} needs a name.`); });
+    const picked = teams.flatMap(t => t.crews).filter(Boolean);
+    const partial = picked.length && !drafted();
+    if (partial) problems.push(`Draft is incomplete: ${picked.length} of ${teams.length * N} picks entered. The league stays in preview until all are in.`);
+
+    // Existing lineups (renamed with their team), with this session's edits on top.
+    const merged = lineupsIn.map(l => ({ week: l.week, row: l.row, start: l.start }));
+    Object.entries(edits).forEach(([k, v]) => {
+      const [w, row] = k.split('|').map(Number);
+      if (v.length !== S) { problems.push(`Week ${w}, ${names[row]}: pick exactly ${S} starters.`); return; }
+      const i = merged.findIndex(l => l.week === w && l.row === row);
+      const before = (() => { let cur = teams[row].crews.slice(0, S);
+        merged.filter(l => l.row === row && l.week < w).sort((a, b) => a.week - b.week).forEach(l => cur = l.start); return cur; })();
+      if (i >= 0) merged.splice(i, 1);
+      if (!sameSet(v, before)) { merged.push({ week: w, row, start: v }); changes.push(`Week ${w} · ${names[row]} starts ${v.join(' + ')}`); }
+    });
+    merged.sort((a, b) => a.week - b.week || a.row - b.row);
+    merged.forEach(l => { if (l.row < 0) problems.push(`A saved lineup names a team that isn't in the league.`); });
+
+    teams.forEach((t, i) => {
+      const nm = t.name.trim() || 'Team ' + (i + 1);
+      if (t.name !== oldNames[i]) teamChanges.push(`Renamed: ${oldNames[i]} → ${nm}`);
+      if (t.manager !== (L.teams[i].manager || '')) teamChanges.push(`${nm} manager: ${t.manager.trim() || '(blank)'}`);
+      if (orig[i].join() !== t.crews.join()) teamChanges.push(`${nm} crews: ${t.crews.filter(Boolean).join(', ') || '(none)'}`);
+    });
+    changes.unshift(...teamChanges);
+
+    const out = { ...L, teams: teams.map(t => ({ name: t.name.trim(), manager: t.manager.trim(), crews: t.crews.filter(Boolean) })),
+      lineups: merged.filter(l => l.row >= 0).map(l => ({ week: l.week, team: names[l.row], start: l.start })) };
+    return { text: format(out), problems, changes };
+  }
+  // Same layout as the hand-edited file: one team or lineup per line.
+  function format(o) {
+    const lines = Object.entries(o).map(([k, v]) => {
+      if (Array.isArray(v) && v.length && typeof v[0] === 'object')
+        return `  ${JSON.stringify(k)}: [\n${v.map(x => '    ' + JSON.stringify(x).replace(/":/g, '": ').replace(/,"/g, ', "').replace(/^\{/, '{ ').replace(/\}$/, ' }')).join(',\n')}\n  ]`;
+      return `  ${JSON.stringify(k)}: ${JSON.stringify(v)}`;
+    });
+    return '{\n' + lines.join(',\n') + '\n}\n';
+  }
+  function update() {
+    const r = build();
+    $('#out').value = r.text;
+    $('#status').innerHTML = r.problems.length
+      ? r.problems.map(p => `<div class="warn">${esc(p)}</div>`).join('')
+      : (r.changes.length ? '<div class="ok">Ready to save.</div>' : '<div class="muted">No changes yet.</div>');
+    $('#changes').innerHTML = r.changes.map(c => `<div class="chg">• ${esc(c)}</div>`).join('');
+    const blocking = r.problems.some(p => !/^Draft is incomplete/.test(p));
+    $('#copy').disabled = blocking || !r.changes.length;
+  }
+  $('#copy').addEventListener('click', async () => {
+    $('#out').select();
+    try { await navigator.clipboard.writeText($('#out').value); } catch (e) { document.execCommand('copy'); }
+    $('#copied').textContent = 'Copied. Now open the GitHub editor and paste over everything.';
+  });
+
+  const show = id => { ['draft', 'lineups'].forEach(x => { $('#' + x).hidden = x !== id; $('#tab-' + x).className = x === id ? 'on' : ''; }); };
+  $('#tab-draft').onclick = () => show('draft');
+  $('#tab-lineups').onclick = () => show('lineups');
+  drawDraft(); drawLineups(); update();
+  show(drafted() ? 'lineups' : 'draft');
+})();
+</script>
+</body>
+</html>

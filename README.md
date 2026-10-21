@@ -1,7 +1,7 @@
 # The Laundry League
 
-Fantasy football where you draft NFL officiating crews. Six owners, two crews
-each, head-to-head every week. Every flag scores.
+Fantasy football where you draft NFL officiating crews. Six owners, three crews
+each, two start every week, head-to-head. Every flag scores.
 
 The site is one page (`index.html`) that rebuilds itself every 6 hours from
 free NFL data. During games it also shows live, provisional points straight
@@ -9,46 +9,60 @@ from ESPN in each viewer's browser.
 
 ## League format
 
-- 6 teams, 2 crews each; both crews count every week. 12 crews are drafted and
-  the other 5 start on the waiver wire.
-- Weeks 8–17: head-to-head, everyone plays everyone twice.
+- 6 teams, 3 crews each, from a three-round snake draft. The 18 picks are all
+  17 real crews plus the **2012 Replacement Refs**, who never have a week off
+  and score the average of every real crew that worked that week (posted once
+  the week is final).
+- Each week a team starts 2 of its 3 crews; only starters score. A crew with no
+  game that week scores 0, so bench it.
+- Weeks 7–17: head-to-head, everyone plays everyone twice; Week 17 is a rematch
+  of each team's Week 7 opponent.
 - Week 18: Laundry Bowl (1st vs 2nd), third-place game (3rd vs 4th) and the
-  Laundry Basket (5th vs 6th). Seeds come from the Week 17 standings.
+  Delicates Bowl (5th vs 6th). Seeds come from the Week 17 standings.
 - Standings: win–loss record, ties broken by total points scored.
-- A crew with no game that week scores 0. Fix it on the waiver wire.
 
 ## Commissioner guide
+
+The easy way: open the **commissioner page**
+(https://matthewpilnik-droid.github.io/laundry-league/commish.html, also linked at the bottom of
+the league page). Enter the draft or tick each week's starters, click **Copy**, then **Open
+GitHub editor**, paste over everything and **Commit changes**. It checks your entries first and
+never saves anything by itself. The steps below are the same edits done by hand.
 
 ### Enter the draft (once)
 
 1. On GitHub, open `league.json` and click the pencil (Edit).
-2. For each team, fill in `name`, `manager`, and exactly 2 `crews`.
-   A crew is named by its referee, e.g. `"Shawn Hochuli"` or just `"Hochuli"`.
+2. For each team, fill in `name`, `manager`, and exactly 3 `crews`, in draft
+   order. A crew is named by its referee, e.g. `"Shawn Hochuli"` or just
+   `"Hochuli"`. The fake crew is `"2012 Replacement Refs"` (or just
+   `"Replacement Refs"`).
 3. Click **Commit changes**. The site rebuilds within a few minutes.
 
 ```json
-{ "name": "Holding Pattern", "manager": "Sam", "crews": ["Hochuli", "Novak"] }
+{ "name": "Holding Pattern", "manager": "Sam", "crews": ["Hochuli", "Novak", "Replacement Refs"] }
 ```
 
-### Waiver claims (weekly)
+Until someone sends a lineup, a team starts the first 2 crews listed.
 
-Owners text you "add X, drop Y" by the deadline (`waiver_deadline`, default
-Wednesday 9 p.m. ET). When two owners want the same crew, the worse record
-wins (the page shows the order under **Waiver wire**). Add one line per
-approved claim to the `moves` list, with the first week it applies:
+### Lineups (weekly)
+
+Owners text you their 2 starters by the deadline (`lineup_deadline`, default
+Thursday kickoff). Add one line to the `lineups` list, with the first week it
+applies. A lineup stands until that team sends a new one, so only add a line
+when someone changes:
 
 ```json
-"moves": [
-  { "week": 9, "team": "Holding Pattern", "add": "Eck", "drop": "Novak" }
+"lineups": [
+  { "week": 9, "team": "Holding Pattern", "start": ["Hochuli", "Replacement Refs"] }
 ]
 ```
 
-Each week keeps the roster it had, so a move never changes a past result.
+Each week keeps the lineup it had, so a change never alters a past result.
 Weekly crew assignments: https://www.footballzebras.com/category/assignments/
 
-If a name is misspelled, a crew is drafted twice, or a move adds a crew that
-isn't a free agent, the update fails and GitHub emails you. The error says
-which line and lists the valid names.
+If a name is misspelled, a crew is drafted twice, or a lineup lists a crew the
+team doesn't have (or not exactly 2 different crews), the update fails and
+GitHub emails you. The error says which line and lists the valid names.
 
 ### If scores stop updating
 
@@ -77,9 +91,10 @@ Tiers come from how often each foul was called the previous season:
 
 | File | Role |
 |---|---|
-| `league.json` | Commissioner settings, draft rosters and waiver moves. The only file you edit. |
+| `league.json` | Commissioner settings, draft rosters and weekly lineups. The only file you edit. |
+| `commish.html` | Commissioner page: reads the live `league.json` and `data.json`, builds an updated `league.json` to paste into GitHub. Hand-written; not generated. |
 | `scripts/fetch_data.py` | Downloads the nflverse schedule and play-by-play; fills missing referees from ESPN into `data/referees.json`. |
-| `scripts/build_data.py` | Parses every penalty from the play text, scores it, runs the head-to-head schedule, standings, waiver order and awards, builds `data.json`. |
+| `scripts/build_data.py` | Parses every penalty from the play text, scores it, scores the Replacement Refs' weekly average, applies lineups, runs the head-to-head schedule, standings and awards, builds `data.json`. |
 | `scripts/render.py` | Inlines `data.json` into `site/template.html` → `index.html`. |
 | `.github/workflows/update.yml` | Runs the three scripts every 6 hours and publishes changes. |
 

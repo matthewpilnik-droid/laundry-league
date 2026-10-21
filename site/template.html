@@ -86,6 +86,7 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .st { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
 .st.bye { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
 .st.live { background: color-mix(in srgb, var(--live) 16%, transparent); color: var(--live); }
+.cl.bench { opacity: .5; }
 .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
 .award { padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; }
 .award .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--flag); color: var(--flag-ink); font-family: Oswald, sans-serif; font-weight: 700; font-size: 20px; }
@@ -166,16 +167,13 @@ details summary .faint { font-weight: 500; }
 .tier.unicorn { color: var(--t-unicorn); } .tier.ejection { color: var(--t-eject); }
 .tag2 { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: var(--surface-2); color: var(--ink-2); margin-left: 4px; white-space: nowrap; }
 
-/* Waiver wire */
+/* Lineups */
 .ww { display: grid; grid-template-columns: 1fr 1.6fr; gap: 16px; align-items: start; }
 .ww > *, .score-grid > *, .faq > *, .awards > *, .mu-grid > *, .steps > * { min-width: 0; }
 .rules { padding: 22px; }
 .rules ol, .rules ul { margin: 10px 0 0; padding-left: 20px; font-size: 15px; color: var(--ink-2); }
 .rules li { margin: 6px 0; }
 .rules li b { color: var(--ink); }
-.prio { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.prio span { font-size: 13px; padding: 4px 9px; border-radius: 999px; background: var(--surface-2); }
-.prio span b { margin-right: 4px; }
 
 /* Live */
 #live .sec-head h2 { display: flex; align-items: center; gap: 12px; }
@@ -274,14 +272,14 @@ footer .stripes { margin-bottom: 24px; }
   <div class="sec-head"><div><h2>How it works</h2>
   <p class="muted">Same idea as fantasy football. Instead of players, you draft the NFL's <span id="ncrews">17</span> officiating crews — each led by a referee who works with the same six officials all season.</p></div></div>
   <div class="steps">
-    <div class="card step"><div class="n">1</div><h3>Draft 2 crews</h3>
-      <p>Six owners, two-round snake draft. Twelve crews get drafted; the other five start the season on the waiver wire.</p></div>
-    <div class="card step"><div class="n">2</div><h3>Go head-to-head</h3>
-      <p>Each week your two crews' points face your opponent's two. Every flag in their games counts — either team, accepted, declined or offsetting.</p></div>
-    <div class="card step"><div class="n">3</div><h3>Work the wire</h3>
-      <p>Each week 1–4 crews get the week off, and an idle crew scores <b>zero</b>. Check the week's assignments and swap in a free agent before Thursday.</p></div>
+    <div class="card step"><div class="n">1</div><h3>Draft 3 crews</h3>
+      <p>Six owners, three-round snake draft, 18 picks: all 17 real crews plus the <b>2012 Replacement Refs</b>, who never get a week off and score the weekly average of every crew that worked.</p></div>
+    <div class="card step"><div class="n">2</div><h3>Set your lineup</h3>
+      <p>Start 2 of your 3 crews each week. Each week 1–4 crews get the week off, and an idle crew scores <b>zero</b> — bench it. Your lineup stays put until you change it.</p></div>
+    <div class="card step"><div class="n">3</div><h3>Go head-to-head</h3>
+      <p>Your two starters' points face your opponent's two. Every flag in their games counts — either team, accepted, declined or offsetting. The bench doesn't score.</p></div>
     <div class="card step"><div class="n">4</div><h3>Win the Laundry Bowl</h3>
-      <p>Weeks 8–17: play everyone twice. Week 18: 1st vs 2nd for the title, 3rd vs 4th, and 5th vs 6th in the Laundry Basket.</p></div>
+      <p>Weeks <span class="sw"></span>–<span class="re"></span>: play everyone twice, plus a Week <span class="re"></span> rematch of your Week <span class="sw"></span> opponent. Week 18: 1st vs 2nd for the title, 3rd vs 4th, and 5th vs 6th in the Delicates Bowl.</p></div>
   </div>
 </section>
 
@@ -320,23 +318,20 @@ footer .stripes { margin-bottom: 24px; }
   <div class="card"><div class="tbl-wrap"><table class="t" id="week-tbl"></table></div><div class="byes" id="byes"></div></div>
 </section>
 
-<section id="waivers" data-nav="Waiver wire">
-  <div class="sec-head"><div><h2>Waiver wire</h2><p class="muted" id="ww-sub"></p></div></div>
+<section id="lineups" data-nav="Lineups">
+  <div class="sec-head"><div><h2>Lineups</h2><p class="muted" id="lu-sub"></p></div></div>
   <div class="ww">
     <div class="card rules">
       <h3>The rules</h3>
       <ol>
         <li><b>Check assignments.</b> <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a> posts each week's referee for every game before kickoff. A crew not listed has the week off.</li>
-        <li><b>Text the commissioner</b> "add X, drop Y" by <b id="deadline"></b>. Rosters stay at 2 crews.</li>
-        <li><b>Worst record picks first</b> when two owners want the same crew (ties: fewer points scored).</li>
-        <li><b>Dropped crews</b> rejoin the free-agent pool the following week.</li>
-        <li><b>An idle crew scores 0</b> — like starting a player on bye.</li>
+        <li><b>Text the commissioner</b> your 2 starters by <b id="deadline"></b>.</li>
+        <li><b>No text, no change:</b> last week's lineup stands. Week <span class="sw"></span> starts the first 2 crews you drafted.</li>
+        <li><b>An idle starter scores 0</b> — like starting a player on bye. The bench never scores.</li>
+        <li><b>The 2012 Replacement Refs</b> never have a week off. They score the average of every real crew that worked, once the week is final.</li>
       </ol>
-      <div class="faint" style="margin-top:14px">Waiver priority this week</div>
-      <div class="prio" id="prio"></div>
-      <div id="moves" style="margin-top:14px"></div>
     </div>
-    <div class="card"><div class="tbl-wrap"><table class="t" id="fa-tbl"></table></div></div>
+    <div class="card"><div class="tbl-wrap"><table class="t" id="lu-tbl"></table></div></div>
   </div>
 </section>
 
@@ -354,13 +349,23 @@ footer .stripes { margin-bottom: 24px; }
   </details>
 </section>
 
+<section id="sample" data-nav="Sample season">
+  <div class="sec-head"><div><h2>Sample season</h2><p class="muted" id="sm-sub"></p></div></div>
+  <details class="card">
+    <summary>Standings and the latest week of a mock league</summary>
+    <div class="tbl-wrap" style="margin-top:12px"><table class="t" id="sm-st"></table></div>
+    <h3 style="margin:18px 0 10px" id="sm-wk"></h3>
+    <div class="mu-grid" id="sm-mu"></div>
+  </details>
+</section>
+
 <section id="faq" data-nav="Fine print">
   <div class="sec-head"><div><h2>Fine print</h2></div></div>
   <div class="faq">
     <div class="card"><h3>Where do the numbers come from?</h3><p>Every flag is read from the official NFL play-by-play (via the free nflverse data project). Officiating crews come from ESPN's game data. Nobody types anything in.</p></div>
     <div class="card"><h3>How are tiers set?</h3><p id="faq-tiers"></p></div>
     <div class="card"><h3>What doesn't count?</h3><p>Preseason and playoff games. Flags that get picked up — the data doesn't record them. Points go to the crew assigned to the game, even if one official is a fill-in that week.</p></div>
-    <div class="card"><h3>How do standings work?</h3><p>Win–loss record first; ties broken by total points scored. Week 18 seeds come from the final Week 17 standings. Weekly results lock once official numbers post, so a later trade never changes a past result.</p></div>
+    <div class="card"><h3>How do standings work?</h3><p>Win–loss record first; ties broken by total points scored. Week 18 seeds come from the final Week 17 standings. Weekly results lock once official numbers post, so a later lineup change never changes a past result.</p></div>
   </div>
 </section>
 
@@ -369,6 +374,7 @@ footer .stripes { margin-bottom: 24px; }
 <footer class="wrap">
   <div class="stripes" aria-hidden="true"></div>
   <p id="foot"></p>
+  <p class="faint"><a href="commish.html">Commissioner page</a></p>
 </footer>
 
 <script id="league-data" type="application/json">__DATA__</script>
@@ -400,15 +406,19 @@ footer .stripes { margin-bottom: 24px; }
 
   // ---- Section order: rules first in preview, league first once live ----
   const order = live
-    ? ['live', 'matchups', 'standings', 'results', 'waivers', 'week', 'how', 'scoring', 'board', 'unicorns', 'faq']
-    : ['live', 'how', 'scoring', 'matchups', 'standings', 'results', 'waivers', 'week', 'board', 'unicorns', 'faq'];
+    ? ['live', 'matchups', 'standings', 'results', 'lineups', 'week', 'how', 'scoring', 'board', 'unicorns', 'sample', 'faq']
+    : ['live', 'how', 'scoring', 'matchups', 'standings', 'results', 'lineups', 'week', 'board', 'unicorns', 'faq'];
+  if (!live) $('#sample').remove();
   order.forEach(id => $('#main').appendChild($('#' + id)));
   $('#toc').innerHTML = order.map(id => `<a href="#${id}" id="nav-${id}" class="${id === 'live' ? 'live-a' : ''}" ${id === 'live' ? 'hidden' : ''}>${esc($('#' + id).dataset.nav)}</a>`).join('');
 
   // ---- Header ----
   document.querySelectorAll('.lw').forEach(e => e.textContent = last);
   $('#lname').textContent = D.league_name;
-  $('#ncrews').textContent = D.crews.length;
+  const realCrews = D.crews.filter(c => !c.replacement);
+  $('#ncrews').textContent = realCrews.length;
+  document.querySelectorAll('.sw').forEach(e => e.textContent = D.start_week);
+  document.querySelectorAll('.re').forEach(e => e.textContent = D.regular_season_end);
   const started = live && finals.some(w => w.week >= D.start_week);
   $('#pill').innerHTML = (live
       ? `<b>${SEA} season</b> · ${started ? `<b>Week ${curWeek}</b> ${curW.playoff ? 'playoffs' : 'matchups'}` : `kicks off <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`}`
@@ -434,15 +444,21 @@ footer .stripes { margin-bottom: 24px; }
     const c = byRef[l.crew] || {};
     let pts = l.pts, tag = '', where = l.game ? esc(l.game) : '';
     if (l.status === 'bye') tag = '<span class="st bye">Off · 0</span>';
+    else if (l.status === 'pending' && c.replacement) { pts = null; tag = '<span class="st">Weekly average · posts when the week is final</span>'; }
     else if (l.status === 'pending' && ov) {
       pts = ov.pts; where = esc(ov.game);
       tag = ov.state === 'in' ? `<span class="st live">Live · ${esc(ov.detail)}</span>` : '<span class="st">Final · unofficial</span>';
     } else if (l.status === 'pending') { pts = null; tag = '<span class="st">Not played yet</span>'; }
-    return { pts: pts || 0, html: `<div class="cl"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts)}</span>` : ''} ${tag} <span>${where}</span></div>` };
+    if (!l.starter) tag = '<span class="st">Bench</span> ' + tag;
+    return { pts: l.starter ? pts || 0 : 0, html: `<div class="cl${l.starter ? '' : ' bench'}"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts)}</span>` : ''} ${tag} <span>${where}</span></div>` };
   }
+  const startersIn = w => D.starters[String(w)] || {};
   function sideLines(m, side, ov) {
     const team = side === 'A' ? m.a : m.b;
-    const lines = m[side] ? m[side].crews : (D.rosters[String(curWeek)][team] || []).map(c => ({ crew: c, pts: 0, status: 'pending', game: null }));
+    const on = startersIn(curWeek)[team] || [];
+    const lines = m[side] ? m[side].crews : (D.rosters[String(curWeek)][team] || [])
+      .map(c => ({ crew: c, pts: 0, status: 'pending', game: null, starter: on.includes(c) }))
+      .sort((x, y) => y.starter - x.starter);
     const out = lines.map(l => crewLine(l, ov[l.crew]));
     return { team, pts: out.reduce((a, x) => a + x.pts, 0), html: out.map(x => x.html).join('') };
   }
@@ -451,7 +467,7 @@ footer .stripes { margin-bottom: 24px; }
     $('#mu-h').textContent = curW.playoff ? `Week ${curWeek} · Playoffs` : `Week ${curWeek} matchups`;
     $('#mu-sub').textContent = sample + (curW.playoff && !curW.games[0].set
       ? 'Matchups are set after Week 17. Shown with current seeds.'
-      : 'Both crews count. Scores update live during games; official numbers post the next morning.');
+      : 'Your 2 starters count; the bench doesn\'t. Scores update live during games; official numbers post the next morning.');
     $('#mu-grid').innerHTML = curW.games.map(m => {
       const A = sideLines(m, 'A', ov), B = sideLines(m, 'B', ov);
       const lead = A.pts === B.pts ? '' : A.pts > B.pts ? 'A' : 'B';
@@ -481,13 +497,13 @@ footer .stripes { margin-bottom: 24px; }
   // ---- Standings ----
   $('#st-h').textContent = live ? 'Standings' : 'Sample standings';
   $('#st-sub').textContent = live
-    ? (started ? 'Win–loss record first, then total points. Waiver priority runs worst to first.' : `Everyone is 0–0 until Week ${D.start_week} wraps up.`)
-    : `A mock 6-team league, snake-drafted by last season's points per game and played head-to-head over Weeks 1–${last} of ${SEA}. Team names are placeholders.`;
-  const prioOf = Object.fromEntries(D.waiver_order.map((t, i) => [t, i + 1]));
-  $('#st-tbl').innerHTML = `<thead><tr><th class="r">#</th><th>Team</th><th class="r">W–L${D.standings.some(s => s.t) ? '–T' : ''}</th><th class="r">Points for</th><th class="r hide-sm">Points against</th><th class="r hide-sm">Streak</th><th class="r hide-sm">Waiver #</th></tr></thead><tbody>` +
-    D.standings.map((s, i) => `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(s.team)}</div>${s.manager ? `<div class="own">${esc(s.manager)}</div>` : ''}</td>
-      <td class="r" style="white-space:nowrap"><b>${s.w}–${s.l}${D.standings.some(x => x.t) ? '–' + s.t : ''}</b></td><td class="r">${fmt(s.pf)}</td><td class="r hide-sm">${fmt(s.pa)}</td>
-      <td class="r hide-sm"><span class="streak ${esc(s.streak[0] || '')}">${esc(s.streak || '–')}</span></td><td class="r hide-sm">${prioOf[s.team]}</td></tr>`).join('') + '</tbody>';
+    ? (started ? 'Win–loss record first, then total points.' : `Everyone is 0–0 until Week ${D.start_week} wraps up.`)
+    : `A mock 6-team league, snake-drafted by last season's points per game and played head-to-head over Weeks 1–${last} of ${SEA}. Each mock owner benches crews with the week off. Team names are placeholders.`;
+  const stTable = list => `<thead><tr><th class="r">#</th><th>Team</th><th class="r">W–L${list.some(s => s.t) ? '–T' : ''}</th><th class="r">Points for</th><th class="r hide-sm">Points against</th><th class="r hide-sm">Streak</th></tr></thead><tbody>` +
+    list.map((s, i) => `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(s.team)}</div>${s.manager ? `<div class="own">${esc(s.manager)}</div>` : ''}</td>
+      <td class="r" style="white-space:nowrap"><b>${s.w}–${s.l}${list.some(x => x.t) ? '–' + s.t : ''}</b></td><td class="r">${fmt(s.pf)}</td><td class="r hide-sm">${fmt(s.pa)}</td>
+      <td class="r hide-sm"><span class="streak ${esc(s.streak[0] || '')}">${esc(s.streak || '–')}</span></td></tr>`).join('') + '</tbody>';
+  $('#st-tbl').innerHTML = stTable(D.standings);
   const po = D.weeks.find(w => w.playoff);
   $('#po-line').innerHTML = `<b>Week ${D.playoff_week}${po.games[0].set ? '' : ' if the season ended today'}:</b> ` +
     po.games.map(g => `${esc(g.name)} — ${esc(g.a)} vs ${esc(g.b)}`).join(' · ');
@@ -507,16 +523,35 @@ footer .stripes { margin-bottom: 24px; }
       </div></details>`;
   }).join('');
 
-  // ---- Waiver wire ----
-  $('#deadline').textContent = D.waiver_deadline || 'Wednesday night';
-  $('#ww-sub').textContent = live ? `${D.free_agents.length} crews available for Week ${curWeek}, hottest first.` : `In the sample league, these ${D.free_agents.length} crews went undrafted. Hottest first.`;
-  $('#prio').innerHTML = D.waiver_order.map((t, i) => `<span><b>${i + 1}</b>${esc(t)}</span>`).join('');
-  if (D.moves.length) $('#moves').innerHTML = '<div class="faint">Recent moves</div>' + D.moves.slice(-6).reverse().map(m =>
-    `<div class="cl">Week ${m.week} · <b>${esc(m.team)}</b> added ${esc(m.add)}, dropped ${esc(m.drop)}</div>`).join('');
-  $('#fa-tbl').innerHTML = `<thead><tr><th>Free agent</th><th class="r">Last 3 games (avg pts)</th><th class="r">${SEA} avg pts</th><th class="r hide-sm">${CAL} avg pts</th></tr></thead><tbody>` +
-    D.free_agents.map(f => `<tr><td><div class="ref">${esc(f.referee)}</div><div class="game">Last game: ${esc(f.last_game || '—')}</div></td>
-      <td class="r"><b>${f.last3 == null ? '—' : fmt(f.last3)}</b></td><td class="r">${f.ppg26 == null ? '—' : fmt(f.ppg26)}<div class="game">${f.g26} games</div></td>
-      <td class="r hide-sm">${f.ppg25 == null ? '—' : fmt(f.ppg25)}</td></tr>`).join('') + '</tbody>';
+  // ---- Sample season (live mode only): the mock league keeps playing on real games ----
+  if (live && D.sample) {
+    const S = D.sample, sFinal = S.weeks.filter(w => w.final && !w.playoff), sw = sFinal[sFinal.length - 1];
+    $('#sm-sub').textContent = `What a full season looks like: a mock league snake-drafted by ${CAL} points per game and played on every real ${SEA} week so far. Placeholder teams; nothing here counts.`;
+    $('#sm-st').innerHTML = stTable(S.standings);
+    if (sw) {
+      $('#sm-wk').textContent = `Week ${sw.week}, final`;
+      $('#sm-mu').innerHTML = sw.games.map(m => {
+        const side = (t, X, win) => `<div class="side ${win ? 'win' : ''}"><div><div class="tname">${esc(t)}</div>
+          <div class="crewlines">${X.crews.map(l => crewLine(l).html).join('')}</div></div>
+          <div class="score">${fmt(X.pts)}<small>points</small></div></div>`;
+        return `<div class="card mu">${side(m.a, m.A, m.winner === m.a)}${side(m.b, m.B, m.winner === m.b)}</div>`;
+      }).join('');
+    }
+  }
+
+  // ---- Lineups ----
+  $('#deadline').textContent = D.lineup_deadline || 'Thursday kickoff';
+  $('#lu-sub').textContent = `${sample}Who starts in Week ${curWeek}. ${D.starters_per_week} of ${D.crews_per_team} crews score each week.`;
+  const avg3 = c => { const wk = (byRef[c] || {}).weeks || {}; const ks = Object.keys(wk).map(Number).sort((a, b) => a - b).slice(-3);
+    return ks.length ? fmt(ks.reduce((a, k) => a + wk[k].pts, 0) / ks.length) : '—'; };
+  const luOn = startersIn(curWeek);
+  $('#lu-tbl').innerHTML = `<thead><tr><th>Team</th><th>Starting</th><th>Bench</th></tr></thead><tbody>` +
+    D.teams.map(({ team }) => {
+      const on = luOn[team] || [], all = D.rosters[String(curWeek)][team] || [];
+      const cell = cs => cs.map(c => `<div class="ref">${esc(c)}</div><div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
+      return `<tr><td><div class="ref">${esc(team)}</div>${mgr[team] ? `<div class="own">${esc(mgr[team])}</div>` : ''}</td>
+        <td>${cell(on)}</td><td>${cell(all.filter(c => !on.includes(c)))}</td></tr>`;
+    }).join('') + '</tbody>';
 
   // ---- Scoring examples ----
   const byTier = {};
@@ -540,29 +575,30 @@ footer .stripes { margin-bottom: 24px; }
   const maxPts = Math.max(...D.week_games.map(g => g.pts));
   $('#week-tbl').innerHTML = `<thead><tr><th>Crew (referee)</th><th class="hide-sm">Game</th><th class="r">Flags</th><th class="r hide-sm">Penalty yards</th><th>Points</th><th class="hide-sm">Biggest flag</th></tr></thead><tbody>` +
     D.week_games.map(g => `<tr>
-      <td><div class="ref">${esc(g.referee)}</div><div class="game mob">${esc(g.game)} · ${esc(g.day)}</div>${ownLast[g.referee] ? `<div class="own">${live ? '' : 'Sample: '}${esc(ownLast[g.referee])}</div>` : `<div class="own">Free agent</div>`}</td>
+      <td><div class="ref">${esc(g.referee)}</div><div class="game mob">${esc(g.game)} · ${esc(g.day)}</div>${ownLast[g.referee] ? `<div class="own">${live ? '' : 'Sample: '}${esc(ownLast[g.referee])}</div>` : ''}</td>
       <td class="hide-sm game">${esc(g.game)}</td>
       <td class="r">${g.flags}</td><td class="r hide-sm">${g.yards}</td>
       <td class="bar"><div><span>${fmt(g.pts)}</span><u><i style="width:${(g.pts / maxPts * 100).toFixed(1)}%"></i></u></div></td>
       <td class="hide-sm topflag">${esc(g.top.type)} ${tierChip(g.top.tier)}${flagTags(g.top)} <b class="num">${fmt(g.top.pts)}</b>
         <div class="who">${esc(g.top.team)} ${esc(g.top.player)} · ${qtr(g.top.qtr)} ${esc(g.top.clock)}</div></td></tr>`).join('') + '</tbody>';
-  const byes = D.crews.filter(c => !(String(last) in c.weeks)).map(c => c.referee);
-  $('#byes').innerHTML = `<b>Off in Week ${last} (0 points):</b> ${byes.map(esc).join(', ')} — exactly why the waiver wire matters.`;
+  const byes = realCrews.filter(c => !(String(last) in c.weeks)).map(c => c.referee);
+  $('#byes').innerHTML = byes.length ? `<b>Off in Week ${last} (0 points):</b> ${byes.map(esc).join(', ')} — exactly why you carry a third crew.` : '';
   const mq = window.matchMedia('(max-width: 860px)');
   const syncGame = () => document.querySelectorAll('#week-tbl .mob').forEach(e => e.style.display = mq.matches ? '' : 'none');
   syncGame(); mq.addEventListener && mq.addEventListener('change', syncGame);
 
   // ---- Draft board ----
   const weeks = D.weeks_played;
-  $('#board-sub').textContent = `All ${D.crews.length} crews, ranked by ${CAL} points per game. Twelve get drafted; the rest start on the waiver wire.`;
+  $('#board-sub').textContent = `All ${realCrews.length} crews plus the 2012 Replacement Refs, ranked by ${CAL} points per game. All ${D.crews.length} get drafted. The Replacement Refs' numbers are the league-wide average.`;
   const maxW = Math.max(...D.crews.flatMap(c => Object.values(c.weeks).map(w => w.pts)));
   $('#board-tbl').innerHTML = `<thead><tr><th class="r">#</th><th>Crew (referee)</th><th class="r">${CAL} flags / game</th><th class="r">${CAL} pts / game</th><th class="r">${SEA} pts / game</th><th class="hide-sm">${SEA} by week</th></tr></thead><tbody>` +
     D.crews.map((c, i) => {
       const d = c.ppg26 - c.ppg25;
       const trend = Math.abs(d) < 5 ? '' : d > 0 ? `<span class="trend up">▲${fmt(d)}</span>` : `<span class="trend down">▼${fmt(-d)}</span>`;
       const spark = weeks.map(w => c.weeks[w] ? `<i style="height:${(c.weeks[w].pts / maxW * 100).toFixed(0)}%" title="Week ${w}: ${fmt(c.weeks[w].pts)} pts, ${esc(c.weeks[w].game)}"></i>` : `<i class="bye" title="Week ${w}: off"></i>`).join('');
-      const own = live ? `<div class="own">${ownerNow[c.referee] ? esc(ownerNow[c.referee]) : 'Free agent'}</div>` : '';
-      return `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(c.referee)}</div>${own}</td>
+      const own = live && ownerNow[c.referee] ? `<div class="own">${esc(ownerNow[c.referee])}</div>` : '';
+      const note = c.replacement ? '<div class="game">Never off · scores the weekly average</div>' : '';
+      return `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(c.referee)}</div>${note}${own}</td>
         <td class="r">${c.flags25.toFixed(1)}</td><td class="r"><b>${fmt(c.ppg25)}</b></td>
         <td class="r">${fmt(c.ppg26)} ${trend}<div class="game">${c.g26} games</div></td>
         <td class="hide-sm"><span class="spark">${spark}</span></td></tr>`;
@@ -655,7 +691,7 @@ footer .stripes { margin-bottom: 24px; }
       return `<div class="card lg">
         <div class="top"><span>${esc(e.shortName)}</span>${st.state === 'in' ? `<b>${esc(st.shortDetail)}</b>` : `<span>${esc(st.shortDetail)} · awaiting official</span>`}</div>
         <div class="crew">${r.referee ? esc(r.referee) + ' crew' : 'Crew not posted yet'}</div>
-        ${r.referee ? `<div class="owner">${own[r.referee] ? (live ? '' : 'Sample: ') + esc(own[r.referee]) : 'Free agent'}</div>` : ''}
+        ${r.referee && own[r.referee] ? `<div class="owner">${(live ? '' : 'Sample: ') + esc(own[r.referee])}</div>` : ''}
         <div class="pts num">${fmt(r.pts)} <small>pts · ${r.flags.length} flags</small></div>
         ${lastF ? `<div class="lastflag">Latest: ${esc(lastF.type)} ${lastF.tier !== 'common' ? tierChip(lastF.tier) : ''}${flagTags(lastF)} <b class="num">+${fmt(lastF.pts)}</b></div>` : ''}
       </div>`;
