@@ -5,79 +5,52 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Laundry League</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cpath d=%27M14 10 C 30 4, 38 20, 54 12 L 50 40 C 36 46, 28 30, 12 38 Z%27 fill=%27%23ffcc00%27 stroke=%27%2316161a%27 stroke-width=%274%27/%3E%3Cpath d=%27M12 38 L 12 58%27 stroke=%27%2316161a%27 stroke-width=%275%27/%3E%3C/svg%3E">
-<meta name="description" content="Fantasy football where you draft the NFL officiating crews. Every flag scores.">
+<meta name="description" content="Fantasy football where you draft the NFL officiating crews. Head-to-head, every flag scores.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f6f5f1;
-  --surface: #ffffff;
-  --surface-2: #efede6;
-  --ink: #16161a;
-  --ink-2: #4a4a52;
-  --ink-3: #7a7a82;
-  --line: #dcd9cf;
-  --flag: #ffcc00;
-  --flag-ink: #16161a;
-  --flag-soft: #fff4c2;
-  --stripe: #16161a;
-  --good: #1f7a4a;
-  --t-uncommon: #2f6fdb;
-  --t-rare: #8a3ffc;
-  --t-unicorn: #d6336c;
-  --t-eject: #c2410c;
+  --bg: #f6f5f1; --surface: #ffffff; --surface-2: #efede6; --ink: #16161a; --ink-2: #4a4a52;
+  --ink-3: #7a7a82; --line: #dcd9cf; --flag: #ffcc00; --flag-ink: #16161a; --flag-soft: #fff4c2;
+  --stripe: #16161a; --good: #1f7a4a; --bad: #b42318; --live: #e5484d;
+  --t-uncommon: #2f6fdb; --t-rare: #8a3ffc; --t-unicorn: #d6336c; --t-eject: #c2410c;
   --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.04);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121215; --surface: #1b1b20; --surface-2: #24242b; --ink: #f2f1ec;
-    --ink-2: #c3c2bc; --ink-3: #8f8e88; --line: #33333b; --flag: #ffd21f;
-    --flag-soft: #3a3214; --stripe: #f2f1ec; --good: #4cc38a;
-    --t-uncommon: #6ea0ff; --t-rare: #b48cff; --t-unicorn: #ff6b9a; --t-eject: #ff8a4c;
-    --shadow: none;
+    --bg: #121215; --surface: #1b1b20; --surface-2: #24242b; --ink: #f2f1ec; --ink-2: #c3c2bc;
+    --ink-3: #8f8e88; --line: #33333b; --flag: #ffd21f; --flag-soft: #3a3214; --stripe: #f2f1ec;
+    --good: #4cc38a; --bad: #ff7b72; --t-uncommon: #6ea0ff; --t-rare: #b48cff; --t-unicorn: #ff6b9a;
+    --t-eject: #ff8a4c; --shadow: none;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121215; --surface: #1b1b20; --surface-2: #24242b; --ink: #f2f1ec;
-  --ink-2: #c3c2bc; --ink-3: #8f8e88; --line: #33333b; --flag: #ffd21f;
-  --flag-soft: #3a3214; --stripe: #f2f1ec; --good: #4cc38a;
-  --t-uncommon: #6ea0ff; --t-rare: #b48cff; --t-unicorn: #ff6b9a; --t-eject: #ff8a4c;
-  --shadow: none;
+  --bg: #121215; --surface: #1b1b20; --surface-2: #24242b; --ink: #f2f1ec; --ink-2: #c3c2bc;
+  --ink-3: #8f8e88; --line: #33333b; --flag: #ffd21f; --flag-soft: #3a3214; --stripe: #f2f1ec;
+  --good: #4cc38a; --bad: #ff7b72; --t-uncommon: #6ea0ff; --t-rare: #b48cff; --t-unicorn: #ff6b9a;
+  --t-eject: #ff8a4c; --shadow: none;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; }
-body {
-  background: var(--bg); color: var(--ink);
-  font: 16px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+body { background: var(--bg); color: var(--ink); font: 16px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 h1, h2, h3 { font-family: Oswald, Impact, "Arial Narrow", sans-serif; letter-spacing: .01em; line-height: 1.1; margin: 0; }
 h2 { font-size: clamp(26px, 4vw, 34px); text-transform: uppercase; }
 h3 { font-size: 20px; text-transform: uppercase; }
 p { margin: 0; }
+a { color: inherit; }
 .muted { color: var(--ink-2); }
 .faint { color: var(--ink-3); font-size: 14px; }
 .num { font-variant-numeric: tabular-nums; }
 
-/* Header */
-.stripes {
-  height: 14px;
-  background: repeating-linear-gradient(90deg, var(--stripe) 0 22px, transparent 22px 44px);
-  border-bottom: 1px solid var(--line);
-}
+.stripes { height: 14px; background: repeating-linear-gradient(90deg, var(--stripe) 0 22px, transparent 22px 44px); border-bottom: 1px solid var(--line); }
 header.hero { padding: 48px 0 40px; }
 .brand { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .brand svg { flex: none; }
 .hero h1 { font-size: clamp(44px, 9vw, 84px); text-transform: uppercase; }
-.hero .tag { font-size: clamp(18px, 2.6vw, 22px); margin-top: 14px; max-width: 640px; color: var(--ink-2); }
-.pill {
-  display: inline-block; margin-top: 22px;
-  background: var(--flag-soft); color: var(--ink); border: 1px solid var(--line);
-  padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 500;
-}
-.pill b { font-weight: 700; }
+.hero .tag { font-size: clamp(18px, 2.6vw, 22px); margin-top: 14px; max-width: 660px; color: var(--ink-2); }
+.pill { display: inline-block; margin-top: 22px; background: var(--flag-soft); color: var(--ink); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 500; }
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; }
 .kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); }
 .kpi .v { font-family: Oswald, sans-serif; font-size: 32px; font-weight: 700; }
@@ -87,14 +60,84 @@ nav.toc { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, v
 nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
 nav.toc a { white-space: nowrap; color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600; padding: 12px 10px; }
 nav.toc a:hover { color: var(--ink); }
+nav.toc a.live-a { color: var(--live); }
 
-section { padding: 56px 0 8px; }
+section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-.sec-head p { max-width: 620px; margin-top: 8px; }
+.sec-head p { max-width: 640px; margin-top: 8px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+.badge { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 3px 9px; border-radius: 999px; background: var(--flag); color: var(--flag-ink); vertical-align: middle; }
+
+/* Matchups */
+.mu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.mu { padding: 0; overflow: hidden; }
+.mu .mu-top { display: flex; justify-content: space-between; gap: 8px; padding: 10px 16px; font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; border-bottom: 1px solid var(--line); }
+.side { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; }
+.side + .side { border-top: 1px dashed var(--line); }
+.side.win { background: var(--flag-soft); }
+.side .tname { font-family: Oswald, sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; line-height: 1.15; }
+.side .mgr { font-size: 13px; color: var(--ink-3); }
+.side .score { font-family: Oswald, sans-serif; font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
+.side .score small { display: block; font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+.crewlines { margin-top: 8px; display: grid; gap: 4px; }
+.cl { display: flex; gap: 6px; align-items: baseline; font-size: 13px; color: var(--ink-2); flex-wrap: wrap; }
+.cl b { color: var(--ink); font-weight: 600; }
+.cl .pts { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
+.st { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
+.st.bye { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
+.st.live { background: color-mix(in srgb, var(--live) 16%, transparent); color: var(--live); }
+.awards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.award { padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; }
+.award .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--flag); color: var(--flag-ink); font-family: Oswald, sans-serif; font-weight: 700; font-size: 20px; }
+.award.sw .ic { background: var(--surface-2); color: var(--ink-2); }
+.award .k { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); font-weight: 600; }
+.award .v { font-weight: 700; }
+.award .d { font-size: 13px; color: var(--ink-2); }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; }
+table.t { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.t th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.t td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+table.t tr:last-child td { border-bottom: 0; }
+table.t .r { text-align: right; }
+table.t td.r { font-variant-numeric: tabular-nums; }
+.ref { font-weight: 600; white-space: nowrap; }
+.game { color: var(--ink-3); font-size: 13px; white-space: nowrap; }
+.own { font-size: 12px; color: var(--ink-3); }
+.streak.W { color: var(--good); font-weight: 700; } .streak.L { color: var(--bad); font-weight: 700; }
+.po-line { padding: 14px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.bar { min-width: 150px; }
+.bar > div { display: flex; align-items: center; gap: 10px; }
+.bar span { flex: none; width: 46px; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bar u { flex: 1; height: 14px; background: var(--surface-2); border-radius: 4px; overflow: hidden; text-decoration: none; }
+.bar u i { display: block; height: 100%; background: var(--flag); border-radius: 4px; }
+.topflag { font-size: 14px; }
+.topflag .who { color: var(--ink-3); font-size: 13px; }
+.byes { padding: 14px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.trend.up { color: var(--good); font-weight: 700; } .trend.down { color: var(--ink-3); }
+.spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
+.spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
+.spark i.bye { background: transparent; border-bottom: 2px dotted var(--ink-3); height: 0 !important; }
+
+/* Results */
+.results { display: grid; gap: 10px; }
+details.card { padding: 0; }
+details summary { cursor: pointer; padding: 14px 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "+"; font-size: 20px; line-height: 1; color: var(--ink-3); }
+details[open] summary::after { content: "–"; }
+details summary .faint { font-weight: 500; }
+.res-body { border-top: 1px solid var(--line); padding: 6px 18px 14px; }
+.res-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.res-row:last-child { border-bottom: 0; }
+.res-row .l { text-align: right; }
+.res-row .w { font-weight: 700; }
+.res-row .sc { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+.res-aw { font-size: 13px; color: var(--ink-2); margin-top: 8px; }
 
 /* How it works */
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .step { padding: 22px; }
 .step .n { font-family: Oswald, sans-serif; font-size: 15px; font-weight: 700; display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--flag); color: var(--flag-ink); margin-bottom: 12px; }
 .step h3 { margin-bottom: 8px; }
@@ -118,73 +161,45 @@ section { padding: 56px 0 8px; }
 .example { margin-top: 16px; padding: 18px 22px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
 .example .calc { font-family: Oswald, sans-serif; font-size: 22px; font-weight: 700; }
 .example .calc em { font-style: normal; color: var(--ink-3); font-weight: 500; }
-
 .tier { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 999px; border: 1.5px solid currentColor; white-space: nowrap; }
-.tier.common { color: var(--ink-3); }
-.tier.uncommon { color: var(--t-uncommon); }
-.tier.rare { color: var(--t-rare); }
-.tier.unicorn { color: var(--t-unicorn); }
-.tier.ejection { color: var(--t-eject); }
+.tier.common { color: var(--ink-3); } .tier.uncommon { color: var(--t-uncommon); } .tier.rare { color: var(--t-rare); }
+.tier.unicorn { color: var(--t-unicorn); } .tier.ejection { color: var(--t-eject); }
 .tag2 { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: var(--surface-2); color: var(--ink-2); margin-left: 4px; white-space: nowrap; }
 
-/* Tables */
-.tbl-wrap { overflow-x: auto; }
-table.t { width: 100%; border-collapse: collapse; font-size: 15px; }
-table.t th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-table.t td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-table.t tr:last-child td { border-bottom: 0; }
-table.t .r { text-align: right; }
-table.t td.r { font-variant-numeric: tabular-nums; }
-.ref { font-weight: 600; white-space: nowrap; }
-.game { color: var(--ink-3); font-size: 13px; white-space: nowrap; }
-.bar { min-width: 170px; }
-.bar > div { display: flex; align-items: center; gap: 10px; }
-.bar span { flex: none; width: 46px; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
-.bar u { flex: 1; height: 14px; background: var(--surface-2); border-radius: 4px; overflow: hidden; text-decoration: none; }
-.bar u i { display: block; height: 100%; background: var(--flag); border-radius: 4px; }
-.topflag { font-size: 14px; }
-.topflag .who { color: var(--ink-3); font-size: 13px; }
-.byes { padding: 14px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+/* Waiver wire */
+.ww { display: grid; grid-template-columns: 1fr 1.6fr; gap: 16px; align-items: start; }
+.ww > *, .score-grid > *, .faq > *, .awards > *, .mu-grid > *, .steps > * { min-width: 0; }
+.rules { padding: 22px; }
+.rules ol, .rules ul { margin: 10px 0 0; padding-left: 20px; font-size: 15px; color: var(--ink-2); }
+.rules li { margin: 6px 0; }
+.rules li b { color: var(--ink); }
+.prio { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.prio span { font-size: 13px; padding: 4px 9px; border-radius: 999px; background: var(--surface-2); }
+.prio span b { margin-right: 4px; }
 
-/* Standings */
-.standings { display: grid; gap: 12px; }
-.team { display: grid; grid-template-columns: 44px 1.3fr 2fr 110px; gap: 16px; align-items: center; padding: 16px 20px; }
-.team .rank { font-family: Oswald, sans-serif; font-size: 28px; font-weight: 700; color: var(--ink-3); }
-.team.first .rank { color: var(--ink); }
-.team .name { font-family: Oswald, sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; }
-.team .crews { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
-.team .total { text-align: right; }
-.team .total .v { font-family: Oswald, sans-serif; font-size: 28px; font-weight: 700; }
-.team .total .l { font-size: 12px; color: var(--ink-3); }
-.wk { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 6px; align-items: end; height: 64px; }
-.wk div { position: relative; background: var(--surface-2); border-radius: 4px 4px 0 0; }
-.wk div.hi { background: var(--flag); }
-.wk div b { position: absolute; bottom: -18px; left: 0; right: 0; text-align: center; font-size: 11px; color: var(--ink-3); font-weight: 500; }
-.wk-wrap { padding-bottom: 18px; }
-.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); margin-top: 12px; }
-.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+/* Live */
+#live .sec-head h2 { display: flex; align-items: center; gap: 12px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--live); box-shadow: 0 0 0 0 rgba(229,72,77,.6); animation: pulse 1.6s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(229,72,77,0); } 100% { box-shadow: 0 0 0 0 rgba(229,72,77,0); } }
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+.live-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.lg { padding: 16px 18px; }
+.lg .top { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink-3); }
+.lg .top b { color: var(--live); }
+.lg .crew { font-weight: 700; margin-top: 6px; }
+.lg .owner { font-size: 13px; color: var(--ink-2); }
+.lg .pts { font-family: Oswald, sans-serif; font-size: 30px; font-weight: 700; margin-top: 6px; }
+.lg .pts small { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: var(--ink-3); }
+.lg .lastflag { font-size: 13px; color: var(--ink-2); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 8px; }
 
-/* Draft board */
-.trend.up { color: var(--good); font-weight: 700; }
-.trend.down { color: var(--ink-3); }
-.spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
-.spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
-.spark i.bye { background: transparent; border-bottom: 2px dotted var(--ink-3); height: 0 !important; }
-
-/* Sightings */
+/* Unicorns + tiers */
 .sight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
 .sight { padding: 16px 18px; }
 .sight .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .sight .pts { font-family: Oswald, sans-serif; font-size: 24px; font-weight: 700; }
 .sight .type { font-weight: 700; margin-top: 8px; }
 .sight .meta { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
-
-details.card { padding: 0; }
-details summary { cursor: pointer; padding: 16px 20px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
-details summary::-webkit-details-marker { display: none; }
-details summary::after { content: "+"; font-size: 20px; line-height: 1; color: var(--ink-3); }
-details[open] summary::after { content: "–"; }
-.tiers-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.tiers-cols { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
 .tiers-cols > div { padding: 16px 20px; border-left: 1px solid var(--line); }
 .tiers-cols > div:first-child { border-left: 0; }
 .tiers-cols ul { list-style: none; padding: 0; margin: 10px 0 0; font-size: 14px; }
@@ -195,35 +210,13 @@ details[open] summary::after { content: "–"; }
 .faq .card { padding: 20px 22px; }
 .faq h3 { font-size: 17px; margin-bottom: 8px; }
 .faq p { font-size: 15px; color: var(--ink-2); }
-
-/* Live */
-#live .sec-head h2 { display: flex; align-items: center; gap: 12px; }
-.dot { width: 12px; height: 12px; border-radius: 50%; background: #e5484d; box-shadow: 0 0 0 0 rgba(229,72,77,.6); animation: pulse 1.6s infinite; }
-@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(229,72,77,0); } 100% { box-shadow: 0 0 0 0 rgba(229,72,77,0); } }
-@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
-.live-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
-.lg { padding: 16px 18px; }
-.lg .top { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink-3); }
-.lg .top b { color: #e5484d; }
-.lg .crew { font-weight: 700; margin-top: 6px; }
-.lg .owner { font-size: 13px; color: var(--ink-2); }
-.lg .pts { font-family: Oswald, sans-serif; font-size: 30px; font-weight: 700; margin-top: 6px; }
-.lg .pts small { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: var(--ink-3); }
-.lg .lastflag { font-size: 13px; color: var(--ink-2); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 8px; }
-#live-teams { margin-top: 16px; }
-
 footer { padding: 56px 0 40px; color: var(--ink-3); font-size: 13px; }
 footer .stripes { margin-bottom: 24px; }
 
+@media (max-width: 960px) { .steps { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 860px) {
-  .score-grid, .faq { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr; }
+  .score-grid, .faq, .ww, .awards { grid-template-columns: 1fr; }
   .kpis { grid-template-columns: repeat(2, 1fr); }
-  .team { grid-template-columns: 30px 1fr auto; grid-template-areas: "rank name total" "wk wk wk"; row-gap: 14px; }
-  .team .rank { grid-area: rank; } .team > div:nth-child(2) { grid-area: name; }
-  .team .wk-wrap { grid-area: wk; } .team .total { grid-area: total; }
-  .team .total .l { max-width: 84px; margin-left: auto; line-height: 1.3; }
-  .team .name { font-size: 20px; }
   .tiers-cols { grid-template-columns: 1fr 1fr; }
   .tiers-cols > div:nth-child(3) { border-left: 0; }
   .tiers-cols > div:nth-child(n+3) { border-top: 1px solid var(--line); }
@@ -231,6 +224,7 @@ footer .stripes { margin-bottom: 24px; }
   .bar { min-width: 120px; }
   table.t th, table.t td { padding-left: 10px; padding-right: 10px; }
 }
+@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } .mu-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -245,41 +239,54 @@ footer .stripes { margin-bottom: 24px; }
     </svg>
     <h1 id="lname">The Laundry League</h1>
   </div>
-  <p class="tag">Fantasy football where you draft the <b>refs</b>. Every flag your crew throws puts points on your board — the rarer the call, the bigger the payday.</p>
+  <p class="tag">Fantasy football where you draft the <b>refs</b>. Head-to-head every week: every flag your crews throw puts points on your board — the rarer the call, the bigger the payday.</p>
   <div class="pill" id="pill"></div>
   <div class="kpis" id="kpis"></div>
 </header>
 
-<nav class="toc"><div class="wrap">
-  <a href="#live" id="live-link" hidden>● Live</a><a href="#how">How it works</a><a href="#scoring">Scoring</a><a href="#week">Week <span class="lw"></span> scoreboard</a>
-  <a href="#league" id="league-link">Sample league</a><a href="#board">Draft board</a><a href="#unicorns">Unicorn watch</a><a href="#faq">Fine print</a>
-</div></nav>
+<nav class="toc"><div class="wrap" id="toc"></div></nav>
 
-<main class="wrap">
+<main class="wrap" id="main">
 
-<section id="live" hidden>
+<section id="live" hidden data-nav="● Live">
   <div class="sec-head"><div><h2><span class="dot" aria-hidden="true"></span>Live now</h2>
   <p class="muted" id="live-sub"></p></div></div>
   <div class="live-grid" id="live-games"></div>
-  <div id="live-teams"></div>
 </section>
 
-<section id="how">
+<section id="matchups" data-nav="Matchups">
+  <div class="sec-head"><div><h2 id="mu-h">Matchups</h2><p class="muted" id="mu-sub"></p></div></div>
+  <div class="mu-grid" id="mu-grid"></div>
+  <div class="awards" id="awards"></div>
+</section>
+
+<section id="standings" data-nav="Standings">
+  <div class="sec-head"><div><h2 id="st-h">Standings</h2><p class="muted" id="st-sub"></p></div></div>
+  <div class="card"><div class="tbl-wrap"><table class="t" id="st-tbl"></table></div><div class="po-line" id="po-line"></div></div>
+</section>
+
+<section id="results" data-nav="Results">
+  <div class="sec-head"><div><h2>Results</h2><p class="muted" id="res-sub"></p></div></div>
+  <div class="results" id="res-list"></div>
+</section>
+
+<section id="how" data-nav="How it works">
   <div class="sec-head"><div><h2>How it works</h2>
   <p class="muted">Same idea as fantasy football. Instead of players, you draft the NFL's <span id="ncrews">17</span> officiating crews — each led by a referee who works with the same six officials all season.</p></div></div>
   <div class="steps">
-    <div class="card step"><div class="n">1</div><h3>Draft 3 crews</h3>
-      <p>Snake draft on draft night. Each team takes 3 crews. Every week, your <b>best 2 crew scores count</b> — so when a crew has the week off (1–3 crews sit each week), nothing breaks.</p></div>
-    <div class="card step"><div class="n">2</div><h3>Every flag scores</h3>
-      <p>Your crew works one game a week. Every flag thrown in that game — on either team — scores for you. Accepted, declined, offsetting: if the laundry hits the turf, it counts.</p></div>
-    <div class="card step"><div class="n">3</div><h3>It runs itself</h3>
-      <p>Scores post automatically each morning from the NFL's official play-by-play. During games, live provisional points. The commissioner only enters the draft.</p></div>
+    <div class="card step"><div class="n">1</div><h3>Draft 2 crews</h3>
+      <p>Six owners, two-round snake draft. Twelve crews get drafted; the other five start the season on the waiver wire.</p></div>
+    <div class="card step"><div class="n">2</div><h3>Go head-to-head</h3>
+      <p>Each week your two crews' points face your opponent's two. Every flag in their games counts — either team, accepted, declined or offsetting.</p></div>
+    <div class="card step"><div class="n">3</div><h3>Work the wire</h3>
+      <p>Each week 1–4 crews get the week off, and an idle crew scores <b>zero</b>. Check the week's assignments and swap in a free agent before Thursday.</p></div>
+    <div class="card step"><div class="n">4</div><h3>Win the Laundry Bowl</h3>
+      <p>Weeks 8–17: play everyone twice. Week 18: 1st vs 2nd for the title, 3rd vs 4th, and 5th vs 6th in the Laundry Basket.</p></div>
   </div>
 </section>
 
-<section id="scoring">
-  <div class="sec-head"><div><h2>Scoring</h2>
-  <p class="muted">One simple base rate for every flag, then bonuses for the weird stuff.</p></div></div>
+<section id="scoring" data-nav="Scoring">
+  <div class="sec-head"><div><h2>Scoring</h2><p class="muted">One simple base rate for every flag, then bonuses for the weird stuff.</p></div></div>
   <div class="score-grid">
     <div class="card anchor">
       <div class="eq">2 pts per flag<br>+ 1 pt per 5 yards</div>
@@ -307,31 +314,39 @@ footer .stripes { margin-bottom: 24px; }
   <p class="faint" style="margin-top:12px" id="tier-note"></p>
 </section>
 
-<section id="week">
+<section id="week" data-nav="NFL scoreboard">
   <div class="sec-head"><div><h2>Week <span class="lw"></span> scoreboard</h2>
-  <p class="muted">What every crew would have scored last week under these rules — real games, real flags.</p></div></div>
-  <div class="card">
-    <div class="tbl-wrap"><table class="t" id="week-tbl"></table></div>
-    <div class="byes" id="byes"></div>
+  <p class="muted">What every crew scored in the latest NFL week — real games, real flags.</p></div></div>
+  <div class="card"><div class="tbl-wrap"><table class="t" id="week-tbl"></table></div><div class="byes" id="byes"></div></div>
+</section>
+
+<section id="waivers" data-nav="Waiver wire">
+  <div class="sec-head"><div><h2>Waiver wire</h2><p class="muted" id="ww-sub"></p></div></div>
+  <div class="ww">
+    <div class="card rules">
+      <h3>The rules</h3>
+      <ol>
+        <li><b>Check assignments.</b> <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a> posts each week's referee for every game before kickoff. A crew not listed has the week off.</li>
+        <li><b>Text the commissioner</b> "add X, drop Y" by <b id="deadline"></b>. Rosters stay at 2 crews.</li>
+        <li><b>Worst record picks first</b> when two owners want the same crew (ties: fewer points scored).</li>
+        <li><b>Dropped crews</b> rejoin the free-agent pool the following week.</li>
+        <li><b>An idle crew scores 0</b> — like starting a player on bye.</li>
+      </ol>
+      <div class="faint" style="margin-top:14px">Waiver priority this week</div>
+      <div class="prio" id="prio"></div>
+      <div id="moves" style="margin-top:14px"></div>
+    </div>
+    <div class="card"><div class="tbl-wrap"><table class="t" id="fa-tbl"></table></div></div>
   </div>
 </section>
 
-<section id="league">
-  <div class="sec-head"><div><h2 id="league-h">Sample league</h2>
-  <p class="muted" id="league-sub"></p></div></div>
-  <div class="standings" id="standings"></div>
-  <div class="legend"><span><i style="background:var(--flag)"></i>Highest-scoring team that week</span><span><i style="background:var(--surface-2)"></i>Weekly score (best 2 of 3 crews)</span><span id="fa"></span></div>
-</section>
-
-<section id="board">
-  <div class="sec-head"><div><h2>Draft board</h2>
-  <p class="muted" id="board-sub"></p></div></div>
+<section id="board" data-nav="Draft board">
+  <div class="sec-head"><div><h2>Draft board</h2><p class="muted" id="board-sub"></p></div></div>
   <div class="card"><div class="tbl-wrap"><table class="t" id="board-tbl"></table></div></div>
 </section>
 
-<section id="unicorns">
-  <div class="sec-head"><div><h2>Unicorn watch</h2>
-  <p class="muted" id="uni-sub"></p></div></div>
+<section id="unicorns" data-nav="Unicorn watch">
+  <div class="sec-head"><div><h2>Unicorn watch</h2><p class="muted" id="uni-sub"></p></div></div>
   <div class="sight-grid" id="sightings"></div>
   <details class="card" style="margin-top:16px">
     <summary>Full rare-call list — how every foul is tiered</summary>
@@ -339,13 +354,13 @@ footer .stripes { margin-bottom: 24px; }
   </details>
 </section>
 
-<section id="faq">
+<section id="faq" data-nav="Fine print">
   <div class="sec-head"><div><h2>Fine print</h2></div></div>
   <div class="faq">
     <div class="card"><h3>Where do the numbers come from?</h3><p>Every flag is read from the official NFL play-by-play (via the free nflverse data project). Officiating crews come from ESPN's game data. Nobody types anything in.</p></div>
     <div class="card"><h3>How are tiers set?</h3><p id="faq-tiers"></p></div>
-    <div class="card"><h3>What doesn't count?</h3><p>Preseason and playoffs. Flags that get picked up — the data doesn't record them. Points are scored for the crew assigned to the game, even if one official is a fill-in that week.</p></div>
-    <div class="card"><h3>How do I win?</h3><p>Most total points at the end of Week 18 takes the title. Weekly high score gets bragging rights. The commissioner handles the draft and any trades.</p></div>
+    <div class="card"><h3>What doesn't count?</h3><p>Preseason and playoff games. Flags that get picked up — the data doesn't record them. Points go to the crew assigned to the game, even if one official is a fill-in that week.</p></div>
+    <div class="card"><h3>How do standings work?</h3><p>Win–loss record first; ties broken by total points scored. Week 18 seeds come from the final Week 17 standings. Weekly results lock once official numbers post, so a later trade never changes a past result.</p></div>
   </div>
 </section>
 
@@ -362,29 +377,43 @@ footer .stripes { margin-bottom: 24px; }
   const D = JSON.parse(document.getElementById('league-data').textContent);
   const $ = s => document.querySelector(s);
   const fmt = n => (Math.round(n * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const last = D.last_week, weeks = D.weeks_played;
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const tierLabel = { common: 'Common', uncommon: 'Uncommon', rare: 'Rare', unicorn: 'Unicorn', ejection: 'Ejection' };
   const tierChip = t => `<span class="tier ${t}">${tierLabel[t]}</span>`;
   const flagTags = f => (f.status === 'offsetting' ? '<span class="tag2">×2 offsetting</span>' : '') +
                         (f.clutch ? '<span class="tag2">×1.5 clutch</span>' : '') +
                         (f.status === 'declined' ? '<span class="tag2">declined</span>' : '');
   const qtr = q => (q === '5' ? 'OT' : 'Q' + q);
-
-  const CAL = D.cal_season, SEA = D.season, live = D.mode === 'live';
-  const R = D.rules;
+  const last = D.last_week, CAL = D.cal_season, SEA = D.season, R = D.rules;
+  const live = D.mode === 'live';
   const dayFmt = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
   const stamp = new Date(D.generated_at.replace('Z', ':00Z')).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  const byRef = Object.fromEntries(D.crews.map(c => [c.referee, c]));
+  const curWeek = D.current_week;
+  const curW = D.weeks.find(w => w.week === curWeek);
+  const finals = D.weeks.filter(w => w.final);
+  const lastFinal = finals[finals.length - 1];
+  const ownerIn = w => { const m = {}; Object.entries(D.rosters[String(w)] || {}).forEach(([t, cs]) => cs.forEach(c => m[c] = t)); return m; };
+  const ownerNow = ownerIn(curWeek);
+  const mgr = Object.fromEntries(D.teams.map(t => [t.team, t.manager]));
+  const sample = live ? '' : 'Sample league · ';
+
+  // ---- Section order: rules first in preview, league first once live ----
+  const order = live
+    ? ['live', 'matchups', 'standings', 'results', 'waivers', 'week', 'how', 'scoring', 'board', 'unicorns', 'faq']
+    : ['live', 'how', 'scoring', 'matchups', 'standings', 'results', 'waivers', 'week', 'board', 'unicorns', 'faq'];
+  order.forEach(id => $('#main').appendChild($('#' + id)));
+  $('#toc').innerHTML = order.map(id => `<a href="#${id}" id="nav-${id}" class="${id === 'live' ? 'live-a' : ''}" ${id === 'live' ? 'hidden' : ''}>${esc($('#' + id).dataset.nav)}</a>`).join('');
+
+  // ---- Header ----
   document.querySelectorAll('.lw').forEach(e => e.textContent = last);
   $('#lname').textContent = D.league_name;
   $('#ncrews').textContent = D.crews.length;
-  const started = live && D.league_weeks.length;
-  $('#pill').innerHTML = (live ? `<b>${SEA} season</b> · ${started ? `scored through <b>Week ${last}</b>` : `kicks off <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`}`
-                               : `Preview · real ${SEA} numbers through <b>Week ${last}</b> · league starts <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`) +
-                        ` · updated ${esc(stamp)}`;
-
-  // KPIs
-  const allWeekPts = D.week_games.map(g => g.pts);
+  const started = live && finals.some(w => w.week >= D.start_week);
+  $('#pill').innerHTML = (live
+      ? `<b>${SEA} season</b> · ${started ? `<b>Week ${curWeek}</b> ${curW.playoff ? 'playoffs' : 'matchups'}` : `kicks off <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`}`
+      : `Preview · real ${SEA} numbers through <b>Week ${last}</b> · league starts <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`) +
+    ` · updated ${esc(stamp)}`;
   const best = D.week_games[0];
   $('#kpis').innerHTML = [
     [fmt(D.avg_ppg25), `avg points per crew game (${CAL})`],
@@ -393,10 +422,105 @@ footer .stripes { margin-bottom: 24px; }
     [D.sightings.length, `unicorns + ejections in ${SEA}`]
   ].map(([v, l]) => `<div class="kpi"><div class="v num">${v}</div><div class="l">${l}</div></div>`).join('');
 
-  // Tier examples
+  // ---- Matchups (re-rendered by the live layer) ----
+  const seriesLine = (a, b) => {
+    const k = [a, b].sort(), s = D.series[k.join('|')];
+    if (!s || s[0] + s[1] + s[2] === 0) return 'First meeting';
+    const [x, y] = s[0] >= s[1] ? [k[0], s] : [k[1], [s[1], s[0], s[2]]];
+    if (y[0] === y[1]) return `Series tied ${y[0]}–${y[1]}${y[2] ? '–' + y[2] : ''}`;
+    return `${esc(x)} leads ${y[0]}–${y[1]}${y[2] ? '–' + y[2] : ''}`;
+  };
+  function crewLine(l, ov) {
+    const c = byRef[l.crew] || {};
+    let pts = l.pts, tag = '', where = l.game ? esc(l.game) : '';
+    if (l.status === 'bye') tag = '<span class="st bye">Off · 0</span>';
+    else if (l.status === 'pending' && ov) {
+      pts = ov.pts; where = esc(ov.game);
+      tag = ov.state === 'in' ? `<span class="st live">Live · ${esc(ov.detail)}</span>` : '<span class="st">Final · unofficial</span>';
+    } else if (l.status === 'pending') { pts = null; tag = '<span class="st">Not played yet</span>'; }
+    return { pts: pts || 0, html: `<div class="cl"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts)}</span>` : ''} ${tag} <span>${where}</span></div>` };
+  }
+  function sideLines(m, side, ov) {
+    const team = side === 'A' ? m.a : m.b;
+    const lines = m[side] ? m[side].crews : (D.rosters[String(curWeek)][team] || []).map(c => ({ crew: c, pts: 0, status: 'pending', game: null }));
+    const out = lines.map(l => crewLine(l, ov[l.crew]));
+    return { team, pts: out.reduce((a, x) => a + x.pts, 0), html: out.map(x => x.html).join('') };
+  }
+  function renderMatchups(ov) {
+    ov = ov || {};
+    $('#mu-h').textContent = curW.playoff ? `Week ${curWeek} · Playoffs` : `Week ${curWeek} matchups`;
+    $('#mu-sub').textContent = sample + (curW.playoff && !curW.games[0].set
+      ? 'Matchups are set after Week 17. Shown with current seeds.'
+      : 'Both crews count. Scores update live during games; official numbers post the next morning.');
+    $('#mu-grid').innerHTML = curW.games.map(m => {
+      const A = sideLines(m, 'A', ov), B = sideLines(m, 'B', ov);
+      const lead = A.pts === B.pts ? '' : A.pts > B.pts ? 'A' : 'B';
+      const label = curW.playoff ? `${esc(m.name)} · seeds ${m.seeds[0]} v ${m.seeds[1]}` : seriesLine(m.a, m.b);
+      const any = A.pts + B.pts > 0;
+      const side = (S, k) => `<div class="side ${any && lead === k ? 'win' : ''}">
+          <div><div class="tname">${esc(S.team)}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
+          <div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div></div>`;
+      return `<div class="card mu"><div class="mu-top"><span>${label}</span><span>${curW.playoff ? '' : 'Week ' + curWeek}</span></div>${side(A, 'A')}${side(B, 'B')}</div>`;
+    }).join('');
+  }
+  renderMatchups();
+
+  // Last final week's awards
+  const aw = lastFinal && D.awards[String(lastFinal.week)];
+  if (aw && aw.golden_flag) {
+    const g = aw.golden_flag, s = aw.swallowed_whistle;
+    $('#awards').innerHTML = `
+      <div class="card award"><div class="ic">★</div><div><div class="k">Golden Flag · Week ${lastFinal.week}</div>
+        <div class="v">${esc(g.team)} — ${esc(g.type)} ${tierChip(g.tier)} <span class="num">${fmt(g.pts)} pts</span></div>
+        <div class="d">${esc(g.crew)} crew · ${esc(g.nfl_team)} ${esc(g.player)} · ${esc(g.game)}</div></div></div>
+      <div class="card award sw"><div class="ic">↓</div><div><div class="k">Swallowed Whistle · Week ${lastFinal.week}</div>
+        <div class="v">${esc(s.team)} — <span class="num">${fmt(s.pts)} pts</span></div>
+        <div class="d">Lowest team score of the week</div></div></div>`;
+  }
+
+  // ---- Standings ----
+  $('#st-h').textContent = live ? 'Standings' : 'Sample standings';
+  $('#st-sub').textContent = live
+    ? (started ? 'Win–loss record first, then total points. Waiver priority runs worst to first.' : `Everyone is 0–0 until Week ${D.start_week} wraps up.`)
+    : `A mock 6-team league, snake-drafted by last season's points per game and played head-to-head over Weeks 1–${last} of ${SEA}. Team names are placeholders.`;
+  const prioOf = Object.fromEntries(D.waiver_order.map((t, i) => [t, i + 1]));
+  $('#st-tbl').innerHTML = `<thead><tr><th class="r">#</th><th>Team</th><th class="r">W–L${D.standings.some(s => s.t) ? '–T' : ''}</th><th class="r">Points for</th><th class="r hide-sm">Points against</th><th class="r hide-sm">Streak</th><th class="r hide-sm">Waiver #</th></tr></thead><tbody>` +
+    D.standings.map((s, i) => `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(s.team)}</div>${s.manager ? `<div class="own">${esc(s.manager)}</div>` : ''}</td>
+      <td class="r" style="white-space:nowrap"><b>${s.w}–${s.l}${D.standings.some(x => x.t) ? '–' + s.t : ''}</b></td><td class="r">${fmt(s.pf)}</td><td class="r hide-sm">${fmt(s.pa)}</td>
+      <td class="r hide-sm"><span class="streak ${esc(s.streak[0] || '')}">${esc(s.streak || '–')}</span></td><td class="r hide-sm">${prioOf[s.team]}</td></tr>`).join('') + '</tbody>';
+  const po = D.weeks.find(w => w.playoff);
+  $('#po-line').innerHTML = `<b>Week ${D.playoff_week}${po.games[0].set ? '' : ' if the season ended today'}:</b> ` +
+    po.games.map(g => `${esc(g.name)} — ${esc(g.a)} vs ${esc(g.b)}`).join(' · ');
+
+  // ---- Results ----
+  const doneWeeks = finals.filter(w => w.week !== curWeek).slice().reverse();
+  $('#res-sub').textContent = doneWeeks.length ? sample + 'Every final week, newest first.' : `Results appear here once Week ${D.start_week} is final.`;
+  $('#res-list').innerHTML = doneWeeks.map((w, i) => {
+    const a = D.awards[String(w.week)] || {};
+    return `<details class="card" ${i === 0 ? 'open' : ''}><summary><span>Week ${w.week}${w.playoff ? ' · Playoffs' : ''}</span>
+      <span class="faint">${a.golden_flag ? `Golden Flag: ${esc(a.golden_flag.team)}` : ''}</span></summary>
+      <div class="res-body">${w.games.filter(g => g.A).map(g => `<div class="res-row">
+        <span class="l ${g.winner === g.a ? 'w' : ''}">${esc(g.a)}</span>
+        <span class="sc">${fmt(g.A.pts)} – ${fmt(g.B.pts)}</span>
+        <span class="${g.winner === g.b ? 'w' : ''}">${esc(g.b)}</span></div>`).join('')}
+      ${a.golden_flag ? `<div class="res-aw">★ Golden Flag: ${esc(a.golden_flag.team)} — ${esc(a.golden_flag.type)} (${esc(a.golden_flag.crew)} crew), ${fmt(a.golden_flag.pts)} pts · ↓ Swallowed Whistle: ${esc(a.swallowed_whistle.team)}, ${fmt(a.swallowed_whistle.pts)} pts</div>` : ''}
+      </div></details>`;
+  }).join('');
+
+  // ---- Waiver wire ----
+  $('#deadline').textContent = D.waiver_deadline || 'Wednesday night';
+  $('#ww-sub').textContent = live ? `${D.free_agents.length} crews available for Week ${curWeek}, hottest first.` : `In the sample league, these ${D.free_agents.length} crews went undrafted. Hottest first.`;
+  $('#prio').innerHTML = D.waiver_order.map((t, i) => `<span><b>${i + 1}</b>${esc(t)}</span>`).join('');
+  if (D.moves.length) $('#moves').innerHTML = '<div class="faint">Recent moves</div>' + D.moves.slice(-6).reverse().map(m =>
+    `<div class="cl">Week ${m.week} · <b>${esc(m.team)}</b> added ${esc(m.add)}, dropped ${esc(m.drop)}</div>`).join('');
+  $('#fa-tbl').innerHTML = `<thead><tr><th>Free agent</th><th class="r">Last 3 games (avg pts)</th><th class="r">${SEA} avg pts</th><th class="r hide-sm">${CAL} avg pts</th></tr></thead><tbody>` +
+    D.free_agents.map(f => `<tr><td><div class="ref">${esc(f.referee)}</div><div class="game">Last game: ${esc(f.last_game || '—')}</div></td>
+      <td class="r"><b>${f.last3 == null ? '—' : fmt(f.last3)}</b></td><td class="r">${f.ppg26 == null ? '—' : fmt(f.ppg26)}<div class="game">${f.g26} games</div></td>
+      <td class="r hide-sm">${f.ppg25 == null ? '—' : fmt(f.ppg25)}</td></tr>`).join('') + '</tbody>';
+
+  // ---- Scoring examples ----
   const byTier = {};
   D.tier_table.forEach(t => (byTier[t.tier] = byTier[t.tier] || []).push(t));
-  const perG = t => t.per_game;
   const rng = { uncommon: '0.1–0.3 per game', rare: '0.02–0.1 per game', unicorn: 'under 0.02 per game (fewer than 6 all season)' };
   ['uncommon', 'rare', 'unicorn'].forEach(t => {
     const ex = byTier[t].filter(x => !/disqualif/i.test(x.type)).slice(0, 3).map(x => x.type).join(', ');
@@ -404,92 +528,63 @@ footer .stripes { margin-bottom: 24px; }
   });
   $('#tier-note').textContent = `Tiers are set from how often each foul was called across all ${D.calibration_games} regular-season games in ${CAL}. Anything called 0.3+ times a game (holding, false start, pass interference) is common and earns the base rate only.`;
   $('#faq-tiers').textContent = `By how often each foul was called in the ${D.calibration_games} regular-season games of ${CAL}. A foul nobody called last season (like a brand-new rule) is automatically a unicorn. Tiers reset each year from the prior season.`;
-
-  // Worked example: best clutch unicorn from the latest week, else top flag of the season
   const ex = D.top_flags.find(f => f.tier === 'unicorn' && f.clutch && f.status === 'accepted') || D.top_flags[0];
-  const bonus = D.rules.tiers[ex.tier] ?? D.rules.ejection;
-  const yp = ex.yards * D.rules.per_yard;
+  const bonus = R.tiers[ex.tier] ?? R.ejection;
   $('#example').innerHTML = `
     <div><div class="faint">Real example · Week ${ex.week}, ${esc(ex.game)} · ${esc(ex.referee)} crew</div>
     <div style="margin-top:4px"><b>${esc(ex.type)}</b> on ${esc(ex.team)} ${esc(ex.player)}, ${ex.yards} yards, ${qtr(ex.qtr)} ${ex.clock} ${tierChip(ex.tier)}</div></div>
-    <div class="calc num" style="margin-left:auto">(2 <em>flag</em> + ${fmt(yp)} <em>yards</em> + ${bonus} <em>${ex.tier}</em>)${ex.clutch ? ' × 1.5 <em>clutch</em>' : ''} = ${fmt(ex.pts)} pts</div>`;
+    <div class="calc num" style="margin-left:auto">(2 <em>flag</em> + ${fmt(ex.yards * R.per_yard)} <em>yards</em> + ${bonus} <em>${ex.tier}</em>)${ex.clutch ? ' × 1.5 <em>clutch</em>' : ''} = ${fmt(ex.pts)} pts</div>`;
 
-  // Week scoreboard
-  const maxPts = Math.max(...allWeekPts);
+  // ---- NFL week scoreboard ----
+  const ownLast = ownerIn(last);
+  const maxPts = Math.max(...D.week_games.map(g => g.pts));
   $('#week-tbl').innerHTML = `<thead><tr><th>Crew (referee)</th><th class="hide-sm">Game</th><th class="r">Flags</th><th class="r hide-sm">Penalty yards</th><th>Points</th><th class="hide-sm">Biggest flag</th></tr></thead><tbody>` +
     D.week_games.map(g => `<tr>
-      <td><div class="ref">${esc(g.referee)}</div><div class="game">${esc(g.game)} · ${esc(g.day)}</div></td>
+      <td><div class="ref">${esc(g.referee)}</div><div class="game mob">${esc(g.game)} · ${esc(g.day)}</div>${ownLast[g.referee] ? `<div class="own">${live ? '' : 'Sample: '}${esc(ownLast[g.referee])}</div>` : `<div class="own">Free agent</div>`}</td>
       <td class="hide-sm game">${esc(g.game)}</td>
       <td class="r">${g.flags}</td><td class="r hide-sm">${g.yards}</td>
       <td class="bar"><div><span>${fmt(g.pts)}</span><u><i style="width:${(g.pts / maxPts * 100).toFixed(1)}%"></i></u></div></td>
       <td class="hide-sm topflag">${esc(g.top.type)} ${tierChip(g.top.tier)}${flagTags(g.top)} <b class="num">${fmt(g.top.pts)}</b>
         <div class="who">${esc(g.top.team)} ${esc(g.top.player)} · ${qtr(g.top.qtr)} ${esc(g.top.clock)}</div></td></tr>`).join('') + '</tbody>';
   const byes = D.crews.filter(c => !(String(last) in c.weeks)).map(c => c.referee);
-  $('#byes').innerHTML = `<b>Off this week (0 points):</b> ${byes.map(esc).join(', ')} — which is why only your best 2 of 3 crews count.`;
-  // On narrow screens the Game column hides; the game line under the referee shows instead
+  $('#byes').innerHTML = `<b>Off in Week ${last} (0 points):</b> ${byes.map(esc).join(', ')} — exactly why the waiver wire matters.`;
   const mq = window.matchMedia('(max-width: 860px)');
-  const syncGame = () => document.querySelectorAll('#week-tbl td:first-child .game').forEach(e => e.style.display = mq.matches ? '' : 'none');
+  const syncGame = () => document.querySelectorAll('#week-tbl .mob').forEach(e => e.style.display = mq.matches ? '' : 'none');
   syncGame(); mq.addEventListener && mq.addEventListener('change', syncGame);
 
-  // League standings (real once drafted, otherwise the mock league)
-  $('#league-h').textContent = live ? 'Standings' : 'Sample league';
-  $('#league-link').textContent = live ? 'Standings' : 'Sample league';
-  $('#league-sub').textContent = live
-    ? (started ? `Season points from Week ${D.start_week} on. Each week, your best ${D.counting_crews} of ${D.crews_per_team} crews count.`
-               : `Rosters are set. Scoring starts with Week ${D.start_week} on ${dayFmt(D.start_date)}.`)
-    : `A mock ${D.standings.length}-team league, auto-drafted in order of last season's points per game, played out over Weeks 1–${last} of ${SEA}. Team names are placeholders. Your league drafts for real.`;
-  const lweeks = D.league_weeks;
-  const maxWk = Math.max(1, ...D.standings.flatMap(s => lweeks.map(w => s.weeks[w])));
-  const highs = {};
-  lweeks.forEach(w => { highs[w] = D.standings.reduce((a, s) => s.weeks[w] > a.weeks[w] ? s : a).team; });
-  $('#standings').innerHTML = D.standings.map((s, i) => `
-    <div class="card team ${i === 0 && lweeks.length ? 'first' : ''}">
-      <div class="rank">${i + 1}</div>
-      <div><div class="name">${esc(s.team)}</div><div class="crews">${s.manager ? esc(s.manager) + ' · ' : ''}${s.crews.map(esc).join(' · ')}</div></div>
-      <div class="wk-wrap">${lweeks.length ? `<div class="wk" style="--n:${lweeks.length}">${lweeks.map(w =>
-        `<div class="${highs[w] === s.team ? 'hi' : ''}" style="height:${(s.weeks[w] / maxWk * 100).toFixed(1)}%" title="Week ${w}: ${fmt(s.weeks[w])} pts"><b>W${w}</b></div>`).join('')}</div>`
-        : `<p class="faint">First scores after Week ${D.start_week}</p>`}</div>
-      <div class="total"><div class="v num">${Math.round(s.total).toLocaleString('en-US')}</div><div class="l">total points · ${s.wins} weekly high${s.wins === 1 ? '' : 's'}</div></div>
-    </div>`).join('');
-  $('#fa').textContent = 'Undrafted (free agents): ' + D.free_agents.join(', ');
-
-  // Draft board
-  $('#board-sub').textContent = `All ${D.crews.length} crews, ranked by ${CAL} points per game. Who would you take first: the proven flag machine, or the crew that's hot this year?`;
-  $('#uni-sub').textContent = `Every unicorn call and ejection so far in ${SEA} — the flags that swing a week.`;
+  // ---- Draft board ----
+  const weeks = D.weeks_played;
+  $('#board-sub').textContent = `All ${D.crews.length} crews, ranked by ${CAL} points per game. Twelve get drafted; the rest start on the waiver wire.`;
   const maxW = Math.max(...D.crews.flatMap(c => Object.values(c.weeks).map(w => w.pts)));
   $('#board-tbl').innerHTML = `<thead><tr><th class="r">#</th><th>Crew (referee)</th><th class="r">${CAL} flags / game</th><th class="r">${CAL} pts / game</th><th class="r">${SEA} pts / game</th><th class="hide-sm">${SEA} by week</th></tr></thead><tbody>` +
     D.crews.map((c, i) => {
       const d = c.ppg26 - c.ppg25;
       const trend = Math.abs(d) < 5 ? '' : d > 0 ? `<span class="trend up">▲${fmt(d)}</span>` : `<span class="trend down">▼${fmt(-d)}</span>`;
       const spark = weeks.map(w => c.weeks[w] ? `<i style="height:${(c.weeks[w].pts / maxW * 100).toFixed(0)}%" title="Week ${w}: ${fmt(c.weeks[w].pts)} pts, ${esc(c.weeks[w].game)}"></i>` : `<i class="bye" title="Week ${w}: off"></i>`).join('');
-      return `<tr><td class="r">${i + 1}</td><td class="ref">${esc(c.referee)}</td>
+      const own = live ? `<div class="own">${ownerNow[c.referee] ? esc(ownerNow[c.referee]) : 'Free agent'}</div>` : '';
+      return `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(c.referee)}</div>${own}</td>
         <td class="r">${c.flags25.toFixed(1)}</td><td class="r"><b>${fmt(c.ppg25)}</b></td>
         <td class="r">${fmt(c.ppg26)} ${trend}<div class="game">${c.g26} games</div></td>
         <td class="hide-sm"><span class="spark">${spark}</span></td></tr>`;
     }).join('') + '</tbody>';
 
-  // Sightings
+  // ---- Unicorns + tiers ----
+  $('#uni-sub').textContent = `Every unicorn call and ejection so far in ${SEA} — the flags that swing a matchup.`;
   $('#sightings').innerHTML = D.sightings.slice().sort((a, b) => b.week - a.week || b.pts - a.pts).map(f => `
     <div class="card sight"><div class="top">${tierChip(f.tier)}<span class="pts num">${fmt(f.pts)}</span></div>
       <div class="type">${esc(f.type)}${flagTags(f)}</div>
       <div class="meta">Week ${f.week} · ${esc(f.game)} · ${esc(f.team)} ${esc(f.player)}<br>${esc(f.referee)} crew</div></div>`).join('');
-
-  // Tier reference
   $('#tiers').innerHTML = ['common', 'uncommon', 'rare', 'unicorn'].map(t => `
-    <div>${tierChip(t)} <span class="faint">${t === 'common' ? 'base only' : '+' + D.rules.tiers[t]}</span>
-    <ul>${(byTier[t] || []).filter(x => !/disqualif/i.test(x.type)).map(x => `<li><span>${esc(x.type)}</span><span>${x.season}</span></li>`).join('')}</ul></div>`).join('') ;
+    <div>${tierChip(t)} <span class="faint">${t === 'common' ? 'base only' : '+' + R.tiers[t]}</span>
+    <ul>${(byTier[t] || []).filter(x => !/disqualif/i.test(x.type)).map(x => `<li><span>${esc(x.type)}</span><span>${x.season}</span></li>`).join('')}</ul></div>`).join('');
+  $('#foot').innerHTML = `Numbers on this page are ${CAL} and ${SEA} regular-season totals computed from nflverse play-by-play and ESPN officiating data. Last game scored ${esc(D.updated)}; page rebuilt ${esc(stamp)}. Right column of the rare-call list = times called in ${CAL}. Live numbers are provisional until the next official update. Not affiliated with the NFL.`;
 
-  $('#foot').innerHTML = `Numbers on this page are ${CAL} and ${SEA} regular-season totals computed from nflverse play-by-play and ESPN officiating data. Last game scored ${esc(D.updated)}; page rebuilt ${esc(stamp)}. Right column of the rare-call list = times called in ${CAL}. Live numbers are provisional until the next morning's official update. Not affiliated with the NFL.`;
-
-  // ---- Live layer: provisional scores for games in progress -------------
-  // Reads ESPN's public game feed in the viewer's browser. Uses the same
-  // penalty pattern and tier table as the morning build, so the numbers
-  // match once the official update lands.
+  // ---- Live layer: provisional scores for games in progress ----
+  // Reads ESPN's public game feed in the viewer's browser, using the same
+  // penalty pattern and tier table as the official build.
   const ESPN = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/';
   const known = new Set(D.crews.map(c => c.referee));
   const refName = n => !n || known.has(n) ? (n || '') : (D.ref_last_names[n.split(' ').pop().toLowerCase()] || n);
-  const ownerOf = {};
-  if (live) D.standings.forEach(s => s.crews.forEach(c => ownerOf[c] = s.team));
 
   function scorePlay(text, period, clock) {
     const m2 = /(\d+):(\d+)/.exec(clock || '');
@@ -507,22 +602,19 @@ footer .stripes { margin-bottom: 24px; }
       const st = (status || 'accepted').toLowerCase();
       const pts = Math.round((R.per_flag + yards * R.per_yard + bonus) *
         (st === 'offsetting' ? R.offset_mult : 1) * (clutch ? R.clutch_mult : 1) * 10) / 10;
-      flags.push({ team: team.toUpperCase(), player: (player || '').replace(/^\d+-/, '').trim(),
-                   type: type.trim(), yards, status: st, tier, clutch, pts });
+      flags.push({ team: team.toUpperCase(), player: (player || '').replace(/^\d+-/, '').trim(), type: type.trim(), yards, status: st, tier, clutch, pts });
     }
     const u = text.toUpperCase();
     return { flags, wipe: u.includes('TOUCHDOWN') && u.includes('NULLIFIED') ? R.td_wipe : 0 };
   }
-
   function scoreSummary(s) {
     const drives = s.drives || {};
     const all = (drives.previous || []).flatMap(d => d.plays || []).concat((drives.current && drives.current.plays) || []);
     const seen = new Set(), flags = [];
     let pts = 0;
     all.forEach(p => {
-      if (!p.text || seen.has(p.id)) return;
+      if (!p.text || seen.has(p.id) || !/PENALTY on/i.test(p.text)) return;
       seen.add(p.id);
-      if (!/PENALTY on/i.test(p.text)) return;
       const r = scorePlay(p.text, p.period && p.period.number, p.clock && p.clock.displayValue);
       r.flags.forEach(f => { flags.push(f); pts += f.pts; });
       pts += r.wipe;
@@ -548,43 +640,33 @@ footer .stripes { margin-bottom: 24px; }
       }))).filter(Boolean);
       renderLive(games, wk);
     } else {
-      $('#live').hidden = true; $('#live-link').hidden = true;
+      $('#live').hidden = true; $('#nav-live').hidden = true;
     }
     const soon = evs.some(e => e.status.type.state === 'in' ||
       (e.status.type.state === 'pre' && new Date(e.date) - Date.now() < 3 * 3600e3));
     if (soon) setTimeout(liveRun, 60000);
   }
-
   function renderLive(games, wk) {
-    $('#live').hidden = false; $('#live-link').hidden = false;
-    $('#live-sub').textContent = `Week ${wk} · provisional points from the live play-by-play, refreshed every minute. Official scores post the next morning.`;
+    $('#live').hidden = false; $('#nav-live').hidden = false;
+    $('#live-sub').textContent = `NFL Week ${wk} · provisional points from the live play-by-play, refreshed every minute. Official scores post the next morning.`;
+    const own = wk === curWeek ? ownerNow : ownerIn(wk);
     $('#live-games').innerHTML = games.map(({ e, r }) => {
-      const st = e.status.type;
-      const lastF = r.flags[r.flags.length - 1];
+      const st = e.status.type, lastF = r.flags[r.flags.length - 1];
       return `<div class="card lg">
         <div class="top"><span>${esc(e.shortName)}</span>${st.state === 'in' ? `<b>${esc(st.shortDetail)}</b>` : `<span>${esc(st.shortDetail)} · awaiting official</span>`}</div>
         <div class="crew">${r.referee ? esc(r.referee) + ' crew' : 'Crew not posted yet'}</div>
-        ${live && r.referee ? `<div class="owner">${ownerOf[r.referee] ? esc(ownerOf[r.referee]) : 'Free agent'}</div>` : ''}
+        ${r.referee ? `<div class="owner">${own[r.referee] ? (live ? '' : 'Sample: ') + esc(own[r.referee]) : 'Free agent'}</div>` : ''}
         <div class="pts num">${fmt(r.pts)} <small>pts · ${r.flags.length} flags</small></div>
         ${lastF ? `<div class="lastflag">Latest: ${esc(lastF.type)} ${lastF.tier !== 'common' ? tierChip(lastF.tier) : ''}${flagTags(lastF)} <b class="num">+${fmt(lastF.pts)}</b></div>` : ''}
       </div>`;
     }).join('');
-    // Provisional team totals for this week: official crew scores plus live ones
-    if (!live || wk < D.start_week) { $('#live-teams').innerHTML = ''; return; }
-    const liveBy = {};
-    games.forEach(({ r }) => { if (r.referee) liveBy[r.referee] = r.pts; });
-    const byRef = Object.fromEntries(D.crews.map(c => [c.referee, c]));
-    const rows = D.standings.map(s => {
-      const sc = s.crews.map(c => (byRef[c].weeks[wk] || {}).pts ?? liveBy[c] ?? 0).sort((a, b) => b - a);
-      const week = sc.slice(0, D.counting_crews).reduce((a, b) => a + b, 0);
-      return { team: s.team, week, total: s.total - (s.weeks[wk] || 0) + week };
-    }).sort((a, b) => b.total - a.total);
-    $('#live-teams').innerHTML = `<div class="card"><div class="tbl-wrap"><table class="t">
-      <thead><tr><th>Team</th><th class="r">Week ${wk} so far</th><th class="r">Season (provisional)</th></tr></thead><tbody>
-      ${rows.map(x => `<tr><td class="ref">${esc(x.team)}</td><td class="r">${fmt(x.week)}</td><td class="r"><b>${fmt(x.total)}</b></td></tr>`).join('')}
-      </tbody></table></div></div>`;
+    // Feed live crew scores into this week's matchups
+    if (wk === curWeek) {
+      const ov = {};
+      games.forEach(({ e, r }) => { if (r.referee) ov[r.referee] = { pts: r.pts, state: e.status.type.state, detail: e.status.type.shortDetail, game: e.shortName }; });
+      renderMatchups(ov);
+    }
   }
-
   liveRun();
 })();
 </script>

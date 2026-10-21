@@ -5,10 +5,13 @@
  "mode": "preview",
  "partly_drafted": false,
  "start_week": 8,
+ "league_start": 1,
+ "regular_season_end": 17,
+ "playoff_week": 18,
  "start_date": "2026-10-29",
- "crews_per_team": 3,
- "counting_crews": 2,
- "generated_at": "2026-10-21T02:54Z",
+ "crews_per_team": 2,
+ "waiver_deadline": "Wednesday 9 p.m. ET",
+ "generated_at": "2026-10-21T04:51Z",
  "updated": "2026-10-19",
  "last_week": 6,
  "weeks_played": [
@@ -19,14 +22,7 @@
   5,
   6
  ],
- "league_weeks": [
-  1,
-  2,
-  3,
-  4,
-  5,
-  6
- ],
+ "current_week": 7,
  "calibration_games": 272,
  "avg_ppg25": 75.0,
  "avg_flags25": 15.2,
@@ -96,23 +92,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "eck": "Alan Eck",
-  "torbert": "Ron Torbert",
+  "moore": "Alex Moore",
+  "cheffers": "Carl Cheffers",
   "novak": "Scott Novak",
-  "rogers": "Brad Rogers",
-  "clark": "Land Clark",
-  "vinovich": "Bill Vinovich",
-  "hill": "Adrian Hill",
-  "allen": "Brad Allen",
-  "kemp": "Alex Kemp",
-  "hochuli": "Shawn Hochuli",
-  "hussey": "John Hussey",
   "wrolstad": "Craig Wrolstad",
   "martin": "Clay Martin",
-  "cheffers": "Carl Cheffers",
   "blakeman": "Clete Blakeman",
-  "moore": "Alex Moore",
-  "smith": "Shawn Smith"
+  "hussey": "John Hussey",
+  "eck": "Alan Eck",
+  "clark": "Land Clark",
+  "torbert": "Ron Torbert",
+  "hochuli": "Shawn Hochuli",
+  "vinovich": "Bill Vinovich",
+  "smith": "Shawn Smith",
+  "kemp": "Alex Kemp",
+  "allen": "Brad Allen",
+  "hill": "Adrian Hill",
+  "rogers": "Brad Rogers"
  },
  "scored_espn": [
   "401872656",
@@ -223,31 +219,36 @@
      "game": "LV @ LAC",
      "flags": 14,
      "yards": 87,
-     "pts": 55.0
+     "pts": 55.0,
+     "gid": "2026_02_LV_LAC"
     },
     "3": {
      "game": "LA @ DEN",
      "flags": 20,
      "yards": 129,
-     "pts": 91.5
+     "pts": 91.5,
+     "gid": "2026_03_LA_DEN"
     },
     "4": {
      "game": "NE @ BUF",
      "flags": 13,
      "yards": 66,
-     "pts": 65.7
+     "pts": 65.7,
+     "gid": "2026_04_NE_BUF"
     },
     "5": {
      "game": "CLE @ NYJ",
      "flags": 16,
      "yards": 132,
-     "pts": 85.4
+     "pts": 85.4,
+     "gid": "2026_05_CLE_NYJ"
     },
     "6": {
      "game": "TEN @ IND",
      "flags": 15,
      "yards": 115,
-     "pts": 72.0
+     "pts": 72.0,
+     "gid": "2026_06_TEN_IND"
     }
    }
   },
@@ -264,31 +265,36 @@
      "game": "BUF @ HOU",
      "flags": 20,
      "yards": 191,
-     "pts": 112.3
+     "pts": 112.3,
+     "gid": "2026_01_BUF_HOU"
     },
     "2": {
      "game": "CAR @ ATL",
      "flags": 17,
      "yards": 102,
-     "pts": 66.4
+     "pts": 66.4,
+     "gid": "2026_02_CAR_ATL"
     },
     "3": {
      "game": "KC @ MIA",
      "flags": 18,
      "yards": 114,
-     "pts": 92.9
+     "pts": 92.9,
+     "gid": "2026_03_KC_MIA"
     },
     "4": {
      "game": "JAX @ CIN",
      "flags": 25,
      "yards": 233,
-     "pts": 143.5
+     "pts": 143.5,
+     "gid": "2026_04_JAX_CIN"
     },
     "5": {
      "game": "TB @ DAL",
      "flags": 21,
      "yards": 149,
-     "pts": 87.3
+     "pts": 87.3,
+     "gid": "2026_05_TB_DAL"
     }
    }
   },
@@ -305,37 +311,43 @@
      "game": "GB @ MIN",
      "flags": 18,
      "yards": 113,
-     "pts": 67.6
+     "pts": 67.6,
+     "gid": "2026_01_GB_MIN"
     },
     "2": {
      "game": "WAS @ DAL",
      "flags": 12,
      "yards": 70,
-     "pts": 66.0
+     "pts": 66.0,
+     "gid": "2026_02_WAS_DAL"
     },
     "3": {
      "game": "PHI @ CHI",
      "flags": 18,
      "yards": 106,
-     "pts": 73.2
+     "pts": 73.2,
+     "gid": "2026_03_PHI_CHI"
     },
     "4": {
      "game": "TEN @ BAL",
      "flags": 20,
      "yards": 163,
-     "pts": 104.1
+     "pts": 104.1,
+     "gid": "2026_04_TEN_BAL"
     },
     "5": {
      "game": "DEN @ LAC",
      "flags": 18,
      "yards": 133,
-     "pts": 72.3
+     "pts": 72.3,
+     "gid": "2026_05_DEN_LAC"
     },
     "6": {
      "game": "HOU @ JAX",
      "flags": 17,
      "yards": 106,
-     "pts": 95.4
+     "pts": 95.4,
+     "gid": "2026_06_HOU_JAX"
     }
    }
   },
@@ -352,31 +364,36 @@
      "game": "NE @ SEA",
      "flags": 17,
      "yards": 148,
-     "pts": 95.6
+     "pts": 95.6,
+     "gid": "2026_01_NE_SEA"
     },
     "2": {
      "game": "CIN @ HOU",
      "flags": 23,
      "yards": 161,
-     "pts": 137.5
+     "pts": 137.5,
+     "gid": "2026_02_CIN_HOU"
     },
     "3": {
      "game": "LV @ NO",
      "flags": 13,
      "yards": 55,
-     "pts": 57.7
+     "pts": 57.7,
+     "gid": "2026_03_LV_NO"
     },
     "4": {
      "game": "MIA @ MIN",
      "flags": 21,
      "yards": 140,
-     "pts": 102.0
+     "pts": 102.0,
+     "gid": "2026_04_MIA_MIN"
     },
     "6": {
      "game": "WAS @ SF",
      "flags": 19,
      "yards": 154,
-     "pts": 139.0
+     "pts": 139.0,
+     "gid": "2026_06_WAS_SF"
     }
    }
   },
@@ -393,31 +410,36 @@
      "game": "CLE @ JAX",
      "flags": 15,
      "yards": 100,
-     "pts": 79.0
+     "pts": 79.0,
+     "gid": "2026_01_CLE_JAX"
     },
     "2": {
      "game": "IND @ KC",
      "flags": 16,
      "yards": 116,
-     "pts": 74.5
+     "pts": 74.5,
+     "gid": "2026_02_IND_KC"
     },
     "4": {
      "game": "LA @ PHI",
      "flags": 21,
      "yards": 157,
-     "pts": 113.4
+     "pts": 113.4,
+     "gid": "2026_04_LA_PHI"
     },
     "5": {
      "game": "LV @ NE",
      "flags": 24,
      "yards": 217,
-     "pts": 104.4
+     "pts": 104.4,
+     "gid": "2026_05_LV_NE"
     },
     "6": {
      "game": "DAL @ GB",
      "flags": 25,
      "yards": 204,
-     "pts": 152.8
+     "pts": 152.8,
+     "gid": "2026_06_DAL_GB"
     }
    }
   },
@@ -434,37 +456,43 @@
      "game": "ATL @ PIT",
      "flags": 19,
      "yards": 148,
-     "pts": 81.1
+     "pts": 81.1,
+     "gid": "2026_01_ATL_PIT"
     },
     "2": {
      "game": "CLE @ TB",
      "flags": 18,
      "yards": 112,
-     "pts": 86.4
+     "pts": 86.4,
+     "gid": "2026_02_CLE_TB"
     },
     "3": {
      "game": "NYJ @ DET",
      "flags": 14,
      "yards": 71,
-     "pts": 51.2
+     "pts": 51.2,
+     "gid": "2026_03_NYJ_DET"
     },
     "4": {
      "game": "KC @ LV",
      "flags": 15,
      "yards": 89,
-     "pts": 71.7
+     "pts": 71.7,
+     "gid": "2026_04_KC_LV"
     },
     "5": {
      "game": "CIN @ MIA",
      "flags": 13,
      "yards": 69,
-     "pts": 54.8
+     "pts": 54.8,
+     "gid": "2026_05_CIN_MIA"
     },
     "6": {
      "game": "SEA @ DEN",
      "flags": 16,
      "yards": 117,
-     "pts": 93.0
+     "pts": 93.0,
+     "gid": "2026_06_SEA_DEN"
     }
    }
   },
@@ -472,7 +500,7 @@
    "referee": "Ron Torbert",
    "g25": 16,
    "flags25": 15.8,
-   "ppg25": 78.2,
+   "ppg25": 78.3,
    "g26": 5,
    "pts26": 453.8,
    "ppg26": 90.8,
@@ -481,31 +509,36 @@
      "game": "ARI @ LAC",
      "flags": 18,
      "yards": 175,
-     "pts": 88.9
+     "pts": 88.9,
+     "gid": "2026_01_ARI_LAC"
     },
     "2": {
      "game": "DET @ BUF",
      "flags": 16,
      "yards": 104,
-     "pts": 77.0
+     "pts": 77.0,
+     "gid": "2026_02_DET_BUF"
     },
     "3": {
      "game": "HOU @ IND",
      "flags": 8,
      "yards": 55,
-     "pts": 34.5
+     "pts": 34.5,
+     "gid": "2026_03_HOU_IND"
     },
     "4": {
      "game": "DEN @ SF",
      "flags": 9,
      "yards": 49,
-     "pts": 73.3
+     "pts": 73.3,
+     "gid": "2026_04_DEN_SF"
     },
     "5": {
      "game": "PHI @ JAX",
      "flags": 26,
      "yards": 143,
-     "pts": 180.1
+     "pts": 180.1,
+     "gid": "2026_05_PHI_JAX"
     }
    }
   },
@@ -522,37 +555,43 @@
      "game": "DAL @ NYG",
      "flags": 20,
      "yards": 204,
-     "pts": 110.3
+     "pts": 110.3,
+     "gid": "2026_01_DAL_NYG"
     },
     "2": {
      "game": "PIT @ NE",
      "flags": 13,
      "yards": 90,
-     "pts": 62.0
+     "pts": 62.0,
+     "gid": "2026_02_PIT_NE"
     },
     "3": {
      "game": "SEA @ WAS",
      "flags": 19,
      "yards": 110,
-     "pts": 83.5
+     "pts": 83.5,
+     "gid": "2026_03_SEA_WAS"
     },
     "4": {
      "game": "NYJ @ CHI",
      "flags": 18,
      "yards": 105,
-     "pts": 94.5
+     "pts": 94.5,
+     "gid": "2026_04_NYJ_CHI"
     },
     "5": {
      "game": "DET @ ARI",
      "flags": 9,
      "yards": 76,
-     "pts": 42.7
+     "pts": 42.7,
+     "gid": "2026_05_DET_ARI"
     },
     "6": {
      "game": "BAL @ CLE",
      "flags": 15,
      "yards": 74,
-     "pts": 51.8
+     "pts": 51.8,
+     "gid": "2026_06_BAL_CLE"
     }
    }
   },
@@ -569,37 +608,43 @@
      "game": "NYJ @ TEN",
      "flags": 13,
      "yards": 73,
-     "pts": 60.1
+     "pts": 60.1,
+     "gid": "2026_01_NYJ_TEN"
     },
     "2": {
      "game": "MIN @ CHI",
      "flags": 16,
      "yards": 83,
-     "pts": 62.1
+     "pts": 62.1,
+     "gid": "2026_02_MIN_CHI"
     },
     "3": {
      "game": "CAR @ CLE",
      "flags": 22,
      "yards": 147,
-     "pts": 92.7
+     "pts": 92.7,
+     "gid": "2026_03_CAR_CLE"
     },
     "4": {
      "game": "ATL @ NO",
      "flags": 18,
      "yards": 119,
-     "pts": 75.1
+     "pts": 75.1,
+     "gid": "2026_04_ATL_NO"
     },
     "5": {
      "game": "SF @ SEA",
      "flags": 15,
      "yards": 116,
-     "pts": 88.7
+     "pts": 88.7,
+     "gid": "2026_05_SF_SEA"
     },
     "6": {
      "game": "PIT @ TB",
      "flags": 11,
      "yards": 100,
-     "pts": 53.5
+     "pts": 53.5,
+     "gid": "2026_06_PIT_TB"
     }
    }
   },
@@ -616,31 +661,36 @@
      "game": "SF @ LA",
      "flags": 8,
      "yards": 64,
-     "pts": 49.3
+     "pts": 49.3,
+     "gid": "2026_01_SF_LA"
     },
     "3": {
      "game": "NE @ JAX",
      "flags": 18,
      "yards": 124,
-     "pts": 127.8
+     "pts": 127.8,
+     "gid": "2026_03_NE_JAX"
     },
     "4": {
      "game": "GB @ TB",
      "flags": 15,
      "yards": 85,
-     "pts": 79.9
+     "pts": 79.9,
+     "gid": "2026_04_GB_TB"
     },
     "5": {
      "game": "HOU @ TEN",
      "flags": 18,
      "yards": 178,
-     "pts": 87.1
+     "pts": 87.1,
+     "gid": "2026_05_HOU_TEN"
     },
     "6": {
      "game": "NO @ NYG",
      "flags": 21,
      "yards": 125,
-     "pts": 95.0
+     "pts": 95.0,
+     "gid": "2026_06_NO_NYG"
     }
    }
   },
@@ -657,37 +707,43 @@
      "game": "WAS @ PHI",
      "flags": 12,
      "yards": 85,
-     "pts": 45.0
+     "pts": 45.0,
+     "gid": "2026_01_WAS_PHI"
     },
     "2": {
      "game": "MIA @ SF",
      "flags": 16,
      "yards": 128,
-     "pts": 87.6
+     "pts": 87.6,
+     "gid": "2026_02_MIA_SF"
     },
     "3": {
      "game": "ATL @ GB",
      "flags": 12,
      "yards": 128,
-     "pts": 53.6
+     "pts": 53.6,
+     "gid": "2026_03_ATL_GB"
     },
     "4": {
      "game": "ARI @ NYG",
      "flags": 16,
      "yards": 99,
-     "pts": 62.6
+     "pts": 62.6,
+     "gid": "2026_04_ARI_NYG"
     },
     "5": {
      "game": "IND @ PIT",
      "flags": 16,
      "yards": 109,
-     "pts": 65.8
+     "pts": 65.8,
+     "gid": "2026_05_IND_PIT"
     },
     "6": {
      "game": "BUF @ LV",
      "flags": 15,
      "yards": 139,
-     "pts": 100.9
+     "pts": 100.9,
+     "gid": "2026_06_BUF_LV"
     }
    }
   },
@@ -704,37 +760,43 @@
      "game": "BAL @ IND",
      "flags": 17,
      "yards": 115,
-     "pts": 79.0
+     "pts": 79.0,
+     "gid": "2026_01_BAL_IND"
     },
     "2": {
      "game": "GB @ NYJ",
      "flags": 33,
      "yards": 289,
-     "pts": 175.3
+     "pts": 175.3,
+     "gid": "2026_02_GB_NYJ"
     },
     "3": {
      "game": "MIN @ TB",
      "flags": 20,
      "yards": 176,
-     "pts": 99.2
+     "pts": 99.2,
+     "gid": "2026_03_MIN_TB"
     },
     "4": {
      "game": "LAC @ SEA",
      "flags": 32,
      "yards": 280,
-     "pts": 208.0
+     "pts": 208.0,
+     "gid": "2026_04_LAC_SEA"
     },
     "5": {
      "game": "BUF @ LA",
      "flags": 24,
      "yards": 196,
-     "pts": 94.2
+     "pts": 94.2,
+     "gid": "2026_05_BUF_LA"
     },
     "6": {
      "game": "CHI @ ATL",
      "flags": 19,
      "yards": 164,
-     "pts": 118.3
+     "pts": 118.3,
+     "gid": "2026_06_CHI_ATL"
     }
    }
   },
@@ -751,37 +813,43 @@
      "game": "MIA @ LV",
      "flags": 15,
      "yards": 90,
-     "pts": 74.0
+     "pts": 74.0,
+     "gid": "2026_01_MIA_LV"
     },
     "2": {
      "game": "NO @ BAL",
      "flags": 14,
      "yards": 69,
-     "pts": 51.3
+     "pts": 51.3,
+     "gid": "2026_02_NO_BAL"
     },
     "3": {
      "game": "LAC @ BUF",
      "flags": 21,
      "yards": 143,
-     "pts": 81.6
+     "pts": 81.6,
+     "gid": "2026_03_LAC_BUF"
     },
     "4": {
      "game": "PIT @ CLE",
      "flags": 28,
      "yards": 180,
-     "pts": 128.9
+     "pts": 128.9,
+     "gid": "2026_04_PIT_CLE"
     },
     "5": {
      "game": "NYG @ WAS",
      "flags": 18,
      "yards": 104,
-     "pts": 57.8
+     "pts": 57.8,
+     "gid": "2026_05_NYG_WAS"
     },
     "6": {
      "game": "NYJ @ NE",
      "flags": 11,
      "yards": 92,
-     "pts": 66.6
+     "pts": 66.6,
+     "gid": "2026_06_NYJ_NE"
     }
    }
   },
@@ -798,31 +866,36 @@
      "game": "NO @ DET",
      "flags": 15,
      "yards": 114,
-     "pts": 77.3
+     "pts": 77.3,
+     "gid": "2026_01_NO_DET"
     },
     "2": {
      "game": "SEA @ ARI",
      "flags": 15,
      "yards": 74,
-     "pts": 107.1
+     "pts": 107.1,
+     "gid": "2026_02_SEA_ARI"
     },
     "3": {
      "game": "TEN @ NYG",
      "flags": 18,
      "yards": 151,
-     "pts": 103.8
+     "pts": 103.8,
+     "gid": "2026_03_TEN_NYG"
     },
     "4": {
      "game": "IND @ WAS",
      "flags": 12,
      "yards": 89,
-     "pts": 55.8
+     "pts": 55.8,
+     "gid": "2026_04_IND_WAS"
     },
     "6": {
      "game": "LAC @ KC",
      "flags": 23,
      "yards": 158,
-     "pts": 143.4
+     "pts": 143.4,
+     "gid": "2026_06_LAC_KC"
     }
    }
   },
@@ -839,37 +912,43 @@
      "game": "DEN @ KC",
      "flags": 16,
      "yards": 112,
-     "pts": 72.3
+     "pts": 72.3,
+     "gid": "2026_01_DEN_KC"
     },
     "2": {
      "game": "PHI @ TEN",
      "flags": 12,
      "yards": 80,
-     "pts": 51.5
+     "pts": 51.5,
+     "gid": "2026_02_PHI_TEN"
     },
     "3": {
      "game": "CIN @ PIT",
      "flags": 14,
      "yards": 77,
-     "pts": 60.9
+     "pts": 60.9,
+     "gid": "2026_03_CIN_PIT"
     },
     "4": {
      "game": "DET @ CAR",
      "flags": 25,
      "yards": 127,
-     "pts": 85.4
+     "pts": 85.4,
+     "gid": "2026_04_DET_CAR"
     },
     "5": {
      "game": "CHI @ GB",
      "flags": 7,
      "yards": 45,
-     "pts": 64.0
+     "pts": 64.0,
+     "gid": "2026_05_CHI_GB"
     },
     "6": {
      "game": "ARI @ LA",
      "flags": 11,
      "yards": 82,
-     "pts": 49.9
+     "pts": 49.9,
+     "gid": "2026_06_ARI_LA"
     }
    }
   },
@@ -886,31 +965,36 @@
      "game": "TB @ CIN",
      "flags": 16,
      "yards": 86,
-     "pts": 62.1
+     "pts": 62.1,
+     "gid": "2026_01_TB_CIN"
     },
     "2": {
      "game": "JAX @ DEN",
      "flags": 17,
      "yards": 93,
-     "pts": 96.1
+     "pts": 96.1,
+     "gid": "2026_02_JAX_DEN"
     },
     "3": {
      "game": "BAL @ DAL",
      "flags": 16,
      "yards": 166,
-     "pts": 80.7
+     "pts": 80.7,
+     "gid": "2026_03_BAL_DAL"
     },
     "5": {
      "game": "MIN @ NO",
      "flags": 13,
      "yards": 71,
-     "pts": 41.7
+     "pts": 41.7,
+     "gid": "2026_05_MIN_NO"
     },
     "6": {
      "game": "CAR @ PHI",
      "flags": 29,
      "yards": 233,
-     "pts": 140.6
+     "pts": 140.6,
+     "gid": "2026_06_CAR_PHI"
     }
    }
   },
@@ -927,31 +1011,36 @@
      "game": "CHI @ CAR",
      "flags": 23,
      "yards": 141,
-     "pts": 107.7
+     "pts": 107.7,
+     "gid": "2026_01_CHI_CAR"
     },
     "2": {
      "game": "NYG @ LA",
      "flags": 11,
      "yards": 70,
-     "pts": 36.0
+     "pts": 36.0,
+     "gid": "2026_02_NYG_LA"
     },
     "3": {
      "game": "ARI @ SF",
      "flags": 22,
      "yards": 155,
-     "pts": 97.0
+     "pts": 97.0,
+     "gid": "2026_03_ARI_SF"
     },
     "4": {
      "game": "DAL @ HOU",
      "flags": 21,
      "yards": 137,
-     "pts": 90.9
+     "pts": 90.9,
+     "gid": "2026_04_DAL_HOU"
     },
     "5": {
      "game": "BAL @ ATL",
      "flags": 13,
      "yards": 107,
-     "pts": 58.9
+     "pts": 58.9,
+     "gid": "2026_05_BAL_ATL"
     }
    }
   }
@@ -1722,107 +1811,3006 @@
    "game": "WAS @ SF"
   }
  ],
- "standings": [
+ "teams": [
+  {
+   "team": "Holding Pattern",
+   "manager": ""
+  },
   {
    "team": "False Start Kids",
-   "manager": "",
-   "crews": [
-    "Alex Moore",
-    "Land Clark",
-    "Scott Novak"
-   ],
-   "weeks": {
-    "1": 191.3,
-    "2": 241.7,
-    "3": 192.1,
-    "4": 351.5,
-    "5": 182.9,
-    "6": 171.8
-   },
-   "total": 1331.3,
-   "wins": 3
+   "manager": ""
+  },
+  {
+   "team": "Laundry Day",
+   "manager": ""
   },
   {
    "team": "Flag on the Play",
-   "manager": "",
-   "crews": [
-    "Adrian Hill",
-    "Ron Torbert",
-    "Alan Eck"
+   "manager": ""
+  },
+  {
+   "team": "Pick Up the Flag",
+   "manager": ""
+  },
+  {
+   "team": "Yellow Hankies",
+   "manager": ""
+  }
+ ],
+ "rosters": {
+  "1": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
    ],
-   "weeks": {
-    "1": 184.5,
-    "2": 244.6,
-    "3": 161.5,
-    "4": 175.3,
-    "5": 180.1,
-    "6": 282.4
-   },
-   "total": 1228.4,
-   "wins": 2
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "2": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "3": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "4": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "5": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "6": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "7": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "8": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "9": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "10": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "11": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "12": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "13": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "14": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "15": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "16": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "17": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  },
+  "18": {
+   "Holding Pattern": [
+    "Bill Vinovich",
+    "Scott Novak"
+   ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp"
+   ],
+   "Flag on the Play": [
+    "Adrian Hill",
+    "Land Clark"
+   ],
+   "Pick Up the Flag": [
+    "Craig Wrolstad",
+    "Carl Cheffers"
+   ],
+   "Yellow Hankies": [
+    "Brad Rogers",
+    "Ron Torbert"
+   ]
+  }
+ },
+ "weeks": [
+  {
+   "week": 1,
+   "final": true,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "bye"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 79.0,
+        "game": "BAL @ IND",
+        "status": "final"
+       }
+      ],
+      "pts": 79.0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 81.1,
+        "game": "ATL @ PIT",
+        "status": "final"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 88.9,
+        "game": "ARI @ LAC",
+        "status": "final"
+       }
+      ],
+      "pts": 170.0
+     },
+     "final": true,
+     "winner": "Yellow Hankies"
+    },
+    {
+     "a": "False Start Kids",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 112.3,
+        "game": "BUF @ HOU",
+        "status": "final"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 45.0,
+        "game": "WAS @ PHI",
+        "status": "final"
+       }
+      ],
+      "pts": 157.3
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 79.0,
+        "game": "CLE @ JAX",
+        "status": "final"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 110.3,
+        "game": "DAL @ NYG",
+        "status": "final"
+       }
+      ],
+      "pts": 189.3
+     },
+     "final": true,
+     "winner": "Pick Up the Flag"
+    },
+    {
+     "a": "Laundry Day",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 67.6,
+        "game": "GB @ MIN",
+        "status": "final"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 49.3,
+        "game": "SF @ LA",
+        "status": "final"
+       }
+      ],
+      "pts": 116.9
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 95.6,
+        "game": "NE @ SEA",
+        "status": "final"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 60.1,
+        "game": "NYJ @ TEN",
+        "status": "final"
+       }
+      ],
+      "pts": 155.7
+     },
+     "final": true,
+     "winner": "Flag on the Play"
+    }
+   ]
+  },
+  {
+   "week": 2,
+   "final": true,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 55.0,
+        "game": "LV @ LAC",
+        "status": "final"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 175.3,
+        "game": "GB @ NYJ",
+        "status": "final"
+       }
+      ],
+      "pts": 230.3
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 74.5,
+        "game": "IND @ KC",
+        "status": "final"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 62.0,
+        "game": "PIT @ NE",
+        "status": "final"
+       }
+      ],
+      "pts": 136.5
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 86.4,
+        "game": "CLE @ TB",
+        "status": "final"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 77.0,
+        "game": "DET @ BUF",
+        "status": "final"
+       }
+      ],
+      "pts": 163.4
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 137.5,
+        "game": "CIN @ HOU",
+        "status": "final"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 62.1,
+        "game": "MIN @ CHI",
+        "status": "final"
+       }
+      ],
+      "pts": 199.6
+     },
+     "final": true,
+     "winner": "Flag on the Play"
+    },
+    {
+     "a": "False Start Kids",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 66.4,
+        "game": "CAR @ ATL",
+        "status": "final"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 87.6,
+        "game": "MIA @ SF",
+        "status": "final"
+       }
+      ],
+      "pts": 154.0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 66.0,
+        "game": "WAS @ DAL",
+        "status": "final"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "bye"
+       }
+      ],
+      "pts": 66.0
+     },
+     "final": true,
+     "winner": "False Start Kids"
+    }
+   ]
+  },
+  {
+   "week": 3,
+   "final": true,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 91.5,
+        "game": "LA @ DEN",
+        "status": "final"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 99.2,
+        "game": "MIN @ TB",
+        "status": "final"
+       }
+      ],
+      "pts": 190.7
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 57.7,
+        "game": "LV @ NO",
+        "status": "final"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 92.7,
+        "game": "CAR @ CLE",
+        "status": "final"
+       }
+      ],
+      "pts": 150.4
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "bye"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 83.5,
+        "game": "SEA @ WAS",
+        "status": "final"
+       }
+      ],
+      "pts": 83.5
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 73.2,
+        "game": "PHI @ CHI",
+        "status": "final"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 127.8,
+        "game": "NE @ JAX",
+        "status": "final"
+       }
+      ],
+      "pts": 201.0
+     },
+     "final": true,
+     "winner": "Laundry Day"
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 51.2,
+        "game": "NYJ @ DET",
+        "status": "final"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 34.5,
+        "game": "HOU @ IND",
+        "status": "final"
+       }
+      ],
+      "pts": 85.7
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 92.9,
+        "game": "KC @ MIA",
+        "status": "final"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 53.6,
+        "game": "ATL @ GB",
+        "status": "final"
+       }
+      ],
+      "pts": 146.5
+     },
+     "final": true,
+     "winner": "False Start Kids"
+    }
+   ]
+  },
+  {
+   "week": 4,
+   "final": true,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 65.7,
+        "game": "NE @ BUF",
+        "status": "final"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 208.0,
+        "game": "LAC @ SEA",
+        "status": "final"
+       }
+      ],
+      "pts": 273.7
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 104.1,
+        "game": "TEN @ BAL",
+        "status": "final"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 79.9,
+        "game": "GB @ TB",
+        "status": "final"
+       }
+      ],
+      "pts": 184.0
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 102.0,
+        "game": "MIA @ MIN",
+        "status": "final"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 75.1,
+        "game": "ATL @ NO",
+        "status": "final"
+       }
+      ],
+      "pts": 177.1
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 143.5,
+        "game": "JAX @ CIN",
+        "status": "final"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 62.6,
+        "game": "ARI @ NYG",
+        "status": "final"
+       }
+      ],
+      "pts": 206.1
+     },
+     "final": true,
+     "winner": "False Start Kids"
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 113.4,
+        "game": "LA @ PHI",
+        "status": "final"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 94.5,
+        "game": "NYJ @ CHI",
+        "status": "final"
+       }
+      ],
+      "pts": 207.9
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 71.7,
+        "game": "KC @ LV",
+        "status": "final"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 73.3,
+        "game": "DEN @ SF",
+        "status": "final"
+       }
+      ],
+      "pts": 145.0
+     },
+     "final": true,
+     "winner": "Pick Up the Flag"
+    }
+   ]
+  },
+  {
+   "week": 5,
+   "final": true,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 85.4,
+        "game": "CLE @ NYJ",
+        "status": "final"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 94.2,
+        "game": "BUF @ LA",
+        "status": "final"
+       }
+      ],
+      "pts": 179.6
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 87.3,
+        "game": "TB @ DAL",
+        "status": "final"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 65.8,
+        "game": "IND @ PIT",
+        "status": "final"
+       }
+      ],
+      "pts": 153.1
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Laundry Day",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 72.3,
+        "game": "DEN @ LAC",
+        "status": "final"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 87.1,
+        "game": "HOU @ TEN",
+        "status": "final"
+       }
+      ],
+      "pts": 159.4
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 54.8,
+        "game": "CIN @ MIA",
+        "status": "final"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 180.1,
+        "game": "PHI @ JAX",
+        "status": "final"
+       }
+      ],
+      "pts": 234.9
+     },
+     "final": true,
+     "winner": "Yellow Hankies"
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "bye"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 88.7,
+        "game": "SF @ SEA",
+        "status": "final"
+       }
+      ],
+      "pts": 88.7
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 104.4,
+        "game": "LV @ NE",
+        "status": "final"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 42.7,
+        "game": "DET @ ARI",
+        "status": "final"
+       }
+      ],
+      "pts": 147.1
+     },
+     "final": true,
+     "winner": "Pick Up the Flag"
+    }
+   ]
+  },
+  {
+   "week": 6,
+   "final": true,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Yellow Hankies",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 93.0,
+        "game": "SEA @ DEN",
+        "status": "final"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "bye"
+       }
+      ],
+      "pts": 93.0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 72.0,
+        "game": "TEN @ IND",
+        "status": "final"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 118.3,
+        "game": "CHI @ ATL",
+        "status": "final"
+       }
+      ],
+      "pts": 190.3
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 152.8,
+        "game": "DAL @ GB",
+        "status": "final"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 51.8,
+        "game": "BAL @ CLE",
+        "status": "final"
+       }
+      ],
+      "pts": 204.6
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "bye"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 100.9,
+        "game": "BUF @ LV",
+        "status": "final"
+       }
+      ],
+      "pts": 100.9
+     },
+     "final": true,
+     "winner": "Pick Up the Flag"
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 139.0,
+        "game": "WAS @ SF",
+        "status": "final"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 53.5,
+        "game": "PIT @ TB",
+        "status": "final"
+       }
+      ],
+      "pts": 192.5
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 95.4,
+        "game": "HOU @ JAX",
+        "status": "final"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 95.0,
+        "game": "NO @ NYG",
+        "status": "final"
+       }
+      ],
+      "pts": 190.4
+     },
+     "final": true,
+     "winner": "Flag on the Play"
+    }
+   ]
+  },
+  {
+   "week": 7,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Pick Up the Flag",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Laundry Day",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 8,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Flag on the Play",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Laundry Day",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "False Start Kids",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 9,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Laundry Day",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "False Start Kids",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 10,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "False Start Kids",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 11,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "False Start Kids",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Laundry Day",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 12,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "False Start Kids",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 13,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 14,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 15,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Laundry Day",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "Pick Up the Flag",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 16,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Yellow Hankies",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 17,
+   "final": false,
+   "playoff": false,
+   "games": [
+    {
+     "a": "Pick Up the Flag",
+     "b": "Holding Pattern",
+     "A": {
+      "crews": [
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Bill Vinovich",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Laundry Day",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 0,
+        "game": null,
+        "status": "pending"
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    }
+   ]
+  },
+  {
+   "week": 18,
+   "final": false,
+   "playoff": true,
+   "games": [
+    {
+     "a": "Holding Pattern",
+     "b": "Pick Up the Flag",
+     "seeds": [
+      1,
+      2
+     ],
+     "name": "Laundry Bowl",
+     "set": false,
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Flag on the Play",
+     "b": "False Start Kids",
+     "seeds": [
+      3,
+      4
+     ],
+     "name": "Third-place game",
+     "set": false,
+     "final": false,
+     "winner": null
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "Laundry Day",
+     "seeds": [
+      5,
+      6
+     ],
+     "name": "The Laundry Basket",
+     "set": false,
+     "final": false,
+     "winner": null
+    }
+   ]
+  }
+ ],
+ "standings": [
+  {
+   "team": "Holding Pattern",
+   "manager": "",
+   "w": 5,
+   "l": 1,
+   "t": 0,
+   "pf": 1143.6,
+   "pa": 887.0,
+   "streak": "W5"
   },
   {
    "team": "Pick Up the Flag",
    "manager": "",
-   "crews": [
-    "Craig Wrolstad",
-    "Brad Rogers",
-    "Clay Martin"
-   ],
-   "weeks": {
-    "1": 160.1,
-    "2": 160.9,
-    "3": 112.1,
-    "4": 198.8,
-    "5": 168.4,
-    "6": 245.8
-   },
-   "total": 1046.1,
-   "wins": 0
+   "w": 4,
+   "l": 2,
+   "t": 0,
+   "pf": 968.9,
+   "pa": 923.2,
+   "streak": "W3"
+  },
+  {
+   "team": "Flag on the Play",
+   "manager": "",
+   "w": 3,
+   "l": 3,
+   "t": 0,
+   "pf": 964.0,
+   "pa": 1014.6,
+   "streak": "W1"
+  },
+  {
+   "team": "False Start Kids",
+   "manager": "",
+   "w": 3,
+   "l": 3,
+   "t": 0,
+   "pf": 917.9,
+   "pa": 902.3,
+   "streak": "L2"
+  },
+  {
+   "team": "Yellow Hankies",
+   "manager": "",
+   "w": 2,
+   "l": 4,
+   "t": 0,
+   "pf": 892.0,
+   "pa": 982.7,
+   "streak": "L1"
   },
   {
    "team": "Laundry Day",
    "manager": "",
-   "crews": [
-    "Shawn Hochuli",
-    "Carl Cheffers",
-    "Clete Blakeman"
-   ],
-   "weeks": {
-    "1": 184.3,
-    "2": 128.0,
-    "3": 165.1,
-    "4": 233.0,
-    "5": 130.1,
-    "6": 162.0
-   },
-   "total": 1002.5,
-   "wins": 0
-  },
-  {
-   "team": "Holding Pattern",
-   "manager": "",
-   "crews": [
-    "Bill Vinovich",
-    "Alex Kemp",
-    "Shawn Smith"
-   ],
-   "weeks": {
-    "1": 94.3,
-    "2": 142.6,
-    "3": 219.3,
-    "4": 145.6,
-    "5": 172.5,
-    "6": 195.9
-   },
-   "total": 970.2,
-   "wins": 1
+   "w": 1,
+   "l": 5,
+   "t": 0,
+   "pf": 917.7,
+   "pa": 1094.3,
+   "streak": "L3"
   }
  ],
- "free_agents": [
-  "John Hussey",
-  "Brad Allen"
+ "series": {
+  "Holding Pattern|Yellow Hankies": [
+   1,
+   1,
+   0
+  ],
+  "False Start Kids|Pick Up the Flag": [
+   0,
+   2,
+   0
+  ],
+  "Flag on the Play|Laundry Day": [
+   2,
+   0,
+   0
+  ],
+  "Holding Pattern|Pick Up the Flag": [
+   1,
+   0,
+   0
+  ],
+  "Flag on the Play|Yellow Hankies": [
+   1,
+   0,
+   0
+  ],
+  "False Start Kids|Laundry Day": [
+   1,
+   0,
+   0
+  ],
+  "Flag on the Play|Holding Pattern": [
+   0,
+   1,
+   0
+  ],
+  "Laundry Day|Pick Up the Flag": [
+   1,
+   0,
+   0
+  ],
+  "False Start Kids|Yellow Hankies": [
+   1,
+   0,
+   0
+  ],
+  "Holding Pattern|Laundry Day": [
+   1,
+   0,
+   0
+  ],
+  "False Start Kids|Flag on the Play": [
+   1,
+   0,
+   0
+  ],
+  "Pick Up the Flag|Yellow Hankies": [
+   1,
+   0,
+   0
+  ],
+  "False Start Kids|Holding Pattern": [
+   0,
+   1,
+   0
+  ],
+  "Laundry Day|Yellow Hankies": [
+   0,
+   1,
+   0
+  ],
+  "Flag on the Play|Pick Up the Flag": [
+   0,
+   1,
+   0
+  ]
+ },
+ "waiver_order": [
+  "Laundry Day",
+  "Yellow Hankies",
+  "False Start Kids",
+  "Flag on the Play",
+  "Pick Up the Flag",
+  "Holding Pattern"
  ],
+ "free_agents": [
+  {
+   "referee": "Alan Eck",
+   "ppg25": 67.6,
+   "ppg26": 97.5,
+   "g26": 5,
+   "last3": 101.0,
+   "last_game": "LAC @ KC"
+  },
+  {
+   "referee": "John Hussey",
+   "ppg25": 63.7,
+   "ppg26": 84.2,
+   "g26": 5,
+   "last3": 87.7,
+   "last_game": "CAR @ PHI"
+  },
+  {
+   "referee": "Clete Blakeman",
+   "ppg25": 67.7,
+   "ppg26": 76.7,
+   "g26": 6,
+   "last3": 84.4,
+   "last_game": "NYJ @ NE"
+  },
+  {
+   "referee": "Brad Allen",
+   "ppg25": 63.1,
+   "ppg26": 78.1,
+   "g26": 5,
+   "last3": 82.3,
+   "last_game": "BAL @ ATL"
+  },
+  {
+   "referee": "Clay Martin",
+   "ppg25": 67.1,
+   "ppg26": 64.0,
+   "g26": 6,
+   "last3": 66.4,
+   "last_game": "ARI @ LA"
+  }
+ ],
+ "awards": {
+  "1": {
+   "golden_flag": {
+    "team": "Holding Pattern",
+    "crew": "Scott Novak",
+    "type": "Chop Block",
+    "pts": 15.0,
+    "tier": "rare",
+    "nfl_team": "BAL",
+    "player": "R.Stanley",
+    "game": "BAL @ IND",
+    "status": "accepted",
+    "clutch": false
+   },
+   "swallowed_whistle": {
+    "team": "Holding Pattern",
+    "pts": 79.0
+   }
+  },
+  "2": {
+   "golden_flag": {
+    "team": "Flag on the Play",
+    "crew": "Adrian Hill",
+    "type": "Lowering the Head to Make Forcible Contact",
+    "pts": 25.0,
+    "tier": "unicorn",
+    "nfl_team": "HOU",
+    "player": "F.Moreau",
+    "game": "CIN @ HOU",
+    "status": "accepted",
+    "clutch": false
+   },
+   "swallowed_whistle": {
+    "team": "Laundry Day",
+    "pts": 66.0
+   }
+  },
+  "3": {
+   "golden_flag": {
+    "team": "Laundry Day",
+    "crew": "Alex Kemp",
+    "type": "Taunting",
+    "pts": 15.0,
+    "tier": "rare",
+    "nfl_team": "NE",
+    "player": "M.Hollins",
+    "game": "NE @ JAX",
+    "status": "accepted",
+    "clutch": false
+   },
+   "swallowed_whistle": {
+    "team": "Pick Up the Flag",
+    "pts": 83.5
+   }
+  },
+  "4": {
+   "golden_flag": {
+    "team": "Yellow Hankies",
+    "crew": "Ron Torbert",
+    "type": "Defensive Delay of Game",
+    "pts": 34.5,
+    "tier": "unicorn",
+    "nfl_team": "SF",
+    "player": "D.Lenoir",
+    "game": "DEN @ SF",
+    "status": "accepted",
+    "clutch": true
+   },
+   "swallowed_whistle": {
+    "team": "Yellow Hankies",
+    "pts": 145.0
+   }
+  },
+  "5": {
+   "golden_flag": {
+    "team": "Yellow Hankies",
+    "crew": "Ron Torbert",
+    "type": "Disqualification",
+    "pts": 44.0,
+    "tier": "ejection",
+    "nfl_team": "JAX",
+    "player": "Bry.Thomas",
+    "game": "PHI @ JAX",
+    "status": "offsetting",
+    "clutch": false
+   },
+   "swallowed_whistle": {
+    "team": "Flag on the Play",
+    "pts": 88.7
+   }
+  },
+  "6": {
+   "golden_flag": {
+    "team": "Flag on the Play",
+    "crew": "Adrian Hill",
+    "type": "Fair Catch Interference",
+    "pts": 37.5,
+    "tier": "unicorn",
+    "nfl_team": "SF",
+    "player": "S.Neal",
+    "game": "WAS @ SF",
+    "status": "accepted",
+    "clutch": true
+   },
+   "swallowed_whistle": {
+    "team": "Yellow Hankies",
+    "pts": 93.0
+   }
+  }
+ },
+ "moves": [],
  "tier_table": [
   {
    "type": "Offensive Holding",
