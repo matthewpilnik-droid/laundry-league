@@ -1,0 +1,14 @@
+{
+  "league_name": "The Laundry League",
+  "season": 2026,
+  "start_week": 8,
+  "crews_per_team": 3,
+  "counting_crews": 2,
+  "teams": [
+    { "name": "Team 1", "manager": "", "crews": [] },
+    { "name": "Team 2", "manager": "", "crews": [] },
+    { "name": "Team 3", "manager": "", "crews": [] },
+    { "name": "Team 4", "manager": "", "crews": [] },
+    { "name": "Team 5", "manager": "", "crews": [] }
+  ]
+}

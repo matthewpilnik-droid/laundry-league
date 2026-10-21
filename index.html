@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Laundry League</title>
+<meta name="description" content="Fantasy football where you draft the NFL officiating crews. Every flag scores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #efede6;
+  --ink: #16161a;
+  --ink-2: #4a4a52;
+  --ink-3: #7a7a82;
+  --line: #dcd9cf;
+  --flag: #ffcc00;
+  --flag-ink: #16161a;
+  --flag-soft: #fff4c2;
+  --stripe: #16161a;
+  --good: #1f7a4a;
+  --t-uncommon: #2f6fdb;
+  --t-rare: #8a3ffc;
+  --t-unicorn: #d6336c;
+  --t-eject: #c2410c;
+  --shadow: 0 1px 2px rgba(0,0,0,.05), 0 4px 16px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121215; --surface: #1b1b20; --surface-2: #24242b; --ink: #f2f1ec;
+    --ink-2: #c3c2bc; --ink-3: #8f8e88; --line: #33333b; --flag: #ffd21f;
+    --flag-soft: #3a3214; --stripe: #f2f1ec; --good: #4cc38a;
+    --t-uncommon: #6ea0ff; --t-rare: #b48cff; --t-unicorn: #ff6b9a; --t-eject: #ff8a4c;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121215; --surface: #1b1b20; --surface-2: #24242b; --ink: #f2f1ec;
+  --ink-2: #c3c2bc; --ink-3: #8f8e88; --line: #33333b; --flag: #ffd21f;
+  --flag-soft: #3a3214; --stripe: #f2f1ec; --good: #4cc38a;
+  --t-uncommon: #6ea0ff; --t-rare: #b48cff; --t-unicorn: #ff6b9a; --t-eject: #ff8a4c;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 16px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+h1, h2, h3 { font-family: Oswald, Impact, "Arial Narrow", sans-serif; letter-spacing: .01em; line-height: 1.1; margin: 0; }
+h2 { font-size: clamp(26px, 4vw, 34px); text-transform: uppercase; }
+h3 { font-size: 20px; text-transform: uppercase; }
+p { margin: 0; }
+.muted { color: var(--ink-2); }
+.faint { color: var(--ink-3); font-size: 14px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Header */
+.stripes {
+  height: 14px;
+  background: repeating-linear-gradient(90deg, var(--stripe) 0 22px, transparent 22px 44px);
+  border-bottom: 1px solid var(--line);
+}
+header.hero { padding: 48px 0 40px; }
+.brand { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.brand svg { flex: none; }
+.hero h1 { font-size: clamp(44px, 9vw, 84px); text-transform: uppercase; }
+.hero .tag { font-size: clamp(18px, 2.6vw, 22px); margin-top: 14px; max-width: 640px; color: var(--ink-2); }
+.pill {
+  display: inline-block; margin-top: 22px;
+  background: var(--flag-soft); color: var(--ink); border: 1px solid var(--line);
+  padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 500;
+}
+.pill b { font-weight: 700; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 32px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; box-shadow: var(--shadow); }
+.kpi .v { font-family: Oswald, sans-serif; font-size: 32px; font-weight: 700; }
+.kpi .l { font-size: 13px; color: var(--ink-2); }
+
+nav.toc { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+nav.toc .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+nav.toc a { white-space: nowrap; color: var(--ink-2); text-decoration: none; font-size: 14px; font-weight: 600; padding: 12px 10px; }
+nav.toc a:hover { color: var(--ink); }
+
+section { padding: 56px 0 8px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.sec-head p { max-width: 620px; margin-top: 8px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+
+/* How it works */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.step { padding: 22px; }
+.step .n { font-family: Oswald, sans-serif; font-size: 15px; font-weight: 700; display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--flag); color: var(--flag-ink); margin-bottom: 12px; }
+.step h3 { margin-bottom: 8px; }
+.step p { color: var(--ink-2); font-size: 15px; }
+
+/* Scoring */
+.score-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; }
+.anchor { padding: 26px; background: var(--flag); color: var(--flag-ink); border-color: transparent; }
+.anchor .eq { font-family: Oswald, sans-serif; font-size: clamp(30px, 5vw, 44px); font-weight: 700; line-height: 1.05; text-transform: uppercase; }
+.anchor .sub { margin-top: 10px; font-size: 15px; }
+.anchor table { width: 100%; margin-top: 18px; border-collapse: collapse; font-size: 15px; }
+.anchor td { padding: 7px 0; border-top: 1px solid rgba(0,0,0,.18); }
+.anchor td:last-child { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bonus { padding: 22px; }
+.bonus h3 { margin-bottom: 12px; }
+.brow { display: grid; grid-template-columns: 76px 1fr; gap: 12px; align-items: start; padding: 10px 0; border-top: 1px solid var(--line); }
+.brow:first-of-type { border-top: 0; }
+.brow .pts { font-family: Oswald, sans-serif; font-weight: 700; font-size: 22px; }
+.brow .what { font-size: 15px; }
+.brow .what small { display: block; color: var(--ink-3); font-size: 13px; margin-top: 2px; }
+.example { margin-top: 16px; padding: 18px 22px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.example .calc { font-family: Oswald, sans-serif; font-size: 22px; font-weight: 700; }
+.example .calc em { font-style: normal; color: var(--ink-3); font-weight: 500; }
+
+.tier { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: 999px; border: 1.5px solid currentColor; white-space: nowrap; }
+.tier.common { color: var(--ink-3); }
+.tier.uncommon { color: var(--t-uncommon); }
+.tier.rare { color: var(--t-rare); }
+.tier.unicorn { color: var(--t-unicorn); }
+.tier.ejection { color: var(--t-eject); }
+.tag2 { display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 7px; border-radius: 6px; background: var(--surface-2); color: var(--ink-2); margin-left: 4px; white-space: nowrap; }
+
+/* Tables */
+.tbl-wrap { overflow-x: auto; }
+table.t { width: 100%; border-collapse: collapse; font-size: 15px; }
+table.t th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.t td { padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+table.t tr:last-child td { border-bottom: 0; }
+table.t .r { text-align: right; }
+table.t td.r { font-variant-numeric: tabular-nums; }
+.ref { font-weight: 600; white-space: nowrap; }
+.game { color: var(--ink-3); font-size: 13px; white-space: nowrap; }
+.bar { min-width: 170px; }
+.bar > div { display: flex; align-items: center; gap: 10px; }
+.bar span { flex: none; width: 46px; text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bar u { flex: 1; height: 14px; background: var(--surface-2); border-radius: 4px; overflow: hidden; text-decoration: none; }
+.bar u i { display: block; height: 100%; background: var(--flag); border-radius: 4px; }
+.topflag { font-size: 14px; }
+.topflag .who { color: var(--ink-3); font-size: 13px; }
+.byes { padding: 14px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+
+/* Standings */
+.standings { display: grid; gap: 12px; }
+.team { display: grid; grid-template-columns: 44px 1.3fr 2fr 110px; gap: 16px; align-items: center; padding: 16px 20px; }
+.team .rank { font-family: Oswald, sans-serif; font-size: 28px; font-weight: 700; color: var(--ink-3); }
+.team.first .rank { color: var(--ink); }
+.team .name { font-family: Oswald, sans-serif; font-size: 22px; font-weight: 700; text-transform: uppercase; }
+.team .crews { font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+.team .total { text-align: right; }
+.team .total .v { font-family: Oswald, sans-serif; font-size: 28px; font-weight: 700; }
+.team .total .l { font-size: 12px; color: var(--ink-3); }
+.wk { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 6px; align-items: end; height: 64px; }
+.wk div { position: relative; background: var(--surface-2); border-radius: 4px 4px 0 0; }
+.wk div.hi { background: var(--flag); }
+.wk div b { position: absolute; bottom: -18px; left: 0; right: 0; text-align: center; font-size: 11px; color: var(--ink-3); font-weight: 500; }
+.wk-wrap { padding-bottom: 18px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--ink-2); margin-top: 12px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 6px; }
+
+/* Draft board */
+.trend.up { color: var(--good); font-weight: 700; }
+.trend.down { color: var(--ink-3); }
+.spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
+.spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
+.spark i.bye { background: transparent; border-bottom: 2px dotted var(--ink-3); height: 0 !important; }
+
+/* Sightings */
+.sight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+.sight { padding: 16px 18px; }
+.sight .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.sight .pts { font-family: Oswald, sans-serif; font-size: 24px; font-weight: 700; }
+.sight .type { font-weight: 700; margin-top: 8px; }
+.sight .meta { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
+
+details.card { padding: 0; }
+details summary { cursor: pointer; padding: 16px 20px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "+"; font-size: 20px; line-height: 1; color: var(--ink-3); }
+details[open] summary::after { content: "–"; }
+.tiers-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.tiers-cols > div { padding: 16px 20px; border-left: 1px solid var(--line); }
+.tiers-cols > div:first-child { border-left: 0; }
+.tiers-cols ul { list-style: none; padding: 0; margin: 10px 0 0; font-size: 14px; }
+.tiers-cols li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; }
+.tiers-cols li span:last-child { color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+.faq { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.faq .card { padding: 20px 22px; }
+.faq h3 { font-size: 17px; margin-bottom: 8px; }
+.faq p { font-size: 15px; color: var(--ink-2); }
+
+/* Live */
+#live .sec-head h2 { display: flex; align-items: center; gap: 12px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: #e5484d; box-shadow: 0 0 0 0 rgba(229,72,77,.6); animation: pulse 1.6s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(229,72,77,0); } 100% { box-shadow: 0 0 0 0 rgba(229,72,77,0); } }
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+.live-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.lg { padding: 16px 18px; }
+.lg .top { display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--ink-3); }
+.lg .top b { color: #e5484d; }
+.lg .crew { font-weight: 700; margin-top: 6px; }
+.lg .owner { font-size: 13px; color: var(--ink-2); }
+.lg .pts { font-family: Oswald, sans-serif; font-size: 30px; font-weight: 700; margin-top: 6px; }
+.lg .pts small { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; color: var(--ink-3); }
+.lg .lastflag { font-size: 13px; color: var(--ink-2); margin-top: 6px; border-top: 1px solid var(--line); padding-top: 8px; }
+#live-teams { margin-top: 16px; }
+
+footer { padding: 56px 0 40px; color: var(--ink-3); font-size: 13px; }
+footer .stripes { margin-bottom: 24px; }
+
+@media (max-width: 860px) {
+  .score-grid, .faq { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .team { grid-template-columns: 30px 1fr auto; grid-template-areas: "rank name total" "wk wk wk"; row-gap: 14px; }
+  .team .rank { grid-area: rank; } .team > div:nth-child(2) { grid-area: name; }
+  .team .wk-wrap { grid-area: wk; } .team .total { grid-area: total; }
+  .team .total .l { max-width: 84px; margin-left: auto; line-height: 1.3; }
+  .team .name { font-size: 20px; }
+  .tiers-cols { grid-template-columns: 1fr 1fr; }
+  .tiers-cols > div:nth-child(3) { border-left: 0; }
+  .tiers-cols > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .hide-sm { display: none; }
+  .bar { min-width: 120px; }
+  table.t th, table.t td { padding-left: 10px; padding-right: 10px; }
+}
+</style>
+</head>
+<body>
+<div class="stripes" aria-hidden="true"></div>
+
+<header class="hero wrap">
+  <div class="brand">
+    <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M14 10 C 30 4, 38 20, 54 12 L 50 40 C 36 46, 28 30, 12 38 Z" fill="var(--flag)" stroke="var(--ink)" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="12" cy="46" r="6" fill="var(--ink)"/>
+      <path d="M12 38 L 12 46" stroke="var(--ink)" stroke-width="2.5"/>
+    </svg>
+    <h1 id="lname">The Laundry League</h1>
+  </div>
+  <p class="tag">Fantasy football where you draft the <b>refs</b>. Every flag your crew throws puts points on your board — the rarer the call, the bigger the payday.</p>
+  <div class="pill" id="pill"></div>
+  <div class="kpis" id="kpis"></div>
+</header>
+
+<nav class="toc"><div class="wrap">
+  <a href="#live" id="live-link" hidden>● Live</a><a href="#how">How it works</a><a href="#scoring">Scoring</a><a href="#week">Week <span class="lw"></span> scoreboard</a>
+  <a href="#league" id="league-link">Sample league</a><a href="#board">Draft board</a><a href="#unicorns">Unicorn watch</a><a href="#faq">Fine print</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="live" hidden>
+  <div class="sec-head"><div><h2><span class="dot" aria-hidden="true"></span>Live now</h2>
+  <p class="muted" id="live-sub"></p></div></div>
+  <div class="live-grid" id="live-games"></div>
+  <div id="live-teams"></div>
+</section>
+
+<section id="how">
+  <div class="sec-head"><div><h2>How it works</h2>
+  <p class="muted">Same idea as fantasy football. Instead of players, you draft the NFL's <span id="ncrews">17</span> officiating crews — each led by a referee who works with the same six officials all season.</p></div></div>
+  <div class="steps">
+    <div class="card step"><div class="n">1</div><h3>Draft 3 crews</h3>
+      <p>Snake draft on draft night. Each team takes 3 crews. Every week, your <b>best 2 crew scores count</b> — so when a crew has the week off (1–3 crews sit each week), nothing breaks.</p></div>
+    <div class="card step"><div class="n">2</div><h3>Every flag scores</h3>
+      <p>Your crew works one game a week. Every flag thrown in that game — on either team — scores for you. Accepted, declined, offsetting: if the laundry hits the turf, it counts.</p></div>
+    <div class="card step"><div class="n">3</div><h3>It runs itself</h3>
+      <p>Scores post automatically each morning from the NFL's official play-by-play. During games, live provisional points. The commissioner only enters the draft.</p></div>
+  </div>
+</section>
+
+<section id="scoring">
+  <div class="sec-head"><div><h2>Scoring</h2>
+  <p class="muted">One simple base rate for every flag, then bonuses for the weird stuff.</p></div></div>
+  <div class="score-grid">
+    <div class="card anchor">
+      <div class="eq">2 pts per flag<br>+ 1 pt per 5 yards</div>
+      <p class="sub">The baseline: a 10-yard holding call — the most common flag in football — is worth <b>4 points</b>. Partial yards count (a 12-yard foul earns 2.4 yardage points).</p>
+      <table>
+        <tr><td>False start or offside · 5 yards</td><td>3</td></tr>
+        <tr><td>Holding · 10 yards</td><td>4</td></tr>
+        <tr><td>Roughing the passer · 15 yards</td><td>5</td></tr>
+        <tr><td>Pass interference · 40 yards</td><td>10</td></tr>
+        <tr><td>Any declined flag · 0 yards</td><td>2</td></tr>
+      </table>
+    </div>
+    <div class="card bonus">
+      <h3>Bonuses</h3>
+      <div class="brow"><div class="pts">+4</div><div class="what"><span class="tier uncommon">Uncommon</span> call<small id="ex-uncommon"></small></div></div>
+      <div class="brow"><div class="pts">+10</div><div class="what"><span class="tier rare">Rare</span> call<small id="ex-rare"></small></div></div>
+      <div class="brow"><div class="pts">+20</div><div class="what"><span class="tier unicorn">Unicorn</span> call<small id="ex-unicorn"></small></div></div>
+      <div class="brow"><div class="pts">+20</div><div class="what"><span class="tier ejection">Ejection</span><small>A player is disqualified from the game.</small></div></div>
+      <div class="brow"><div class="pts">+6</div><div class="what">Flag wipes out a touchdown<small>Per nullified touchdown.</small></div></div>
+      <div class="brow"><div class="pts">×2</div><div class="what">Offsetting penalties<small>Both flags score double.</small></div></div>
+      <div class="brow"><div class="pts">×1.5</div><div class="what">Clutch flag<small>Thrown in the last 2:00 of the 1st or 2nd half. Multipliers stack.</small></div></div>
+    </div>
+  </div>
+  <div class="card example" id="example"></div>
+  <p class="faint" style="margin-top:12px" id="tier-note"></p>
+</section>
+
+<section id="week">
+  <div class="sec-head"><div><h2>Week <span class="lw"></span> scoreboard</h2>
+  <p class="muted">What every crew would have scored last week under these rules — real games, real flags.</p></div></div>
+  <div class="card">
+    <div class="tbl-wrap"><table class="t" id="week-tbl"></table></div>
+    <div class="byes" id="byes"></div>
+  </div>
+</section>
+
+<section id="league">
+  <div class="sec-head"><div><h2 id="league-h">Sample league</h2>
+  <p class="muted" id="league-sub"></p></div></div>
+  <div class="standings" id="standings"></div>
+  <div class="legend"><span><i style="background:var(--flag)"></i>Highest-scoring team that week</span><span><i style="background:var(--surface-2)"></i>Weekly score (best 2 of 3 crews)</span><span id="fa"></span></div>
+</section>
+
+<section id="board">
+  <div class="sec-head"><div><h2>Draft board</h2>
+  <p class="muted" id="board-sub"></p></div></div>
+  <div class="card"><div class="tbl-wrap"><table class="t" id="board-tbl"></table></div></div>
+</section>
+
+<section id="unicorns">
+  <div class="sec-head"><div><h2>Unicorn watch</h2>
+  <p class="muted" id="uni-sub"></p></div></div>
+  <div class="sight-grid" id="sightings"></div>
+  <details class="card" style="margin-top:16px">
+    <summary>Full rare-call list — how every foul is tiered</summary>
+    <div class="tiers-cols" id="tiers"></div>
+  </details>
+</section>
+
+<section id="faq">
+  <div class="sec-head"><div><h2>Fine print</h2></div></div>
+  <div class="faq">
+    <div class="card"><h3>Where do the numbers come from?</h3><p>Every flag is read from the official NFL play-by-play (via the free nflverse data project). Officiating crews come from ESPN's game data. Nobody types anything in.</p></div>
+    <div class="card"><h3>How are tiers set?</h3><p id="faq-tiers"></p></div>
+    <div class="card"><h3>What doesn't count?</h3><p>Preseason and playoffs. Flags that get picked up — the data doesn't record them. Points are scored for the crew assigned to the game, even if one official is a fill-in that week.</p></div>
+    <div class="card"><h3>How do I win?</h3><p>Most total points at the end of Week 18 takes the title. Weekly high score gets bragging rights. The commissioner handles the draft and any trades.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div class="stripes" aria-hidden="true"></div>
+  <p id="foot"></p>
+</footer>
+
+<script id="league-data" type="application/json">{"league_name":"The Laundry League","season":2026,"cal_season":2025,"mode":"preview","partly_drafted":false,"start_week":8,"start_date":"2026-10-29","crews_per_team":3,"counting_crews":2,"generated_at":"2026-10-21T02:24Z","updated":"2026-10-19","last_week":6,"weeks_played":[1,2,3,4,5,6],"league_weeks":[1,2,3,4,5,6],"calibration_games":272,"avg_ppg25":75.0,"avg_flags25":15.2,"rules":{"per_flag":2,"per_yard":0.2,"tiers":{"common":0,"uncommon":4,"rare":10,"unicorn":20},"ejection":20,"td_wipe":6,"offset_mult":2,"clutch_mult":1.5},"pen_pattern":"PENALTY on ([A-Z]{2,3})(?:-([^,]+?))?, ([^,.]+?)(?:, (?:(\\d+) yards?|(declined|offsetting|superseded))|, placed at)","tier_of":{"Defensive Pass Interference":"common","False Start":"common","Delay of Game":"common","Illegal Shift":"common","Offensive Holding":"common","Illegal Contact":"common","Illegal Formation":"common","Defensive Holding":"common","Offensive Offside":"uncommon","Ineligible Downfield Pass":"common","Face Mask":"common","Defensive Offside":"common","Neutral Zone Infraction":"uncommon","Kickoff Short of Landing Zone":"uncommon","Defensive Too Many Men on Field":"uncommon","Illegal Motion":"rare","Intentional Grounding":"uncommon","Kickoff Out of Bounds":"uncommon","Unnecessary Roughness":"common","Offensive Pass Interference":"common","Roughing the Passer":"common","Encroachment":"uncommon","Disqualification":"rare","Taunting":"rare","Unsportsmanlike Conduct":"uncommon","Illegal Use of Hands":"uncommon","Illegal Bat":"unicorn","Illegal Block Above the Waist":"uncommon","Running Into the Kicker":"rare","Offensive Too Many Men on Field":"rare","Low Block":"rare","Player Out of Bounds on Kick":"rare","Chop Block":"rare","Illegal Touch Kick":"unicorn","Leverage":"unicorn","Illegal Forward Pass":"rare","Illegal Blindside Block":"uncommon","Horse Collar Tackle":"unicorn","Fair Catch Interference":"unicorn","Kick Catch Interference":"unicorn","Illegal Touch Pass":"unicorn","Roughing the Kicker":"rare","Tripping":"rare","Illegal Double-Team Block":"unicorn","Hip Drop Tackle":"unicorn","Ineligible Downfield Kick":"unicorn","Defensive Delay of Game":"unicorn","Invalid Fair Catch Signal":"unicorn"},"ref_last_names":{"eck":"Alan Eck","cheffers":"Carl Cheffers","rogers":"Brad Rogers","allen":"Brad Allen","smith":"Shawn Smith","kemp":"Alex Kemp","clark":"Land Clark","martin":"Clay Martin","novak":"Scott Novak","hochuli":"Shawn Hochuli","blakeman":"Clete Blakeman","wrolstad":"Craig Wrolstad","vinovich":"Bill Vinovich","torbert":"Ron Torbert","hussey":"John Hussey","moore":"Alex Moore","hill":"Adrian Hill"},"scored_espn":["401872656","401872657","401872658","401872659","401872660","401872661","401872922","401872923","401872924","401872925","401872926","401872927","401872928","401872929","401872930","401872931","401872932","401872933","401872934","401872935","401872936","401872937","401872938","401872939","401872940","401872941","401872942","401872943","401872944","401872945","401872946","401872947","401872948","401872949","401872950","401872951","401872952","401872953","401872954","401872955","401872956","401872957","401872958","401872959","401872960","401872961","401872962","401872963","401872964","401872965","401872966","401872967","401872968","401872969","401872970","401872971","401872972","401872973","401872974","401872975","401872976","401872977","401872978","401872979","401872980","401872981","401872982","401872983","401872984","401872985","401872986","401872987","401872988","401872989","401872990","401872991","401872992","401872993","401872994","401872995","401872996","401872997","401872998","401872999","401873000","401873001","401873002","401873003","401873004","401873005","401873006","401873007","401873008"],"crews":[{"referee":"Bill Vinovich","g25":17,"flags25":16.2,"ppg25":93.1,"g26":5,"pts26":369.6,"ppg26":73.9,"weeks":{"2":{"game":"LV @ LAC","flags":14,"yards":87,"pts":55.0},"3":{"game":"LA @ DEN","flags":20,"yards":129,"pts":91.5},"4":{"game":"NE @ BUF","flags":13,"yards":66,"pts":65.7},"5":{"game":"CLE @ NYJ","flags":16,"yards":132,"pts":85.4},"6":{"game":"TEN @ IND","flags":15,"yards":115,"pts":72.0}}},{"referee":"Alex Moore","g25":16,"flags25":19.4,"ppg25":92.3,"g26":5,"pts26":502.4,"ppg26":100.5,"weeks":{"1":{"game":"BUF @ HOU","flags":20,"yards":191,"pts":112.3},"2":{"game":"CAR @ ATL","flags":17,"yards":102,"pts":66.4},"3":{"game":"KC @ MIA","flags":18,"yards":114,"pts":92.9},"4":{"game":"JAX @ CIN","flags":25,"yards":233,"pts":143.5},"5":{"game":"TB @ DAL","flags":21,"yards":149,"pts":87.3}}},{"referee":"Shawn Hochuli","g25":16,"flags25":17.9,"ppg25":82.5,"g26":6,"pts26":478.6,"ppg26":79.8,"weeks":{"1":{"game":"GB @ MIN","flags":18,"yards":113,"pts":67.6},"2":{"game":"WAS @ DAL","flags":12,"yards":70,"pts":66.0},"3":{"game":"PHI @ CHI","flags":18,"yards":106,"pts":73.2},"4":{"game":"TEN @ BAL","flags":20,"yards":163,"pts":104.1},"5":{"game":"DEN @ LAC","flags":18,"yards":133,"pts":72.3},"6":{"game":"HOU @ JAX","flags":17,"yards":106,"pts":95.4}}},{"referee":"Adrian Hill","g25":14,"flags25":17.9,"ppg25":81.7,"g26":5,"pts26":531.8,"ppg26":106.4,"weeks":{"1":{"game":"NE @ SEA","flags":17,"yards":148,"pts":95.6},"2":{"game":"CIN @ HOU","flags":23,"yards":161,"pts":137.5},"3":{"game":"LV @ NO","flags":13,"yards":55,"pts":57.7},"4":{"game":"MIA @ MIN","flags":21,"yards":140,"pts":102.0},"6":{"game":"WAS @ SF","flags":19,"yards":154,"pts":139.0}}},{"referee":"Craig Wrolstad","g25":17,"flags25":14.1,"ppg25":79.6,"g26":5,"pts26":524.1,"ppg26":104.8,"weeks":{"1":{"game":"CLE @ JAX","flags":15,"yards":100,"pts":79.0},"2":{"game":"IND @ KC","flags":16,"yards":116,"pts":74.5},"4":{"game":"LA @ PHI","flags":21,"yards":157,"pts":113.4},"5":{"game":"LV @ NE","flags":24,"yards":217,"pts":104.4},"6":{"game":"DAL @ GB","flags":25,"yards":204,"pts":152.8}}},{"referee":"Brad Rogers","g25":16,"flags25":15.4,"ppg25":79.4,"g26":6,"pts26":438.2,"ppg26":73.0,"weeks":{"1":{"game":"ATL @ PIT","flags":19,"yards":148,"pts":81.1},"2":{"game":"CLE @ TB","flags":18,"yards":112,"pts":86.4},"3":{"game":"NYJ @ DET","flags":14,"yards":71,"pts":51.2},"4":{"game":"KC @ LV","flags":15,"yards":89,"pts":71.7},"5":{"game":"CIN @ MIA","flags":13,"yards":69,"pts":54.8},"6":{"game":"SEA @ DEN","flags":16,"yards":117,"pts":93.0}}},{"referee":"Ron Torbert","g25":16,"flags25":15.8,"ppg25":78.2,"g26":5,"pts26":453.8,"ppg26":90.8,"weeks":{"1":{"game":"ARI @ LAC","flags":18,"yards":175,"pts":88.9},"2":{"game":"DET @ BUF","flags":16,"yards":104,"pts":77.0},"3":{"game":"HOU @ IND","flags":8,"yards":55,"pts":34.5},"4":{"game":"DEN @ SF","flags":9,"yards":49,"pts":73.3},"5":{"game":"PHI @ JAX","flags":26,"yards":143,"pts":180.1}}},{"referee":"Carl Cheffers","g25":16,"flags25":17.3,"ppg25":75.8,"g26":6,"pts26":444.8,"ppg26":74.1,"weeks":{"1":{"game":"DAL @ NYG","flags":20,"yards":204,"pts":110.3},"2":{"game":"PIT @ NE","flags":13,"yards":90,"pts":62.0},"3":{"game":"SEA @ WAS","flags":19,"yards":110,"pts":83.5},"4":{"game":"NYJ @ CHI","flags":18,"yards":105,"pts":94.5},"5":{"game":"DET @ ARI","flags":9,"yards":76,"pts":42.7},"6":{"game":"BAL @ CLE","flags":15,"yards":74,"pts":51.8}}},{"referee":"Land Clark","g25":16,"flags25":13.6,"ppg25":72.2,"g26":6,"pts26":432.2,"ppg26":72.0,"weeks":{"1":{"game":"NYJ @ TEN","flags":13,"yards":73,"pts":60.1},"2":{"game":"MIN @ CHI","flags":16,"yards":83,"pts":62.1},"3":{"game":"CAR @ CLE","flags":22,"yards":147,"pts":92.7},"4":{"game":"ATL @ NO","flags":18,"yards":119,"pts":75.1},"5":{"game":"SF @ SEA","flags":15,"yards":116,"pts":88.7},"6":{"game":"PIT @ TB","flags":11,"yards":100,"pts":53.5}}},{"referee":"Alex Kemp","g25":17,"flags25":14.5,"ppg25":72.1,"g26":5,"pts26":439.1,"ppg26":87.8,"weeks":{"1":{"game":"SF @ LA","flags":8,"yards":64,"pts":49.3},"3":{"game":"NE @ JAX","flags":18,"yards":124,"pts":127.8},"4":{"game":"GB @ TB","flags":15,"yards":85,"pts":79.9},"5":{"game":"HOU @ TEN","flags":18,"yards":178,"pts":87.1},"6":{"game":"NO @ NYG","flags":21,"yards":125,"pts":95.0}}},{"referee":"Shawn Smith","g25":15,"flags25":14.7,"ppg25":70.6,"g26":6,"pts26":415.5,"ppg26":69.2,"weeks":{"1":{"game":"WAS @ PHI","flags":12,"yards":85,"pts":45.0},"2":{"game":"MIA @ SF","flags":16,"yards":128,"pts":87.6},"3":{"game":"ATL @ GB","flags":12,"yards":128,"pts":53.6},"4":{"game":"ARI @ NYG","flags":16,"yards":99,"pts":62.6},"5":{"game":"IND @ PIT","flags":16,"yards":109,"pts":65.8},"6":{"game":"BUF @ LV","flags":15,"yards":139,"pts":100.9}}},{"referee":"Scott Novak","g25":17,"flags25":13.6,"ppg25":67.7,"g26":6,"pts26":774.0,"ppg26":129.0,"weeks":{"1":{"game":"BAL @ IND","flags":17,"yards":115,"pts":79.0},"2":{"game":"GB @ NYJ","flags":33,"yards":289,"pts":175.3},"3":{"game":"MIN @ TB","flags":20,"yards":176,"pts":99.2},"4":{"game":"LAC @ SEA","flags":32,"yards":280,"pts":208.0},"5":{"game":"BUF @ LA","flags":24,"yards":196,"pts":94.2},"6":{"game":"CHI @ ATL","flags":19,"yards":164,"pts":118.3}}},{"referee":"Clete Blakeman","g25":16,"flags25":14.4,"ppg25":67.7,"g26":6,"pts26":460.2,"ppg26":76.7,"weeks":{"1":{"game":"MIA @ LV","flags":15,"yards":90,"pts":74.0},"2":{"game":"NO @ BAL","flags":14,"yards":69,"pts":51.3},"3":{"game":"LAC @ BUF","flags":21,"yards":143,"pts":81.6},"4":{"game":"PIT @ CLE","flags":28,"yards":180,"pts":128.9},"5":{"game":"NYG @ WAS","flags":18,"yards":104,"pts":57.8},"6":{"game":"NYJ @ NE","flags":11,"yards":92,"pts":66.6}}},{"referee":"Alan Eck","g25":16,"flags25":13.4,"ppg25":67.6,"g26":5,"pts26":487.4,"ppg26":97.5,"weeks":{"1":{"game":"NO @ DET","flags":15,"yards":114,"pts":77.3},"2":{"game":"SEA @ ARI","flags":15,"yards":74,"pts":107.1},"3":{"game":"TEN @ NYG","flags":18,"yards":151,"pts":103.8},"4":{"game":"IND @ WAS","flags":12,"yards":89,"pts":55.8},"6":{"game":"LAC @ KC","flags":23,"yards":158,"pts":143.4}}},{"referee":"Clay Martin","g25":16,"flags25":14.4,"ppg25":67.1,"g26":6,"pts26":384.0,"ppg26":64.0,"weeks":{"1":{"game":"DEN @ KC","flags":16,"yards":112,"pts":72.3},"2":{"game":"PHI @ TEN","flags":12,"yards":80,"pts":51.5},"3":{"game":"CIN @ PIT","flags":14,"yards":77,"pts":60.9},"4":{"game":"DET @ CAR","flags":25,"yards":127,"pts":85.4},"5":{"game":"CHI @ GB","flags":7,"yards":45,"pts":64.0},"6":{"game":"ARI @ LA","flags":11,"yards":82,"pts":49.9}}},{"referee":"John Hussey","g25":16,"flags25":13.7,"ppg25":63.7,"g26":5,"pts26":421.2,"ppg26":84.2,"weeks":{"1":{"game":"TB @ CIN","flags":16,"yards":86,"pts":62.1},"2":{"game":"JAX @ DEN","flags":17,"yards":93,"pts":96.1},"3":{"game":"BAL @ DAL","flags":16,"yards":166,"pts":80.7},"5":{"game":"MIN @ NO","flags":13,"yards":71,"pts":41.7},"6":{"game":"CAR @ PHI","flags":29,"yards":233,"pts":140.6}}},{"referee":"Brad Allen","g25":15,"flags25":12.9,"ppg25":63.1,"g26":5,"pts26":390.5,"ppg26":78.1,"weeks":{"1":{"game":"CHI @ CAR","flags":23,"yards":141,"pts":107.7},"2":{"game":"NYG @ LA","flags":11,"yards":70,"pts":36.0},"3":{"game":"ARI @ SF","flags":22,"yards":155,"pts":97.0},"4":{"game":"DAL @ HOU","flags":21,"yards":137,"pts":90.9},"5":{"game":"BAL @ ATL","flags":13,"yards":107,"pts":58.9}}}],"week_games":[{"referee":"Craig Wrolstad","game":"DAL @ GB","day":"Sunday","flags":25,"yards":204,"pts":152.8,"top":{"type":"Taunting","team":"GB","player":"D.Dennis-Sutton","yards":0,"pts":24.0,"tier":"rare","status":"offsetting","clutch":false,"qtr":"3","clock":"00:10"}},{"referee":"Alan Eck","game":"LAC @ KC","day":"Sunday","flags":23,"yards":158,"pts":143.4,"top":{"type":"Disqualification","team":"KC","player":"C.Roland-Wallace","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"4","clock":"15:00"}},{"referee":"John Hussey","game":"CAR @ PHI","day":"Sunday","flags":29,"yards":233,"pts":140.6,"top":{"type":"Taunting","team":"CAR","player":"T.Tremble","yards":15,"pts":15.0,"tier":"rare","status":"accepted","clutch":false,"qtr":"4","clock":"06:39"}},{"referee":"Adrian Hill","game":"WAS @ SF","day":"Monday","flags":19,"yards":154,"pts":139.0,"top":{"type":"Fair Catch Interference","team":"SF","player":"S.Neal","yards":15,"pts":37.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"4","clock":"01:00"}},{"referee":"Scott Novak","game":"CHI @ ATL","day":"Sunday","flags":19,"yards":164,"pts":118.3,"top":{"type":"Disqualification","team":"CHI","player":"J.Walker","yards":15,"pts":25.0,"tier":"ejection","status":"accepted","clutch":false,"qtr":"4","clock":"14:56"}},{"referee":"Shawn Smith","game":"BUF @ LV","day":"Sunday","flags":15,"yards":139,"pts":100.9,"top":{"type":"Disqualification","team":"BUF","player":"C.Gardner-Johnson","yards":14,"pts":37.2,"tier":"ejection","status":"accepted","clutch":true,"qtr":"2","clock":"00:19"}},{"referee":"Shawn Hochuli","game":"HOU @ JAX","day":"Sunday","flags":17,"yards":106,"pts":95.4,"top":{"type":"Tripping","team":"HOU","player":"W.Marks","yards":15,"pts":15.0,"tier":"rare","status":"accepted","clutch":false,"qtr":"4","clock":"08:36"}},{"referee":"Alex Kemp","game":"NO @ NYG","day":"Sunday","flags":21,"yards":125,"pts":95.0,"top":{"type":"Illegal Block Above the Waist","team":"NYG","player":"Z.Barnes","yards":10,"pts":12.0,"tier":"uncommon","status":"accepted","clutch":true,"qtr":"4","clock":"01:06"}},{"referee":"Brad Rogers","game":"SEA @ DEN","day":"Thursday","flags":16,"yards":117,"pts":93.0,"top":{"type":"Leverage","team":"SEA","player":"E.Jones","yards":0,"pts":22.0,"tier":"unicorn","status":"declined","clutch":false,"qtr":"5","clock":"04:57"}},{"referee":"Bill Vinovich","game":"TEN @ IND","day":"Sunday","flags":15,"yards":115,"pts":72.0,"top":{"type":"Running Into the Kicker","team":"TEN","player":"T.Jones","yards":5,"pts":13.0,"tier":"rare","status":"accepted","clutch":false,"qtr":"3","clock":"12:37"}},{"referee":"Clete Blakeman","game":"NYJ @ NE","day":"Sunday","flags":11,"yards":92,"pts":66.6,"top":{"type":"Player Out of Bounds on Kick","team":"NYJ","player":"Q.Stiggers","yards":5,"pts":13.0,"tier":"rare","status":"accepted","clutch":false,"qtr":"1","clock":"04:35"}},{"referee":"Land Clark","game":"PIT @ TB","day":"Sunday","flags":11,"yards":100,"pts":53.5,"top":{"type":"Illegal Blindside Block","team":"PIT","player":"C.Holcomb","yards":15,"pts":9.0,"tier":"uncommon","status":"accepted","clutch":false,"qtr":"1","clock":"07:51"}},{"referee":"Carl Cheffers","game":"BAL @ CLE","day":"Sunday","flags":15,"yards":74,"pts":51.8,"top":{"type":"Neutral Zone Infraction","team":"CLE","player":"C.Williams","yards":5,"pts":7.0,"tier":"uncommon","status":"accepted","clutch":false,"qtr":"4","clock":"12:45"}},{"referee":"Clay Martin","game":"ARI @ LA","day":"Sunday","flags":11,"yards":82,"pts":49.9,"top":{"type":"Unnecessary Roughness","team":"LA","player":"J.Wallace","yards":15,"pts":7.5,"tier":"common","status":"accepted","clutch":true,"qtr":"4","clock":"00:47"}}],"top_flags":[{"type":"Fair Catch Interference","team":"ARI","player":"J.Brooks","yards":0,"pts":44.0,"tier":"unicorn","status":"offsetting","clutch":false,"qtr":"3","clock":"03:20","week":2,"referee":"Alan Eck","game":"SEA @ ARI"},{"type":"Disqualification","team":"JAX","player":"Bry.Thomas","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"1","clock":"15:00","week":5,"referee":"Ron Torbert","game":"PHI @ JAX"},{"type":"Disqualification","team":"PHI","player":"J.Trotter","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"1","clock":"15:00","week":5,"referee":"Ron Torbert","game":"PHI @ JAX"},{"type":"Disqualification","team":"KC","player":"C.Roland-Wallace","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"4","clock":"15:00","week":6,"referee":"Alan Eck","game":"LAC @ KC"},{"type":"Fair Catch Interference","team":"SF","player":"S.Neal","yards":15,"pts":37.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"4","clock":"01:00","week":6,"referee":"Adrian Hill","game":"WAS @ SF"},{"type":"Disqualification","team":"BUF","player":"C.Gardner-Johnson","yards":14,"pts":37.2,"tier":"ejection","status":"accepted","clutch":true,"qtr":"2","clock":"00:19","week":6,"referee":"Shawn Smith","game":"BUF @ LV"},{"type":"Defensive Delay of Game","team":"DEN","player":"T.Hufanga","yards":5,"pts":34.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"2","clock":"00:16","week":2,"referee":"John Hussey","game":"JAX @ DEN"},{"type":"Defensive Delay of Game","team":"SF","player":"D.Lenoir","yards":5,"pts":34.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"2","clock":"01:10","week":4,"referee":"Ron Torbert","game":"DEN @ SF"}],"sightings":[{"type":"Lowering the Head to Make Forcible Contact","team":"HOU","player":"F.Moreau","yards":15,"pts":25.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"3","clock":"14:40","week":2,"referee":"Adrian Hill","game":"CIN @ HOU"},{"type":"Ineligible Downfield Kick","team":"HOU","player":"J.Hill","yards":5,"pts":23.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"4","clock":"08:30","week":2,"referee":"Adrian Hill","game":"CIN @ HOU"},{"type":"Invalid Fair Catch Signal","team":"NYJ","player":"I.Williams","yards":5,"pts":23.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"1","clock":"01:51","week":2,"referee":"Scott Novak","game":"GB @ NYJ"},{"type":"Defensive Delay of Game","team":"DEN","player":"T.Hufanga","yards":5,"pts":34.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"2","clock":"00:16","week":2,"referee":"John Hussey","game":"JAX @ DEN"},{"type":"Fair Catch Interference","team":"ARI","player":"J.Brooks","yards":0,"pts":44.0,"tier":"unicorn","status":"offsetting","clutch":false,"qtr":"3","clock":"03:20","week":2,"referee":"Alan Eck","game":"SEA @ ARI"},{"type":"Lowering the Head to Make Forcible Contact","team":"DAL","player":"J.Thompson","yards":7,"pts":23.4,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"2","clock":"07:21","week":2,"referee":"Shawn Hochuli","game":"WAS @ DAL"},{"type":"Fair Catch Interference","team":"NYG","player":"E.Campbell","yards":15,"pts":25.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"4","clock":"03:12","week":3,"referee":"Alan Eck","game":"TEN @ NYG"},{"type":"Horse Collar Tackle","team":"BAL","player":"T.Simpson","yards":15,"pts":25.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"2","clock":"12:10","week":4,"referee":"Shawn Hochuli","game":"TEN @ BAL"},{"type":"Illegal Touch Kick","team":"NYJ","player":"Q.Stiggers","yards":5,"pts":23.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"1","clock":"07:47","week":4,"referee":"Carl Cheffers","game":"NYJ @ CHI"},{"type":"Illegal Touch Pass","team":"MIA","player":"C.Bell","yards":0,"pts":22.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"2","clock":"12:40","week":4,"referee":"Adrian Hill","game":"MIA @ MIN"},{"type":"Invalid Fair Catch Signal","team":"KC","player":"N.Remigio","yards":5,"pts":23.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"3","clock":"00:40","week":4,"referee":"Brad Rogers","game":"KC @ LV"},{"type":"Lowering the Head to Make Forcible Contact","team":"SEA","player":"C.O'Toole","yards":15,"pts":25.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"1","clock":"05:11","week":4,"referee":"Scott Novak","game":"LAC @ SEA"},{"type":"Leverage","team":"LAC","player":"T.Tuipulotu","yards":15,"pts":25.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"3","clock":"02:53","week":4,"referee":"Scott Novak","game":"LAC @ SEA"},{"type":"Defensive Delay of Game","team":"SF","player":"D.Lenoir","yards":5,"pts":34.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"2","clock":"01:10","week":4,"referee":"Ron Torbert","game":"DEN @ SF"},{"type":"Disqualification","team":"JAX","player":"Bry.Thomas","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"1","clock":"15:00","week":5,"referee":"Ron Torbert","game":"PHI @ JAX"},{"type":"Disqualification","team":"PHI","player":"J.Trotter","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"1","clock":"15:00","week":5,"referee":"Ron Torbert","game":"PHI @ JAX"},{"type":"Illegal Substitution","team":"GB","player":"J.Sturdivant","yards":5,"pts":34.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"2","clock":"00:16","week":5,"referee":"Clay Martin","game":"CHI @ GB"},{"type":"Fair Catch Interference","team":"NYJ","player":"M.McClain","yards":15,"pts":25.0,"tier":"unicorn","status":"accepted","clutch":false,"qtr":"2","clock":"13:32","week":5,"referee":"Bill Vinovich","game":"CLE @ NYJ"},{"type":"Disqualification","team":"SF","player":"D.Greenlaw","yards":15,"pts":25.0,"tier":"ejection","status":"accepted","clutch":false,"qtr":"2","clock":"06:30","week":5,"referee":"Land Clark","game":"SF @ SEA"},{"type":"Leverage","team":"SEA","player":"E.Jones","yards":0,"pts":22.0,"tier":"unicorn","status":"declined","clutch":false,"qtr":"5","clock":"04:57","week":6,"referee":"Brad Rogers","game":"SEA @ DEN"},{"type":"Disqualification","team":"CHI","player":"J.Walker","yards":15,"pts":25.0,"tier":"ejection","status":"accepted","clutch":false,"qtr":"4","clock":"14:56","week":6,"referee":"Scott Novak","game":"CHI @ ATL"},{"type":"Disqualification","team":"KC","player":"C.Roland-Wallace","yards":0,"pts":44.0,"tier":"ejection","status":"offsetting","clutch":false,"qtr":"4","clock":"15:00","week":6,"referee":"Alan Eck","game":"LAC @ KC"},{"type":"Disqualification","team":"BUF","player":"C.Gardner-Johnson","yards":14,"pts":37.2,"tier":"ejection","status":"accepted","clutch":true,"qtr":"2","clock":"00:19","week":6,"referee":"Shawn Smith","game":"BUF @ LV"},{"type":"Fair Catch Interference","team":"SF","player":"S.Neal","yards":15,"pts":37.5,"tier":"unicorn","status":"accepted","clutch":true,"qtr":"4","clock":"01:00","week":6,"referee":"Adrian Hill","game":"WAS @ SF"}],"standings":[{"team":"False Start Kids","manager":"","crews":["Alex Moore","Land Clark","Scott Novak"],"weeks":{"1":191.3,"2":241.7,"3":192.1,"4":351.5,"5":182.9,"6":171.8},"total":1331.3,"wins":3},{"team":"Flag on the Play","manager":"","crews":["Adrian Hill","Ron Torbert","Alan Eck"],"weeks":{"1":184.5,"2":244.6,"3":161.5,"4":175.3,"5":180.1,"6":282.4},"total":1228.4,"wins":2},{"team":"Pick Up the Flag","manager":"","crews":["Craig Wrolstad","Brad Rogers","Clay Martin"],"weeks":{"1":160.1,"2":160.9,"3":112.1,"4":198.8,"5":168.4,"6":245.8},"total":1046.1,"wins":0},{"team":"Laundry Day","manager":"","crews":["Shawn Hochuli","Carl Cheffers","Clete Blakeman"],"weeks":{"1":184.3,"2":128.0,"3":165.1,"4":233.0,"5":130.1,"6":162.0},"total":1002.5,"wins":0},{"team":"Holding Pattern","manager":"","crews":["Bill Vinovich","Alex Kemp","Shawn Smith"],"weeks":{"1":94.3,"2":142.6,"3":219.3,"4":145.6,"5":172.5,"6":195.9},"total":970.2,"wins":1}],"free_agents":["John Hussey","Brad Allen"],"tier_table":[{"type":"Offensive Holding","per_game":2.904,"season":790,"tier":"common"},{"type":"False Start","per_game":2.434,"season":662,"tier":"common"},{"type":"Defensive Pass Interference","per_game":1.169,"season":318,"tier":"common"},{"type":"Defensive Holding","per_game":1.004,"season":273,"tier":"common"},{"type":"Defensive Offside","per_game":0.857,"season":233,"tier":"common"},{"type":"Unnecessary Roughness","per_game":0.728,"season":198,"tier":"common"},{"type":"Delay of Game","per_game":0.669,"season":182,"tier":"common"},{"type":"Illegal Formation","per_game":0.57,"season":155,"tier":"common"},{"type":"Illegal Contact","per_game":0.518,"season":141,"tier":"common"},{"type":"Face Mask","per_game":0.393,"season":107,"tier":"common"},{"type":"Ineligible Downfield Pass","per_game":0.357,"season":97,"tier":"common"},{"type":"Roughing the Passer","per_game":0.357,"season":97,"tier":"common"},{"type":"Illegal Shift","per_game":0.342,"season":93,"tier":"common"},{"type":"Offensive Pass Interference","per_game":0.32,"season":87,"tier":"common"},{"type":"Neutral Zone Infraction","per_game":0.279,"season":76,"tier":"uncommon"},{"type":"Illegal Use of Hands","per_game":0.276,"season":75,"tier":"uncommon"},{"type":"Intentional Grounding","per_game":0.221,"season":60,"tier":"uncommon"},{"type":"Illegal Block Above the Waist","per_game":0.221,"season":60,"tier":"uncommon"},{"type":"Kickoff Short of Landing Zone","per_game":0.158,"season":43,"tier":"uncommon"},{"type":"Defensive Too Many Men on Field","per_game":0.158,"season":43,"tier":"uncommon"},{"type":"Unsportsmanlike Conduct","per_game":0.158,"season":43,"tier":"uncommon"},{"type":"Kickoff Out of Bounds","per_game":0.143,"season":39,"tier":"uncommon"},{"type":"Encroachment","per_game":0.132,"season":36,"tier":"uncommon"},{"type":"Offensive Offside","per_game":0.121,"season":33,"tier":"uncommon"},{"type":"Illegal Blindside Block","per_game":0.107,"season":29,"tier":"uncommon"},{"type":"Taunting","per_game":0.096,"season":26,"tier":"rare"},{"type":"Illegal Motion","per_game":0.062,"season":17,"tier":"rare"},{"type":"Tripping","per_game":0.062,"season":17,"tier":"rare"},{"type":"Low Block","per_game":0.055,"season":15,"tier":"rare"},{"type":"Disqualification","per_game":0.044,"season":12,"tier":"rare"},{"type":"Illegal Forward Pass","per_game":0.037,"season":10,"tier":"rare"},{"type":"Offensive Too Many Men on Field","per_game":0.029,"season":8,"tier":"rare"},{"type":"Player Out of Bounds on Kick","per_game":0.029,"season":8,"tier":"rare"},{"type":"Chop Block","per_game":0.029,"season":8,"tier":"rare"},{"type":"Running Into the Kicker","per_game":0.026,"season":7,"tier":"rare"},{"type":"Roughing the Kicker","per_game":0.022,"season":6,"tier":"rare"},{"type":"Leverage","per_game":0.018,"season":5,"tier":"unicorn"},{"type":"Fair Catch Interference","per_game":0.018,"season":5,"tier":"unicorn"},{"type":"Defensive Delay of Game","per_game":0.018,"season":5,"tier":"unicorn"},{"type":"Horse Collar Tackle","per_game":0.015,"season":4,"tier":"unicorn"},{"type":"Kick Catch Interference","per_game":0.015,"season":4,"tier":"unicorn"},{"type":"Illegal Touch Pass","per_game":0.015,"season":4,"tier":"unicorn"},{"type":"Illegal Touch Kick","per_game":0.011,"season":3,"tier":"unicorn"},{"type":"Illegal Double-Team Block","per_game":0.011,"season":3,"tier":"unicorn"},{"type":"Ineligible Downfield Kick","per_game":0.011,"season":3,"tier":"unicorn"},{"type":"Hip Drop Tackle","per_game":0.007,"season":2,"tier":"unicorn"},{"type":"Invalid Fair Catch Signal","per_game":0.007,"season":2,"tier":"unicorn"},{"type":"Illegal Bat","per_game":0.004,"season":1,"tier":"unicorn"}],"unknown_ref_games":[]}</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById('league-data').textContent);
+  const $ = s => document.querySelector(s);
+  const fmt = n => (Math.round(n * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const last = D.last_week, weeks = D.weeks_played;
+  const tierLabel = { common: 'Common', uncommon: 'Uncommon', rare: 'Rare', unicorn: 'Unicorn', ejection: 'Ejection' };
+  const tierChip = t => `<span class="tier ${t}">${tierLabel[t]}</span>`;
+  const flagTags = f => (f.status === 'offsetting' ? '<span class="tag2">×2 offsetting</span>' : '') +
+                        (f.clutch ? '<span class="tag2">×1.5 clutch</span>' : '') +
+                        (f.status === 'declined' ? '<span class="tag2">declined</span>' : '');
+  const qtr = q => (q === '5' ? 'OT' : 'Q' + q);
+
+  const CAL = D.cal_season, SEA = D.season, live = D.mode === 'live';
+  const R = D.rules;
+  const dayFmt = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  const stamp = new Date(D.generated_at.replace('Z', ':00Z')).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+  document.querySelectorAll('.lw').forEach(e => e.textContent = last);
+  $('#lname').textContent = D.league_name;
+  $('#ncrews').textContent = D.crews.length;
+  const started = live && D.league_weeks.length;
+  $('#pill').innerHTML = (live ? `<b>${SEA} season</b> · ${started ? `scored through <b>Week ${last}</b>` : `kicks off <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`}`
+                               : `Preview · real ${SEA} numbers through <b>Week ${last}</b> · league starts <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`) +
+                        ` · updated ${esc(stamp)}`;
+
+  // KPIs
+  const allWeekPts = D.week_games.map(g => g.pts);
+  const best = D.week_games[0];
+  $('#kpis').innerHTML = [
+    [fmt(D.avg_ppg25), `avg points per crew game (${CAL})`],
+    [D.avg_flags25.toFixed(1), `avg flags per game (${CAL})`],
+    [fmt(best.pts), `top crew score, Week ${last} (${best.referee.split(' ').pop()})`],
+    [D.sightings.length, `unicorns + ejections in ${SEA}`]
+  ].map(([v, l]) => `<div class="kpi"><div class="v num">${v}</div><div class="l">${l}</div></div>`).join('');
+
+  // Tier examples
+  const byTier = {};
+  D.tier_table.forEach(t => (byTier[t.tier] = byTier[t.tier] || []).push(t));
+  const perG = t => t.per_game;
+  const rng = { uncommon: '0.1–0.3 per game', rare: '0.02–0.1 per game', unicorn: 'under 0.02 per game (fewer than 6 all season)' };
+  ['uncommon', 'rare', 'unicorn'].forEach(t => {
+    const ex = byTier[t].filter(x => !/disqualif/i.test(x.type)).slice(0, 3).map(x => x.type).join(', ');
+    $('#ex-' + t).textContent = `${ex}. Called ${rng[t]} in ${CAL}.`;
+  });
+  $('#tier-note').textContent = `Tiers are set from how often each foul was called across all ${D.calibration_games} regular-season games in ${CAL}. Anything called 0.3+ times a game (holding, false start, pass interference) is common and earns the base rate only.`;
+  $('#faq-tiers').textContent = `By how often each foul was called in the ${D.calibration_games} regular-season games of ${CAL}. A foul nobody called last season (like a brand-new rule) is automatically a unicorn. Tiers reset each year from the prior season.`;
+
+  // Worked example: best clutch unicorn from the latest week, else top flag of the season
+  const ex = D.top_flags.find(f => f.tier === 'unicorn' && f.clutch && f.status === 'accepted') || D.top_flags[0];
+  const bonus = D.rules.tiers[ex.tier] ?? D.rules.ejection;
+  const yp = ex.yards * D.rules.per_yard;
+  $('#example').innerHTML = `
+    <div><div class="faint">Real example · Week ${ex.week}, ${esc(ex.game)} · ${esc(ex.referee)} crew</div>
+    <div style="margin-top:4px"><b>${esc(ex.type)}</b> on ${esc(ex.team)} ${esc(ex.player)}, ${ex.yards} yards, ${qtr(ex.qtr)} ${ex.clock} ${tierChip(ex.tier)}</div></div>
+    <div class="calc num" style="margin-left:auto">(2 <em>flag</em> + ${fmt(yp)} <em>yards</em> + ${bonus} <em>${ex.tier}</em>)${ex.clutch ? ' × 1.5 <em>clutch</em>' : ''} = ${fmt(ex.pts)} pts</div>`;
+
+  // Week scoreboard
+  const maxPts = Math.max(...allWeekPts);
+  $('#week-tbl').innerHTML = `<thead><tr><th>Crew (referee)</th><th class="hide-sm">Game</th><th class="r">Flags</th><th class="r hide-sm">Penalty yards</th><th>Points</th><th class="hide-sm">Biggest flag</th></tr></thead><tbody>` +
+    D.week_games.map(g => `<tr>
+      <td><div class="ref">${esc(g.referee)}</div><div class="game">${esc(g.game)} · ${esc(g.day)}</div></td>
+      <td class="hide-sm game">${esc(g.game)}</td>
+      <td class="r">${g.flags}</td><td class="r hide-sm">${g.yards}</td>
+      <td class="bar"><div><span>${fmt(g.pts)}</span><u><i style="width:${(g.pts / maxPts * 100).toFixed(1)}%"></i></u></div></td>
+      <td class="hide-sm topflag">${esc(g.top.type)} ${tierChip(g.top.tier)}${flagTags(g.top)} <b class="num">${fmt(g.top.pts)}</b>
+        <div class="who">${esc(g.top.team)} ${esc(g.top.player)} · ${qtr(g.top.qtr)} ${esc(g.top.clock)}</div></td></tr>`).join('') + '</tbody>';
+  const byes = D.crews.filter(c => !(String(last) in c.weeks)).map(c => c.referee);
+  $('#byes').innerHTML = `<b>Off this week (0 points):</b> ${byes.map(esc).join(', ')} — which is why only your best 2 of 3 crews count.`;
+  // On narrow screens the Game column hides; the game line under the referee shows instead
+  const mq = window.matchMedia('(max-width: 860px)');
+  const syncGame = () => document.querySelectorAll('#week-tbl td:first-child .game').forEach(e => e.style.display = mq.matches ? '' : 'none');
+  syncGame(); mq.addEventListener && mq.addEventListener('change', syncGame);
+
+  // League standings (real once drafted, otherwise the mock league)
+  $('#league-h').textContent = live ? 'Standings' : 'Sample league';
+  $('#league-link').textContent = live ? 'Standings' : 'Sample league';
+  $('#league-sub').textContent = live
+    ? (started ? `Season points from Week ${D.start_week} on. Each week, your best ${D.counting_crews} of ${D.crews_per_team} crews count.`
+               : `Rosters are set. Scoring starts with Week ${D.start_week} on ${dayFmt(D.start_date)}.`)
+    : `A mock ${D.standings.length}-team league, auto-drafted in order of last season's points per game, played out over Weeks 1–${last} of ${SEA}. Team names are placeholders. Your league drafts for real.`;
+  const lweeks = D.league_weeks;
+  const maxWk = Math.max(1, ...D.standings.flatMap(s => lweeks.map(w => s.weeks[w])));
+  const highs = {};
+  lweeks.forEach(w => { highs[w] = D.standings.reduce((a, s) => s.weeks[w] > a.weeks[w] ? s : a).team; });
+  $('#standings').innerHTML = D.standings.map((s, i) => `
+    <div class="card team ${i === 0 && lweeks.length ? 'first' : ''}">
+      <div class="rank">${i + 1}</div>
+      <div><div class="name">${esc(s.team)}</div><div class="crews">${s.manager ? esc(s.manager) + ' · ' : ''}${s.crews.map(esc).join(' · ')}</div></div>
+      <div class="wk-wrap">${lweeks.length ? `<div class="wk" style="--n:${lweeks.length}">${lweeks.map(w =>
+        `<div class="${highs[w] === s.team ? 'hi' : ''}" style="height:${(s.weeks[w] / maxWk * 100).toFixed(1)}%" title="Week ${w}: ${fmt(s.weeks[w])} pts"><b>W${w}</b></div>`).join('')}</div>`
+        : `<p class="faint">First scores after Week ${D.start_week}</p>`}</div>
+      <div class="total"><div class="v num">${Math.round(s.total).toLocaleString('en-US')}</div><div class="l">total points · ${s.wins} weekly high${s.wins === 1 ? '' : 's'}</div></div>
+    </div>`).join('');
+  $('#fa').textContent = 'Undrafted (free agents): ' + D.free_agents.join(', ');
+
+  // Draft board
+  $('#board-sub').textContent = `All ${D.crews.length} crews, ranked by ${CAL} points per game. Who would you take first: the proven flag machine, or the crew that's hot this year?`;
+  $('#uni-sub').textContent = `Every unicorn call and ejection so far in ${SEA} — the flags that swing a week.`;
+  const maxW = Math.max(...D.crews.flatMap(c => Object.values(c.weeks).map(w => w.pts)));
+  $('#board-tbl').innerHTML = `<thead><tr><th class="r">#</th><th>Crew (referee)</th><th class="r">${CAL} flags / game</th><th class="r">${CAL} pts / game</th><th class="r">${SEA} pts / game</th><th class="hide-sm">${SEA} by week</th></tr></thead><tbody>` +
+    D.crews.map((c, i) => {
+      const d = c.ppg26 - c.ppg25;
+      const trend = Math.abs(d) < 5 ? '' : d > 0 ? `<span class="trend up">▲${fmt(d)}</span>` : `<span class="trend down">▼${fmt(-d)}</span>`;
+      const spark = weeks.map(w => c.weeks[w] ? `<i style="height:${(c.weeks[w].pts / maxW * 100).toFixed(0)}%" title="Week ${w}: ${fmt(c.weeks[w].pts)} pts, ${esc(c.weeks[w].game)}"></i>` : `<i class="bye" title="Week ${w}: off"></i>`).join('');
+      return `<tr><td class="r">${i + 1}</td><td class="ref">${esc(c.referee)}</td>
+        <td class="r">${c.flags25.toFixed(1)}</td><td class="r"><b>${fmt(c.ppg25)}</b></td>
+        <td class="r">${fmt(c.ppg26)} ${trend}<div class="game">${c.g26} games</div></td>
+        <td class="hide-sm"><span class="spark">${spark}</span></td></tr>`;
+    }).join('') + '</tbody>';
+
+  // Sightings
+  $('#sightings').innerHTML = D.sightings.slice().sort((a, b) => b.week - a.week || b.pts - a.pts).map(f => `
+    <div class="card sight"><div class="top">${tierChip(f.tier)}<span class="pts num">${fmt(f.pts)}</span></div>
+      <div class="type">${esc(f.type)}${flagTags(f)}</div>
+      <div class="meta">Week ${f.week} · ${esc(f.game)} · ${esc(f.team)} ${esc(f.player)}<br>${esc(f.referee)} crew</div></div>`).join('');
+
+  // Tier reference
+  $('#tiers').innerHTML = ['common', 'uncommon', 'rare', 'unicorn'].map(t => `
+    <div>${tierChip(t)} <span class="faint">${t === 'common' ? 'base only' : '+' + D.rules.tiers[t]}</span>
+    <ul>${(byTier[t] || []).filter(x => !/disqualif/i.test(x.type)).map(x => `<li><span>${esc(x.type)}</span><span>${x.season}</span></li>`).join('')}</ul></div>`).join('') ;
+
+  $('#foot').innerHTML = `Numbers on this page are ${CAL} and ${SEA} regular-season totals computed from nflverse play-by-play and ESPN officiating data. Last game scored ${esc(D.updated)}; page rebuilt ${esc(stamp)}. Right column of the rare-call list = times called in ${CAL}. Live numbers are provisional until the next morning's official update. Not affiliated with the NFL.`;
+
+  // ---- Live layer: provisional scores for games in progress -------------
+  // Reads ESPN's public game feed in the viewer's browser. Uses the same
+  // penalty pattern and tier table as the morning build, so the numbers
+  // match once the official update lands.
+  const ESPN = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/';
+  const known = new Set(D.crews.map(c => c.referee));
+  const refName = n => !n || known.has(n) ? (n || '') : (D.ref_last_names[n.split(' ').pop().toLowerCase()] || n);
+  const ownerOf = {};
+  if (live) D.standings.forEach(s => s.crews.forEach(c => ownerOf[c] = s.team));
+
+  function scorePlay(text, period, clock) {
+    const m2 = /(\d+):(\d+)/.exec(clock || '');
+    const secs = m2 ? +m2[1] * 60 + +m2[2] : 999;
+    const clutch = (period === 2 || period === 4) && secs <= 120;
+    const re = new RegExp(D.pen_pattern, 'gi');
+    const flags = [];
+    let m;
+    while ((m = re.exec(text))) {
+      const [, team, player, type, yds, status] = m;
+      const eject = /disqualif/i.test(type);
+      const tier = eject ? 'ejection' : (D.tier_of[type.trim()] || 'unicorn');
+      const bonus = eject ? R.ejection : R.tiers[tier];
+      const yards = yds ? +yds : 0;
+      const st = (status || 'accepted').toLowerCase();
+      const pts = Math.round((R.per_flag + yards * R.per_yard + bonus) *
+        (st === 'offsetting' ? R.offset_mult : 1) * (clutch ? R.clutch_mult : 1) * 10) / 10;
+      flags.push({ team: team.toUpperCase(), player: (player || '').replace(/^\d+-/, '').trim(),
+                   type: type.trim(), yards, status: st, tier, clutch, pts });
+    }
+    const u = text.toUpperCase();
+    return { flags, wipe: u.includes('TOUCHDOWN') && u.includes('NULLIFIED') ? R.td_wipe : 0 };
+  }
+
+  function scoreSummary(s) {
+    const drives = s.drives || {};
+    const all = (drives.previous || []).flatMap(d => d.plays || []).concat((drives.current && drives.current.plays) || []);
+    const seen = new Set(), flags = [];
+    let pts = 0;
+    all.forEach(p => {
+      if (!p.text || seen.has(p.id)) return;
+      seen.add(p.id);
+      if (!/PENALTY on/i.test(p.text)) return;
+      const r = scorePlay(p.text, p.period && p.period.number, p.clock && p.clock.displayValue);
+      r.flags.forEach(f => { flags.push(f); pts += f.pts; });
+      pts += r.wipe;
+    });
+    const offs = (s.gameInfo && s.gameInfo.officials) || [];
+    const ref = (offs.find(o => o.position && o.position.name === 'Referee') || {}).displayName;
+    return { referee: refName(ref), flags, pts: Math.round(pts * 10) / 10 };
+  }
+  window.LaundryLive = { scorePlay, scoreSummary, run: liveRun };   // for testing
+
+  async function liveRun() {
+    let sb;
+    try { sb = await (await fetch(ESPN + 'scoreboard')).json(); } catch (e) { return; }
+    const evs = sb.events || [];
+    const wk = sb.week && sb.week.number;
+    const regular = sb.season && sb.season.type === 2;
+    const show = regular ? evs.filter(e => e.status.type.state === 'in' ||
+      (e.status.type.state === 'post' && !D.scored_espn.includes(e.id))) : [];
+    if (show.length) {
+      const games = (await Promise.all(show.map(async e => {
+        try { return { e, r: scoreSummary(await (await fetch(ESPN + 'summary?event=' + e.id)).json()) }; }
+        catch (err) { return null; }
+      }))).filter(Boolean);
+      renderLive(games, wk);
+    } else {
+      $('#live').hidden = true; $('#live-link').hidden = true;
+    }
+    const soon = evs.some(e => e.status.type.state === 'in' ||
+      (e.status.type.state === 'pre' && new Date(e.date) - Date.now() < 3 * 3600e3));
+    if (soon) setTimeout(liveRun, 60000);
+  }
+
+  function renderLive(games, wk) {
+    $('#live').hidden = false; $('#live-link').hidden = false;
+    $('#live-sub').textContent = `Week ${wk} · provisional points from the live play-by-play, refreshed every minute. Official scores post the next morning.`;
+    $('#live-games').innerHTML = games.map(({ e, r }) => {
+      const st = e.status.type;
+      const lastF = r.flags[r.flags.length - 1];
+      return `<div class="card lg">
+        <div class="top"><span>${esc(e.shortName)}</span>${st.state === 'in' ? `<b>${esc(st.shortDetail)}</b>` : `<span>${esc(st.shortDetail)} · awaiting official</span>`}</div>
+        <div class="crew">${r.referee ? esc(r.referee) + ' crew' : 'Crew not posted yet'}</div>
+        ${live && r.referee ? `<div class="owner">${ownerOf[r.referee] ? esc(ownerOf[r.referee]) : 'Free agent'}</div>` : ''}
+        <div class="pts num">${fmt(r.pts)} <small>pts · ${r.flags.length} flags</small></div>
+        ${lastF ? `<div class="lastflag">Latest: ${esc(lastF.type)} ${lastF.tier !== 'common' ? tierChip(lastF.tier) : ''}${flagTags(lastF)} <b class="num">+${fmt(lastF.pts)}</b></div>` : ''}
+      </div>`;
+    }).join('');
+    // Provisional team totals for this week: official crew scores plus live ones
+    if (!live || wk < D.start_week) { $('#live-teams').innerHTML = ''; return; }
+    const liveBy = {};
+    games.forEach(({ r }) => { if (r.referee) liveBy[r.referee] = r.pts; });
+    const byRef = Object.fromEntries(D.crews.map(c => [c.referee, c]));
+    const rows = D.standings.map(s => {
+      const sc = s.crews.map(c => (byRef[c].weeks[wk] || {}).pts ?? liveBy[c] ?? 0).sort((a, b) => b - a);
+      const week = sc.slice(0, D.counting_crews).reduce((a, b) => a + b, 0);
+      return { team: s.team, week, total: s.total - (s.weeks[wk] || 0) + week };
+    }).sort((a, b) => b.total - a.total);
+    $('#live-teams').innerHTML = `<div class="card"><div class="tbl-wrap"><table class="t">
+      <thead><tr><th>Team</th><th class="r">Week ${wk} so far</th><th class="r">Season (provisional)</th></tr></thead><tbody>
+      ${rows.map(x => `<tr><td class="ref">${esc(x.team)}</td><td class="r">${fmt(x.week)}</td><td class="r"><b>${fmt(x.total)}</b></td></tr>`).join('')}
+      </tbody></table></div></div>`;
+  }
+
+  liveRun();
+})();
+</script>
+</body>
+</html>
