@@ -11,7 +11,7 @@
  "start_date": "2026-10-29",
  "crews_per_team": 2,
  "waiver_deadline": "Wednesday 9 p.m. ET",
- "generated_at": "2026-10-21T04:58Z",
+ "generated_at": "2026-10-21T06:48Z",
  "updated": "2026-10-19",
  "last_week": 6,
  "weeks_played": [
@@ -92,23 +92,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "martin": "Clay Martin",
-  "vinovich": "Bill Vinovich",
-  "blakeman": "Clete Blakeman",
-  "hussey": "John Hussey",
   "allen": "Brad Allen",
-  "hill": "Adrian Hill",
   "hochuli": "Shawn Hochuli",
+  "hussey": "John Hussey",
   "smith": "Shawn Smith",
-  "eck": "Alan Eck",
-  "rogers": "Brad Rogers",
-  "kemp": "Alex Kemp",
-  "wrolstad": "Craig Wrolstad",
-  "torbert": "Ron Torbert",
+  "hill": "Adrian Hill",
   "clark": "Land Clark",
+  "kemp": "Alex Kemp",
+  "martin": "Clay Martin",
+  "rogers": "Brad Rogers",
   "cheffers": "Carl Cheffers",
   "moore": "Alex Moore",
-  "novak": "Scott Novak"
+  "torbert": "Ron Torbert",
+  "blakeman": "Clete Blakeman",
+  "novak": "Scott Novak",
+  "eck": "Alan Eck",
+  "wrolstad": "Craig Wrolstad",
+  "vinovich": "Bill Vinovich"
  },
  "scored_espn": [
   "401872656",
@@ -748,59 +748,6 @@
    }
   },
   {
-   "referee": "Clete Blakeman",
-   "g25": 16,
-   "flags25": 14.4,
-   "ppg25": 67.7,
-   "g26": 6,
-   "pts26": 460.2,
-   "ppg26": 76.7,
-   "weeks": {
-    "1": {
-     "game": "MIA @ LV",
-     "flags": 15,
-     "yards": 90,
-     "pts": 74.0,
-     "gid": "2026_01_MIA_LV"
-    },
-    "2": {
-     "game": "NO @ BAL",
-     "flags": 14,
-     "yards": 69,
-     "pts": 51.3,
-     "gid": "2026_02_NO_BAL"
-    },
-    "3": {
-     "game": "LAC @ BUF",
-     "flags": 21,
-     "yards": 143,
-     "pts": 81.6,
-     "gid": "2026_03_LAC_BUF"
-    },
-    "4": {
-     "game": "PIT @ CLE",
-     "flags": 28,
-     "yards": 180,
-     "pts": 128.9,
-     "gid": "2026_04_PIT_CLE"
-    },
-    "5": {
-     "game": "NYG @ WAS",
-     "flags": 18,
-     "yards": 104,
-     "pts": 57.8,
-     "gid": "2026_05_NYG_WAS"
-    },
-    "6": {
-     "game": "NYJ @ NE",
-     "flags": 11,
-     "yards": 92,
-     "pts": 66.6,
-     "gid": "2026_06_NYJ_NE"
-    }
-   }
-  },
-  {
    "referee": "Scott Novak",
    "g25": 17,
    "flags25": 13.6,
@@ -850,6 +797,59 @@
      "yards": 164,
      "pts": 118.3,
      "gid": "2026_06_CHI_ATL"
+    }
+   }
+  },
+  {
+   "referee": "Clete Blakeman",
+   "g25": 16,
+   "flags25": 14.4,
+   "ppg25": 67.7,
+   "g26": 6,
+   "pts26": 460.2,
+   "ppg26": 76.7,
+   "weeks": {
+    "1": {
+     "game": "MIA @ LV",
+     "flags": 15,
+     "yards": 90,
+     "pts": 74.0,
+     "gid": "2026_01_MIA_LV"
+    },
+    "2": {
+     "game": "NO @ BAL",
+     "flags": 14,
+     "yards": 69,
+     "pts": 51.3,
+     "gid": "2026_02_NO_BAL"
+    },
+    "3": {
+     "game": "LAC @ BUF",
+     "flags": 21,
+     "yards": 143,
+     "pts": 81.6,
+     "gid": "2026_03_LAC_BUF"
+    },
+    "4": {
+     "game": "PIT @ CLE",
+     "flags": 28,
+     "yards": 180,
+     "pts": 128.9,
+     "gid": "2026_04_PIT_CLE"
+    },
+    "5": {
+     "game": "NYG @ WAS",
+     "flags": 18,
+     "yards": 104,
+     "pts": 57.8,
+     "gid": "2026_05_NYG_WAS"
+    },
+    "6": {
+     "game": "NYJ @ NE",
+     "flags": 11,
+     "yards": 92,
+     "pts": 66.6,
+     "gid": "2026_06_NYJ_NE"
     }
    }
   },
@@ -1841,7 +1841,7 @@
   "1": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -1867,7 +1867,7 @@
   "2": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -1893,7 +1893,7 @@
   "3": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -1919,7 +1919,7 @@
   "4": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -1945,7 +1945,7 @@
   "5": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -1971,7 +1971,7 @@
   "6": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -1997,7 +1997,7 @@
   "7": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2023,7 +2023,7 @@
   "8": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2049,7 +2049,7 @@
   "9": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2075,7 +2075,7 @@
   "10": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2101,7 +2101,7 @@
   "11": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2127,7 +2127,7 @@
   "12": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2153,7 +2153,7 @@
   "13": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2179,7 +2179,7 @@
   "14": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2205,7 +2205,7 @@
   "15": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2231,7 +2231,7 @@
   "16": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2257,7 +2257,7 @@
   "17": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2283,7 +2283,7 @@
   "18": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Clete Blakeman"
+    "Scott Novak"
    ],
    "False Start Kids": [
     "Alex Moore",
@@ -2325,13 +2325,13 @@
         "status": "bye"
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 74.0,
-        "game": "MIA @ LV",
+        "crew": "Scott Novak",
+        "pts": 79.0,
+        "game": "BAL @ IND",
         "status": "final"
        }
       ],
-      "pts": 74.0
+      "pts": 79.0
      },
      "B": {
       "crews": [
@@ -2452,13 +2452,13 @@
         "status": "final"
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 51.3,
-        "game": "NO @ BAL",
+        "crew": "Scott Novak",
+        "pts": 175.3,
+        "game": "GB @ NYJ",
         "status": "final"
        }
       ],
-      "pts": 106.3
+      "pts": 230.3
      },
      "B": {
       "crews": [
@@ -2478,7 +2478,7 @@
       "pts": 136.5
      },
      "final": true,
-     "winner": "Pick Up the Flag"
+     "winner": "Holding Pattern"
     },
     {
      "a": "Yellow Hankies",
@@ -2579,13 +2579,13 @@
         "status": "final"
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 81.6,
-        "game": "LAC @ BUF",
+        "crew": "Scott Novak",
+        "pts": 99.2,
+        "game": "MIN @ TB",
         "status": "final"
        }
       ],
-      "pts": 173.1
+      "pts": 190.7
      },
      "B": {
       "crews": [
@@ -2706,13 +2706,13 @@
         "status": "final"
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 128.9,
-        "game": "PIT @ CLE",
+        "crew": "Scott Novak",
+        "pts": 208.0,
+        "game": "LAC @ SEA",
         "status": "final"
        }
       ],
-      "pts": 194.6
+      "pts": 273.7
      },
      "B": {
       "crews": [
@@ -2833,13 +2833,13 @@
         "status": "final"
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 57.8,
-        "game": "NYG @ WAS",
+        "crew": "Scott Novak",
+        "pts": 94.2,
+        "game": "BUF @ LA",
         "status": "final"
        }
       ],
-      "pts": 143.2
+      "pts": 179.6
      },
      "B": {
       "crews": [
@@ -2859,7 +2859,7 @@
       "pts": 153.1
      },
      "final": true,
-     "winner": "False Start Kids"
+     "winner": "Holding Pattern"
     },
     {
      "a": "Laundry Day",
@@ -2977,13 +2977,13 @@
         "status": "final"
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 66.6,
-        "game": "NYJ @ NE",
+        "crew": "Scott Novak",
+        "pts": 118.3,
+        "game": "CHI @ ATL",
         "status": "final"
        }
       ],
-      "pts": 138.6
+      "pts": 190.3
      },
      "final": true,
      "winner": "Holding Pattern"
@@ -3104,7 +3104,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3231,7 +3231,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3358,7 +3358,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3485,7 +3485,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3595,7 +3595,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3722,7 +3722,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3849,7 +3849,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -3976,7 +3976,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -4103,7 +4103,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -4247,7 +4247,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -4374,7 +4374,7 @@
         "status": "pending"
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending"
@@ -4473,8 +4473,8 @@
    "playoff": true,
    "games": [
     {
-     "a": "Pick Up the Flag",
-     "b": "False Start Kids",
+     "a": "Holding Pattern",
+     "b": "Pick Up the Flag",
      "seeds": [
       1,
       2
@@ -4486,7 +4486,7 @@
     },
     {
      "a": "Flag on the Play",
-     "b": "Holding Pattern",
+     "b": "False Start Kids",
      "seeds": [
       3,
       4
@@ -4513,24 +4513,24 @@
  ],
  "standings": [
   {
-   "team": "Pick Up the Flag",
+   "team": "Holding Pattern",
    "manager": "",
    "w": 5,
    "l": 1,
    "t": 0,
-   "pf": 968.9,
-   "pa": 799.2,
-   "streak": "W3"
+   "pf": 1143.6,
+   "pa": 887.0,
+   "streak": "W5"
   },
   {
-   "team": "False Start Kids",
+   "team": "Pick Up the Flag",
    "manager": "",
    "w": 4,
    "l": 2,
    "t": 0,
-   "pf": 917.9,
-   "pa": 865.9,
-   "streak": "L1"
+   "pf": 968.9,
+   "pa": 923.2,
+   "streak": "W3"
   },
   {
    "team": "Flag on the Play",
@@ -4539,18 +4539,18 @@
    "l": 3,
    "t": 0,
    "pf": 964.0,
-   "pa": 997.0,
+   "pa": 1014.6,
    "streak": "W1"
   },
   {
-   "team": "Holding Pattern",
+   "team": "False Start Kids",
    "manager": "",
    "w": 3,
    "l": 3,
    "t": 0,
-   "pf": 829.8,
-   "pa": 887.0,
-   "streak": "W1"
+   "pf": 917.9,
+   "pa": 902.3,
+   "streak": "L2"
   },
   {
    "team": "Yellow Hankies",
@@ -4559,7 +4559,7 @@
    "l": 4,
    "t": 0,
    "pf": 892.0,
-   "pa": 926.0,
+   "pa": 982.7,
    "streak": "L1"
   },
   {
@@ -4569,7 +4569,7 @@
    "l": 5,
    "t": 0,
    "pf": 917.7,
-   "pa": 1015.2,
+   "pa": 1094.3,
    "streak": "L3"
   }
  ],
@@ -4590,8 +4590,8 @@
    0
   ],
   "Holding Pattern|Pick Up the Flag": [
-   0,
    1,
+   0,
    0
   ],
   "Flag on the Play|Yellow Hankies": [
@@ -4635,8 +4635,8 @@
    0
   ],
   "False Start Kids|Holding Pattern": [
-   1,
    0,
+   1,
    0
   ],
   "Laundry Day|Yellow Hankies": [
@@ -4653,20 +4653,12 @@
  "waiver_order": [
   "Laundry Day",
   "Yellow Hankies",
-  "Holding Pattern",
-  "Flag on the Play",
   "False Start Kids",
-  "Pick Up the Flag"
+  "Flag on the Play",
+  "Pick Up the Flag",
+  "Holding Pattern"
  ],
  "free_agents": [
-  {
-   "referee": "Scott Novak",
-   "ppg25": 67.7,
-   "ppg26": 129.0,
-   "g26": 6,
-   "last3": 140.2,
-   "last_game": "CHI @ ATL"
-  },
   {
    "referee": "Alan Eck",
    "ppg25": 67.6,
@@ -4682,6 +4674,14 @@
    "g26": 5,
    "last3": 87.7,
    "last_game": "CAR @ PHI"
+  },
+  {
+   "referee": "Clete Blakeman",
+   "ppg25": 67.7,
+   "ppg26": 76.7,
+   "g26": 6,
+   "last3": 84.4,
+   "last_game": "NYJ @ NE"
   },
   {
    "referee": "Brad Allen",
@@ -4704,19 +4704,19 @@
   "1": {
    "golden_flag": {
     "team": "Holding Pattern",
-    "crew": "Clete Blakeman",
-    "type": "Taunting",
+    "crew": "Scott Novak",
+    "type": "Chop Block",
     "pts": 15.0,
     "tier": "rare",
-    "nfl_team": "MIA",
-    "player": "J.Brents",
-    "game": "MIA @ LV",
+    "nfl_team": "BAL",
+    "player": "R.Stanley",
+    "game": "BAL @ IND",
     "status": "accepted",
     "clutch": false
    },
    "swallowed_whistle": {
     "team": "Holding Pattern",
-    "pts": 74.0
+    "pts": 79.0
    }
   },
   "2": {
