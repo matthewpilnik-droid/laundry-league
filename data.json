@@ -8,7 +8,7 @@
  "start_date": "2026-10-29",
  "crews_per_team": 3,
  "counting_crews": 2,
- "generated_at": "2026-10-21T02:53Z",
+ "generated_at": "2026-10-21T02:54Z",
  "updated": "2026-10-19",
  "last_week": 6,
  "weeks_played": [
@@ -96,23 +96,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "cheffers": "Carl Cheffers",
-  "smith": "Shawn Smith",
+  "eck": "Alan Eck",
+  "torbert": "Ron Torbert",
+  "novak": "Scott Novak",
+  "rogers": "Brad Rogers",
   "clark": "Land Clark",
-  "blakeman": "Clete Blakeman",
-  "hochuli": "Shawn Hochuli",
-  "kemp": "Alex Kemp",
-  "moore": "Alex Moore",
   "vinovich": "Bill Vinovich",
   "hill": "Adrian Hill",
   "allen": "Brad Allen",
+  "kemp": "Alex Kemp",
+  "hochuli": "Shawn Hochuli",
   "hussey": "John Hussey",
-  "martin": "Clay Martin",
-  "novak": "Scott Novak",
   "wrolstad": "Craig Wrolstad",
-  "rogers": "Brad Rogers",
-  "torbert": "Ron Torbert",
-  "eck": "Alan Eck"
+  "martin": "Clay Martin",
+  "cheffers": "Carl Cheffers",
+  "blakeman": "Clete Blakeman",
+  "moore": "Alex Moore",
+  "smith": "Shawn Smith"
  },
  "scored_espn": [
   "401872656",
@@ -692,53 +692,6 @@
    }
   },
   {
-   "referee": "Clete Blakeman",
-   "g25": 16,
-   "flags25": 14.4,
-   "ppg25": 67.7,
-   "g26": 6,
-   "pts26": 460.2,
-   "ppg26": 76.7,
-   "weeks": {
-    "1": {
-     "game": "MIA @ LV",
-     "flags": 15,
-     "yards": 90,
-     "pts": 74.0
-    },
-    "2": {
-     "game": "NO @ BAL",
-     "flags": 14,
-     "yards": 69,
-     "pts": 51.3
-    },
-    "3": {
-     "game": "LAC @ BUF",
-     "flags": 21,
-     "yards": 143,
-     "pts": 81.6
-    },
-    "4": {
-     "game": "PIT @ CLE",
-     "flags": 28,
-     "yards": 180,
-     "pts": 128.9
-    },
-    "5": {
-     "game": "NYG @ WAS",
-     "flags": 18,
-     "yards": 104,
-     "pts": 57.8
-    },
-    "6": {
-     "game": "NYJ @ NE",
-     "flags": 11,
-     "yards": 92,
-     "pts": 66.6
-    }
-   }
-  },
-  {
    "referee": "Scott Novak",
    "g25": 17,
    "flags25": 13.6,
@@ -782,6 +735,53 @@
      "flags": 19,
      "yards": 164,
      "pts": 118.3
+    }
+   }
+  },
+  {
+   "referee": "Clete Blakeman",
+   "g25": 16,
+   "flags25": 14.4,
+   "ppg25": 67.7,
+   "g26": 6,
+   "pts26": 460.2,
+   "ppg26": 76.7,
+   "weeks": {
+    "1": {
+     "game": "MIA @ LV",
+     "flags": 15,
+     "yards": 90,
+     "pts": 74.0
+    },
+    "2": {
+     "game": "NO @ BAL",
+     "flags": 14,
+     "yards": 69,
+     "pts": 51.3
+    },
+    "3": {
+     "game": "LAC @ BUF",
+     "flags": 21,
+     "yards": 143,
+     "pts": 81.6
+    },
+    "4": {
+     "game": "PIT @ CLE",
+     "flags": 28,
+     "yards": 180,
+     "pts": 128.9
+    },
+    "5": {
+     "game": "NYG @ WAS",
+     "flags": 18,
+     "yards": 104,
+     "pts": 57.8
+    },
+    "6": {
+     "game": "NYJ @ NE",
+     "flags": 11,
+     "yards": 92,
+     "pts": 66.6
     }
    }
   },
@@ -1724,23 +1724,23 @@
  ],
  "standings": [
   {
-   "team": "Laundry Day",
+   "team": "False Start Kids",
    "manager": "",
    "crews": [
-    "Shawn Hochuli",
-    "Carl Cheffers",
+    "Alex Moore",
+    "Land Clark",
     "Scott Novak"
    ],
    "weeks": {
-    "1": 189.3,
-    "2": 241.3,
-    "3": 182.7,
-    "4": 312.1,
-    "5": 166.5,
-    "6": 213.7
+    "1": 191.3,
+    "2": 241.7,
+    "3": 192.1,
+    "4": 351.5,
+    "5": 182.9,
+    "6": 171.8
    },
-   "total": 1305.6,
-   "wins": 2
+   "total": 1331.3,
+   "wins": 3
   },
   {
    "team": "Flag on the Play",
@@ -1759,26 +1759,7 @@
     "6": 282.4
    },
    "total": 1228.4,
-   "wins": 3
-  },
-  {
-   "team": "False Start Kids",
-   "manager": "",
-   "crews": [
-    "Alex Moore",
-    "Land Clark",
-    "Clete Blakeman"
-   ],
-   "weeks": {
-    "1": 186.3,
-    "2": 128.5,
-    "3": 185.6,
-    "4": 272.4,
-    "5": 176.0,
-    "6": 120.1
-   },
-   "total": 1068.9,
-   "wins": 0
+   "wins": 2
   },
   {
    "team": "Pick Up the Flag",
@@ -1797,6 +1778,25 @@
     "6": 245.8
    },
    "total": 1046.1,
+   "wins": 0
+  },
+  {
+   "team": "Laundry Day",
+   "manager": "",
+   "crews": [
+    "Shawn Hochuli",
+    "Carl Cheffers",
+    "Clete Blakeman"
+   ],
+   "weeks": {
+    "1": 184.3,
+    "2": 128.0,
+    "3": 165.1,
+    "4": 233.0,
+    "5": 130.1,
+    "6": 162.0
+   },
+   "total": 1002.5,
    "wins": 0
   },
   {
