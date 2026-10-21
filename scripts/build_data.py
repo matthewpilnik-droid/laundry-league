@@ -21,6 +21,8 @@ PTS_PER_YARD = 0.2            # 1 point per 5 yards, fractional
 TIER_BONUS = {"common": 0, "uncommon": 4, "rare": 10, "unicorn": 20}
 EJECTION_BONUS = 20
 TD_WIPE_BONUS = 6
+OVERTURN_PTS = -5             # crew's ruling reversed on review, or its flag picked up via replay
+STOOD_TALL_PTS = 3            # a coach challenged the crew's ruling and lost
 OFFSET_MULT = 2
 CLUTCH_MULT = 1.5             # last 2:00 of the 2nd or 4th quarter
 
@@ -28,6 +30,22 @@ CLUTCH_MULT = 1.5             # last 2:00 of the 2nd or 4th quarter
 PEN_PATTERN = (r"PENALTY on ([A-Z]{2,3})(?:-([^,]+?))?, ([^,.]+?)"
                r"(?:, (?:(\d+) yards?|(declined|offsetting|superseded))|, placed at)")
 PEN = re.compile(PEN_PATTERN, re.I)
+# A reversed play's text repeats the play: original ruling, "...the play was REVERSED.",
+# then the final ruling. Only the final ruling scores.
+REV_PATTERN = r"the play was REVERSED\.?"
+REPLAY_PEN_PATTERN = r"The penalty was assisted by replay"
+UPHELD_PATTERN = r"challenged [^.]*?the play was Upheld"
+REV, REPLAY_PEN = re.compile(REV_PATTERN, re.I), re.compile(REPLAY_PEN_PATTERN, re.I)
+UPHELD = re.compile(UPHELD_PATTERN, re.I)
+
+
+def final_ruling(desc):
+    return REV.split(desc)[-1]
+
+
+def overturned(desc):
+    """True when replay undid the crew's call: a reversal, or a flag gone after replay help."""
+    return bool(REV.search(desc)) or (bool(REPLAY_PEN.search(desc)) and not PEN.search(final_ruling(desc)))
 
 
 def tier_for(rate):
@@ -55,7 +73,9 @@ def parse_flags(desc):
 
 def plays(path):
     for r in csv.DictReader(gzip.open(path, "rt")):
-        if r["season_type"] == "REG" and "PENALTY ON" in r["desc"].upper():
+        d = r["desc"]
+        if r["season_type"] == "REG" and ("PENALTY ON" in d.upper() or REV.search(d) or REPLAY_PEN.search(d)
+                                          or UPHELD.search(d)):
             yield r
 
 
@@ -94,17 +114,18 @@ for g in games.values():
 g_cal = {gid for gid, g in games.items() if g["season"] == str(CAL) and g["home_score"]}
 type_count = collections.Counter()
 for r in plays(CACHE / f"pbp{CAL}.csv.gz"):
-    for f in parse_flags(r["desc"]):
+    for f in parse_flags(final_ruling(r["desc"])):
         type_count[f["type"]] += 1
 tiers = {t: tier_for(c / len(g_cal)) for t, c in type_count.items()}
 
 
 def score_play(r):
-    """Return (list of scored flags, td_wipe_points) for one play row."""
+    """Return (scored flags, td_wipe_points, overturn_points, stood_tall_points) for one play row."""
     clutch = r["qtr"] in ("2", "4") and r["half_seconds_remaining"] != "" and \
         float(r["half_seconds_remaining"]) <= 120
     scored = []
-    for f in parse_flags(r["desc"]):
+    final = final_ruling(r["desc"])
+    for f in parse_flags(final):
         eject = "disqualif" in f["type"].lower()
         tier = "ejection" if eject else tiers.get(f["type"], "unicorn")
         bonus = EJECTION_BONUS if eject else TIER_BONUS[tier]
@@ -113,18 +134,19 @@ def score_play(r):
             (CLUTCH_MULT if clutch else 1)
         f.update(tier=tier, bonus=bonus, clutch=bool(clutch), pts=round(base * mult, 1))
         scored.append(f)
-    u = r["desc"].upper()
+    u = final.upper()
     wipe = TD_WIPE_BONUS if ("TOUCHDOWN" in u and "NULLIFIED" in u) else 0
-    return scored, wipe
+    return (scored, wipe, OVERTURN_PTS if overturned(r["desc"]) else 0,
+            STOOD_TALL_PTS if UPHELD.search(r["desc"]) else 0)
 
 
 def score_season(path):
     per_game = collections.defaultdict(lambda: {"flags": 0, "yards": 0, "pts": 0.0,
-                                                 "wipes": 0, "list": []})
+                                                 "wipes": 0, "overturns": 0, "stood": 0, "list": []})
     for r in plays(path):
         if r["game_id"] not in games:
             continue
-        flags, wipe = score_play(r)
+        flags, wipe, over, stood = score_play(r)
         pg = per_game[r["game_id"]]
         for f in flags:
             pg["flags"] += 1
@@ -135,6 +157,12 @@ def score_season(path):
         if wipe:
             pg["wipes"] += 1
             pg["pts"] += wipe
+        if over:
+            pg["overturns"] += 1
+            pg["pts"] += over
+        if stood:
+            pg["stood"] += 1
+            pg["pts"] += stood
     return per_game
 
 
@@ -168,7 +196,7 @@ for gid in g_cur:
     if g["referee"]:
         crews[g["referee"]]["weeks"][int(g["week"])] = {
             "game": label(g), "flags": pg["flags"], "yards": pg["yards"],
-            "pts": round(pg["pts"], 1), "gid": gid}
+            "overturns": pg["overturns"], "stood": pg["stood"], "pts": round(pg["pts"], 1), "gid": gid}
 
 # The current season's referees are the draftable pool; fall back to the
 # calibration season's list early in a season.
@@ -223,7 +251,8 @@ for gid in g_cur:
     top = max(pg["list"], key=lambda f: f["pts"])
     week_games.append({
         "referee": g["referee"] or "Unknown", "game": label(g), "day": g["weekday"],
-        "flags": pg["flags"], "yards": pg["yards"], "pts": round(pg["pts"], 1),
+        "flags": pg["flags"], "yards": pg["yards"], "overturns": pg["overturns"], "stood": pg["stood"],
+        "pts": round(pg["pts"], 1),
         "top": {k: top[k] for k in ("type", "team", "player", "yards", "pts", "tier",
                                      "status", "clutch", "qtr", "clock")},
     })
@@ -425,22 +454,24 @@ def play_season(names, managers, init, starters, lg_start):
         if not wk["final"]:
             continue
         w = wk["week"]
-        best = None
+        best, over = None, {}
         for t in names:
             for c in starters[w][t]:
                 info = by_ref[c]["weeks"].get(w)
                 if not info or "gid" not in info:
                     continue
+                if info["overturns"]:
+                    over.setdefault(t, []).append({"crew": c, "n": info["overturns"], "game": info["game"]})
                 for f in s_cur[info["gid"]]["list"]:
                     if best is None or f["pts"] > best["pts"]:
                         best = {"team": t, "crew": c, "type": f["type"], "pts": f["pts"],
                                 "tier": f["tier"], "nfl_team": f["team"], "player": f["player"],
                                 "game": info["game"], "status": f["status"], "clutch": f["clutch"]}
-        scores = [(g["A"]["pts"], g["a"]) for g in wk["games"] if "A" in g] + \
-                 [(g["B"]["pts"], g["b"]) for g in wk["games"] if "B" in g]
-        low = min(scores) if scores else None
+        top = max((sum(x["n"] for x in cs) for cs in over.values()), default=0)
         awards[w] = {"golden_flag": best,
-                     "swallowed_whistle": {"team": low[1], "pts": low[0]} if low else None}
+                     "overturned": {"n": top, "pts": top * OVERTURN_PTS,
+                                    "teams": [{"team": t, "crews": cs} for t, cs in over.items()
+                                              if sum(x["n"] for x in cs) == top]} if top else None}
 
     return {
         "league_start": lg_start,
@@ -501,9 +532,13 @@ json.dump({
     "avg_ppg25": round(sum(s_cal[g]["pts"] for g in g_cal if g in s_cal) / len(g_cal), 1),
     "avg_flags25": round(sum(s_cal[g]["flags"] for g in g_cal if g in s_cal) / len(g_cal), 1),
     "rules": {"per_flag": PTS_PER_FLAG, "per_yard": PTS_PER_YARD, "tiers": TIER_BONUS,
-              "ejection": EJECTION_BONUS, "td_wipe": TD_WIPE_BONUS,
+              "ejection": EJECTION_BONUS, "td_wipe": TD_WIPE_BONUS, "overturn": OVERTURN_PTS,
+              "stood_tall": STOOD_TALL_PTS,
               "offset_mult": OFFSET_MULT, "clutch_mult": CLUTCH_MULT},
     "pen_pattern": PEN_PATTERN,
+    "rev_pattern": REV_PATTERN,
+    "replay_pen_pattern": REPLAY_PEN_PATTERN,
+    "upheld_pattern": UPHELD_PATTERN,
     "tier_of": tiers,
     "ref_last_names": {k: next(iter(v)) for k, v in by_last.items() if len(v) == 1},
     "scored_espn": scored_espn,

@@ -81,6 +81,8 @@ The page shows "updated <time>" at the top. If that is more than a day old:
 | Uncommon / rare / unicorn call | +4 / +10 / +20 |
 | Ejection | +20 |
 | Flag wipes out a touchdown | +6 |
+| Call overturned: ruling reversed by a coach's challenge or replay review, or a flag picked up after replay help (no multipliers) | −5 |
+| Stood tall: a coach's challenge of the crew's ruling fails (booth reviews don't count; no multipliers) | +3 |
 | Offsetting penalties | ×2 |
 | Last 2:00 of either half | ×1.5 |
 

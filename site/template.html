@@ -90,7 +90,7 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
 .award { padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; }
 .award .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--flag); color: var(--flag-ink); font-family: Oswald, sans-serif; font-weight: 700; font-size: 20px; }
-.award.sw .ic { background: var(--surface-2); color: var(--ink-2); }
+.award.ov .ic { background: var(--surface-2); color: var(--ink-2); }
 .award .k { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); font-weight: 600; }
 .award .v { font-weight: 700; }
 .award .d { font-size: 13px; color: var(--ink-2); }
@@ -336,12 +336,14 @@ footer .stripes { margin-bottom: 24px; }
       </table>
     </div>
     <div class="card bonus">
-      <h3>Bonuses</h3>
+      <h3>Bonuses and busts</h3>
       <div class="brow"><div class="pts">+4</div><div class="what"><span class="tier uncommon">Uncommon</span> call<small id="ex-uncommon"></small></div></div>
       <div class="brow"><div class="pts">+10</div><div class="what"><span class="tier rare">Rare</span> call<small id="ex-rare"></small></div></div>
       <div class="brow"><div class="pts">+20</div><div class="what"><span class="tier unicorn">Unicorn</span> call<small id="ex-unicorn"></small></div></div>
       <div class="brow"><div class="pts">+20</div><div class="what"><span class="tier ejection">Ejection</span><small>A player is disqualified from the game.</small></div></div>
       <div class="brow"><div class="pts">+6</div><div class="what">Flag wipes out a touchdown<small>Per nullified touchdown.</small></div></div>
+      <div class="brow"><div class="pts">−5</div><div class="what">Call overturned<small>The crew's ruling is reversed by a coach's challenge or a replay review, or its flag is picked up after replay help. The ref's fumble.</small></div></div>
+      <div class="brow"><div class="pts">+3</div><div class="what">Stood tall<small>A coach challenges the crew's ruling and loses. Booth reviews don't count.</small></div></div>
       <div class="brow"><div class="pts">×2</div><div class="what">Offsetting penalties<small>Both flags score double.</small></div></div>
       <div class="brow"><div class="pts">×1.5</div><div class="what">Clutch flag<small>Thrown in the last 2:00 of the 1st or 2nd half. Multipliers stack.</small></div></div>
     </div>
@@ -434,6 +436,9 @@ footer .stripes { margin-bottom: 24px; }
   const dayFmt = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
   const stamp = new Date(D.generated_at.replace('Z', ':00Z')).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
   const byRef = Object.fromEntries(D.crews.map(c => [c.referee, c]));
+  const last3 = (c, before = Infinity) => { const wk = (byRef[c] || {}).weeks || {};
+    const ks = Object.keys(wk).map(Number).filter(k => k < before).sort((a, b) => a - b).slice(-3);
+    return ks.length ? ks.reduce((a, k) => a + wk[k].pts, 0) / ks.length : null; };
   const curWeek = D.current_week;
   const curW = D.weeks.find(w => w.week === curWeek);
   const finals = D.weeks.filter(w => w.final);
@@ -547,23 +552,32 @@ footer .stripes { margin-bottom: 24px; }
       return;
     }
     const opp = m.a === myTeam ? m.b : m.a;
+    // Projection: each starter's average over its last 3 games
+    // (games before this week only, so a starter's Thursday result doesn't leak in)
+    let missing = 0;
+    const proj = t => { const v = (startersIn(curWeek)[t] || []).map(c => last3(c, curWeek)); missing += v.filter(x => x === null).length;
+      const got = v.filter(x => x !== null); return got.length ? got.reduce((a, b) => a + b, 0) : null; };
+    const pm = proj(myTeam), po = proj(opp);
     $('#my-sub').innerHTML = esc(sample) + `vs <b>${esc(opp)}</b> · ` +
-      (curW.playoff ? `${esc(m.name)}${m.set ? '' : ' (if the season ended today)'}` : seriesLine(m.a, m.b));
+      (curW.playoff ? `${esc(m.name)}${m.set ? '' : ' (if the season ended today)'}` : seriesLine(m.a, m.b)) +
+      (pm !== null && po !== null ? `<br>Projected: <b>${esc(myTeam)} ${fmt(pm)}</b> – ${esc(opp)} ${fmt(po)} <span class="faint">(starters' last-3-game averages${missing ? `; ${missing} starter${missing > 1 ? 's have' : ' has'} no games yet and count${missing > 1 ? '' : 's'} as 0` : ''})</span>` : '');
     $('#my-mu').innerHTML = muCard(m, ov);
   }
   renderMatchups();
 
   // Last final week's awards
   const aw = lastFinal && D.awards[String(lastFinal.week)];
-  if (aw && aw.golden_flag) {
-    const g = aw.golden_flag, s = aw.swallowed_whistle;
+  if (aw) {
+    const g = aw.golden_flag, o = aw.overturned;
     $('#awards').innerHTML = `
       <div class="card award"><div class="ic">★</div><div><div class="k">Golden Flag · Week ${lastFinal.week}</div>
-        <div class="v">${esc(g.team)} — ${esc(g.type)} ${tierChip(g.tier)} <span class="num">${fmt(g.pts)} pts</span></div>
-        <div class="d">${esc(g.crew)} crew · ${esc(g.nfl_team)} ${esc(g.player)} · ${esc(g.game)}</div></div></div>
-      <div class="card award sw"><div class="ic">↓</div><div><div class="k">Swallowed Whistle · Week ${lastFinal.week}</div>
-        <div class="v">${esc(s.team)} — <span class="num">${fmt(s.pts)} pts</span></div>
-        <div class="d">Lowest team score of the week</div></div></div>`;
+        ${g ? `<div class="v">${esc(g.team)} — ${esc(g.type)} ${tierChip(g.tier)} <span class="num">${fmt(g.pts)} pts</span></div>
+        <div class="d">${esc(g.crew)} crew · ${esc(g.nfl_team)} ${esc(g.player)} · ${esc(g.game)}</div>`
+        : '<div class="v">No flags</div><div class="d">No starting crew threw a flag.</div>'}</div></div>
+      <div class="card award ov"><div class="ic">↺</div><div><div class="k">Overturned · Week ${lastFinal.week}</div>
+        ${o ? `<div class="v">${o.teams.map(t => esc(t.team)).join(' & ')} — ${o.n} ${o.n === 1 ? 'call' : 'calls'} overturned <span class="num">${fmt(o.pts)} pts</span></div>
+        <div class="d">${o.teams.map(t => t.crews.map(c => `${esc(c.crew)} crew ×${c.n}`).join(', ')).join(' · ')}${o.teams.length > 1 ? ' · shared' : ''}</div>`
+        : '<div class="v">Clean week</div><div class="d">No starting crew had a call overturned.</div>'}</div></div>`;
   }
 
   // ---- Standings ----
@@ -587,12 +601,12 @@ footer .stripes { margin-bottom: 24px; }
   $('#res-list').innerHTML = doneWeeks.map((w, i) => {
     const a = D.awards[String(w.week)] || {};
     return `<details class="card" ${i === 0 ? 'open' : ''}><summary><span>Week ${w.week}${w.playoff ? ' · Playoffs' : ''}</span>
-      <span class="faint">${a.golden_flag ? `Golden Flag: ${esc(a.golden_flag.team)}` : ''}</span></summary>
+      <span class="faint">${[a.golden_flag && `Golden Flag: ${esc(a.golden_flag.team)}`, a.overturned && `Overturned: ${a.overturned.teams.map(t => esc(t.team)).join(' & ')}`].filter(Boolean).join(' · ')}</span></summary>
       <div class="res-body">${w.games.filter(g => g.A).map(g => `<div class="res-row">
         <span class="l ${g.winner === g.a ? 'w' : ''}">${esc(g.a)}</span>
         <span class="sc">${fmt(g.A.pts)} – ${fmt(g.B.pts)}</span>
         <span class="${g.winner === g.b ? 'w' : ''}">${esc(g.b)}</span></div>`).join('')}
-      ${a.golden_flag ? `<div class="res-aw">★ Golden Flag: ${esc(a.golden_flag.team)} — ${esc(a.golden_flag.type)} (${esc(a.golden_flag.crew)} crew), ${fmt(a.golden_flag.pts)} pts · ↓ Swallowed Whistle: ${esc(a.swallowed_whistle.team)}, ${fmt(a.swallowed_whistle.pts)} pts</div>` : ''}
+      ${D.awards[String(w.week)] ? `<div class="res-aw">${a.golden_flag ? `★ Golden Flag: ${esc(a.golden_flag.team)} — ${esc(a.golden_flag.type)} (${esc(a.golden_flag.crew)} crew), ${fmt(a.golden_flag.pts)} pts` : '★ Golden Flag: no flags'} ${a.overturned ? ` · ↺ Overturned: ${a.overturned.teams.map(t => esc(t.team)).join(' & ')}, ${a.overturned.n} ${a.overturned.n === 1 ? 'call' : 'calls'} overturned (${fmt(a.overturned.pts)} pts)` : ' · ↺ Overturned: clean week'}</div>` : ''}
       </div></details>`;
   }).join('');
 
@@ -616,8 +630,7 @@ footer .stripes { margin-bottom: 24px; }
   const deadline = D.lineup_deadline || 'Thursday kickoff';
   $('#deadline').textContent = deadline;
   $('#lu-sub').textContent = `${sample}Who starts in Week ${curWeek}. ${D.starters_per_week} of ${D.crews_per_team} crews score each week.`;
-  const avg3 = c => { const wk = (byRef[c] || {}).weeks || {}; const ks = Object.keys(wk).map(Number).sort((a, b) => a - b).slice(-3);
-    return ks.length ? fmt(ks.reduce((a, k) => a + wk[k].pts, 0) / ks.length) : '—'; };
+  const avg3 = c => { const v = last3(c); return v === null ? '—' : fmt(v); };
   const luOn = startersIn(curWeek);
   const rosterNow = t => D.rosters[String(curWeek)][t] || [];
   function renderLineups() {
@@ -759,6 +772,8 @@ footer .stripes { margin-bottom: 24px; }
     const secs = m2 ? +m2[1] * 60 + +m2[2] : 999;
     const clutch = (period === 2 || period === 4) && secs <= 120;
     const re = new RegExp(D.pen_pattern, 'gi');
+    const full = text;
+    text = full.split(new RegExp(D.rev_pattern, 'i')).pop();      // a reversed play scores its final ruling only
     const flags = [];
     let m;
     while ((m = re.exec(text))) {
@@ -773,23 +788,30 @@ footer .stripes { margin-bottom: 24px; }
       flags.push({ team: team.toUpperCase(), player: (player || '').replace(/^\d+-/, '').trim(), type: type.trim(), yards, status: st, tier, clutch, pts });
     }
     const u = text.toUpperCase();
-    return { flags, wipe: u.includes('TOUCHDOWN') && u.includes('NULLIFIED') ? R.td_wipe : 0 };
+    const over = new RegExp(D.rev_pattern, 'i').test(full) || (new RegExp(D.replay_pen_pattern, 'i').test(full) && !flags.length);
+    const stood = new RegExp(D.upheld_pattern, 'i').test(full);
+    return { flags, wipe: u.includes('TOUCHDOWN') && u.includes('NULLIFIED') ? R.td_wipe : 0,
+             over: over ? R.overturn : 0, stood: stood ? R.stood_tall : 0 };
   }
   function scoreSummary(s) {
     const drives = s.drives || {};
     const all = (drives.previous || []).flatMap(d => d.plays || []).concat((drives.current && drives.current.plays) || []);
     const seen = new Set(), flags = [];
-    let pts = 0;
+    const relevant = new RegExp(`PENALTY on|${D.rev_pattern}|${D.replay_pen_pattern}|${D.upheld_pattern}`, 'i');
+    const events = [];
+    let pts = 0, overturns = 0;
     all.forEach(p => {
-      if (!p.text || seen.has(p.id) || !/PENALTY on/i.test(p.text)) return;
+      if (!p.text || seen.has(p.id) || !relevant.test(p.text)) return;
       seen.add(p.id);
       const r = scorePlay(p.text, p.period && p.period.number, p.clock && p.clock.displayValue);
       r.flags.forEach((f, i) => { f.id = p.id + '.' + i; flags.push(f); pts += f.pts; });
-      pts += r.wipe;
+      pts += r.wipe + r.over + r.stood;
+      if (r.over) { overturns++; events.push({ id: p.id + '.over', kind: 'over', pts: r.over }); }
+      if (r.stood) events.push({ id: p.id + '.stood', kind: 'stood', pts: r.stood });
     });
     const offs = (s.gameInfo && s.gameInfo.officials) || [];
     const ref = (offs.find(o => o.position && o.position.name === 'Referee') || {}).displayName;
-    return { referee: refName(ref), flags, pts: Math.round(pts * 10) / 10 };
+    return { referee: refName(ref), flags, overturns, events, pts: Math.round(pts * 10) / 10 };
   }
   window.LaundryLive = { scorePlay, scoreSummary, run: liveRun, renderLive };   // for testing
 
@@ -824,7 +846,7 @@ footer .stripes { margin-bottom: 24px; }
         <div class="top"><span>${esc(e.shortName)}</span>${st.state === 'in' ? `<b>${esc(st.shortDetail)}</b>` : `<span>${esc(st.shortDetail)} · awaiting official</span>`}</div>
         <div class="crew">${r.referee ? esc(r.referee) + ' crew' : 'Crew not posted yet'}</div>
         ${r.referee && own[r.referee] ? `<div class="owner">${(live ? '' : 'Sample: ') + esc(own[r.referee])}</div>` : ''}
-        <div class="pts num">${fmt(r.pts)} <small>pts · ${r.flags.length} flags</small></div>
+        <div class="pts num">${fmt(r.pts)} <small>pts · ${r.flags.length} flags${r.overturns ? ` · ${r.overturns} overturned` : ''}</small></div>
         ${lastF ? `<div class="lastflag">Latest: ${esc(lastF.type)} ${lastF.tier !== 'common' ? tierChip(lastF.tier) : ''}${flagTags(lastF)} <b class="num">+${fmt(lastF.pts)}</b></div>` : ''}
       </div>`;
     }).join('');
@@ -837,20 +859,24 @@ footer .stripes { margin-bottom: 24px; }
     }
   }
   // Big calls by the picked team's starters: toast + flash, once per play per browser session
-  const BIG = { rare: ['🚩', 'Rare call'], unicorn: ['🦄', 'Unicorn'], ejection: ['🚨', 'Ejection'] };
+  const BIG = { rare: ['🚩', 'Rare call'], unicorn: ['🦄', 'Unicorn'], ejection: ['🚨', 'Ejection'],
+                over: ['😬', 'Busted'], stood: ['🧱', 'Stood tall'] };
   function celebrate(games) {
     if (!myTeam) return;
     const mine = new Set(startersIn(curWeek)[myTeam] || []);
     let seen;
     try { seen = new Set(JSON.parse(sessionStorage.getItem('ll-cheered') || '[]')); } catch (e) { seen = new Set(); }
     const fresh = [];
-    games.forEach(({ r }) => r.flags.forEach(f => {
-      if (mine.has(r.referee) && BIG[f.tier] && !seen.has(f.id)) { seen.add(f.id); fresh.push({ f, ref: r.referee }); }
-    }));
+    const add = (id, kind, ref, what, pts) => { if (!seen.has(id)) { seen.add(id); fresh.push({ kind, ref, what, pts }); } };
+    games.forEach(({ r }) => {
+      if (!mine.has(r.referee)) return;
+      r.flags.forEach(f => { if (BIG[f.tier]) add(f.id, f.tier, r.referee, f.type, f.pts); });
+      (r.events || []).forEach(e => add(e.id, e.kind, r.referee, e.kind === 'over' ? 'call overturned' : 'challenge failed', e.pts));
+    });
     if (!fresh.length) return;
     try { sessionStorage.setItem('ll-cheered', JSON.stringify([...seen])); } catch (e) {}
-    const { f, ref } = fresh[fresh.length - 1], [icon, label] = BIG[f.tier];
-    toast(`<span class="uni">${icon}</span>${label}! ${esc(ref)} crew: ${esc(f.type)} <b class="num">+${fmt(f.pts)}</b>` +
+    const x = fresh[fresh.length - 1], [icon, label] = BIG[x.kind];
+    toast(`<span class="uni">${icon}</span>${label}! ${esc(x.ref)} crew: ${esc(x.what)} <b class="num">${x.pts > 0 ? '+' : ''}${fmt(x.pts)}</b>` +
       (fresh.length > 1 ? ` · and ${fresh.length - 1} more` : ''), 7000, true);
     document.querySelectorAll('#my-mu .mu').forEach(c => c.classList.add('flash'));
   }
