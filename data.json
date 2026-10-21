@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-21T19:19Z",
+ "generated_at": "2026-10-21T21:10Z",
  "updated": "2026-10-19",
  "last_week": 6,
  "weeks_played": [
@@ -26,7 +26,7 @@
  ],
  "current_week": 7,
  "calibration_games": 272,
- "avg_ppg25": 75.0,
+ "avg_ppg25": 71.8,
  "avg_flags25": 15.2,
  "rules": {
   "per_flag": 2,
@@ -39,10 +39,15 @@
   },
   "ejection": 20,
   "td_wipe": 6,
+  "overturn": -5,
+  "stood_tall": 3,
   "offset_mult": 2,
   "clutch_mult": 1.5
  },
  "pen_pattern": "PENALTY on ([A-Z]{2,3})(?:-([^,]+?))?, ([^,.]+?)(?:, (?:(\\d+) yards?|(declined|offsetting|superseded))|, placed at)",
+ "rev_pattern": "the play was REVERSED\\.?",
+ "replay_pen_pattern": "The penalty was assisted by replay",
+ "upheld_pattern": "challenged [^.]*?the play was Upheld",
  "tier_of": {
   "Defensive Pass Interference": "common",
   "False Start": "common",
@@ -94,22 +99,22 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "novak": "Scott Novak",
-  "allen": "Brad Allen",
-  "vinovich": "Bill Vinovich",
-  "cheffers": "Carl Cheffers",
-  "wrolstad": "Craig Wrolstad",
-  "rogers": "Brad Rogers",
-  "hussey": "John Hussey",
-  "hill": "Adrian Hill",
-  "clark": "Land Clark",
-  "moore": "Alex Moore",
   "kemp": "Alex Kemp",
   "torbert": "Ron Torbert",
-  "blakeman": "Clete Blakeman",
-  "martin": "Clay Martin",
-  "eck": "Alan Eck",
+  "allen": "Brad Allen",
+  "vinovich": "Bill Vinovich",
   "smith": "Shawn Smith",
+  "clark": "Land Clark",
+  "moore": "Alex Moore",
+  "novak": "Scott Novak",
+  "eck": "Alan Eck",
+  "martin": "Clay Martin",
+  "blakeman": "Clete Blakeman",
+  "hussey": "John Hussey",
+  "rogers": "Brad Rogers",
+  "hill": "Adrian Hill",
+  "wrolstad": "Craig Wrolstad",
+  "cheffers": "Carl Cheffers",
   "hochuli": "Shawn Hochuli"
  },
  "scored_espn": [
@@ -212,15 +217,17 @@
    "referee": "Bill Vinovich",
    "g25": 17,
    "flags25": 16.2,
-   "ppg25": 93.1,
+   "ppg25": 91.0,
    "g26": 5,
-   "pts26": 369.6,
-   "ppg26": 73.9,
+   "pts26": 357.6,
+   "ppg26": 71.5,
    "weeks": {
     "2": {
      "game": "LV @ LAC",
      "flags": 14,
      "yards": 87,
+     "overturns": 0,
+     "stood": 0,
      "pts": 55.0,
      "gid": "2026_02_LV_LAC"
     },
@@ -228,20 +235,26 @@
      "game": "LA @ DEN",
      "flags": 20,
      "yards": 129,
-     "pts": 91.5,
+     "overturns": 2,
+     "stood": 1,
+     "pts": 84.5,
      "gid": "2026_03_LA_DEN"
     },
     "4": {
      "game": "NE @ BUF",
      "flags": 13,
      "yards": 66,
-     "pts": 65.7,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 60.7,
      "gid": "2026_04_NE_BUF"
     },
     "5": {
      "game": "CLE @ NYJ",
      "flags": 16,
      "yards": 132,
+     "overturns": 0,
+     "stood": 0,
      "pts": 85.4,
      "gid": "2026_05_CLE_NYJ"
     },
@@ -249,6 +262,8 @@
      "game": "TEN @ IND",
      "flags": 15,
      "yards": 115,
+     "overturns": 0,
+     "stood": 0,
      "pts": 72.0,
      "gid": "2026_06_TEN_IND"
     }
@@ -258,15 +273,17 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 92.3,
+   "ppg25": 90.7,
    "g26": 5,
-   "pts26": 502.4,
-   "ppg26": 100.5,
+   "pts26": 482.4,
+   "ppg26": 96.5,
    "weeks": {
     "1": {
      "game": "BUF @ HOU",
      "flags": 20,
      "yards": 191,
+     "overturns": 0,
+     "stood": 0,
      "pts": 112.3,
      "gid": "2026_01_BUF_HOU"
     },
@@ -274,27 +291,35 @@
      "game": "CAR @ ATL",
      "flags": 17,
      "yards": 102,
-     "pts": 66.4,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 56.4,
      "gid": "2026_02_CAR_ATL"
     },
     "3": {
      "game": "KC @ MIA",
      "flags": 18,
      "yards": 114,
-     "pts": 92.9,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 87.9,
      "gid": "2026_03_KC_MIA"
     },
     "4": {
      "game": "JAX @ CIN",
      "flags": 25,
      "yards": 233,
-     "pts": 143.5,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 138.5,
      "gid": "2026_04_JAX_CIN"
     },
     "5": {
      "game": "TB @ DAL",
      "flags": 21,
      "yards": 149,
+     "overturns": 0,
+     "stood": 0,
      "pts": 87.3,
      "gid": "2026_05_TB_DAL"
     }
@@ -304,36 +329,44 @@
    "referee": "Shawn Hochuli",
    "g25": 16,
    "flags25": 17.9,
-   "ppg25": 82.5,
+   "ppg25": 79.3,
    "g26": 6,
-   "pts26": 478.6,
-   "ppg26": 79.8,
+   "pts26": 457.6,
+   "ppg26": 76.3,
    "weeks": {
     "1": {
      "game": "GB @ MIN",
      "flags": 18,
      "yards": 113,
-     "pts": 67.6,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 62.6,
      "gid": "2026_01_GB_MIN"
     },
     "2": {
      "game": "WAS @ DAL",
      "flags": 12,
      "yards": 70,
-     "pts": 66.0,
+     "overturns": 2,
+     "stood": 1,
+     "pts": 59.0,
      "gid": "2026_02_WAS_DAL"
     },
     "3": {
      "game": "PHI @ CHI",
      "flags": 18,
      "yards": 106,
-     "pts": 73.2,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 63.2,
      "gid": "2026_03_PHI_CHI"
     },
     "4": {
      "game": "TEN @ BAL",
      "flags": 20,
      "yards": 163,
+     "overturns": 0,
+     "stood": 0,
      "pts": 104.1,
      "gid": "2026_04_TEN_BAL"
     },
@@ -341,14 +374,18 @@
      "game": "DEN @ LAC",
      "flags": 18,
      "yards": 133,
-     "pts": 72.3,
+     "overturns": 0,
+     "stood": 2,
+     "pts": 78.3,
      "gid": "2026_05_DEN_LAC"
     },
     "6": {
      "game": "HOU @ JAX",
      "flags": 17,
      "yards": 106,
-     "pts": 95.4,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 90.4,
      "gid": "2026_06_HOU_JAX"
     }
    }
@@ -357,44 +394,54 @@
    "referee": "Adrian Hill",
    "g25": 14,
    "flags25": 17.9,
-   "ppg25": 81.7,
+   "ppg25": 79.2,
    "g26": 5,
-   "pts26": 531.8,
-   "ppg26": 106.4,
+   "pts26": 501.8,
+   "ppg26": 100.4,
    "weeks": {
     "1": {
      "game": "NE @ SEA",
      "flags": 17,
      "yards": 148,
-     "pts": 95.6,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 90.6,
      "gid": "2026_01_NE_SEA"
     },
     "2": {
      "game": "CIN @ HOU",
      "flags": 23,
      "yards": 161,
-     "pts": 137.5,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 132.5,
      "gid": "2026_02_CIN_HOU"
     },
     "3": {
      "game": "LV @ NO",
      "flags": 13,
      "yards": 55,
-     "pts": 57.7,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 52.7,
      "gid": "2026_03_LV_NO"
     },
     "4": {
      "game": "MIA @ MIN",
      "flags": 21,
      "yards": 140,
-     "pts": 102.0,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 92.0,
      "gid": "2026_04_MIA_MIN"
     },
     "6": {
      "game": "WAS @ SF",
      "flags": 19,
      "yards": 154,
-     "pts": 139.0,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 134.0,
      "gid": "2026_06_WAS_SF"
     }
    }
@@ -403,29 +450,35 @@
    "referee": "Craig Wrolstad",
    "g25": 17,
    "flags25": 14.1,
-   "ppg25": 79.6,
+   "ppg25": 76.5,
    "g26": 5,
-   "pts26": 524.1,
-   "ppg26": 104.8,
+   "pts26": 510.1,
+   "ppg26": 102.0,
    "weeks": {
     "1": {
      "game": "CLE @ JAX",
      "flags": 15,
      "yards": 100,
-     "pts": 79.0,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 74.0,
      "gid": "2026_01_CLE_JAX"
     },
     "2": {
      "game": "IND @ KC",
      "flags": 16,
      "yards": 116,
-     "pts": 74.5,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 72.5,
      "gid": "2026_02_IND_KC"
     },
     "4": {
      "game": "LA @ PHI",
      "flags": 21,
      "yards": 157,
+     "overturns": 0,
+     "stood": 0,
      "pts": 113.4,
      "gid": "2026_04_LA_PHI"
     },
@@ -433,6 +486,8 @@
      "game": "LV @ NE",
      "flags": 24,
      "yards": 217,
+     "overturns": 0,
+     "stood": 0,
      "pts": 104.4,
      "gid": "2026_05_LV_NE"
     },
@@ -440,61 +495,10 @@
      "game": "DAL @ GB",
      "flags": 25,
      "yards": 204,
-     "pts": 152.8,
+     "overturns": 2,
+     "stood": 1,
+     "pts": 145.8,
      "gid": "2026_06_DAL_GB"
-    }
-   }
-  },
-  {
-   "referee": "Brad Rogers",
-   "g25": 16,
-   "flags25": 15.4,
-   "ppg25": 79.4,
-   "g26": 6,
-   "pts26": 438.2,
-   "ppg26": 73.0,
-   "weeks": {
-    "1": {
-     "game": "ATL @ PIT",
-     "flags": 19,
-     "yards": 148,
-     "pts": 81.1,
-     "gid": "2026_01_ATL_PIT"
-    },
-    "2": {
-     "game": "CLE @ TB",
-     "flags": 18,
-     "yards": 112,
-     "pts": 86.4,
-     "gid": "2026_02_CLE_TB"
-    },
-    "3": {
-     "game": "NYJ @ DET",
-     "flags": 14,
-     "yards": 71,
-     "pts": 51.2,
-     "gid": "2026_03_NYJ_DET"
-    },
-    "4": {
-     "game": "KC @ LV",
-     "flags": 15,
-     "yards": 89,
-     "pts": 71.7,
-     "gid": "2026_04_KC_LV"
-    },
-    "5": {
-     "game": "CIN @ MIA",
-     "flags": 13,
-     "yards": 69,
-     "pts": 54.8,
-     "gid": "2026_05_CIN_MIA"
-    },
-    "6": {
-     "game": "SEA @ DEN",
-     "flags": 16,
-     "yards": 117,
-     "pts": 93.0,
-     "gid": "2026_06_SEA_DEN"
     }
    }
   },
@@ -502,15 +506,17 @@
    "referee": "Ron Torbert",
    "g25": 16,
    "flags25": 15.8,
-   "ppg25": 78.2,
+   "ppg25": 75.6,
    "g26": 5,
-   "pts26": 453.8,
-   "ppg26": 90.8,
+   "pts26": 423.8,
+   "ppg26": 84.8,
    "weeks": {
     "1": {
      "game": "ARI @ LAC",
      "flags": 18,
      "yards": 175,
+     "overturns": 0,
+     "stood": 0,
      "pts": 88.9,
      "gid": "2026_01_ARI_LAC"
     },
@@ -518,6 +524,8 @@
      "game": "DET @ BUF",
      "flags": 16,
      "yards": 104,
+     "overturns": 0,
+     "stood": 0,
      "pts": 77.0,
      "gid": "2026_02_DET_BUF"
     },
@@ -525,75 +533,93 @@
      "game": "HOU @ IND",
      "flags": 8,
      "yards": 55,
-     "pts": 34.5,
+     "overturns": 3,
+     "stood": 0,
+     "pts": 19.5,
      "gid": "2026_03_HOU_IND"
     },
     "4": {
      "game": "DEN @ SF",
      "flags": 9,
      "yards": 49,
-     "pts": 73.3,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 68.3,
      "gid": "2026_04_DEN_SF"
     },
     "5": {
      "game": "PHI @ JAX",
      "flags": 26,
      "yards": 143,
-     "pts": 180.1,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 170.1,
      "gid": "2026_05_PHI_JAX"
     }
    }
   },
   {
-   "referee": "Carl Cheffers",
+   "referee": "Brad Rogers",
    "g25": 16,
-   "flags25": 17.3,
-   "ppg25": 75.8,
+   "flags25": 15.4,
+   "ppg25": 74.2,
    "g26": 6,
-   "pts26": 444.8,
-   "ppg26": 74.1,
+   "pts26": 409.2,
+   "ppg26": 68.2,
    "weeks": {
     "1": {
-     "game": "DAL @ NYG",
-     "flags": 20,
-     "yards": 204,
-     "pts": 110.3,
-     "gid": "2026_01_DAL_NYG"
+     "game": "ATL @ PIT",
+     "flags": 19,
+     "yards": 148,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 81.1,
+     "gid": "2026_01_ATL_PIT"
     },
     "2": {
-     "game": "PIT @ NE",
-     "flags": 13,
-     "yards": 90,
-     "pts": 62.0,
-     "gid": "2026_02_PIT_NE"
+     "game": "CLE @ TB",
+     "flags": 18,
+     "yards": 112,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 84.4,
+     "gid": "2026_02_CLE_TB"
     },
     "3": {
-     "game": "SEA @ WAS",
-     "flags": 19,
-     "yards": 110,
-     "pts": 83.5,
-     "gid": "2026_03_SEA_WAS"
+     "game": "NYJ @ DET",
+     "flags": 13,
+     "yards": 71,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 44.2,
+     "gid": "2026_03_NYJ_DET"
     },
     "4": {
-     "game": "NYJ @ CHI",
-     "flags": 18,
-     "yards": 105,
-     "pts": 94.5,
-     "gid": "2026_04_NYJ_CHI"
+     "game": "KC @ LV",
+     "flags": 15,
+     "yards": 89,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 66.7,
+     "gid": "2026_04_KC_LV"
     },
     "5": {
-     "game": "DET @ ARI",
-     "flags": 9,
-     "yards": 76,
-     "pts": 42.7,
-     "gid": "2026_05_DET_ARI"
+     "game": "CIN @ MIA",
+     "flags": 13,
+     "yards": 69,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 49.8,
+     "gid": "2026_05_CIN_MIA"
     },
     "6": {
-     "game": "BAL @ CLE",
-     "flags": 15,
-     "yards": 74,
-     "pts": 51.8,
-     "gid": "2026_06_BAL_CLE"
+     "game": "SEA @ DEN",
+     "flags": 16,
+     "yards": 117,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 83.0,
+     "gid": "2026_06_SEA_DEN"
     }
    }
   },
@@ -602,99 +628,111 @@
    "replacement": true,
    "g25": null,
    "flags25": 15.2,
-   "ppg25": 75.0,
+   "ppg25": 71.8,
    "g26": 6,
-   "pts26": 513.8,
-   "ppg26": 85.6,
+   "pts26": 488.7,
+   "ppg26": 81.5,
    "weeks": {
     "1": {
      "game": "Weekly average of 16 crews",
      "flags": null,
      "yards": null,
-     "pts": 78.8
+     "pts": 75.2
     },
     "2": {
      "game": "Weekly average of 16 crews",
      "flags": null,
      "yards": null,
-     "pts": 80.7
+     "pts": 79.1
     },
     "3": {
      "game": "Weekly average of 16 crews",
      "flags": null,
      "yards": null,
-     "pts": 80.1
+     "pts": 73.9
     },
     "4": {
      "game": "Weekly average of 16 crews",
      "flags": null,
      "yards": null,
-     "pts": 97.2
+     "pts": 91.9
     },
     "5": {
      "game": "Weekly average of 15 crews",
      "flags": null,
      "yards": null,
-     "pts": 79.0
+     "pts": 76.6
     },
     "6": {
      "game": "Weekly average of 14 crews",
      "flags": null,
      "yards": null,
-     "pts": 98.0
+     "pts": 92.0
     }
    }
   },
   {
-   "referee": "Land Clark",
+   "referee": "Carl Cheffers",
    "g25": 16,
-   "flags25": 13.6,
-   "ppg25": 72.2,
+   "flags25": 17.2,
+   "ppg25": 71.5,
    "g26": 6,
-   "pts26": 432.2,
-   "ppg26": 72.0,
+   "pts26": 420.8,
+   "ppg26": 70.1,
    "weeks": {
     "1": {
-     "game": "NYJ @ TEN",
-     "flags": 13,
-     "yards": 73,
-     "pts": 60.1,
-     "gid": "2026_01_NYJ_TEN"
+     "game": "DAL @ NYG",
+     "flags": 20,
+     "yards": 204,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 105.3,
+     "gid": "2026_01_DAL_NYG"
     },
     "2": {
-     "game": "MIN @ CHI",
-     "flags": 16,
-     "yards": 83,
-     "pts": 62.1,
-     "gid": "2026_02_MIN_CHI"
+     "game": "PIT @ NE",
+     "flags": 13,
+     "yards": 90,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 62.0,
+     "gid": "2026_02_PIT_NE"
     },
     "3": {
-     "game": "CAR @ CLE",
-     "flags": 22,
-     "yards": 147,
-     "pts": 92.7,
-     "gid": "2026_03_CAR_CLE"
+     "game": "SEA @ WAS",
+     "flags": 19,
+     "yards": 110,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 78.5,
+     "gid": "2026_03_SEA_WAS"
     },
     "4": {
-     "game": "ATL @ NO",
+     "game": "NYJ @ CHI",
      "flags": 18,
-     "yards": 119,
-     "pts": 75.1,
-     "gid": "2026_04_ATL_NO"
+     "yards": 105,
+     "overturns": 2,
+     "stood": 1,
+     "pts": 87.5,
+     "gid": "2026_04_NYJ_CHI"
     },
     "5": {
-     "game": "SF @ SEA",
-     "flags": 15,
-     "yards": 116,
-     "pts": 88.7,
-     "gid": "2026_05_SF_SEA"
+     "game": "DET @ ARI",
+     "flags": 9,
+     "yards": 76,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 45.7,
+     "gid": "2026_05_DET_ARI"
     },
     "6": {
-     "game": "PIT @ TB",
-     "flags": 11,
-     "yards": 100,
-     "pts": 53.5,
-     "gid": "2026_06_PIT_TB"
+     "game": "BAL @ CLE",
+     "flags": 15,
+     "yards": 74,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 41.8,
+     "gid": "2026_06_BAL_CLE"
     }
    }
   },
@@ -702,15 +740,17 @@
    "referee": "Alex Kemp",
    "g25": 17,
    "flags25": 14.5,
-   "ppg25": 72.1,
+   "ppg25": 70.3,
    "g26": 5,
-   "pts26": 439.1,
-   "ppg26": 87.8,
+   "pts26": 409.1,
+   "ppg26": 81.8,
    "weeks": {
     "1": {
      "game": "SF @ LA",
      "flags": 8,
      "yards": 64,
+     "overturns": 0,
+     "stood": 0,
      "pts": 49.3,
      "gid": "2026_01_SF_LA"
     },
@@ -718,6 +758,8 @@
      "game": "NE @ JAX",
      "flags": 18,
      "yards": 124,
+     "overturns": 0,
+     "stood": 0,
      "pts": 127.8,
      "gid": "2026_03_NE_JAX"
     },
@@ -725,13 +767,17 @@
      "game": "GB @ TB",
      "flags": 15,
      "yards": 85,
-     "pts": 79.9,
+     "overturns": 4,
+     "stood": 0,
+     "pts": 59.9,
      "gid": "2026_04_GB_TB"
     },
     "5": {
      "game": "HOU @ TEN",
      "flags": 18,
      "yards": 178,
+     "overturns": 0,
+     "stood": 0,
      "pts": 87.1,
      "gid": "2026_05_HOU_TEN"
     },
@@ -739,7 +785,9 @@
      "game": "NO @ NYG",
      "flags": 21,
      "yards": 125,
-     "pts": 95.0,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 85.0,
      "gid": "2026_06_NO_NYG"
     }
    }
@@ -747,16 +795,18 @@
   {
    "referee": "Shawn Smith",
    "g25": 15,
-   "flags25": 14.7,
-   "ppg25": 70.6,
+   "flags25": 14.6,
+   "ppg25": 68.2,
    "g26": 6,
-   "pts26": 415.5,
-   "ppg26": 69.2,
+   "pts26": 398.5,
+   "ppg26": 66.4,
    "weeks": {
     "1": {
      "game": "WAS @ PHI",
      "flags": 12,
      "yards": 85,
+     "overturns": 0,
+     "stood": 0,
      "pts": 45.0,
      "gid": "2026_01_WAS_PHI"
     },
@@ -764,6 +814,8 @@
      "game": "MIA @ SF",
      "flags": 16,
      "yards": 128,
+     "overturns": 0,
+     "stood": 0,
      "pts": 87.6,
      "gid": "2026_02_MIA_SF"
     },
@@ -771,180 +823,157 @@
      "game": "ATL @ GB",
      "flags": 12,
      "yards": 128,
-     "pts": 53.6,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 43.6,
      "gid": "2026_03_ATL_GB"
     },
     "4": {
      "game": "ARI @ NYG",
      "flags": 16,
      "yards": 99,
-     "pts": 62.6,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 57.6,
      "gid": "2026_04_ARI_NYG"
     },
     "5": {
      "game": "IND @ PIT",
      "flags": 16,
      "yards": 109,
-     "pts": 65.8,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 60.8,
      "gid": "2026_05_IND_PIT"
     },
     "6": {
      "game": "BUF @ LV",
      "flags": 15,
      "yards": 139,
-     "pts": 100.9,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 103.9,
      "gid": "2026_06_BUF_LV"
     }
    }
   },
   {
-   "referee": "Clete Blakeman",
+   "referee": "Land Clark",
    "g25": 16,
-   "flags25": 14.4,
-   "ppg25": 67.7,
+   "flags25": 13.5,
+   "ppg25": 67.8,
    "g26": 6,
-   "pts26": 460.2,
-   "ppg26": 76.7,
+   "pts26": 423.2,
+   "ppg26": 70.5,
    "weeks": {
     "1": {
-     "game": "MIA @ LV",
-     "flags": 15,
-     "yards": 90,
-     "pts": 74.0,
-     "gid": "2026_01_MIA_LV"
+     "game": "NYJ @ TEN",
+     "flags": 13,
+     "yards": 73,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 58.1,
+     "gid": "2026_01_NYJ_TEN"
     },
     "2": {
-     "game": "NO @ BAL",
-     "flags": 14,
-     "yards": 69,
-     "pts": 51.3,
-     "gid": "2026_02_NO_BAL"
+     "game": "MIN @ CHI",
+     "flags": 16,
+     "yards": 83,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 65.1,
+     "gid": "2026_02_MIN_CHI"
     },
     "3": {
-     "game": "LAC @ BUF",
-     "flags": 21,
-     "yards": 143,
-     "pts": 81.6,
-     "gid": "2026_03_LAC_BUF"
+     "game": "CAR @ CLE",
+     "flags": 22,
+     "yards": 147,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 92.7,
+     "gid": "2026_03_CAR_CLE"
     },
     "4": {
-     "game": "PIT @ CLE",
-     "flags": 28,
-     "yards": 180,
-     "pts": 128.9,
-     "gid": "2026_04_PIT_CLE"
-    },
-    "5": {
-     "game": "NYG @ WAS",
+     "game": "ATL @ NO",
      "flags": 18,
-     "yards": 104,
-     "pts": 57.8,
-     "gid": "2026_05_NYG_WAS"
-    },
-    "6": {
-     "game": "NYJ @ NE",
-     "flags": 11,
-     "yards": 92,
-     "pts": 66.6,
-     "gid": "2026_06_NYJ_NE"
-    }
-   }
-  },
-  {
-   "referee": "Scott Novak",
-   "g25": 17,
-   "flags25": 13.6,
-   "ppg25": 67.7,
-   "g26": 6,
-   "pts26": 774.0,
-   "ppg26": 129.0,
-   "weeks": {
-    "1": {
-     "game": "BAL @ IND",
-     "flags": 17,
-     "yards": 115,
-     "pts": 79.0,
-     "gid": "2026_01_BAL_IND"
-    },
-    "2": {
-     "game": "GB @ NYJ",
-     "flags": 33,
-     "yards": 289,
-     "pts": 175.3,
-     "gid": "2026_02_GB_NYJ"
-    },
-    "3": {
-     "game": "MIN @ TB",
-     "flags": 20,
-     "yards": 176,
-     "pts": 99.2,
-     "gid": "2026_03_MIN_TB"
-    },
-    "4": {
-     "game": "LAC @ SEA",
-     "flags": 32,
-     "yards": 280,
-     "pts": 208.0,
-     "gid": "2026_04_LAC_SEA"
+     "yards": 119,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 70.1,
+     "gid": "2026_04_ATL_NO"
     },
     "5": {
-     "game": "BUF @ LA",
-     "flags": 24,
-     "yards": 196,
-     "pts": 94.2,
-     "gid": "2026_05_BUF_LA"
+     "game": "SF @ SEA",
+     "flags": 15,
+     "yards": 116,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 88.7,
+     "gid": "2026_05_SF_SEA"
     },
     "6": {
-     "game": "CHI @ ATL",
-     "flags": 19,
-     "yards": 164,
-     "pts": 118.3,
-     "gid": "2026_06_CHI_ATL"
+     "game": "PIT @ TB",
+     "flags": 11,
+     "yards": 100,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 48.5,
+     "gid": "2026_06_PIT_TB"
     }
    }
   },
   {
    "referee": "Alan Eck",
    "g25": 16,
-   "flags25": 13.4,
-   "ppg25": 67.6,
+   "flags25": 13.3,
+   "ppg25": 65.3,
    "g26": 5,
-   "pts26": 487.4,
-   "ppg26": 97.5,
+   "pts26": 452.4,
+   "ppg26": 90.5,
    "weeks": {
     "1": {
      "game": "NO @ DET",
      "flags": 15,
      "yards": 114,
-     "pts": 77.3,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 67.3,
      "gid": "2026_01_NO_DET"
     },
     "2": {
      "game": "SEA @ ARI",
      "flags": 15,
      "yards": 74,
-     "pts": 107.1,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 102.1,
      "gid": "2026_02_SEA_ARI"
     },
     "3": {
      "game": "TEN @ NYG",
      "flags": 18,
      "yards": 151,
-     "pts": 103.8,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 98.8,
      "gid": "2026_03_TEN_NYG"
     },
     "4": {
      "game": "IND @ WAS",
      "flags": 12,
      "yards": 89,
+     "overturns": 0,
+     "stood": 0,
      "pts": 55.8,
      "gid": "2026_04_IND_WAS"
     },
     "6": {
      "game": "LAC @ KC",
-     "flags": 23,
-     "yards": 158,
-     "pts": 143.4,
+     "flags": 22,
+     "yards": 148,
+     "overturns": 2,
+     "stood": 1,
+     "pts": 128.4,
      "gid": "2026_06_LAC_KC"
     }
    }
@@ -953,29 +982,35 @@
    "referee": "Clay Martin",
    "g25": 16,
    "flags25": 14.4,
-   "ppg25": 67.1,
+   "ppg25": 64.7,
    "g26": 6,
-   "pts26": 384.0,
-   "ppg26": 64.0,
+   "pts26": 372.0,
+   "ppg26": 62.0,
    "weeks": {
     "1": {
      "game": "DEN @ KC",
      "flags": 16,
      "yards": 112,
-     "pts": 72.3,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 67.3,
      "gid": "2026_01_DEN_KC"
     },
     "2": {
      "game": "PHI @ TEN",
      "flags": 12,
      "yards": 80,
-     "pts": 51.5,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 46.5,
      "gid": "2026_02_PHI_TEN"
     },
     "3": {
      "game": "CIN @ PIT",
      "flags": 14,
      "yards": 77,
+     "overturns": 0,
+     "stood": 0,
      "pts": 60.9,
      "gid": "2026_03_CIN_PIT"
     },
@@ -983,13 +1018,17 @@
      "game": "DET @ CAR",
      "flags": 25,
      "yards": 127,
-     "pts": 85.4,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 88.4,
      "gid": "2026_04_DET_CAR"
     },
     "5": {
      "game": "CHI @ GB",
      "flags": 7,
      "yards": 45,
+     "overturns": 0,
+     "stood": 0,
      "pts": 64.0,
      "gid": "2026_05_CHI_GB"
     },
@@ -997,8 +1036,140 @@
      "game": "ARI @ LA",
      "flags": 11,
      "yards": 82,
-     "pts": 49.9,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 44.9,
      "gid": "2026_06_ARI_LA"
+    }
+   }
+  },
+  {
+   "referee": "Clete Blakeman",
+   "g25": 16,
+   "flags25": 14.4,
+   "ppg25": 62.8,
+   "g26": 6,
+   "pts26": 381.8,
+   "ppg26": 63.6,
+   "weeks": {
+    "1": {
+     "game": "MIA @ LV",
+     "flags": 15,
+     "yards": 90,
+     "overturns": 4,
+     "stood": 0,
+     "pts": 54.0,
+     "gid": "2026_01_MIA_LV"
+    },
+    "2": {
+     "game": "NO @ BAL",
+     "flags": 14,
+     "yards": 69,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 49.3,
+     "gid": "2026_02_NO_BAL"
+    },
+    "3": {
+     "game": "LAC @ BUF",
+     "flags": 20,
+     "yards": 138,
+     "overturns": 3,
+     "stood": 0,
+     "pts": 63.6,
+     "gid": "2026_03_LAC_BUF"
+    },
+    "4": {
+     "game": "PIT @ CLE",
+     "flags": 26,
+     "yards": 138,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 105.5,
+     "gid": "2026_04_PIT_CLE"
+    },
+    "5": {
+     "game": "NYG @ WAS",
+     "flags": 18,
+     "yards": 104,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 47.8,
+     "gid": "2026_05_NYG_WAS"
+    },
+    "6": {
+     "game": "NYJ @ NE",
+     "flags": 11,
+     "yards": 92,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 61.6,
+     "gid": "2026_06_NYJ_NE"
+    }
+   }
+  },
+  {
+   "referee": "Scott Novak",
+   "g25": 17,
+   "flags25": 13.6,
+   "ppg25": 62.7,
+   "g26": 6,
+   "pts26": 763.0,
+   "ppg26": 127.2,
+   "weeks": {
+    "1": {
+     "game": "BAL @ IND",
+     "flags": 17,
+     "yards": 115,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 82.0,
+     "gid": "2026_01_BAL_IND"
+    },
+    "2": {
+     "game": "GB @ NYJ",
+     "flags": 33,
+     "yards": 289,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 178.3,
+     "gid": "2026_02_GB_NYJ"
+    },
+    "3": {
+     "game": "MIN @ TB",
+     "flags": 20,
+     "yards": 176,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 97.2,
+     "gid": "2026_03_MIN_TB"
+    },
+    "4": {
+     "game": "LAC @ SEA",
+     "flags": 32,
+     "yards": 280,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 208.0,
+     "gid": "2026_04_LAC_SEA"
+    },
+    "5": {
+     "game": "BUF @ LA",
+     "flags": 24,
+     "yards": 196,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 84.2,
+     "gid": "2026_05_BUF_LA"
+    },
+    "6": {
+     "game": "CHI @ ATL",
+     "flags": 19,
+     "yards": 164,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 113.3,
+     "gid": "2026_06_CHI_ATL"
     }
    }
   },
@@ -1006,36 +1177,44 @@
    "referee": "John Hussey",
    "g25": 16,
    "flags25": 13.7,
-   "ppg25": 63.7,
+   "ppg25": 61.3,
    "g26": 5,
-   "pts26": 421.2,
-   "ppg26": 84.2,
+   "pts26": 409.2,
+   "ppg26": 81.8,
    "weeks": {
     "1": {
      "game": "TB @ CIN",
      "flags": 16,
      "yards": 86,
-     "pts": 62.1,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 57.1,
      "gid": "2026_01_TB_CIN"
     },
     "2": {
      "game": "JAX @ DEN",
      "flags": 17,
      "yards": 93,
-     "pts": 96.1,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 99.1,
      "gid": "2026_02_JAX_DEN"
     },
     "3": {
      "game": "BAL @ DAL",
      "flags": 16,
      "yards": 166,
-     "pts": 80.7,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 75.7,
      "gid": "2026_03_BAL_DAL"
     },
     "5": {
      "game": "MIN @ NO",
      "flags": 13,
      "yards": 71,
+     "overturns": 0,
+     "stood": 0,
      "pts": 41.7,
      "gid": "2026_05_MIN_NO"
     },
@@ -1043,7 +1222,9 @@
      "game": "CAR @ PHI",
      "flags": 29,
      "yards": 233,
-     "pts": 140.6,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 135.6,
      "gid": "2026_06_CAR_PHI"
     }
    }
@@ -1052,15 +1233,17 @@
    "referee": "Brad Allen",
    "g25": 15,
    "flags25": 12.9,
-   "ppg25": 63.1,
+   "ppg25": 57.9,
    "g26": 5,
-   "pts26": 390.5,
-   "ppg26": 78.1,
+   "pts26": 386.5,
+   "ppg26": 77.3,
    "weeks": {
     "1": {
      "game": "CHI @ CAR",
      "flags": 23,
      "yards": 141,
+     "overturns": 0,
+     "stood": 0,
      "pts": 107.7,
      "gid": "2026_01_CHI_CAR"
     },
@@ -1068,28 +1251,36 @@
      "game": "NYG @ LA",
      "flags": 11,
      "yards": 70,
-     "pts": 36.0,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 39.0,
      "gid": "2026_02_NYG_LA"
     },
     "3": {
      "game": "ARI @ SF",
      "flags": 22,
      "yards": 155,
-     "pts": 97.0,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 92.0,
      "gid": "2026_03_ARI_SF"
     },
     "4": {
      "game": "DAL @ HOU",
      "flags": 21,
      "yards": 137,
-     "pts": 90.9,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 93.9,
      "gid": "2026_04_DAL_HOU"
     },
     "5": {
      "game": "BAL @ ATL",
      "flags": 13,
      "yards": 107,
-     "pts": 58.9,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 53.9,
      "gid": "2026_05_BAL_ATL"
     }
    }
@@ -1102,7 +1293,9 @@
    "day": "Sunday",
    "flags": 25,
    "yards": 204,
-   "pts": 152.8,
+   "overturns": 2,
+   "stood": 1,
+   "pts": 145.8,
    "top": {
     "type": "Taunting",
     "team": "GB",
@@ -1117,32 +1310,14 @@
    }
   },
   {
-   "referee": "Alan Eck",
-   "game": "LAC @ KC",
-   "day": "Sunday",
-   "flags": 23,
-   "yards": 158,
-   "pts": 143.4,
-   "top": {
-    "type": "Disqualification",
-    "team": "KC",
-    "player": "C.Roland-Wallace",
-    "yards": 0,
-    "pts": 44.0,
-    "tier": "ejection",
-    "status": "offsetting",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "15:00"
-   }
-  },
-  {
    "referee": "John Hussey",
    "game": "CAR @ PHI",
    "day": "Sunday",
    "flags": 29,
    "yards": 233,
-   "pts": 140.6,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 135.6,
    "top": {
     "type": "Taunting",
     "team": "CAR",
@@ -1162,7 +1337,9 @@
    "day": "Monday",
    "flags": 19,
    "yards": 154,
-   "pts": 139.0,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 134.0,
    "top": {
     "type": "Fair Catch Interference",
     "team": "SF",
@@ -1177,12 +1354,36 @@
    }
   },
   {
+   "referee": "Alan Eck",
+   "game": "LAC @ KC",
+   "day": "Sunday",
+   "flags": 22,
+   "yards": 148,
+   "overturns": 2,
+   "stood": 1,
+   "pts": 128.4,
+   "top": {
+    "type": "Disqualification",
+    "team": "KC",
+    "player": "C.Roland-Wallace",
+    "yards": 0,
+    "pts": 44.0,
+    "tier": "ejection",
+    "status": "offsetting",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "15:00"
+   }
+  },
+  {
    "referee": "Scott Novak",
    "game": "CHI @ ATL",
    "day": "Sunday",
    "flags": 19,
    "yards": 164,
-   "pts": 118.3,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 113.3,
    "top": {
     "type": "Disqualification",
     "team": "CHI",
@@ -1202,7 +1403,9 @@
    "day": "Sunday",
    "flags": 15,
    "yards": 139,
-   "pts": 100.9,
+   "overturns": 0,
+   "stood": 1,
+   "pts": 103.9,
    "top": {
     "type": "Disqualification",
     "team": "BUF",
@@ -1222,7 +1425,9 @@
    "day": "Sunday",
    "flags": 17,
    "yards": 106,
-   "pts": 95.4,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 90.4,
    "top": {
     "type": "Tripping",
     "team": "HOU",
@@ -1242,7 +1447,9 @@
    "day": "Sunday",
    "flags": 21,
    "yards": 125,
-   "pts": 95.0,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 85.0,
    "top": {
     "type": "Illegal Block Above the Waist",
     "team": "NYG",
@@ -1262,7 +1469,9 @@
    "day": "Thursday",
    "flags": 16,
    "yards": 117,
-   "pts": 93.0,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 83.0,
    "top": {
     "type": "Leverage",
     "team": "SEA",
@@ -1282,6 +1491,8 @@
    "day": "Sunday",
    "flags": 15,
    "yards": 115,
+   "overturns": 0,
+   "stood": 0,
    "pts": 72.0,
    "top": {
     "type": "Running Into the Kicker",
@@ -1302,7 +1513,9 @@
    "day": "Sunday",
    "flags": 11,
    "yards": 92,
-   "pts": 66.6,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 61.6,
    "top": {
     "type": "Player Out of Bounds on Kick",
     "team": "NYJ",
@@ -1322,7 +1535,9 @@
    "day": "Sunday",
    "flags": 11,
    "yards": 100,
-   "pts": 53.5,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 48.5,
    "top": {
     "type": "Illegal Blindside Block",
     "team": "PIT",
@@ -1337,32 +1552,14 @@
    }
   },
   {
-   "referee": "Carl Cheffers",
-   "game": "BAL @ CLE",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 74,
-   "pts": 51.8,
-   "top": {
-    "type": "Neutral Zone Infraction",
-    "team": "CLE",
-    "player": "C.Williams",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "12:45"
-   }
-  },
-  {
    "referee": "Clay Martin",
    "game": "ARI @ LA",
    "day": "Sunday",
    "flags": 11,
    "yards": 82,
-   "pts": 49.9,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 44.9,
    "top": {
     "type": "Unnecessary Roughness",
     "team": "LA",
@@ -1374,6 +1571,28 @@
     "clutch": true,
     "qtr": "4",
     "clock": "00:47"
+   }
+  },
+  {
+   "referee": "Carl Cheffers",
+   "game": "BAL @ CLE",
+   "day": "Sunday",
+   "flags": 15,
+   "yards": 74,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 41.8,
+   "top": {
+    "type": "Neutral Zone Infraction",
+    "team": "CLE",
+    "player": "C.Williams",
+    "yards": 5,
+    "pts": 7.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "12:45"
    }
   }
  ],
@@ -1891,576 +2110,576 @@
   "1": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "2": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "3": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "4": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "5": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "6": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "7": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "8": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "9": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "10": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "11": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "12": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "13": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "14": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "15": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "16": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "17": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   },
   "18": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith",
-    "Clete Blakeman"
-   ],
-   "False Start Kids": [
-    "Alex Moore",
-    "Alex Kemp",
-    "Scott Novak"
-   ],
-   "Laundry Day": [
-    "Shawn Hochuli",
     "Land Clark",
     "Alan Eck"
    ],
+   "False Start Kids": [
+    "Alex Moore",
+    "Shawn Smith",
+    "Clay Martin"
+   ],
+   "Laundry Day": [
+    "Shawn Hochuli",
+    "Alex Kemp",
+    "Clete Blakeman"
+   ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
     "Ron Torbert",
+    "Brad Rogers",
     "Brad Allen"
    ]
   }
@@ -2468,154 +2687,154 @@
  "starters": {
   "1": {
    "Holding Pattern": [
-    "Shawn Smith",
-    "Clete Blakeman"
+    "Land Clark",
+    "Alan Eck"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "2": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Scott Novak"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Clete Blakeman"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "3": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
-    "Carl Cheffers",
+    "2012 Replacement Refs",
     "John Hussey"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "4": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "5": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
-    "2012 Replacement Refs",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Scott Novak"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "6": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
-    "Alex Kemp",
-    "Scott Novak"
+    "Shawn Smith",
+    "Clay Martin"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
     "Brad Rogers",
@@ -2625,313 +2844,313 @@
   "7": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "8": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "9": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "10": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "11": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "12": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "13": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "14": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "15": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "16": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "17": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   },
   "18": {
    "Holding Pattern": [
     "Bill Vinovich",
-    "Shawn Smith"
+    "Land Clark"
    ],
    "False Start Kids": [
     "Alex Moore",
-    "Alex Kemp"
+    "Shawn Smith"
    ],
    "Laundry Day": [
     "Shawn Hochuli",
-    "Land Clark"
+    "Alex Kemp"
    ],
    "Flag on the Play": [
     "Adrian Hill",
-    "2012 Replacement Refs"
+    "Carl Cheffers"
    ],
    "Pick Up the Flag": [
     "Craig Wrolstad",
-    "Carl Cheffers"
+    "2012 Replacement Refs"
    ],
    "Yellow Hankies": [
-    "Brad Rogers",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Brad Rogers"
    ]
   }
  },
@@ -2947,16 +3166,16 @@
      "A": {
       "crews": [
        {
-        "crew": "Shawn Smith",
-        "pts": 45.0,
-        "game": "WAS @ PHI",
+        "crew": "Land Clark",
+        "pts": 58.1,
+        "game": "NYJ @ TEN",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 74.0,
-        "game": "MIA @ LV",
+        "crew": "Alan Eck",
+        "pts": 67.3,
+        "game": "NO @ DET",
         "status": "final",
         "starter": true
        },
@@ -2968,21 +3187,21 @@
         "starter": false
        }
       ],
-      "pts": 119.0
+      "pts": 125.4
      },
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
-        "pts": 81.1,
-        "game": "ATL @ PIT",
+        "crew": "Ron Torbert",
+        "pts": 88.9,
+        "game": "ARI @ LAC",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
-        "pts": 88.9,
-        "game": "ARI @ LAC",
+        "crew": "Brad Rogers",
+        "pts": 81.1,
+        "game": "ATL @ PIT",
         "status": "final",
         "starter": true
        },
@@ -3012,50 +3231,50 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
-        "pts": 49.3,
-        "game": "SF @ LA",
+        "crew": "Shawn Smith",
+        "pts": 45.0,
+        "game": "WAS @ PHI",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
-        "pts": 79.0,
-        "game": "BAL @ IND",
+        "crew": "Clay Martin",
+        "pts": 67.3,
+        "game": "DEN @ KC",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 161.6
+      "pts": 157.3
      },
      "B": {
       "crews": [
        {
         "crew": "Craig Wrolstad",
-        "pts": 79.0,
+        "pts": 74.0,
         "game": "CLE @ JAX",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
-        "pts": 110.3,
-        "game": "DAL @ NYG",
+        "crew": "2012 Replacement Refs",
+        "pts": 75.2,
+        "game": "Weekly average of 16 crews",
         "status": "final",
         "starter": true
        },
        {
         "crew": "John Hussey",
-        "pts": 62.1,
+        "pts": 57.1,
         "game": "TB @ CIN",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 189.3
+      "pts": 149.2
      },
      "final": true,
-     "winner": "Pick Up the Flag"
+     "winner": "False Start Kids"
     },
     {
      "a": "Laundry Day",
@@ -3064,53 +3283,53 @@
       "crews": [
        {
         "crew": "Shawn Hochuli",
-        "pts": 67.6,
+        "pts": 62.6,
         "game": "GB @ MIN",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Land Clark",
-        "pts": 60.1,
-        "game": "NYJ @ TEN",
+        "crew": "Alex Kemp",
+        "pts": 49.3,
+        "game": "SF @ LA",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
-        "pts": 77.3,
-        "game": "NO @ DET",
+        "crew": "Clete Blakeman",
+        "pts": 54.0,
+        "game": "MIA @ LV",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 127.7
+      "pts": 111.9
      },
      "B": {
       "crews": [
        {
         "crew": "Adrian Hill",
-        "pts": 95.6,
+        "pts": 90.6,
         "game": "NE @ SEA",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
-        "pts": 78.8,
-        "game": "Weekly average of 16 crews",
+        "crew": "Carl Cheffers",
+        "pts": 105.3,
+        "game": "DAL @ NYG",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
-        "pts": 72.3,
-        "game": "DEN @ KC",
+        "crew": "Scott Novak",
+        "pts": 82.0,
+        "game": "BAL @ IND",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 174.4
+      "pts": 195.9
      },
      "final": true,
      "winner": "Flag on the Play"
@@ -3135,28 +3354,86 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
-        "pts": 87.6,
-        "game": "MIA @ SF",
+        "crew": "Land Clark",
+        "pts": 65.1,
+        "game": "MIN @ CHI",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 51.3,
-        "game": "NO @ BAL",
+        "crew": "Alan Eck",
+        "pts": 102.1,
+        "game": "SEA @ ARI",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 142.6
+      "pts": 120.1
      },
      "B": {
       "crews": [
        {
         "crew": "Craig Wrolstad",
-        "pts": 74.5,
+        "pts": 72.5,
         "game": "IND @ KC",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "2012 Replacement Refs",
+        "pts": 79.1,
+        "game": "Weekly average of 16 crews",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "John Hussey",
+        "pts": 99.1,
+        "game": "JAX @ DEN",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 151.6
+     },
+     "final": true,
+     "winner": "Pick Up the Flag"
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "Flag on the Play",
+     "A": {
+      "crews": [
+       {
+        "crew": "Ron Torbert",
+        "pts": 77.0,
+        "game": "DET @ BUF",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Brad Rogers",
+        "pts": 84.4,
+        "game": "CLE @ TB",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Brad Allen",
+        "pts": 39.0,
+        "game": "NYG @ LA",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 161.4
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "pts": 132.5,
+        "game": "CIN @ HOU",
         "status": "final",
         "starter": true
        },
@@ -3168,72 +3445,14 @@
         "starter": true
        },
        {
-        "crew": "John Hussey",
-        "pts": 96.1,
-        "game": "JAX @ DEN",
+        "crew": "Scott Novak",
+        "pts": 178.3,
+        "game": "GB @ NYJ",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 136.5
-     },
-     "final": true,
-     "winner": "Holding Pattern"
-    },
-    {
-     "a": "Yellow Hankies",
-     "b": "Flag on the Play",
-     "A": {
-      "crews": [
-       {
-        "crew": "Brad Rogers",
-        "pts": 86.4,
-        "game": "CLE @ TB",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Ron Torbert",
-        "pts": 77.0,
-        "game": "DET @ BUF",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Brad Allen",
-        "pts": 36.0,
-        "game": "NYG @ LA",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 163.4
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Adrian Hill",
-        "pts": 137.5,
-        "game": "CIN @ HOU",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "2012 Replacement Refs",
-        "pts": 80.7,
-        "game": "Weekly average of 16 crews",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Clay Martin",
-        "pts": 51.5,
-        "game": "PHI @ TEN",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 218.2
+      "pts": 194.5
      },
      "final": true,
      "winner": "Flag on the Play"
@@ -3245,15 +3464,41 @@
       "crews": [
        {
         "crew": "Alex Moore",
-        "pts": 66.4,
+        "pts": 56.4,
         "game": "CAR @ ATL",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
-        "pts": 175.3,
-        "game": "GB @ NYJ",
+        "crew": "Shawn Smith",
+        "pts": 87.6,
+        "game": "MIA @ SF",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clay Martin",
+        "pts": 46.5,
+        "game": "PHI @ TEN",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 144.0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 59.0,
+        "game": "WAS @ DAL",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clete Blakeman",
+        "pts": 49.3,
+        "game": "NO @ BAL",
         "status": "final",
         "starter": true
        },
@@ -3265,33 +3510,7 @@
         "starter": false
        }
       ],
-      "pts": 241.7
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Shawn Hochuli",
-        "pts": 66.0,
-        "game": "WAS @ DAL",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
-        "pts": 62.1,
-        "game": "MIN @ CHI",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Alan Eck",
-        "pts": 107.1,
-        "game": "SEA @ ARI",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 128.1
+      "pts": 108.3
      },
      "final": true,
      "winner": "False Start Kids"
@@ -3310,92 +3529,8 @@
       "crews": [
        {
         "crew": "Bill Vinovich",
-        "pts": 91.5,
+        "pts": 84.5,
         "game": "LA @ DEN",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Shawn Smith",
-        "pts": 53.6,
-        "game": "ATL @ GB",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Clete Blakeman",
-        "pts": 81.6,
-        "game": "LAC @ BUF",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 145.1
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Adrian Hill",
-        "pts": 57.7,
-        "game": "LV @ NO",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "2012 Replacement Refs",
-        "pts": 80.1,
-        "game": "Weekly average of 16 crews",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Clay Martin",
-        "pts": 60.9,
-        "game": "CIN @ PIT",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 137.8
-     },
-     "final": true,
-     "winner": "Holding Pattern"
-    },
-    {
-     "a": "Pick Up the Flag",
-     "b": "Laundry Day",
-     "A": {
-      "crews": [
-       {
-        "crew": "Carl Cheffers",
-        "pts": 83.5,
-        "game": "SEA @ WAS",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "John Hussey",
-        "pts": 80.7,
-        "game": "BAL @ DAL",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "bye",
-        "starter": false
-       }
-      ],
-      "pts": 164.2
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Shawn Hochuli",
-        "pts": 73.2,
-        "game": "PHI @ CHI",
         "status": "final",
         "starter": true
        },
@@ -3408,52 +3543,78 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 103.8,
+        "pts": 98.8,
         "game": "TEN @ NYG",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 165.9
-     },
-     "final": true,
-     "winner": "Laundry Day"
-    },
-    {
-     "a": "Yellow Hankies",
-     "b": "False Start Kids",
-     "A": {
-      "crews": [
-       {
-        "crew": "Brad Rogers",
-        "pts": 51.2,
-        "game": "NYJ @ DET",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Ron Torbert",
-        "pts": 34.5,
-        "game": "HOU @ IND",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Brad Allen",
-        "pts": 97.0,
-        "game": "ARI @ SF",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 85.7
+      "pts": 177.2
      },
      "B": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 92.9,
-        "game": "KC @ MIA",
+        "crew": "Adrian Hill",
+        "pts": 52.7,
+        "game": "LV @ NO",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 78.5,
+        "game": "SEA @ WAS",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 97.2,
+        "game": "MIN @ TB",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 131.2
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Pick Up the Flag",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "2012 Replacement Refs",
+        "pts": 73.9,
+        "game": "Weekly average of 16 crews",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "John Hussey",
+        "pts": 75.7,
+        "game": "BAL @ DAL",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "bye",
+        "starter": false
+       }
+      ],
+      "pts": 149.6
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 63.2,
+        "game": "PHI @ CHI",
         "status": "final",
         "starter": true
        },
@@ -3465,14 +3626,72 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
-        "pts": 99.2,
-        "game": "MIN @ TB",
+        "crew": "Clete Blakeman",
+        "pts": 63.6,
+        "game": "LAC @ BUF",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 220.7
+      "pts": 191.0
+     },
+     "final": true,
+     "winner": "Laundry Day"
+    },
+    {
+     "a": "Yellow Hankies",
+     "b": "False Start Kids",
+     "A": {
+      "crews": [
+       {
+        "crew": "Ron Torbert",
+        "pts": 19.5,
+        "game": "HOU @ IND",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Brad Rogers",
+        "pts": 44.2,
+        "game": "NYJ @ DET",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Brad Allen",
+        "pts": 92.0,
+        "game": "ARI @ SF",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 63.7
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 87.9,
+        "game": "KC @ MIA",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 43.6,
+        "game": "ATL @ GB",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clay Martin",
+        "pts": 60.9,
+        "game": "CIN @ PIT",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 131.5
      },
      "final": true,
      "winner": "False Start Kids"
@@ -3491,40 +3710,14 @@
       "crews": [
        {
         "crew": "Bill Vinovich",
-        "pts": 65.7,
+        "pts": 60.7,
         "game": "NE @ BUF",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
-        "pts": 62.6,
-        "game": "ARI @ NYG",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Clete Blakeman",
-        "pts": 128.9,
-        "game": "PIT @ CLE",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 128.3
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Shawn Hochuli",
-        "pts": 104.1,
-        "game": "TEN @ BAL",
-        "status": "final",
-        "starter": true
-       },
-       {
         "crew": "Land Clark",
-        "pts": 75.1,
+        "pts": 70.1,
         "game": "ATL @ NO",
         "status": "final",
         "starter": true
@@ -3537,7 +3730,33 @@
         "starter": false
        }
       ],
-      "pts": 179.2
+      "pts": 130.8
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 104.1,
+        "game": "TEN @ BAL",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 59.9,
+        "game": "GB @ TB",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clete Blakeman",
+        "pts": 105.5,
+        "game": "PIT @ CLE",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 164.0
      },
      "final": true,
      "winner": "Laundry Day"
@@ -3549,41 +3768,15 @@
       "crews": [
        {
         "crew": "Adrian Hill",
-        "pts": 102.0,
+        "pts": 92.0,
         "game": "MIA @ MIN",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
-        "pts": 97.2,
-        "game": "Weekly average of 16 crews",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Clay Martin",
-        "pts": 85.4,
-        "game": "DET @ CAR",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 199.2
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Alex Moore",
-        "pts": 143.5,
-        "game": "JAX @ CIN",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Alex Kemp",
-        "pts": 79.9,
-        "game": "GB @ TB",
+        "crew": "Carl Cheffers",
+        "pts": 87.5,
+        "game": "NYJ @ CHI",
         "status": "final",
         "starter": true
        },
@@ -3595,7 +3788,33 @@
         "starter": false
        }
       ],
-      "pts": 223.4
+      "pts": 179.5
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Alex Moore",
+        "pts": 138.5,
+        "game": "JAX @ CIN",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Shawn Smith",
+        "pts": 57.6,
+        "game": "ARI @ NYG",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clay Martin",
+        "pts": 88.4,
+        "game": "DET @ CAR",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 196.1
      },
      "final": true,
      "winner": "False Start Kids"
@@ -3613,9 +3832,9 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
-        "pts": 94.5,
-        "game": "NYJ @ CHI",
+        "crew": "2012 Replacement Refs",
+        "pts": 91.9,
+        "game": "Weekly average of 16 crews",
         "status": "final",
         "starter": true
        },
@@ -3627,33 +3846,33 @@
         "starter": false
        }
       ],
-      "pts": 207.9
+      "pts": 205.3
      },
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
-        "pts": 71.7,
-        "game": "KC @ LV",
-        "status": "final",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
-        "pts": 73.3,
+        "pts": 68.3,
         "game": "DEN @ SF",
         "status": "final",
         "starter": true
        },
        {
+        "crew": "Brad Rogers",
+        "pts": 66.7,
+        "game": "KC @ LV",
+        "status": "final",
+        "starter": true
+       },
+       {
         "crew": "Brad Allen",
-        "pts": 90.9,
+        "pts": 93.9,
         "game": "DAL @ HOU",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 145.0
+      "pts": 135.0
      },
      "final": true,
      "winner": "Pick Up the Flag"
@@ -3678,64 +3897,6 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
-        "pts": 65.8,
-        "game": "IND @ PIT",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Clete Blakeman",
-        "pts": 57.8,
-        "game": "NYG @ WAS",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 151.2
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Alex Moore",
-        "pts": 87.3,
-        "game": "TB @ DAL",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Alex Kemp",
-        "pts": 87.1,
-        "game": "HOU @ TEN",
-        "status": "final",
-        "starter": true
-       },
-       {
-        "crew": "Scott Novak",
-        "pts": 94.2,
-        "game": "BUF @ LA",
-        "status": "final",
-        "starter": false
-       }
-      ],
-      "pts": 174.4
-     },
-     "final": true,
-     "winner": "False Start Kids"
-    },
-    {
-     "a": "Laundry Day",
-     "b": "Yellow Hankies",
-     "A": {
-      "crews": [
-       {
-        "crew": "Shawn Hochuli",
-        "pts": 72.3,
-        "game": "DEN @ LAC",
-        "status": "final",
-        "starter": true
-       },
-       {
         "crew": "Land Clark",
         "pts": 88.7,
         "game": "SF @ SEA",
@@ -3750,33 +3911,91 @@
         "starter": false
        }
       ],
-      "pts": 161.0
+      "pts": 174.1
      },
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
-        "pts": 54.8,
-        "game": "CIN @ MIA",
+        "crew": "Alex Moore",
+        "pts": 87.3,
+        "game": "TB @ DAL",
         "status": "final",
         "starter": true
        },
        {
+        "crew": "Shawn Smith",
+        "pts": 60.8,
+        "game": "IND @ PIT",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clay Martin",
+        "pts": 64.0,
+        "game": "CHI @ GB",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 148.1
+     },
+     "final": true,
+     "winner": "Holding Pattern"
+    },
+    {
+     "a": "Laundry Day",
+     "b": "Yellow Hankies",
+     "A": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 78.3,
+        "game": "DEN @ LAC",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 87.1,
+        "game": "HOU @ TEN",
+        "status": "final",
+        "starter": true
+       },
+       {
+        "crew": "Clete Blakeman",
+        "pts": 47.8,
+        "game": "NYG @ WAS",
+        "status": "final",
+        "starter": false
+       }
+      ],
+      "pts": 165.4
+     },
+     "B": {
+      "crews": [
+       {
         "crew": "Ron Torbert",
-        "pts": 180.1,
+        "pts": 170.1,
         "game": "PHI @ JAX",
         "status": "final",
         "starter": true
        },
        {
+        "crew": "Brad Rogers",
+        "pts": 49.8,
+        "game": "CIN @ MIA",
+        "status": "final",
+        "starter": true
+       },
+       {
         "crew": "Brad Allen",
-        "pts": 58.9,
+        "pts": 53.9,
         "game": "BAL @ ATL",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 234.9
+      "pts": 219.9
      },
      "final": true,
      "winner": "Yellow Hankies"
@@ -3787,16 +4006,16 @@
      "A": {
       "crews": [
        {
-        "crew": "2012 Replacement Refs",
-        "pts": 79.0,
-        "game": "Weekly average of 15 crews",
+        "crew": "Carl Cheffers",
+        "pts": 45.7,
+        "game": "DET @ ARI",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
-        "pts": 64.0,
-        "game": "CHI @ GB",
+        "crew": "Scott Novak",
+        "pts": 84.2,
+        "game": "BUF @ LA",
         "status": "final",
         "starter": true
        },
@@ -3808,7 +4027,7 @@
         "starter": false
        }
       ],
-      "pts": 143.0
+      "pts": 129.9
      },
      "B": {
       "crews": [
@@ -3820,9 +4039,9 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
-        "pts": 42.7,
-        "game": "DET @ ARI",
+        "crew": "2012 Replacement Refs",
+        "pts": 76.6,
+        "game": "Weekly average of 15 crews",
         "status": "final",
         "starter": true
        },
@@ -3834,7 +4053,7 @@
         "starter": false
        }
       ],
-      "pts": 147.1
+      "pts": 181.0
      },
      "final": true,
      "winner": "Pick Up the Flag"
@@ -3852,17 +4071,17 @@
      "A": {
       "crews": [
        {
-        "crew": "Brad Rogers",
-        "pts": 93.0,
-        "game": "SEA @ DEN",
-        "status": "final",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "bye",
+        "starter": true
+       },
+       {
+        "crew": "Brad Rogers",
+        "pts": 83.0,
+        "game": "SEA @ DEN",
+        "status": "final",
         "starter": true
        },
        {
@@ -3873,7 +4092,7 @@
         "starter": false
        }
       ],
-      "pts": 93.0
+      "pts": 83.0
      },
      "B": {
       "crews": [
@@ -3885,21 +4104,21 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
-        "pts": 100.9,
-        "game": "BUF @ LV",
+        "crew": "Land Clark",
+        "pts": 48.5,
+        "game": "PIT @ TB",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
-        "pts": 66.6,
-        "game": "NYJ @ NE",
+        "crew": "Alan Eck",
+        "pts": 128.4,
+        "game": "LAC @ KC",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 172.9
+      "pts": 120.5
      },
      "final": true,
      "winner": "Holding Pattern"
@@ -3911,41 +4130,41 @@
       "crews": [
        {
         "crew": "Craig Wrolstad",
-        "pts": 152.8,
+        "pts": 145.8,
         "game": "DAL @ GB",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
-        "pts": 51.8,
-        "game": "BAL @ CLE",
+        "crew": "2012 Replacement Refs",
+        "pts": 92.0,
+        "game": "Weekly average of 14 crews",
         "status": "final",
         "starter": true
        },
        {
         "crew": "John Hussey",
-        "pts": 140.6,
+        "pts": 135.6,
         "game": "CAR @ PHI",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 204.6
+      "pts": 237.8
      },
      "B": {
       "crews": [
        {
-        "crew": "Alex Kemp",
-        "pts": 95.0,
-        "game": "NO @ NYG",
+        "crew": "Shawn Smith",
+        "pts": 103.9,
+        "game": "BUF @ LV",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
-        "pts": 118.3,
-        "game": "CHI @ ATL",
+        "crew": "Clay Martin",
+        "pts": 44.9,
+        "game": "ARI @ LA",
         "status": "final",
         "starter": true
        },
@@ -3957,10 +4176,10 @@
         "starter": false
        }
       ],
-      "pts": 213.3
+      "pts": 148.8
      },
      "final": true,
-     "winner": "False Start Kids"
+     "winner": "Pick Up the Flag"
     },
     {
      "a": "Flag on the Play",
@@ -3969,53 +4188,53 @@
       "crews": [
        {
         "crew": "Adrian Hill",
-        "pts": 139.0,
+        "pts": 134.0,
         "game": "WAS @ SF",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
-        "pts": 98.0,
-        "game": "Weekly average of 14 crews",
+        "crew": "Carl Cheffers",
+        "pts": 41.8,
+        "game": "BAL @ CLE",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
-        "pts": 49.9,
-        "game": "ARI @ LA",
+        "crew": "Scott Novak",
+        "pts": 113.3,
+        "game": "CHI @ ATL",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 237.0
+      "pts": 175.8
      },
      "B": {
       "crews": [
        {
         "crew": "Shawn Hochuli",
-        "pts": 95.4,
+        "pts": 90.4,
         "game": "HOU @ JAX",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Land Clark",
-        "pts": 53.5,
-        "game": "PIT @ TB",
+        "crew": "Alex Kemp",
+        "pts": 85.0,
+        "game": "NO @ NYG",
         "status": "final",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
-        "pts": 143.4,
-        "game": "LAC @ KC",
+        "crew": "Clete Blakeman",
+        "pts": 61.6,
+        "game": "NYJ @ NE",
         "status": "final",
         "starter": false
        }
       ],
-      "pts": 148.9
+      "pts": 175.4
      },
      "final": true,
      "winner": "Flag on the Play"
@@ -4040,7 +4259,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4066,14 +4285,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4098,14 +4317,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4117,14 +4336,14 @@
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4156,14 +4375,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4182,14 +4401,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4221,14 +4440,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4247,14 +4466,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4279,14 +4498,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4305,7 +4524,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4337,14 +4556,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4356,14 +4575,14 @@
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4402,14 +4621,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4428,14 +4647,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4460,14 +4679,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4486,14 +4705,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4511,14 +4730,14 @@
      "A": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4544,7 +4763,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4583,14 +4802,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4603,64 +4822,6 @@
       "crews": [
        {
         "crew": "Bill Vinovich",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Shawn Smith",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Clete Blakeman",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": false
-       }
-      ],
-      "pts": 0
-     },
-     "final": false,
-     "winner": null
-    },
-    {
-     "a": "Yellow Hankies",
-     "b": "Laundry Day",
-     "A": {
-      "crews": [
-       {
-        "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Ron Torbert",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Brad Allen",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": false
-       }
-      ],
-      "pts": 0
-     },
-     "B": {
-      "crews": [
-       {
-        "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4687,6 +4848,64 @@
      "winner": null
     },
     {
+     "a": "Yellow Hankies",
+     "b": "Laundry Day",
+     "A": {
+      "crews": [
+       {
+        "crew": "Ron Torbert",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Brad Allen",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": false
+       }
+      ],
+      "pts": 0
+     },
+     "B": {
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Kemp",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": false
+       }
+      ],
+      "pts": 0
+     },
+     "final": false,
+     "winner": null
+    },
+    {
      "a": "Pick Up the Flag",
      "b": "Flag on the Play",
      "A": {
@@ -4699,7 +4918,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4725,14 +4944,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4764,14 +4983,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4783,14 +5002,14 @@
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4822,14 +5041,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4848,7 +5067,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4880,14 +5099,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4906,14 +5125,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4945,14 +5164,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4971,7 +5190,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4996,14 +5215,14 @@
      "A": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5029,14 +5248,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5061,14 +5280,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5087,14 +5306,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5126,14 +5345,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5152,14 +5371,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5184,7 +5403,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5210,14 +5429,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5235,14 +5454,14 @@
      "A": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5268,14 +5487,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5307,14 +5526,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5333,14 +5552,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5365,14 +5584,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5391,14 +5610,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5423,7 +5642,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5442,14 +5661,14 @@
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5488,14 +5707,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5514,14 +5733,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5546,14 +5765,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5565,14 +5784,14 @@
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5604,14 +5823,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5630,7 +5849,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5662,14 +5881,14 @@
      "A": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5695,14 +5914,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5727,7 +5946,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5753,14 +5972,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5785,14 +6004,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5811,14 +6030,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5850,7 +6069,7 @@
         "starter": true
        },
        {
-        "crew": "Carl Cheffers",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5876,14 +6095,14 @@
         "starter": true
        },
        {
-        "crew": "Shawn Smith",
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clete Blakeman",
+        "crew": "Alan Eck",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5908,14 +6127,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Clay Martin",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5927,14 +6146,14 @@
      "B": {
       "crews": [
        {
-        "crew": "Brad Rogers",
+        "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Ron Torbert",
+        "crew": "Brad Rogers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5966,14 +6185,14 @@
         "starter": true
        },
        {
-        "crew": "Land Clark",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Alan Eck",
+        "crew": "Clete Blakeman",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -5992,14 +6211,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "Clay Martin",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -6019,8 +6238,8 @@
    "playoff": true,
    "games": [
     {
-     "a": "False Start Kids",
-     "b": "Flag on the Play",
+     "a": "Pick Up the Flag",
+     "b": "False Start Kids",
      "seeds": [
       1,
       2
@@ -6031,7 +6250,7 @@
      "winner": null
     },
     {
-     "a": "Pick Up the Flag",
+     "a": "Flag on the Play",
      "b": "Holding Pattern",
      "seeds": [
       3,
@@ -6059,14 +6278,24 @@
  ],
  "standings": [
   {
+   "team": "Pick Up the Flag",
+   "manager": "",
+   "w": 4,
+   "l": 2,
+   "t": 0,
+   "pf": 1074.5,
+   "pa": 882.1,
+   "streak": "W3"
+  },
+  {
    "team": "False Start Kids",
    "manager": "",
-   "w": 5,
-   "l": 1,
+   "w": 4,
+   "l": 2,
    "t": 0,
-   "pf": 1235.1,
-   "pa": 958.1,
-   "streak": "W5"
+   "pf": 925.8,
+   "pa": 912.6,
+   "streak": "L2"
   },
   {
    "team": "Flag on the Play",
@@ -6074,19 +6303,9 @@
    "w": 3,
    "l": 3,
    "t": 0,
-   "pf": 1109.6,
-   "pa": 955.6,
+   "pf": 1006.8,
+   "pa": 1003.0,
    "streak": "W1"
-  },
-  {
-   "team": "Pick Up the Flag",
-   "manager": "",
-   "w": 3,
-   "l": 3,
-   "t": 0,
-   "pf": 1049.6,
-   "pa": 971.4,
-   "streak": "L1"
   },
   {
    "team": "Holding Pattern",
@@ -6094,9 +6313,9 @@
    "w": 3,
    "l": 3,
    "t": 0,
-   "pf": 859.1,
-   "pa": 890.9,
-   "streak": "W1"
+   "pf": 848.1,
+   "pa": 847.9,
+   "streak": "W2"
   },
   {
    "team": "Laundry Day",
@@ -6104,8 +6323,8 @@
    "w": 2,
    "l": 4,
    "t": 0,
-   "pf": 910.8,
-   "pa": 1180.5,
+   "pf": 916.0,
+   "pa": 1016.0,
    "streak": "L2"
   },
   {
@@ -6114,8 +6333,8 @@
    "w": 2,
    "l": 4,
    "t": 0,
-   "pf": 892.0,
-   "pa": 1099.7,
+   "pf": 833.0,
+   "pa": 942.6,
    "streak": "L1"
   }
  ],
@@ -6136,8 +6355,8 @@
    0
   ],
   "Holding Pattern|Pick Up the Flag": [
-   1,
    0,
+   1,
    0
   ],
   "Flag on the Play|Yellow Hankies": [
@@ -6181,8 +6400,8 @@
    0
   ],
   "False Start Kids|Holding Pattern": [
-   1,
    0,
+   1,
    0
   ],
   "Laundry Day|Yellow Hankies": [
@@ -6199,20 +6418,37 @@
  "awards": {
   "1": {
    "golden_flag": {
-    "team": "Holding Pattern",
-    "crew": "Clete Blakeman",
-    "type": "Taunting",
+    "team": "False Start Kids",
+    "crew": "Alex Moore",
+    "type": "Chop Block",
     "pts": 15.0,
     "tier": "rare",
-    "nfl_team": "MIA",
-    "player": "J.Brents",
-    "game": "MIA @ LV",
+    "nfl_team": "HOU",
+    "player": "D.Montgomery",
+    "game": "BUF @ HOU",
     "status": "accepted",
     "clutch": false
    },
-   "swallowed_whistle": {
-    "team": "Holding Pattern",
-    "pts": 119.0
+   "overturned": {
+    "n": 3,
+    "pts": -15,
+    "teams": [
+     {
+      "team": "Holding Pattern",
+      "crews": [
+       {
+        "crew": "Land Clark",
+        "n": 1,
+        "game": "NYJ @ TEN"
+       },
+       {
+        "crew": "Alan Eck",
+        "n": 2,
+        "game": "NO @ DET"
+       }
+      ]
+     }
+    ]
    }
   },
   "2": {
@@ -6228,14 +6464,31 @@
     "status": "accepted",
     "clutch": false
    },
-   "swallowed_whistle": {
-    "team": "Laundry Day",
-    "pts": 128.1
+   "overturned": {
+    "n": 3,
+    "pts": -15,
+    "teams": [
+     {
+      "team": "Laundry Day",
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "n": 2,
+        "game": "WAS @ DAL"
+       },
+       {
+        "crew": "Clete Blakeman",
+        "n": 1,
+        "game": "NO @ BAL"
+       }
+      ]
+     }
+    ]
    }
   },
   "3": {
    "golden_flag": {
-    "team": "False Start Kids",
+    "team": "Laundry Day",
     "crew": "Alex Kemp",
     "type": "Taunting",
     "pts": 15.0,
@@ -6246,9 +6499,26 @@
     "status": "accepted",
     "clutch": false
    },
-   "swallowed_whistle": {
-    "team": "Yellow Hankies",
-    "pts": 85.7
+   "overturned": {
+    "n": 4,
+    "pts": -20,
+    "teams": [
+     {
+      "team": "Yellow Hankies",
+      "crews": [
+       {
+        "crew": "Ron Torbert",
+        "n": 3,
+        "game": "HOU @ IND"
+       },
+       {
+        "crew": "Brad Rogers",
+        "n": 1,
+        "game": "NYJ @ DET"
+       }
+      ]
+     }
+    ]
    }
   },
   "4": {
@@ -6264,9 +6534,36 @@
     "status": "accepted",
     "clutch": true
    },
-   "swallowed_whistle": {
-    "team": "Holding Pattern",
-    "pts": 128.3
+   "overturned": {
+    "n": 4,
+    "pts": -20,
+    "teams": [
+     {
+      "team": "Laundry Day",
+      "crews": [
+       {
+        "crew": "Alex Kemp",
+        "n": 4,
+        "game": "GB @ TB"
+       }
+      ]
+     },
+     {
+      "team": "Flag on the Play",
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "n": 2,
+        "game": "MIA @ MIN"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "n": 2,
+        "game": "NYJ @ CHI"
+       }
+      ]
+     }
+    ]
    }
   },
   "5": {
@@ -6282,9 +6579,26 @@
     "status": "offsetting",
     "clutch": false
    },
-   "swallowed_whistle": {
-    "team": "Flag on the Play",
-    "pts": 143.0
+   "overturned": {
+    "n": 3,
+    "pts": -15,
+    "teams": [
+     {
+      "team": "Yellow Hankies",
+      "crews": [
+       {
+        "crew": "Ron Torbert",
+        "n": 2,
+        "game": "PHI @ JAX"
+       },
+       {
+        "crew": "Brad Rogers",
+        "n": 1,
+        "game": "CIN @ MIA"
+       }
+      ]
+     }
+    ]
    }
   },
   "6": {
@@ -6300,9 +6614,41 @@
     "status": "accepted",
     "clutch": true
    },
-   "swallowed_whistle": {
-    "team": "Yellow Hankies",
-    "pts": 93.0
+   "overturned": {
+    "n": 3,
+    "pts": -15,
+    "teams": [
+     {
+      "team": "Laundry Day",
+      "crews": [
+       {
+        "crew": "Shawn Hochuli",
+        "n": 1,
+        "game": "HOU @ JAX"
+       },
+       {
+        "crew": "Alex Kemp",
+        "n": 2,
+        "game": "NO @ NYG"
+       }
+      ]
+     },
+     {
+      "team": "Flag on the Play",
+      "crews": [
+       {
+        "crew": "Adrian Hill",
+        "n": 1,
+        "game": "WAS @ SF"
+       },
+       {
+        "crew": "Carl Cheffers",
+        "n": 2,
+        "game": "BAL @ CLE"
+       }
+      ]
+     }
+    ]
    }
   }
  },
@@ -6310,8 +6656,8 @@
  "tier_table": [
   {
    "type": "Offensive Holding",
-   "per_game": 2.904,
-   "season": 790,
+   "per_game": 2.901,
+   "season": 789,
    "tier": "common"
   },
   {
@@ -6322,8 +6668,8 @@
   },
   {
    "type": "Defensive Pass Interference",
-   "per_game": 1.169,
-   "season": 318,
+   "per_game": 1.165,
+   "season": 317,
    "tier": "common"
   },
   {
@@ -6340,8 +6686,8 @@
   },
   {
    "type": "Unnecessary Roughness",
-   "per_game": 0.728,
-   "season": 198,
+   "per_game": 0.724,
+   "season": 197,
    "tier": "common"
   },
   {
@@ -6358,8 +6704,8 @@
   },
   {
    "type": "Illegal Contact",
-   "per_game": 0.518,
-   "season": 141,
+   "per_game": 0.511,
+   "season": 139,
    "tier": "common"
   },
   {
@@ -6382,8 +6728,8 @@
   },
   {
    "type": "Illegal Shift",
-   "per_game": 0.342,
-   "season": 93,
+   "per_game": 0.331,
+   "season": 90,
    "tier": "common"
   },
   {
@@ -6454,8 +6800,8 @@
   },
   {
    "type": "Illegal Blindside Block",
-   "per_game": 0.107,
-   "season": 29,
+   "per_game": 0.103,
+   "season": 28,
    "tier": "uncommon"
   },
   {
