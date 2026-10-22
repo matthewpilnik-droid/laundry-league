@@ -8,11 +8,11 @@
   "starters_per_week": 2,
   "lineup_deadline": "Thursday kickoff",
   "teams": [
-    { "name": "Team 1", "manager": "", "crews": [] },
-    { "name": "Team 2", "manager": "", "crews": [] },
-    { "name": "Team 3", "manager": "", "crews": [] },
-    { "name": "Team 4", "manager": "", "crews": [] },
-    { "name": "Team 5", "manager": "", "crews": [] },
+    { "name": "I'm Blind, I'm Deaf", "manager": "Matthew", "crews": [] },
+    { "name": "This is not Nam, there are rules", "manager": "Mike", "crews": [] },
+    { "name": "Zebras with Gambling Debts", "manager": "Stephan", "crews": [] },
+    { "name": "Helen Keller's School for Refs that Don't See That Good", "manager": "Bryan", "crews": [] },
+    { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": [] },
     { "name": "Team 6", "manager": "", "crews": [] }
   ],
   "lineups": []
