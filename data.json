@@ -13,16 +13,17 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-23T00:52Z",
- "updated": "2026-10-19",
- "last_week": 6,
+ "generated_at": "2026-10-23T06:47Z",
+ "updated": "2026-10-22",
+ "last_week": 7,
  "weeks_played": [
   1,
   2,
   3,
   4,
   5,
-  6
+  6,
+  7
  ],
  "current_week": 7,
  "calibration_games": 272,
@@ -99,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "clark": "Land Clark",
-  "cheffers": "Carl Cheffers",
-  "hussey": "John Hussey",
-  "torbert": "Ron Torbert",
-  "hochuli": "Shawn Hochuli",
   "smith": "Shawn Smith",
-  "hill": "Adrian Hill",
-  "allen": "Brad Allen",
-  "moore": "Alex Moore",
-  "novak": "Scott Novak",
-  "blakeman": "Clete Blakeman",
-  "wrolstad": "Craig Wrolstad",
-  "eck": "Alan Eck",
+  "hussey": "John Hussey",
   "rogers": "Brad Rogers",
-  "kemp": "Alex Kemp",
+  "vinovich": "Bill Vinovich",
+  "moore": "Alex Moore",
+  "wrolstad": "Craig Wrolstad",
+  "allen": "Brad Allen",
+  "cheffers": "Carl Cheffers",
+  "novak": "Scott Novak",
+  "eck": "Alan Eck",
   "martin": "Clay Martin",
-  "vinovich": "Bill Vinovich"
+  "kemp": "Alex Kemp",
+  "hochuli": "Shawn Hochuli",
+  "blakeman": "Clete Blakeman",
+  "clark": "Land Clark",
+  "torbert": "Ron Torbert",
+  "hill": "Adrian Hill"
  },
  "scored_espn": [
   "401872656",
@@ -210,7 +211,8 @@
   "401873005",
   "401873006",
   "401873007",
-  "401873008"
+  "401873008",
+  "401873010"
  ],
  "crews": [
   {
@@ -273,7 +275,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 5,
    "pts26": 482.4,
    "ppg26": 96.5,
@@ -927,9 +929,9 @@
    "g25": 16,
    "flags25": 13.3,
    "ppg25": 65.3,
-   "g26": 5,
-   "pts26": 452.4,
-   "ppg26": 90.5,
+   "g26": 6,
+   "pts26": 563.3,
+   "ppg26": 93.9,
    "weeks": {
     "1": {
      "game": "NO @ DET",
@@ -975,6 +977,15 @@
      "stood": 1,
      "pts": 128.4,
      "gid": "2026_06_LAC_KC"
+    },
+    "7": {
+     "game": "NE @ CHI",
+     "flags": 21,
+     "yards": 140,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 110.9,
+     "gid": "2026_07_NE_CHI"
     }
    }
   },
@@ -1288,311 +1299,25 @@
  ],
  "week_games": [
   {
-   "referee": "Craig Wrolstad",
-   "game": "DAL @ GB",
-   "day": "Sunday",
-   "flags": 25,
-   "yards": 204,
-   "overturns": 2,
-   "stood": 1,
-   "pts": 145.8,
-   "top": {
-    "type": "Taunting",
-    "team": "GB",
-    "player": "D.Dennis-Sutton",
-    "yards": 0,
-    "pts": 24.0,
-    "tier": "rare",
-    "status": "offsetting",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "00:10"
-   }
-  },
-  {
-   "referee": "John Hussey",
-   "game": "CAR @ PHI",
-   "day": "Sunday",
-   "flags": 29,
-   "yards": 233,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 135.6,
-   "top": {
-    "type": "Taunting",
-    "team": "CAR",
-    "player": "T.Tremble",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "06:39"
-   }
-  },
-  {
-   "referee": "Adrian Hill",
-   "game": "WAS @ SF",
-   "day": "Monday",
-   "flags": 19,
-   "yards": 154,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 134.0,
-   "top": {
-    "type": "Fair Catch Interference",
-    "team": "SF",
-    "player": "S.Neal",
-    "yards": 15,
-    "pts": 37.5,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "01:00"
-   }
-  },
-  {
    "referee": "Alan Eck",
-   "game": "LAC @ KC",
-   "day": "Sunday",
-   "flags": 22,
-   "yards": 148,
-   "overturns": 2,
-   "stood": 1,
-   "pts": 128.4,
-   "top": {
-    "type": "Disqualification",
-    "team": "KC",
-    "player": "C.Roland-Wallace",
-    "yards": 0,
-    "pts": 44.0,
-    "tier": "ejection",
-    "status": "offsetting",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "15:00"
-   }
-  },
-  {
-   "referee": "Scott Novak",
-   "game": "CHI @ ATL",
-   "day": "Sunday",
-   "flags": 19,
-   "yards": 164,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 113.3,
-   "top": {
-    "type": "Disqualification",
-    "team": "CHI",
-    "player": "J.Walker",
-    "yards": 15,
-    "pts": 25.0,
-    "tier": "ejection",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "14:56"
-   }
-  },
-  {
-   "referee": "Shawn Smith",
-   "game": "BUF @ LV",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 139,
-   "overturns": 0,
-   "stood": 1,
-   "pts": 103.9,
-   "top": {
-    "type": "Disqualification",
-    "team": "BUF",
-    "player": "C.Gardner-Johnson",
-    "yards": 14,
-    "pts": 37.2,
-    "tier": "ejection",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "00:19"
-   }
-  },
-  {
-   "referee": "Shawn Hochuli",
-   "game": "HOU @ JAX",
-   "day": "Sunday",
-   "flags": 17,
-   "yards": 106,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 90.4,
-   "top": {
-    "type": "Tripping",
-    "team": "HOU",
-    "player": "W.Marks",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "08:36"
-   }
-  },
-  {
-   "referee": "Alex Kemp",
-   "game": "NO @ NYG",
-   "day": "Sunday",
-   "flags": 21,
-   "yards": 125,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 85.0,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "NYG",
-    "player": "Z.Barnes",
-    "yards": 10,
-    "pts": 12.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "01:06"
-   }
-  },
-  {
-   "referee": "Brad Rogers",
-   "game": "SEA @ DEN",
+   "game": "NE @ CHI",
    "day": "Thursday",
-   "flags": 16,
-   "yards": 117,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 83.0,
-   "top": {
-    "type": "Leverage",
-    "team": "SEA",
-    "player": "E.Jones",
-    "yards": 0,
-    "pts": 22.0,
-    "tier": "unicorn",
-    "status": "declined",
-    "clutch": false,
-    "qtr": "5",
-    "clock": "04:57"
-   }
-  },
-  {
-   "referee": "Bill Vinovich",
-   "game": "TEN @ IND",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 115,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 72.0,
-   "top": {
-    "type": "Running Into the Kicker",
-    "team": "TEN",
-    "player": "T.Jones",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "12:37"
-   }
-  },
-  {
-   "referee": "Clete Blakeman",
-   "game": "NYJ @ NE",
-   "day": "Sunday",
-   "flags": 11,
-   "yards": 92,
+   "flags": 21,
+   "yards": 140,
    "overturns": 1,
    "stood": 0,
-   "pts": 61.6,
+   "pts": 110.9,
    "top": {
-    "type": "Player Out of Bounds on Kick",
-    "team": "NYJ",
-    "player": "Q.Stiggers",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "04:35"
-   }
-  },
-  {
-   "referee": "Land Clark",
-   "game": "PIT @ TB",
-   "day": "Sunday",
-   "flags": 11,
-   "yards": 100,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 48.5,
-   "top": {
-    "type": "Illegal Blindside Block",
-    "team": "PIT",
-    "player": "C.Holcomb",
-    "yards": 15,
-    "pts": 9.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "07:51"
-   }
-  },
-  {
-   "referee": "Clay Martin",
-   "game": "ARI @ LA",
-   "day": "Sunday",
-   "flags": 11,
-   "yards": 82,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 44.9,
-   "top": {
-    "type": "Unnecessary Roughness",
-    "team": "LA",
-    "player": "J.Wallace",
-    "yards": 15,
-    "pts": 7.5,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "00:47"
-   }
-  },
-  {
-   "referee": "Carl Cheffers",
-   "game": "BAL @ CLE",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 74,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 41.8,
-   "top": {
-    "type": "Neutral Zone Infraction",
-    "team": "CLE",
+    "type": "Illegal Forward Handoff",
+    "team": "CHI",
     "player": "C.Williams",
     "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
+    "pts": 23.0,
+    "tier": "unicorn",
     "status": "accepted",
     "clutch": false,
-    "qtr": "4",
-    "clock": "12:45"
+    "qtr": "2",
+    "clock": "07:49"
    }
   }
  ],
@@ -2078,6 +1803,21 @@
    "week": 6,
    "referee": "Adrian Hill",
    "game": "WAS @ SF"
+  },
+  {
+   "type": "Illegal Forward Handoff",
+   "team": "CHI",
+   "player": "C.Williams",
+   "yards": 5,
+   "pts": 23.0,
+   "tier": "unicorn",
+   "status": "accepted",
+   "clutch": false,
+   "qtr": "2",
+   "clock": "07:49",
+   "week": 7,
+   "referee": "Alan Eck",
+   "game": "NE @ CHI"
   }
  ],
  "teams": [
@@ -4293,9 +4033,9 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 110.9,
+        "game": "NE @ CHI",
+        "status": "final",
         "starter": false
        }
       ],
