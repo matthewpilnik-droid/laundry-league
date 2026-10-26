@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T17:46Z",
+ "generated_at": "2026-10-26T17:49Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "martin": "Clay Martin",
-  "blakeman": "Clete Blakeman",
-  "smith": "Shawn Smith",
-  "eck": "Alan Eck",
-  "hill": "Adrian Hill",
-  "wrolstad": "Craig Wrolstad",
   "novak": "Scott Novak",
-  "torbert": "Ron Torbert",
-  "hochuli": "Shawn Hochuli",
-  "hussey": "John Hussey",
-  "clark": "Land Clark",
-  "rogers": "Brad Rogers",
-  "moore": "Alex Moore",
+  "wrolstad": "Craig Wrolstad",
   "cheffers": "Carl Cheffers",
+  "smith": "Shawn Smith",
+  "kemp": "Alex Kemp",
   "allen": "Brad Allen",
+  "eck": "Alan Eck",
+  "hussey": "John Hussey",
   "vinovich": "Bill Vinovich",
-  "kemp": "Alex Kemp"
+  "hill": "Adrian Hill",
+  "rogers": "Brad Rogers",
+  "torbert": "Ron Torbert",
+  "martin": "Clay Martin",
+  "hochuli": "Shawn Hochuli",
+  "moore": "Alex Moore",
+  "clark": "Land Clark",
+  "blakeman": "Clete Blakeman"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.7,
+   "ppg25": 90.6,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1449,7 +1449,9 @@
   {
    "team": "DraftKings Employee of the Month",
    "manager": "Sean",
-   "picks": []
+   "picks": [
+    "Land Clark"
+   ]
   },
   {
    "team": "Zebra Crime Syndicate",
