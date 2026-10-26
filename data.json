@@ -3,17 +3,17 @@
  "season": 2026,
  "cal_season": 2025,
  "mode": "preview",
- "partly_drafted": false,
- "start_week": 8,
+ "partly_drafted": true,
+ "start_week": 7,
  "league_start": 1,
  "regular_season_end": 17,
  "playoff_week": 18,
- "start_date": "2026-10-29",
+ "start_date": "2026-10-22",
  "crews_per_team": 3,
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T16:44Z",
+ "generated_at": "2026-10-26T16:55Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "smith": "Shawn Smith",
-  "wrolstad": "Craig Wrolstad",
-  "moore": "Alex Moore",
-  "eck": "Alan Eck",
-  "hochuli": "Shawn Hochuli",
-  "hill": "Adrian Hill",
-  "vinovich": "Bill Vinovich",
-  "kemp": "Alex Kemp",
-  "martin": "Clay Martin",
-  "blakeman": "Clete Blakeman",
-  "rogers": "Brad Rogers",
   "hussey": "John Hussey",
   "cheffers": "Carl Cheffers",
+  "vinovich": "Bill Vinovich",
+  "rogers": "Brad Rogers",
+  "hill": "Adrian Hill",
+  "moore": "Alex Moore",
   "torbert": "Ron Torbert",
-  "clark": "Land Clark",
+  "hochuli": "Shawn Hochuli",
+  "martin": "Clay Martin",
+  "smith": "Shawn Smith",
+  "eck": "Alan Eck",
+  "blakeman": "Clete Blakeman",
+  "kemp": "Alex Kemp",
+  "allen": "Brad Allen",
   "novak": "Scott Novak",
-  "allen": "Brad Allen"
+  "clark": "Land Clark",
+  "wrolstad": "Craig Wrolstad"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.7,
+   "ppg25": 90.6,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1419,14 +1419,11 @@
  ],
  "draft": [
   {
-   "team": "Helen Keller's School for Refs that Don't See That Good",
-   "manager": "Bryan",
-   "picks": []
-  },
-  {
    "team": "I'm Blind, I'm Deaf",
    "manager": "Matthew",
-   "picks": []
+   "picks": [
+    "Alex Moore"
+   ]
   },
   {
    "team": "This is not Nam, there are rules",
@@ -1439,13 +1436,20 @@
    "picks": []
   },
   {
-   "team": "Team Laundry",
-   "manager": "Danny",
-   "picks": []
+   "team": "Helen Keller's School for Refs that Don't See That Good",
+   "manager": "Bryan",
+   "picks": [
+    "Scott Novak"
+   ]
   },
   {
    "team": "DraftKings Employee of the Month",
    "manager": "Sean",
+   "picks": []
+  },
+  {
+   "team": "Team Laundry",
+   "manager": "Danny",
    "picks": []
   }
  ],
