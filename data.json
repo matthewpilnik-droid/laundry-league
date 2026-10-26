@@ -4,16 +4,16 @@
  "cal_season": 2025,
  "mode": "preview",
  "partly_drafted": false,
- "start_week": 7,
+ "start_week": 8,
  "league_start": 1,
  "regular_season_end": 17,
  "playoff_week": 18,
- "start_date": "2026-10-22",
+ "start_date": "2026-10-29",
  "crews_per_team": 3,
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T16:05Z",
+ "generated_at": "2026-10-26T16:44Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "novak": "Scott Novak",
-  "wrolstad": "Craig Wrolstad",
-  "hussey": "John Hussey",
-  "kemp": "Alex Kemp",
   "smith": "Shawn Smith",
-  "hill": "Adrian Hill",
-  "allen": "Brad Allen",
+  "wrolstad": "Craig Wrolstad",
   "moore": "Alex Moore",
   "eck": "Alan Eck",
-  "blakeman": "Clete Blakeman",
-  "vinovich": "Bill Vinovich",
   "hochuli": "Shawn Hochuli",
-  "rogers": "Brad Rogers",
+  "hill": "Adrian Hill",
+  "vinovich": "Bill Vinovich",
+  "kemp": "Alex Kemp",
   "martin": "Clay Martin",
+  "blakeman": "Clete Blakeman",
+  "rogers": "Brad Rogers",
+  "hussey": "John Hussey",
   "cheffers": "Carl Cheffers",
   "torbert": "Ron Torbert",
-  "clark": "Land Clark"
+  "clark": "Land Clark",
+  "novak": "Scott Novak",
+  "allen": "Brad Allen"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1415,6 +1415,38 @@
      "gid": "2026_07_MIA_NYJ"
     }
    }
+  }
+ ],
+ "draft": [
+  {
+   "team": "Helen Keller's School for Refs that Don't See That Good",
+   "manager": "Bryan",
+   "picks": []
+  },
+  {
+   "team": "I'm Blind, I'm Deaf",
+   "manager": "Matthew",
+   "picks": []
+  },
+  {
+   "team": "This is not Nam, there are rules",
+   "manager": "Mike",
+   "picks": []
+  },
+  {
+   "team": "Zebras with Gambling Debts",
+   "manager": "Stephan",
+   "picks": []
+  },
+  {
+   "team": "Team Laundry",
+   "manager": "Danny",
+   "picks": []
+  },
+  {
+   "team": "DraftKings Employee of the Month",
+   "manager": "Sean",
+   "picks": []
   }
  ],
  "week_games": [
