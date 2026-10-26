@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T19:36Z",
+ "generated_at": "2026-10-26T19:42Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "novak": "Scott Novak",
-  "wrolstad": "Craig Wrolstad",
-  "torbert": "Ron Torbert",
-  "moore": "Alex Moore",
-  "hussey": "John Hussey",
-  "hochuli": "Shawn Hochuli",
   "vinovich": "Bill Vinovich",
-  "cheffers": "Carl Cheffers",
-  "smith": "Shawn Smith",
-  "blakeman": "Clete Blakeman",
-  "eck": "Alan Eck",
-  "clark": "Land Clark",
-  "martin": "Clay Martin",
-  "rogers": "Brad Rogers",
+  "wrolstad": "Craig Wrolstad",
   "allen": "Brad Allen",
-  "kemp": "Alex Kemp",
-  "hill": "Adrian Hill"
+  "moore": "Alex Moore",
+  "novak": "Scott Novak",
+  "hill": "Adrian Hill",
+  "smith": "Shawn Smith",
+  "cheffers": "Carl Cheffers",
+  "hussey": "John Hussey",
+  "rogers": "Brad Rogers",
+  "clark": "Land Clark",
+  "hochuli": "Shawn Hochuli",
+  "blakeman": "Clete Blakeman",
+  "torbert": "Ron Torbert",
+  "martin": "Clay Martin",
+  "eck": "Alan Eck",
+  "kemp": "Alex Kemp"
  },
  "scored_espn": [
   "401872656",
@@ -1429,14 +1429,16 @@
    "team": "I'm Blind, I'm Deaf",
    "manager": "Matthew",
    "picks": [
-    "Alex Moore"
+    "Alex Moore",
+    "Ron Torbert"
    ]
   },
   {
    "team": "This is not Nam, there are rules",
    "manager": "Mike",
    "picks": [
-    "Craig Wrolstad"
+    "Craig Wrolstad",
+    "Brad Allen"
    ]
   },
   {
