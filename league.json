@@ -13,7 +13,7 @@
     { "name": "This is not Nam, there are rules", "manager": "Mike", "crews": ["Craig Wrolstad"] },
     { "name": "Zebras with Gambling Debts", "manager": "Stephan", "crews": ["Adrian Hill"] },
     { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": ["Land Clark"] },
-    { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": [] }
+    { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": ["Carl Cheffers", "Shawn Hochuli"] }
   ],
   "lineups": []
 }
