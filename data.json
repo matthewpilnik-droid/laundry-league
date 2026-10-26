@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T19:35Z",
+ "generated_at": "2026-10-26T19:36Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "blakeman": "Clete Blakeman",
-  "vinovich": "Bill Vinovich",
-  "hochuli": "Shawn Hochuli",
-  "martin": "Clay Martin",
-  "hill": "Adrian Hill",
-  "eck": "Alan Eck",
-  "moore": "Alex Moore",
-  "torbert": "Ron Torbert",
-  "smith": "Shawn Smith",
-  "clark": "Land Clark",
   "novak": "Scott Novak",
+  "wrolstad": "Craig Wrolstad",
+  "torbert": "Ron Torbert",
+  "moore": "Alex Moore",
+  "hussey": "John Hussey",
+  "hochuli": "Shawn Hochuli",
+  "vinovich": "Bill Vinovich",
+  "cheffers": "Carl Cheffers",
+  "smith": "Shawn Smith",
+  "blakeman": "Clete Blakeman",
+  "eck": "Alan Eck",
+  "clark": "Land Clark",
+  "martin": "Clay Martin",
+  "rogers": "Brad Rogers",
   "allen": "Brad Allen",
   "kemp": "Alex Kemp",
-  "hussey": "John Hussey",
-  "rogers": "Brad Rogers",
-  "cheffers": "Carl Cheffers",
-  "wrolstad": "Craig Wrolstad"
+  "hill": "Adrian Hill"
  },
  "scored_espn": [
   "401872656",
@@ -1443,14 +1443,16 @@
    "team": "Zebras with Gambling Debts",
    "manager": "Stephan",
    "picks": [
-    "Adrian Hill"
+    "Adrian Hill",
+    "Bill Vinovich"
    ]
   },
   {
    "team": "DraftKings Employee of the Month",
    "manager": "Sean",
    "picks": [
-    "Land Clark"
+    "Land Clark",
+    "Shawn Smith"
    ]
   },
   {
