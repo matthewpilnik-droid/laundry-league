@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T19:42Z",
+ "generated_at": "2026-10-26T19:59Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "vinovich": "Bill Vinovich",
-  "wrolstad": "Craig Wrolstad",
-  "allen": "Brad Allen",
-  "moore": "Alex Moore",
   "novak": "Scott Novak",
-  "hill": "Adrian Hill",
-  "smith": "Shawn Smith",
-  "cheffers": "Carl Cheffers",
-  "hussey": "John Hussey",
-  "rogers": "Brad Rogers",
-  "clark": "Land Clark",
   "hochuli": "Shawn Hochuli",
-  "blakeman": "Clete Blakeman",
-  "torbert": "Ron Torbert",
   "martin": "Clay Martin",
+  "blakeman": "Clete Blakeman",
+  "rogers": "Brad Rogers",
+  "torbert": "Ron Torbert",
+  "hill": "Adrian Hill",
+  "kemp": "Alex Kemp",
+  "vinovich": "Bill Vinovich",
+  "hussey": "John Hussey",
+  "smith": "Shawn Smith",
   "eck": "Alan Eck",
-  "kemp": "Alex Kemp"
+  "moore": "Alex Moore",
+  "cheffers": "Carl Cheffers",
+  "clark": "Land Clark",
+  "wrolstad": "Craig Wrolstad",
+  "allen": "Brad Allen"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1422,7 +1422,9 @@
    "team": "Helen Keller's School for Refs that Don't See That Good",
    "manager": "Bryan",
    "picks": [
-    "Scott Novak"
+    "Scott Novak",
+    "John Hussey",
+    "2012 Replacement Refs"
    ]
   },
   {
@@ -1430,7 +1432,8 @@
    "manager": "Matthew",
    "picks": [
     "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ]
   },
   {
