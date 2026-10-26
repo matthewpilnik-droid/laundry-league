@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T21:46Z",
+ "generated_at": "2026-10-26T22:03Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "cheffers": "Carl Cheffers",
+  "kemp": "Alex Kemp",
+  "clark": "Land Clark",
+  "torbert": "Ron Torbert",
+  "hill": "Adrian Hill",
+  "novak": "Scott Novak",
+  "moore": "Alex Moore",
+  "wrolstad": "Craig Wrolstad",
+  "rogers": "Brad Rogers",
+  "blakeman": "Clete Blakeman",
+  "vinovich": "Bill Vinovich",
+  "hochuli": "Shawn Hochuli",
+  "allen": "Brad Allen",
+  "eck": "Alan Eck",
+  "smith": "Shawn Smith",
   "hussey": "John Hussey",
   "martin": "Clay Martin",
-  "novak": "Scott Novak",
-  "vinovich": "Bill Vinovich",
-  "clark": "Land Clark",
-  "blakeman": "Clete Blakeman",
-  "allen": "Brad Allen",
-  "hill": "Adrian Hill",
-  "smith": "Shawn Smith",
-  "hochuli": "Shawn Hochuli",
-  "wrolstad": "Craig Wrolstad",
-  "moore": "Alex Moore",
-  "rogers": "Brad Rogers",
-  "torbert": "Ron Torbert",
-  "eck": "Alan Eck",
-  "kemp": "Alex Kemp"
+  "cheffers": "Carl Cheffers"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1473,6 +1473,7 @@
    ]
   }
  ],
+ "off_weeks": {},
  "week_games": [
   {
    "referee": "Craig Wrolstad",
