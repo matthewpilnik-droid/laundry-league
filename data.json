@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T16:55Z",
+ "generated_at": "2026-10-26T17:08Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "hussey": "John Hussey",
-  "cheffers": "Carl Cheffers",
-  "vinovich": "Bill Vinovich",
-  "rogers": "Brad Rogers",
-  "hill": "Adrian Hill",
   "moore": "Alex Moore",
-  "torbert": "Ron Torbert",
-  "hochuli": "Shawn Hochuli",
-  "martin": "Clay Martin",
-  "smith": "Shawn Smith",
-  "eck": "Alan Eck",
-  "blakeman": "Clete Blakeman",
-  "kemp": "Alex Kemp",
-  "allen": "Brad Allen",
+  "hill": "Adrian Hill",
   "novak": "Scott Novak",
   "clark": "Land Clark",
-  "wrolstad": "Craig Wrolstad"
+  "rogers": "Brad Rogers",
+  "martin": "Clay Martin",
+  "blakeman": "Clete Blakeman",
+  "allen": "Brad Allen",
+  "hochuli": "Shawn Hochuli",
+  "smith": "Shawn Smith",
+  "wrolstad": "Craig Wrolstad",
+  "torbert": "Ron Torbert",
+  "eck": "Alan Eck",
+  "cheffers": "Carl Cheffers",
+  "vinovich": "Bill Vinovich",
+  "hussey": "John Hussey",
+  "kemp": "Alex Kemp"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1428,12 +1428,16 @@
   {
    "team": "This is not Nam, there are rules",
    "manager": "Mike",
-   "picks": []
+   "picks": [
+    "Craig Wrolstad"
+   ]
   },
   {
    "team": "Zebras with Gambling Debts",
    "manager": "Stephan",
-   "picks": []
+   "picks": [
+    "Adrian Hill"
+   ]
   },
   {
    "team": "Helen Keller's School for Refs that Don't See That Good",
@@ -1448,7 +1452,7 @@
    "picks": []
   },
   {
-   "team": "Team Laundry",
+   "team": "Zebra Crime Syndicate",
    "manager": "Danny",
    "picks": []
   }
