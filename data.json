@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T01:00Z",
+ "generated_at": "2026-10-26T06:51Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,22 +100,22 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "clark": "Land Clark",
-  "hochuli": "Shawn Hochuli",
+  "vinovich": "Bill Vinovich",
+  "wrolstad": "Craig Wrolstad",
   "hill": "Adrian Hill",
+  "eck": "Alan Eck",
+  "rogers": "Brad Rogers",
+  "clark": "Land Clark",
+  "kemp": "Alex Kemp",
+  "hussey": "John Hussey",
   "cheffers": "Carl Cheffers",
   "allen": "Brad Allen",
-  "wrolstad": "Craig Wrolstad",
-  "smith": "Shawn Smith",
-  "blakeman": "Clete Blakeman",
-  "hussey": "John Hussey",
-  "eck": "Alan Eck",
+  "novak": "Scott Novak",
   "moore": "Alex Moore",
   "martin": "Clay Martin",
-  "rogers": "Brad Rogers",
-  "novak": "Scott Novak",
-  "kemp": "Alex Kemp",
-  "vinovich": "Bill Vinovich",
+  "smith": "Shawn Smith",
+  "hochuli": "Shawn Hochuli",
+  "blakeman": "Clete Blakeman",
   "torbert": "Ron Torbert"
  },
  "scored_espn": [
@@ -223,7 +223,8 @@
   "401873018",
   "401873019",
   "401873020",
-  "401873021"
+  "401873021",
+  "401873022"
  ],
  "crews": [
   {
@@ -1290,9 +1291,9 @@
    "g25": 16,
    "flags25": 13.7,
    "ppg25": 61.3,
-   "g26": 5,
-   "pts26": 409.2,
-   "ppg26": 81.8,
+   "g26": 6,
+   "pts26": 456.2,
+   "ppg26": 76.0,
    "weeks": {
     "1": {
      "game": "TB @ CIN",
@@ -1338,6 +1339,15 @@
      "stood": 0,
      "pts": 135.6,
      "gid": "2026_06_CAR_PHI"
+    },
+    "7": {
+     "game": "KC @ SEA",
+     "flags": 8,
+     "yards": 35,
+     "overturns": 4,
+     "stood": 0,
+     "pts": 47.0,
+     "gid": "2026_07_KC_SEA"
     }
    }
   },
@@ -1585,6 +1595,28 @@
    }
   },
   {
+   "referee": "John Hussey",
+   "game": "KC @ SEA",
+   "day": "Sunday",
+   "flags": 8,
+   "yards": 35,
+   "overturns": 4,
+   "stood": 0,
+   "pts": 47.0,
+   "top": {
+    "type": "Horse Collar Tackle",
+    "team": "SEA",
+    "player": "U.Nwosu",
+    "yards": 0,
+    "pts": 44.0,
+    "tier": "unicorn",
+    "status": "offsetting",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "02:46"
+   }
+  },
+  {
    "referee": "Shawn Smith",
    "game": "CIN @ BAL",
    "day": "Sunday",
@@ -1735,6 +1767,21 @@
    "game": "LAC @ KC"
   },
   {
+   "type": "Horse Collar Tackle",
+   "team": "SEA",
+   "player": "U.Nwosu",
+   "yards": 0,
+   "pts": 44.0,
+   "tier": "unicorn",
+   "status": "offsetting",
+   "clutch": false,
+   "qtr": "3",
+   "clock": "02:46",
+   "week": 7,
+   "referee": "John Hussey",
+   "game": "KC @ SEA"
+  },
+  {
    "type": "Fair Catch Interference",
    "team": "SF",
    "player": "S.Neal",
@@ -1778,21 +1825,6 @@
    "week": 2,
    "referee": "John Hussey",
    "game": "JAX @ DEN"
-  },
-  {
-   "type": "Defensive Delay of Game",
-   "team": "SF",
-   "player": "D.Lenoir",
-   "yards": 5,
-   "pts": 34.5,
-   "tier": "unicorn",
-   "status": "accepted",
-   "clutch": true,
-   "qtr": "2",
-   "clock": "01:10",
-   "week": 4,
-   "referee": "Ron Torbert",
-   "game": "DEN @ SF"
   }
  ],
  "sightings": [
@@ -2230,6 +2262,21 @@
    "week": 7,
    "referee": "Ron Torbert",
    "game": "LA @ LV"
+  },
+  {
+   "type": "Horse Collar Tackle",
+   "team": "SEA",
+   "player": "U.Nwosu",
+   "yards": 0,
+   "pts": 44.0,
+   "tier": "unicorn",
+   "status": "offsetting",
+   "clutch": false,
+   "qtr": "3",
+   "clock": "02:46",
+   "week": 7,
+   "referee": "John Hussey",
+   "game": "KC @ SEA"
   }
  ],
  "teams": [
@@ -4419,9 +4466,9 @@
        },
        {
         "crew": "John Hussey",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 47.0,
+        "game": "KC @ SEA",
+        "status": "final",
         "starter": false
        }
       ],
