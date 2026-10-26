@@ -16,7 +16,7 @@ from ESPN in each viewer's browser.
 - Each week a team starts 2 of its 3 crews; only starters score. A crew with no
   game that week scores 0, so bench it.
 - Weeks 8–17: head-to-head, everyone plays everyone twice.
-- Draft order (random draw): Bryan, Matthew, Mike, Stephan, Danny, Sean.
+- Draft order: Bryan, Matthew, Mike, Stephan, Sean, Danny.
   `league.json` lists the teams in that order; the site's draft board reads it.
 - Week 18: Laundry Bowl (1st vs 2nd), third-place game (3rd vs 4th) and the
   Delicates Bowl (5th vs 6th). Seeds come from the Week 17 standings.
@@ -72,6 +72,10 @@ The page shows "updated <time>" at the top. If that is more than a day old:
 - **Actions** tab → **Update scores** → **Run workflow** to run it now.
 - If GitHub has paused the schedule (it does this to public projects with no
   activity for 60 days), the Actions tab shows an **Enable workflow** button.
+
+Each week, after Football Zebras posts assignments, tick the crews with no game under **Off this
+week** on the commissioner page's Lineups tab. The league page lists them for everyone and flags
+any owner starting one.
 
 ## Scoring
 

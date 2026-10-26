@@ -503,6 +503,17 @@ if drafted:
 else:
     league, sample = play_season(*mock_league()), None
 
+# Crews the commissioner marked as off (no assignment) ahead of each week,
+# from Football Zebras' posted assignments. Shown on the site before games are played.
+off_weeks = {}
+for w, cs in LEAGUE.get("off", {}).items():
+    names = [roster_name(c) for c in cs if c.strip()]
+    bad = [c for c in names if c not in by_ref or c == REPLACEMENT]
+    if bad:
+        sys.exit(f"league.json problem - off, Week {w}: unknown crews {bad}. "
+                 f"Valid names: {sorted(c for c in by_ref if c != REPLACEMENT)}")
+    off_weeks[str(int(w))] = names
+
 # The real draft as entered so far. Teams are listed in draft-slot order, so the
 # site's draft board can lay out the snake before the league goes live.
 draft = [{"team": t["name"].strip(), "manager": t.get("manager", ""),
@@ -549,6 +560,7 @@ json.dump({
     "scored_espn": scored_espn,
     "crews": crew_list,
     "draft": draft,
+    "off_weeks": off_weeks,
     "week_games": week_games,
     "top_flags": top_flags,
     "sightings": sightings,

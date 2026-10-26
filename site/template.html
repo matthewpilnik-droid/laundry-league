@@ -180,6 +180,10 @@ details summary .faint { font-weight: 500; }
 .rules ol, .rules ul { margin: 10px 0 0; padding-left: 20px; font-size: 15px; color: var(--ink-2); }
 .rules li { margin: 6px 0; }
 .rules li b { color: var(--ink); }
+.offbox { padding: 16px 20px; margin-bottom: 16px; background: var(--flag-soft); border-color: var(--flag); font-size: 15px; }
+.offbox .faint { display: block; margin-top: 4px; }
+.offbox .warn, .tag-off { color: var(--bad); font-weight: 700; }
+.tag-off { font-size: 12px; margin-left: 6px; white-space: nowrap; }
 
 /* Live */
 #live .sec-head h2 { display: flex; align-items: center; gap: 12px; }
@@ -366,6 +370,7 @@ footer .stripes { margin-bottom: 24px; }
 
 <section id="lineups" data-nav="Lineups">
   <div class="sec-head"><div><h2>Lineups</h2><p class="muted" id="lu-sub"></p></div></div>
+  <div class="card offbox" id="offbox"></div>
   <div class="ww">
     <div class="card rules">
       <h3>The rules</h3>
@@ -644,12 +649,26 @@ footer .stripes { margin-bottom: 24px; }
   const avg3 = c => { const v = last3(c); return v === null ? '—' : fmt(v); };
   const luOn = startersIn(curWeek);
   const rosterNow = t => D.rosters[String(curWeek)][t] || [];
+  // Who's off: entered by the commissioner from Football Zebras' assignments.
+  const offWeek = live ? curWeek : D.start_week;
+  const offList = (D.off_weeks || {})[String(offWeek)];
+  const isOff = c => live && !!offList && offList.includes(c);
+  const offTag = c => isOff(c) ? `<span class="tag-off">Off Week ${offWeek}</span>` : '';
+  function renderOffBox() {
+    const idle = myTeam && live ? (luOn[myTeam] || []).filter(isOff) : [];
+    $('#offbox').innerHTML = !offList
+      ? `<b>Who's off in Week ${offWeek}:</b> not posted yet.<span class="faint">The commissioner adds it here once <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a> posts the week's assignments, usually Tuesday or Wednesday.</span>`
+      : `<b>Off in Week ${offWeek} (a starter with no game scores 0):</b> ${offList.length ? offList.map(esc).join(', ') : 'nobody, every crew has a game'}.` +
+        (idle.length ? `<span class="warn" style="display:block;margin-top:6px">${esc(myTeam)} is starting ${idle.map(esc).join(' and ')}. Send the commissioner a new lineup.</span>` : '') +
+        `<span class="faint">From <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a>' posted assignments. The Replacement Refs are never off.</span>`;
+  }
   function renderLineups() {
+    renderOffBox();
     const teams = D.teams.filter(t => t.team === myTeam).concat(D.teams.filter(t => t.team !== myTeam));
     $('#lu-tbl').innerHTML = `<thead><tr><th>Team</th><th>Starting</th><th>Bench</th></tr></thead><tbody>` +
       teams.map(({ team }) => {
         const on = luOn[team] || [], all = rosterNow(team);
-        const cell = cs => cs.map(c => `<div class="ref">${esc(c)}</div><div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
+        const cell = cs => cs.map(c => `<div class="ref">${esc(c)}${offTag(c)}</div><div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
         return `<tr${team === myTeam ? ' class="mine"' : ''}><td><div class="ref">${esc(team)}</div>${mgr[team] ? `<div class="own">${esc(mgr[team])}</div>` : ''}</td>
           <td>${cell(on)}</td><td>${cell(all.filter(c => !on.includes(c)))}</td></tr>`;
       }).join('') + '</tbody>';
@@ -676,7 +695,7 @@ footer .stripes { margin-bottom: 24px; }
     $('#my-lu').innerHTML = `<h3>Set your lineup</h3>
       <p class="faint">Tick ${need} crews to start in Week ${curWeek}, then send them to the commissioner by ${esc(deadline)}.</p>
       <div style="margin-top:8px">${all.map(c => `<label class="pickrow"><input type="checkbox" value="${esc(c)}"${on.includes(c) ? ' checked' : ''}>
-        <span><span class="ref">${esc(c)}</span><span class="game">Last 3 games: ${avg3(c)} pts avg</span></span></label>`).join('')}</div>
+        <span><span class="ref">${esc(c)}</span>${offTag(c)}<span class="game">Last 3 games: ${avg3(c)} pts avg</span></span></label>`).join('')}</div>
       <button class="btn" id="my-send" type="button"></button><div id="my-out"></div>`;
     const boxes = [...document.querySelectorAll('#my-lu input')], btn = $('#my-send');
     const sync = () => {

@@ -33,6 +33,8 @@ textarea { width: 100%; height: 260px; font: 12px/1.4 ui-monospace, Menlo, monos
 ol.how li { margin: 4px 0; }
 .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 [hidden] { display: none !important; }
+.offgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0 12px; }
+.tag-off { color: var(--bad); font-size: 12px; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -58,6 +60,10 @@ ol.how li { margin: 4px 0; }
       <div class="row"><span>Lineups for</span><select id="lu-week" style="width:auto"></select>
         <span class="muted">Due by <b id="lu-deadline"></b>. Check who has the week off at
         <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a>.</span></div>
+      <h3 style="margin:14px 0 4px">Off this week</h3>
+      <p class="muted">Tick every crew whose referee isn't on Football Zebras' assignments for this week. The league page shows the list to everyone and flags anyone starting one. Leave it empty until assignments post.</p>
+      <div id="off-rows" class="offgrid"></div>
+      <h3 style="margin:14px 0 4px">Starters</h3>
       <p class="muted">Ticked = starting. Current starters are pre-ticked; only change the teams that texted you. A lineup stands until it's changed.</p>
       <p class="warn" id="lu-off" hidden>Finish the draft first.</p>
       <table id="lu-table"><thead><tr><th>Team</th><th>Start 2 of 3</th><th></th></tr></thead><tbody id="lu-rows"></tbody></table>
@@ -159,21 +165,37 @@ ol.how li { margin: 4px 0; }
       .sort((a, b) => a[0][0] - b[0][0]).forEach(([, v]) => cur = v);
     return cur;
   }
+  // Crews with no assignment, per week: saved under "off" in league.json.
+  const off = Object.fromEntries(Object.entries(L.off || {}).map(([w, cs]) => [w, cs.map(resolve)]));
+  const offNow = () => off[String(week())] || [];
+  function drawOff() {
+    const cur = offNow();
+    $('#off-rows').innerHTML = crews.filter(c => c !== REPL).slice().sort().map(c =>
+      `<label class="pick"><input type="checkbox" data-off="1" value="${esc(c)}" ${cur.includes(c) ? 'checked' : ''}> ${esc(c)}</label>`).join('');
+  }
+  $('#off-rows').addEventListener('change', () => {
+    const picked = [...document.querySelectorAll('#off-rows input:checked')].map(x => x.value);
+    if (picked.length) off[String(week())] = picked; else delete off[String(week())];
+    drawLineups(); update();
+  });
   function drawLineups() {
+    drawOff();
     const ok = drafted();
     $('#lu-off').hidden = ok; $('#lu-table').hidden = !ok;
     if (!ok) return;
-    const w = week();
+    const w = week(), idle = offNow();
     $('#lu-rows').innerHTML = teams.map((t, row) => {
       const on = standing(row, w);
       const n = on.filter(c => t.crews.includes(c)).length;
+      const bad = on.filter(c => idle.includes(c));
       return `<tr><td><b>${esc(t.name)}</b><div class="muted">${esc(t.manager)}</div></td>
-        <td>${t.crews.map(c => `<label class="pick"><input type="checkbox" data-row="${row}" value="${esc(c)}" ${on.includes(c) ? 'checked' : ''}> ${esc(c)}</label>`).join('')}</td>
-        <td>${n === S ? '' : `<span class="warn">Pick exactly ${S}</span>`}</td></tr>`;
+        <td>${t.crews.map(c => `<label class="pick"><input type="checkbox" data-row="${row}" value="${esc(c)}" ${on.includes(c) ? 'checked' : ''}> ${esc(c)}${idle.includes(c) ? ' <span class="tag-off">off</span>' : ''}</label>`).join('')}</td>
+        <td>${n === S ? '' : `<span class="warn">Pick exactly ${S}</span>`}${bad.length ? `<div class="warn">Starting an off crew: ${bad.map(esc).join(', ')}</div>` : ''}</td></tr>`;
     }).join('');
   }
   $('#lu-week').addEventListener('change', () => { drawLineups(); update(); });
   $('#lu-rows').addEventListener('change', e => {
+    if (!e.target.dataset.row) return;
     const row = +e.target.dataset.row;
     edits[week() + '|' + row] = [...document.querySelectorAll(`#lu-rows input[data-row="${row}"]:checked`)].map(x => x.value);
     drawLineups(); update();
@@ -210,9 +232,18 @@ ol.how li { margin: 4px 0; }
       if (orig[i].join() !== t.crews.join()) teamChanges.push(`${nm} crews: ${t.crews.filter(Boolean).join(', ') || '(none)'}`);
     });
     changes.unshift(...teamChanges);
+    const offBefore = L.off || {};
+    Object.keys({ ...offBefore, ...off }).sort((a, b) => a - b).forEach(w => {
+      const was = (offBefore[w] || []).map(resolve), now = off[w] || [];
+      if (!sameSet(was, now)) changes.push(`Week ${w} off: ${now.join(', ') || '(cleared)'}`);
+    });
 
-    const out = { ...L, teams: teams.map(t => ({ name: t.name.trim(), manager: t.manager.trim(), crews: t.crews.filter(Boolean) })),
+    const { lineups: _, ...rest } = L;   // keep "lineups" last so the file reads top to bottom
+    const sortedOff = Object.fromEntries(Object.keys(off).sort((a, b) => a - b).map(w => [w, off[w]]));
+    const out = { ...rest, teams: teams.map(t => ({ name: t.name.trim(), manager: t.manager.trim(), crews: t.crews.filter(Boolean) })),
+      ...(Object.keys(sortedOff).length ? { off: sortedOff } : {}),
       lineups: merged.filter(l => l.row >= 0).map(l => ({ week: l.week, team: names[l.row], start: l.start })) };
+    if (!Object.keys(sortedOff).length) delete out.off;
     return { text: format(out), problems, changes };
   }
   // Same layout as the hand-edited file: one team or lineup per line.
