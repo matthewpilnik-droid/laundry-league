@@ -14,5 +14,6 @@
     { "name": "Zebras with Gambling Debts", "manager": "Stephan", "crews": ["Adrian Hill"] },
     { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": [] },
     { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": [] }
-  ]
-  
+  ],
+  "lineups": []
+}
