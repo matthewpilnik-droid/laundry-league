@@ -1,19 +1,19 @@
 {
   "league_name": "The Laundry League",
   "season": 2026,
-  "start_week": 7,
+  "start_week": 8,
   "regular_season_end": 17,
   "playoff_week": 18,
   "crews_per_team": 3,
   "starters_per_week": 2,
   "lineup_deadline": "Thursday kickoff",
   "teams": [
+    { "name": "Helen Keller's School for Refs that Don't See That Good", "manager": "Bryan", "crews": ["Scott Novak"] },
     { "name": "I'm Blind, I'm Deaf", "manager": "Matthew", "crews": ["Alex Moore"] },
     { "name": "This is not Nam, there are rules", "manager": "Mike", "crews": ["Craig Wrolstad"] },
     { "name": "Zebras with Gambling Debts", "manager": "Stephan", "crews": ["Adrian Hill"] },
-    { "name": "Helen Keller's School for Refs that Don't See That Good", "manager": "Bryan", "crews": ["Scott Novak"] },
-    { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": [] },
-    { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": [] }
+    { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": [] },
+    { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": [] }
   ],
   "lineups": []
 }
