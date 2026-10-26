@@ -15,8 +15,9 @@ from ESPN in each viewer's browser.
   the week is final).
 - Each week a team starts 2 of its 3 crews; only starters score. A crew with no
   game that week scores 0, so bench it.
-- Weeks 7–17: head-to-head, everyone plays everyone twice; Week 17 is a rematch
-  of each team's Week 7 opponent.
+- Weeks 8–17: head-to-head, everyone plays everyone twice.
+- Draft order (random draw): Bryan, Matthew, Mike, Stephan, Danny, Sean.
+  `league.json` lists the teams in that order; the site's draft board reads it.
 - Week 18: Laundry Bowl (1st vs 2nd), third-place game (3rd vs 4th) and the
   Delicates Bowl (5th vs 6th). Seeds come from the Week 17 standings.
 - Standings: win–loss record, ties broken by total points scored.

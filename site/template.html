@@ -120,6 +120,12 @@ table.t td.r { font-variant-numeric: tabular-nums; }
 .spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
 .spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
 .spark i.bye { background: transparent; border-bottom: 2px dotted var(--ink-3); height: 0 !important; }
+table.snake th { white-space: normal; min-width: 120px; vertical-align: bottom; text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--ink); }
+table.snake th .faint { display: block; font-size: 12px; font-weight: 400; }
+table.snake td { vertical-align: top; }
+table.snake .pk { font-size: 12px; color: var(--ink-3); }
+table.snake td.clock { background: var(--flag-soft); box-shadow: inset 0 0 0 2px var(--flag); }
+tr.taken .ref, tr.taken td.r { opacity: .45; }
 
 /* Results */
 .results { display: grid; gap: 10px; }
@@ -317,7 +323,7 @@ footer .stripes { margin-bottom: 24px; }
     <div class="card step"><div class="n">3</div><h3>Go head-to-head</h3>
       <p>Your two starters' points face your opponent's two. Every flag in their games counts — either team, accepted, declined or offsetting. The bench doesn't score.</p></div>
     <div class="card step"><div class="n">4</div><h3>Win the Laundry Bowl</h3>
-      <p>Weeks <span class="sw"></span>–<span class="re"></span>: play everyone twice, plus a Week <span class="re"></span> rematch of your Week <span class="sw"></span> opponent. Week 18: 1st vs 2nd for the title, 3rd vs 4th, and 5th vs 6th in the Delicates Bowl.</p></div>
+      <p>Weeks <span class="sw"></span>–<span class="re"></span>: play everyone twice<span id="rematch"></span>. Week 18: 1st vs 2nd for the title, 3rd vs 4th, and 5th vs 6th in the Delicates Bowl.</p></div>
   </div>
 </section>
 
@@ -377,6 +383,8 @@ footer .stripes { margin-bottom: 24px; }
 
 <section id="board" data-nav="Draft board">
   <div class="sec-head"><div><h2>Draft board</h2><p class="muted" id="board-sub"></p></div></div>
+  <div class="card" id="snake-card" style="margin-bottom:16px"><div class="tbl-wrap"><table class="t snake" id="snake-tbl"></table></div>
+    <div class="byes" id="snake-note"></div></div>
   <div class="card"><div class="tbl-wrap"><table class="t" id="board-tbl"></table></div></div>
 </section>
 
@@ -475,6 +483,9 @@ footer .stripes { margin-bottom: 24px; }
   $('#ncrews').textContent = realCrews.length;
   document.querySelectorAll('.sw').forEach(e => e.textContent = D.start_week);
   document.querySelectorAll('.re').forEach(e => e.textContent = D.regular_season_end);
+  // Weeks left over after two full cycles are rematches of the first weeks' pairings.
+  const extra = D.regular_season_end - D.start_week + 1 - 2 * (D.draft.length - 1);
+  $('#rematch').textContent = extra > 0 ? `, plus a Week ${D.regular_season_end} rematch of your Week ${D.start_week} opponent` : '';
   const started = live && finals.some(w => w.week >= D.start_week);
   $('#pill').innerHTML = (live
       ? `<b>${SEA} season</b> · ${started ? `<b>Week ${curWeek}</b> ${curW.playoff ? 'playoffs' : 'matchups'}` : `kicks off <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`}`
@@ -735,15 +746,35 @@ footer .stripes { margin-bottom: 24px; }
   // ---- Draft board ----
   const weeks = D.weeks_played;
   $('#board-sub').textContent = `All ${realCrews.length} crews plus the 2012 Replacement Refs, ranked by ${CAL} points per game. All ${D.crews.length} get drafted. The Replacement Refs' numbers are the league-wide average.`;
+  // Snake grid: columns are draft slots (league.json team order), rows are rounds.
+  const T = D.draft, nT = T.length, nR = D.crews_per_team;
+  const drafter = {};
+  T.forEach(t => t.picks.forEach(c => { if (c) drafter[c] = t.team; }));
+  const slotOf = (r, k) => r % 2 ? nT - 1 - k : k;            // k-th pick of round r goes to this slot
+  let clock = null;
+  for (let r = 0; r < nR && !clock; r++)
+    for (let k = 0; k < nT; k++) { const s = slotOf(r, k); if (!T[s].picks[r]) { clock = { r, s }; break; } }
+  $('#snake-tbl').innerHTML = `<thead><tr><th>Round</th>${T.map((t, s) =>
+    `<th>${s + 1}. ${esc(t.team)}<span class="faint">${esc(t.manager)}</span></th>`).join('')}</tr></thead><tbody>` +
+    Array.from({ length: nR }, (_, r) => `<tr><td><b>${r + 1}</b> <span class="pk">${r % 2 ? '←' : '→'}</span></td>${T.map((t, s) => {
+      const k = r % 2 ? nT - 1 - s : s, c = t.picks[r], on = clock && clock.r === r && clock.s === s;
+      return `<td class="${on ? 'clock' : ''}"><div class="pk">Pick ${r * nT + k + 1}${on ? ' · on the clock' : ''}</div>${c ? `<div class="ref">${esc(c)}</div>` : ''}</td>`;
+    }).join('')}</tr>`).join('') + '</tbody>';
+  const nPicked = Object.keys(drafter).length;
+  $('#snake-note').innerHTML = nPicked === nT * nR
+    ? `<b>Draft complete.</b> Each team starts its first 2 crews until its owner sends a lineup.`
+    : `Snake draft: round 1 goes 1→${nT}, round 2 comes back ${nT}→1, round 3 goes 1→${nT}. ${nPicked} of ${nT * nR} picks made. Draft order was a random draw.`;
+
   const maxW = Math.max(...D.crews.flatMap(c => Object.values(c.weeks).map(w => w.pts)));
   $('#board-tbl').innerHTML = `<thead><tr><th class="r">#</th><th>Crew (referee)</th><th class="r">${CAL} flags / game</th><th class="r">${CAL} pts / game</th><th class="r">${SEA} pts / game</th><th class="hide-sm">${SEA} by week</th></tr></thead><tbody>` +
     D.crews.map((c, i) => {
       const d = c.ppg26 - c.ppg25;
       const trend = Math.abs(d) < 5 ? '' : d > 0 ? `<span class="trend up">▲${fmt(d)}</span>` : `<span class="trend down">▼${fmt(-d)}</span>`;
       const spark = weeks.map(w => c.weeks[w] ? `<i style="height:${(c.weeks[w].pts / maxW * 100).toFixed(0)}%" title="Week ${w}: ${fmt(c.weeks[w].pts)} pts, ${esc(c.weeks[w].game)}"></i>` : `<i class="bye" title="Week ${w}: off"></i>`).join('');
-      const own = live && ownerNow[c.referee] ? `<div class="own">${esc(ownerNow[c.referee])}</div>` : '';
+      const owner = live ? ownerNow[c.referee] : drafter[c.referee];
+      const own = owner ? `<div class="own">${live ? '' : 'Drafted by '}${esc(owner)}</div>` : '';
       const note = c.replacement ? '<div class="game">Never off · scores the weekly average</div>' : '';
-      return `<tr><td class="r">${i + 1}</td><td><div class="ref">${esc(c.referee)}</div>${note}${own}</td>
+      return `<tr class="${!live && owner ? 'taken' : ''}"><td class="r">${i + 1}</td><td><div class="ref">${esc(c.referee)}</div>${note}${own}</td>
         <td class="r">${c.flags25.toFixed(1)}</td><td class="r"><b>${fmt(c.ppg25)}</b></td>
         <td class="r">${fmt(c.ppg26)} ${trend}<div class="game">${c.g26} games</div></td>
         <td class="hide-sm"><span class="spark">${spark}</span></td></tr>`;

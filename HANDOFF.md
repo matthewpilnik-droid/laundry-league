@@ -1,7 +1,8 @@
 # Laundry League handoff
 
 Everything needed to pick up The Laundry League on a new computer.
-Updated October 21, 2026: three crews per team, two starters a week, and the 2012 Replacement Refs (the waiver wire is gone).
+Updated October 26, 2026: league starts Week 8 (Thursday, October 29); draft order set and teams listed in that order in `league.json`; the site's draft board shows the snake grid.
+~~Updated October 21, 2026: three crews per team, two starters a week, and the 2012 Replacement Refs (the waiver wire is gone).~~
 ~~Updated October 20, 2026, after the switch to a 6-team head-to-head format with a waiver wire.~~
 
 ## At a glance
@@ -12,9 +13,10 @@ Updated October 21, 2026: three crews per team, two starters a week, and the 201
 | Code and data | https://github.com/matthewpilnik-droid/laundry-league |
 | GitHub account | `matthewpilnik-droid`: personal account only, never a firm account |
 | Commit email | `345613117+matthewpilnik-droid@users.noreply.github.com` (GitHub's no-reply address) |
-| Format | 6 teams, 3 crews each from a 3-round snake draft of all 17 crews + the 2012 Replacement Refs (scores the weekly average of crews that worked); start 2 of 3 each week, lineups carry forward; head-to-head Weeks 7–17 (everyone plays everyone twice, Week 17 repeats Week 7's pairings); Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Delicates Bowl (5 v 6) |
-| League starts | ~~Week 8, Thursday, October 29, 2026~~ → Week 7, Thursday, October 22, 2026 (moved up 2026-10-21) |
+| Format | 6 teams, 3 crews each from a 3-round snake draft of all 17 crews + the 2012 Replacement Refs (scores the weekly average of crews that worked); start 2 of 3 each week, lineups carry forward; ~~head-to-head Weeks 7–17 (everyone plays everyone twice, Week 17 repeats Week 7's pairings)~~ → head-to-head Weeks 8–17, everyone plays everyone twice (2026-10-26: draft not done before Week 7); Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Delicates Bowl (5 v 6) |
+| League starts | ~~Week 8, Thursday, October 29, 2026~~ → ~~Week 7, Thursday, October 22, 2026 (moved up 2026-10-21)~~ → Week 8, Thursday, October 29, 2026 (2026-10-26: the draft wasn't held before Week 7) |
 | Status | Live in **preview mode**: draft not yet entered in `league.json` |
+| Draft order | Random draw, 2026-10-22: 1 Bryan, 2 Matthew, 3 Mike, 4 Stephan, 5 Danny (Team Laundry), 6 Sean; 3-round snake |
 
 The site updates itself. Nothing has to run on your computer. A new computer
 only matters for editing code or running Claude Code against the project.

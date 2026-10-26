@@ -503,6 +503,11 @@ if drafted:
 else:
     league, sample = play_season(*mock_league()), None
 
+# The real draft as entered so far. Teams are listed in draft-slot order, so the
+# site's draft board can lay out the snake before the league goes live.
+draft = [{"team": t["name"].strip(), "manager": t.get("manager", ""),
+          "picks": [roster_name(c) if c.strip() else "" for c in t["crews"]]} for t in teams_cfg]
+
 
 # ---- Tier reference and dates ----------------------------------------------
 tier_table = sorted(
@@ -543,6 +548,7 @@ json.dump({
     "ref_last_names": {k: next(iter(v)) for k, v in by_last.items() if len(v) == 1},
     "scored_espn": scored_espn,
     "crews": crew_list,
+    "draft": draft,
     "week_games": week_games,
     "top_flags": top_flags,
     "sightings": sightings,
