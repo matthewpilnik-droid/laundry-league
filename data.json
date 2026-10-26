@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T18:52Z",
+ "generated_at": "2026-10-26T19:35Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "cheffers": "Carl Cheffers",
-  "vinovich": "Bill Vinovich",
-  "wrolstad": "Craig Wrolstad",
-  "allen": "Brad Allen",
-  "torbert": "Ron Torbert",
-  "rogers": "Brad Rogers",
-  "hill": "Adrian Hill",
-  "novak": "Scott Novak",
-  "clark": "Land Clark",
   "blakeman": "Clete Blakeman",
-  "smith": "Shawn Smith",
-  "hussey": "John Hussey",
-  "martin": "Clay Martin",
-  "moore": "Alex Moore",
+  "vinovich": "Bill Vinovich",
   "hochuli": "Shawn Hochuli",
+  "martin": "Clay Martin",
+  "hill": "Adrian Hill",
+  "eck": "Alan Eck",
+  "moore": "Alex Moore",
+  "torbert": "Ron Torbert",
+  "smith": "Shawn Smith",
+  "clark": "Land Clark",
+  "novak": "Scott Novak",
+  "allen": "Brad Allen",
   "kemp": "Alex Kemp",
-  "eck": "Alan Eck"
+  "hussey": "John Hussey",
+  "rogers": "Brad Rogers",
+  "cheffers": "Carl Cheffers",
+  "wrolstad": "Craig Wrolstad"
  },
  "scored_espn": [
   "401872656",
@@ -296,7 +296,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.7,
+   "ppg25": 90.6,
    "g26": 6,
    "pts26": 570.6,
    "ppg26": 95.1,
@@ -1456,7 +1456,10 @@
   {
    "team": "Zebra Crime Syndicate",
    "manager": "Danny",
-   "picks": []
+   "picks": [
+    "Carl Cheffers",
+    "Shawn Hochuli"
+   ]
   }
  ],
  "week_games": [
