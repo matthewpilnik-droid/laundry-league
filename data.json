@@ -4,16 +4,16 @@
  "cal_season": 2025,
  "mode": "preview",
  "partly_drafted": true,
- "start_week": 7,
+ "start_week": 8,
  "league_start": 1,
  "regular_season_end": 17,
  "playoff_week": 18,
- "start_date": "2026-10-22",
+ "start_date": "2026-10-29",
  "crews_per_team": 3,
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-26T17:08Z",
+ "generated_at": "2026-10-26T17:12Z",
  "updated": "2026-10-25",
  "last_week": 7,
  "weeks_played": [
@@ -101,22 +101,22 @@
  },
  "ref_last_names": {
   "moore": "Alex Moore",
-  "hill": "Adrian Hill",
-  "novak": "Scott Novak",
   "clark": "Land Clark",
-  "rogers": "Brad Rogers",
-  "martin": "Clay Martin",
-  "blakeman": "Clete Blakeman",
-  "allen": "Brad Allen",
-  "hochuli": "Shawn Hochuli",
-  "smith": "Shawn Smith",
   "wrolstad": "Craig Wrolstad",
   "torbert": "Ron Torbert",
-  "eck": "Alan Eck",
+  "novak": "Scott Novak",
   "cheffers": "Carl Cheffers",
-  "vinovich": "Bill Vinovich",
+  "blakeman": "Clete Blakeman",
+  "eck": "Alan Eck",
   "hussey": "John Hussey",
-  "kemp": "Alex Kemp"
+  "hill": "Adrian Hill",
+  "rogers": "Brad Rogers",
+  "vinovich": "Bill Vinovich",
+  "smith": "Shawn Smith",
+  "martin": "Clay Martin",
+  "hochuli": "Shawn Hochuli",
+  "kemp": "Alex Kemp",
+  "allen": "Brad Allen"
  },
  "scored_espn": [
   "401872656",
@@ -1419,6 +1419,13 @@
  ],
  "draft": [
   {
+   "team": "Helen Keller's School for Refs that Don't See That Good",
+   "manager": "Bryan",
+   "picks": [
+    "Scott Novak"
+   ]
+  },
+  {
    "team": "I'm Blind, I'm Deaf",
    "manager": "Matthew",
    "picks": [
@@ -1440,20 +1447,13 @@
    ]
   },
   {
-   "team": "Helen Keller's School for Refs that Don't See That Good",
-   "manager": "Bryan",
-   "picks": [
-    "Scott Novak"
-   ]
+   "team": "Zebra Crime Syndicate",
+   "manager": "Danny",
+   "picks": []
   },
   {
    "team": "DraftKings Employee of the Month",
    "manager": "Sean",
-   "picks": []
-  },
-  {
-   "team": "Zebra Crime Syndicate",
-   "manager": "Danny",
    "picks": []
   }
  ],
