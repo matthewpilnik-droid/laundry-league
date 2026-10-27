@@ -15,5 +15,6 @@
     { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": ["Land Clark", "Shawn Smith", "Brad Rogers"] },
     { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": ["Carl Cheffers", "Shawn Hochuli", "Clay Martin"] }
   ],
+  "off": {"8":["Bill Vinovich","Carl Cheffers","Land Clark"]},
   "lineups": []
 }
