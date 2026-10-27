@@ -16,5 +16,10 @@
     { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": ["Carl Cheffers", "Shawn Hochuli", "Clay Martin"] }
   ],
   "off": {"8":["Bill Vinovich","Carl Cheffers","Land Clark"]},
-  "lineups": []
+  "lineups": [
+    { "week": 8, "team": "Helen Keller's School for Refs that Don't See That Good", "start": ["Scott Novak", "2012 Replacement Refs"] },
+    { "week": 8, "team": "Zebras with Gambling Debts", "start": ["Adrian Hill", "Alex Kemp"] },
+    { "week": 8, "team": "DraftKings Employee of the Month", "start": ["Shawn Smith", "Brad Rogers"] },
+    { "week": 8, "team": "Zebra Crime Syndicate", "start": ["Shawn Hochuli", "Clay Martin"] }
+  ]
 }
