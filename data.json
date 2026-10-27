@@ -13,8 +13,8 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-27T00:51Z",
- "updated": "2026-10-25",
+ "generated_at": "2026-10-27T06:48Z",
+ "updated": "2026-10-26",
  "last_week": 7,
  "weeks_played": [
   1,
@@ -100,23 +100,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "smith": "Shawn Smith",
-  "moore": "Alex Moore",
   "martin": "Clay Martin",
-  "allen": "Brad Allen",
-  "clark": "Land Clark",
+  "hussey": "John Hussey",
+  "cheffers": "Carl Cheffers",
+  "kemp": "Alex Kemp",
+  "hill": "Adrian Hill",
   "blakeman": "Clete Blakeman",
   "wrolstad": "Craig Wrolstad",
   "eck": "Alan Eck",
-  "novak": "Scott Novak",
   "rogers": "Brad Rogers",
   "torbert": "Ron Torbert",
-  "hussey": "John Hussey",
-  "hill": "Adrian Hill",
-  "vinovich": "Bill Vinovich",
-  "kemp": "Alex Kemp",
   "hochuli": "Shawn Hochuli",
-  "cheffers": "Carl Cheffers"
+  "novak": "Scott Novak",
+  "clark": "Land Clark",
+  "vinovich": "Bill Vinovich",
+  "moore": "Alex Moore",
+  "allen": "Brad Allen",
+  "smith": "Shawn Smith"
  },
  "scored_espn": [
   "401872656",
@@ -212,6 +212,7 @@
   "401873006",
   "401873007",
   "401873008",
+  "401873009",
   "401873010",
   "401873011",
   "401873012",
@@ -688,9 +689,9 @@
    "g25": null,
    "flags25": 15.2,
    "ppg25": 71.8,
-   "g26": 6,
-   "pts26": 488.7,
-   "ppg26": 81.5,
+   "g26": 7,
+   "pts26": 554.3,
+   "ppg26": 79.2,
    "weeks": {
     "1": {
      "game": "Weekly average of 16 crews",
@@ -727,6 +728,12 @@
      "flags": null,
      "yards": null,
      "pts": 92.0
+    },
+    "7": {
+     "game": "Weekly average of 14 crews",
+     "flags": null,
+     "yards": null,
+     "pts": 65.6
     }
    }
   },
@@ -809,9 +816,9 @@
    "g25": 17,
    "flags25": 14.5,
    "ppg25": 70.3,
-   "g26": 5,
-   "pts26": 409.1,
-   "ppg26": 81.8,
+   "g26": 6,
+   "pts26": 466.5,
+   "ppg26": 77.8,
    "weeks": {
     "1": {
      "game": "SF @ LA",
@@ -857,6 +864,15 @@
      "stood": 0,
      "pts": 85.0,
      "gid": "2026_06_NO_NYG"
+    },
+    "7": {
+     "game": "DAL @ PHI",
+     "flags": 14,
+     "yards": 92,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 57.4,
+     "gid": "2026_07_DAL_PHI"
     }
    }
   },
@@ -1605,6 +1621,28 @@
     "clutch": true,
     "qtr": "2",
     "clock": "00:34"
+   }
+  },
+  {
+   "referee": "Alex Kemp",
+   "game": "DAL @ PHI",
+   "day": "Monday",
+   "flags": 14,
+   "yards": 92,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 57.4,
+   "top": {
+    "type": "Neutral Zone Infraction",
+    "team": "DAL",
+    "player": "Q.Williams",
+    "yards": 5,
+    "pts": 7.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "10:44"
    }
   },
   {
@@ -4925,7 +4963,7 @@
  "awards": {},
  "sample": {
   "league_start": 1,
-  "current_week": 7,
+  "current_week": 8,
   "teams": [
    {
     "team": "Holding Pattern",
@@ -5697,12 +5735,12 @@
      "Shawn Smith"
     ],
     "Laundry Day": [
-     "Shawn Hochuli",
-     "Alex Kemp"
+     "Alex Kemp",
+     "Shawn Hochuli"
     ],
     "Flag on the Play": [
-     "Adrian Hill",
-     "Carl Cheffers"
+     "Carl Cheffers",
+     "Scott Novak"
     ],
     "Pick Up the Flag": [
      "Craig Wrolstad",
@@ -7089,7 +7127,7 @@
    },
    {
     "week": 7,
-    "final": false,
+    "final": true,
     "playoff": false,
     "games": [
      {
@@ -7106,9 +7144,9 @@
         },
         {
          "crew": "2012 Replacement Refs",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 65.6,
+         "game": "Weekly average of 14 crews",
+         "status": "final",
          "starter": true
         },
         {
@@ -7119,7 +7157,7 @@
          "starter": false
         }
        ],
-       "pts": 116.6
+       "pts": 182.2
       },
       "B": {
        "crews": [
@@ -7147,21 +7185,14 @@
        ],
        "pts": 92.8
       },
-      "final": false,
-      "winner": null
+      "final": true,
+      "winner": "Pick Up the Flag"
      },
      {
       "a": "Flag on the Play",
       "b": "Yellow Hankies",
       "A": {
        "crews": [
-        {
-         "crew": "Adrian Hill",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
-         "starter": true
-        },
         {
          "crew": "Carl Cheffers",
          "pts": 49.7,
@@ -7174,10 +7205,17 @@
          "pts": 51.1,
          "game": "CLE @ TEN",
          "status": "final",
+         "starter": true
+        },
+        {
+         "crew": "Adrian Hill",
+         "pts": 0,
+         "game": null,
+         "status": "bye",
          "starter": false
         }
        ],
-       "pts": 49.7
+       "pts": 100.8
       },
       "B": {
        "crews": [
@@ -7205,8 +7243,8 @@
        ],
        "pts": 148.1
       },
-      "final": false,
-      "winner": null
+      "final": true,
+      "winner": "Yellow Hankies"
      },
      {
       "a": "Laundry Day",
@@ -7217,25 +7255,25 @@
          "crew": "Shawn Hochuli",
          "pts": 0,
          "game": null,
-         "status": "pending",
+         "status": "bye",
          "starter": true
         },
         {
          "crew": "Alex Kemp",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 57.4,
+         "game": "DAL @ PHI",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Clete Blakeman",
          "pts": 0,
          "game": null,
-         "status": "pending",
+         "status": "bye",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 57.4
       },
       "B": {
        "crews": [
@@ -7263,8 +7301,8 @@
        ],
        "pts": 133.6
       },
-      "final": false,
-      "winner": null
+      "final": true,
+      "winner": "False Start Kids"
      }
     ]
    },
@@ -9097,7 +9135,7 @@
      },
      {
       "a": "Flag on the Play",
-      "b": "Holding Pattern",
+      "b": "Yellow Hankies",
       "seeds": [
        3,
        4
@@ -9108,8 +9146,8 @@
       "winner": null
      },
      {
-      "a": "Laundry Day",
-      "b": "Yellow Hankies",
+      "a": "Holding Pattern",
+      "b": "Laundry Day",
       "seeds": [
        5,
        6
@@ -9126,62 +9164,62 @@
    {
     "team": "Pick Up the Flag",
     "manager": "",
-    "w": 4,
+    "w": 5,
     "l": 2,
     "t": 0,
-    "pf": 1074.5,
-    "pa": 882.1,
-    "streak": "W3"
+    "pf": 1256.7,
+    "pa": 974.9,
+    "streak": "W4"
    },
    {
     "team": "False Start Kids",
     "manager": "",
-    "w": 4,
+    "w": 5,
     "l": 2,
     "t": 0,
-    "pf": 925.8,
-    "pa": 912.6,
-    "streak": "L2"
+    "pf": 1059.4,
+    "pa": 970.0,
+    "streak": "W1"
    },
    {
     "team": "Flag on the Play",
     "manager": "",
     "w": 3,
-    "l": 3,
+    "l": 4,
     "t": 0,
-    "pf": 1006.8,
-    "pa": 1003.0,
+    "pf": 1107.6,
+    "pa": 1151.1,
+    "streak": "L1"
+   },
+   {
+    "team": "Yellow Hankies",
+    "manager": "",
+    "w": 3,
+    "l": 4,
+    "t": 0,
+    "pf": 981.1,
+    "pa": 1043.4,
     "streak": "W1"
    },
    {
     "team": "Holding Pattern",
     "manager": "",
     "w": 3,
-    "l": 3,
+    "l": 4,
     "t": 0,
-    "pf": 848.1,
-    "pa": 847.9,
-    "streak": "W2"
+    "pf": 940.9,
+    "pa": 1030.1,
+    "streak": "L1"
    },
    {
     "team": "Laundry Day",
     "manager": "",
     "w": 2,
-    "l": 4,
+    "l": 5,
     "t": 0,
-    "pf": 916.0,
-    "pa": 1016.0,
-    "streak": "L2"
-   },
-   {
-    "team": "Yellow Hankies",
-    "manager": "",
-    "w": 2,
-    "l": 4,
-    "t": 0,
-    "pf": 833.0,
-    "pa": 942.6,
-    "streak": "L1"
+    "pf": 973.4,
+    "pa": 1149.6,
+    "streak": "L3"
    }
   ],
   "series": {
@@ -9202,16 +9240,16 @@
    ],
    "Holding Pattern|Pick Up the Flag": [
     0,
-    1,
+    2,
     0
    ],
    "Flag on the Play|Yellow Hankies": [
     1,
-    0,
+    1,
     0
    ],
    "False Start Kids|Laundry Day": [
-    1,
+    2,
     0,
     0
    ],
@@ -9491,6 +9529,41 @@
          "crew": "Carl Cheffers",
          "n": 2,
          "game": "BAL @ CLE"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "7": {
+    "golden_flag": {
+     "team": "False Start Kids",
+     "crew": "Alex Moore",
+     "type": "Illegal Double-Team Block",
+     "pts": 25.0,
+     "tier": "unicorn",
+     "nfl_team": "DET",
+     "player": "D.Carter",
+     "game": "GB @ DET",
+     "status": "accepted",
+     "clutch": false
+    },
+    "overturned": {
+     "n": 5,
+     "pts": -25,
+     "teams": [
+      {
+       "team": "Holding Pattern",
+       "crews": [
+        {
+         "crew": "Bill Vinovich",
+         "n": 3,
+         "game": "PIT @ NO"
+        },
+        {
+         "crew": "Land Clark",
+         "n": 2,
+         "game": "NYG @ HOU"
         }
        ]
       }
