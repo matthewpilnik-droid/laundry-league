@@ -13,9 +13,9 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-10-30T01:01Z",
- "updated": "2026-10-26",
- "last_week": 7,
+ "generated_at": "2026-10-30T06:59Z",
+ "updated": "2026-10-29",
+ "last_week": 8,
  "weeks_played": [
   1,
   2,
@@ -23,7 +23,8 @@
   4,
   5,
   6,
-  7
+  7,
+  8
  ],
  "current_week": 8,
  "calibration_games": 272,
@@ -100,23 +101,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
+  "rogers": "Brad Rogers",
   "cheffers": "Carl Cheffers",
+  "martin": "Clay Martin",
   "hill": "Adrian Hill",
-  "novak": "Scott Novak",
-  "moore": "Alex Moore",
-  "smith": "Shawn Smith",
-  "vinovich": "Bill Vinovich",
-  "kemp": "Alex Kemp",
-  "torbert": "Ron Torbert",
   "blakeman": "Clete Blakeman",
-  "eck": "Alan Eck",
+  "hussey": "John Hussey",
+  "novak": "Scott Novak",
+  "kemp": "Alex Kemp",
+  "allen": "Brad Allen",
+  "torbert": "Ron Torbert",
+  "smith": "Shawn Smith",
   "hochuli": "Shawn Hochuli",
   "wrolstad": "Craig Wrolstad",
-  "martin": "Clay Martin",
+  "eck": "Alan Eck",
   "clark": "Land Clark",
-  "allen": "Brad Allen",
-  "hussey": "John Hussey",
-  "rogers": "Brad Rogers"
+  "vinovich": "Bill Vinovich",
+  "moore": "Alex Moore"
  },
  "scored_espn": [
   "401872656",
@@ -225,7 +226,8 @@
   "401873019",
   "401873020",
   "401873021",
-  "401873022"
+  "401873022",
+  "401873023"
  ],
  "crews": [
   {
@@ -1233,9 +1235,9 @@
    "g25": 17,
    "flags25": 13.6,
    "ppg25": 62.7,
-   "g26": 7,
-   "pts26": 814.1,
-   "ppg26": 116.3,
+   "g26": 8,
+   "pts26": 863.8,
+   "ppg26": 108.0,
    "weeks": {
     "1": {
      "game": "BAL @ IND",
@@ -1299,6 +1301,15 @@
      "stood": 0,
      "pts": 51.1,
      "gid": "2026_07_CLE_TEN"
+    },
+    "8": {
+     "game": "CAR @ GB",
+     "flags": 13,
+     "yards": 86,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 49.7,
+     "gid": "2026_08_CAR_GB"
     }
    }
   },
@@ -1498,311 +1509,25 @@
  },
  "week_games": [
   {
-   "referee": "Craig Wrolstad",
-   "game": "DEN @ ARI",
-   "day": "Sunday",
-   "flags": 23,
-   "yards": 173,
-   "overturns": 0,
-   "stood": 2,
-   "pts": 116.6,
-   "top": {
-    "type": "Lowering the Head to Make Forcible Contact",
-    "team": "DEN",
-    "player": "B.Jones",
-    "yards": 8,
-    "pts": 23.6,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "00:54"
-   }
-  },
-  {
-   "referee": "Alan Eck",
-   "game": "NE @ CHI",
-   "day": "Thursday",
-   "flags": 21,
-   "yards": 140,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 110.9,
-   "top": {
-    "type": "Illegal Forward Handoff",
-    "team": "CHI",
-    "player": "C.Williams",
-    "yards": 5,
-    "pts": 23.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "07:49"
-   }
-  },
-  {
-   "referee": "Ron Torbert",
-   "game": "LA @ LV",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 154,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 108.1,
-   "top": {
-    "type": "Lowering the Head to Make Forcible Contact",
-    "team": "LA",
-    "player": "Q.Lake",
-    "yards": 15,
-    "pts": 25.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "11:14"
-   }
-  },
-  {
-   "referee": "Alex Moore",
-   "game": "GB @ DET",
-   "day": "Sunday",
-   "flags": 14,
-   "yards": 131,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 88.2,
-   "top": {
-    "type": "Illegal Double-Team Block",
-    "team": "DET",
-    "player": "D.Carter",
-    "yards": 15,
-    "pts": 25.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "07:10"
-   }
-  },
-  {
-   "referee": "Clay Martin",
-   "game": "SF @ ATL",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 94,
-   "overturns": 1,
-   "stood": 1,
-   "pts": 68.3,
-   "top": {
-    "type": "Offensive Too Many Men on Field",
-    "team": "ATL",
-    "player": "",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "02:37"
-   }
-  },
-  {
-   "referee": "Land Clark",
-   "game": "NYG @ HOU",
-   "day": "Sunday",
-   "flags": 19,
-   "yards": 130,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 62.6,
-   "top": {
-    "type": "Unnecessary Roughness",
-    "team": "HOU",
-    "player": "J.Ingram",
-    "yards": 15,
-    "pts": 7.5,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "00:34"
-   }
-  },
-  {
-   "referee": "Alex Kemp",
-   "game": "DAL @ PHI",
-   "day": "Monday",
-   "flags": 14,
-   "yards": 92,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 57.4,
-   "top": {
-    "type": "Neutral Zone Infraction",
-    "team": "DAL",
-    "player": "Q.Williams",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "10:44"
-   }
-  },
-  {
    "referee": "Scott Novak",
-   "game": "CLE @ TEN",
-   "day": "Sunday",
-   "flags": 14,
-   "yards": 83,
-   "overturns": 3,
-   "stood": 0,
-   "pts": 51.1,
-   "top": {
-    "type": "Illegal Blindside Block",
-    "team": "CLE",
-    "player": "D.Thomas",
-    "yards": 6,
-    "pts": 7.2,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "04:19"
-   }
-  },
-  {
-   "referee": "Carl Cheffers",
-   "game": "TB @ CAR",
-   "day": "Sunday",
-   "flags": 10,
-   "yards": 91,
+   "game": "CAR @ GB",
+   "day": "Thursday",
+   "flags": 13,
+   "yards": 86,
    "overturns": 0,
    "stood": 0,
    "pts": 49.7,
    "top": {
-    "type": "Unsportsmanlike Conduct",
-    "team": "CAR",
-    "player": "",
+    "type": "Intentional Grounding",
+    "team": "GB",
+    "player": "J.Love",
     "yards": 15,
     "pts": 9.0,
     "tier": "uncommon",
     "status": "accepted",
     "clutch": false,
-    "qtr": "2",
-    "clock": "09:09"
-   }
-  },
-  {
-   "referee": "John Hussey",
-   "game": "KC @ SEA",
-   "day": "Sunday",
-   "flags": 8,
-   "yards": 35,
-   "overturns": 4,
-   "stood": 0,
-   "pts": 47.0,
-   "top": {
-    "type": "Horse Collar Tackle",
-    "team": "SEA",
-    "player": "U.Nwosu",
-    "yards": 0,
-    "pts": 44.0,
-    "tier": "unicorn",
-    "status": "offsetting",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "02:46"
-   }
-  },
-  {
-   "referee": "Shawn Smith",
-   "game": "CIN @ BAL",
-   "day": "Sunday",
-   "flags": 13,
-   "yards": 72,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 45.4,
-   "top": {
-    "type": "Low Block",
-    "team": "CIN",
-    "player": "B.Mafe",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "05:35"
-   }
-  },
-  {
-   "referee": "Brad Allen",
-   "game": "MIA @ NYJ",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 62,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 42.8,
-   "top": {
-    "type": "Illegal Use of Hands",
-    "team": "MIA",
-    "player": "J.Uche",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "10:24"
-   }
-  },
-  {
-   "referee": "Brad Rogers",
-   "game": "IND @ MIN",
-   "day": "Sunday",
-   "flags": 10,
-   "yards": 70,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 40.0,
-   "top": {
-    "type": "Defensive Too Many Men on Field",
-    "team": "MIN",
-    "player": "",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "11:36"
-   }
-  },
-  {
-   "referee": "Bill Vinovich",
-   "game": "PIT @ NO",
-   "day": "Sunday",
-   "flags": 11,
-   "yards": 96,
-   "overturns": 3,
-   "stood": 0,
-   "pts": 30.2,
-   "top": {
-    "type": "Unnecessary Roughness",
-    "team": "PIT",
-    "player": "M.McCormick",
-    "yards": 15,
-    "pts": 7.5,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "00:54"
+    "qtr": "4",
+    "clock": "04:50"
    }
   }
  ],
@@ -3061,9 +2786,9 @@
       "crews": [
        {
         "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 49.7,
+        "game": "CAR @ GB",
+        "status": "final",
         "starter": true
        },
        {
@@ -3081,7 +2806,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 49.7
      },
      "B": {
       "crews": [
@@ -7338,9 +7063,9 @@
         },
         {
          "crew": "Scott Novak",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 49.7,
+         "game": "CAR @ GB",
+         "status": "final",
          "starter": false
         }
        ],
