@@ -13,8 +13,8 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-01T18:48Z",
- "updated": "2026-10-29",
+ "generated_at": "2026-11-02T01:08Z",
+ "updated": "2026-11-01",
  "last_week": 8,
  "weeks_played": [
   1,
@@ -101,23 +101,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
+  "novak": "Scott Novak",
+  "blakeman": "Clete Blakeman",
+  "rogers": "Brad Rogers",
+  "cheffers": "Carl Cheffers",
+  "allen": "Brad Allen",
+  "moore": "Alex Moore",
+  "vinovich": "Bill Vinovich",
+  "hill": "Adrian Hill",
+  "hochuli": "Shawn Hochuli",
+  "hussey": "John Hussey",
+  "wrolstad": "Craig Wrolstad",
   "smith": "Shawn Smith",
   "kemp": "Alex Kemp",
-  "wrolstad": "Craig Wrolstad",
-  "cheffers": "Carl Cheffers",
-  "hill": "Adrian Hill",
-  "moore": "Alex Moore",
-  "blakeman": "Clete Blakeman",
-  "hussey": "John Hussey",
-  "novak": "Scott Novak",
-  "vinovich": "Bill Vinovich",
-  "rogers": "Brad Rogers",
-  "eck": "Alan Eck",
   "torbert": "Ron Torbert",
+  "eck": "Alan Eck",
   "martin": "Clay Martin",
-  "hochuli": "Shawn Hochuli",
-  "clark": "Land Clark",
-  "allen": "Brad Allen"
+  "clark": "Land Clark"
  },
  "scored_espn": [
   "401872656",
@@ -227,7 +227,18 @@
   "401873020",
   "401873021",
   "401873022",
-  "401873023"
+  "401873023",
+  "401873024",
+  "401873025",
+  "401873026",
+  "401873027",
+  "401873028",
+  "401873029",
+  "401873030",
+  "401873031",
+  "401873032",
+  "401873033",
+  "401873034"
  ],
  "crews": [
   {
@@ -300,9 +311,9 @@
    "g25": 16,
    "flags25": 19.4,
    "ppg25": 90.6,
-   "g26": 6,
-   "pts26": 570.6,
-   "ppg26": 95.1,
+   "g26": 7,
+   "pts26": 619.8,
+   "ppg26": 88.5,
    "weeks": {
     "1": {
      "game": "BUF @ HOU",
@@ -357,6 +368,15 @@
      "stood": 0,
      "pts": 88.2,
      "gid": "2026_07_GB_DET"
+    },
+    "8": {
+     "game": "NE @ MIA",
+     "flags": 15,
+     "yards": 96,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 49.2,
+     "gid": "2026_08_NE_MIA"
     }
    }
   },
@@ -430,9 +450,9 @@
    "g25": 14,
    "flags25": 17.9,
    "ppg25": 79.2,
-   "g26": 5,
-   "pts26": 501.8,
-   "ppg26": 100.4,
+   "g26": 6,
+   "pts26": 590.1,
+   "ppg26": 98.4,
    "weeks": {
     "1": {
      "game": "NE @ SEA",
@@ -478,6 +498,15 @@
      "stood": 0,
      "pts": 134.0,
      "gid": "2026_06_WAS_SF"
+    },
+    "8": {
+     "game": "IND @ JAX",
+     "flags": 18,
+     "yards": 119,
+     "overturns": 0,
+     "stood": 2,
+     "pts": 88.3,
+     "gid": "2026_08_IND_JAX"
     }
    }
   },
@@ -486,9 +515,9 @@
    "g25": 17,
    "flags25": 14.1,
    "ppg25": 76.5,
-   "g26": 6,
-   "pts26": 626.7,
-   "ppg26": 104.5,
+   "g26": 7,
+   "pts26": 706.4,
+   "ppg26": 100.9,
    "weeks": {
     "1": {
      "game": "CLE @ JAX",
@@ -543,6 +572,15 @@
      "stood": 2,
      "pts": 116.6,
      "gid": "2026_07_DEN_ARI"
+    },
+    "8": {
+     "game": "MIN @ DET",
+     "flags": 15,
+     "yards": 116,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 79.7,
+     "gid": "2026_08_MIN_DET"
     }
    }
   },
@@ -551,9 +589,9 @@
    "g25": 16,
    "flags25": 15.8,
    "ppg25": 75.6,
-   "g26": 6,
-   "pts26": 531.9,
-   "ppg26": 88.6,
+   "g26": 7,
+   "pts26": 622.3,
+   "ppg26": 88.9,
    "weeks": {
     "1": {
      "game": "ARI @ LAC",
@@ -608,6 +646,15 @@
      "stood": 0,
      "pts": 108.1,
      "gid": "2026_07_LA_LV"
+    },
+    "8": {
+     "game": "ARI @ DAL",
+     "flags": 18,
+     "yards": 122,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 90.4,
+     "gid": "2026_08_ARI_DAL"
     }
    }
   },
@@ -616,9 +663,9 @@
    "g25": 16,
    "flags25": 15.4,
    "ppg25": 74.2,
-   "g26": 7,
-   "pts26": 449.2,
-   "ppg26": 64.2,
+   "g26": 8,
+   "pts26": 503.2,
+   "ppg26": 62.9,
    "weeks": {
     "1": {
      "game": "ATL @ PIT",
@@ -682,6 +729,15 @@
      "stood": 0,
      "pts": 40.0,
      "gid": "2026_07_IND_MIN"
+    },
+    "8": {
+     "game": "LAC @ LA",
+     "flags": 14,
+     "yards": 60,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 54.0,
+     "gid": "2026_08_LAC_LA"
     }
    }
   },
@@ -818,9 +874,9 @@
    "g25": 17,
    "flags25": 14.5,
    "ppg25": 70.3,
-   "g26": 6,
-   "pts26": 466.5,
-   "ppg26": 77.8,
+   "g26": 7,
+   "pts26": 540.4,
+   "ppg26": 77.2,
    "weeks": {
     "1": {
      "game": "SF @ LA",
@@ -875,6 +931,15 @@
      "stood": 0,
      "pts": 57.4,
      "gid": "2026_07_DAL_PHI"
+    },
+    "8": {
+     "game": "CLE @ PIT",
+     "flags": 18,
+     "yards": 132,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 73.9,
+     "gid": "2026_08_CLE_PIT"
     }
    }
   },
@@ -1031,9 +1096,9 @@
    "g25": 16,
    "flags25": 13.3,
    "ppg25": 65.3,
-   "g26": 6,
-   "pts26": 563.3,
-   "ppg26": 93.9,
+   "g26": 7,
+   "pts26": 591.3,
+   "ppg26": 84.5,
    "weeks": {
     "1": {
      "game": "NO @ DET",
@@ -1088,6 +1153,15 @@
      "stood": 0,
      "pts": 110.9,
      "gid": "2026_07_NE_CHI"
+    },
+    "8": {
+     "game": "ATL @ TB",
+     "flags": 8,
+     "yards": 65,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 28.0,
+     "gid": "2026_08_ATL_TB"
     }
    }
   },
@@ -1096,9 +1170,9 @@
    "g25": 16,
    "flags25": 14.4,
    "ppg25": 64.7,
-   "g26": 7,
-   "pts26": 440.3,
-   "ppg26": 62.9,
+   "g26": 8,
+   "pts26": 532.3,
+   "ppg26": 66.5,
    "weeks": {
     "1": {
      "game": "DEN @ KC",
@@ -1162,6 +1236,15 @@
      "stood": 1,
      "pts": 68.3,
      "gid": "2026_07_SF_ATL"
+    },
+    "8": {
+     "game": "BAL @ BUF",
+     "flags": 18,
+     "yards": 125,
+     "overturns": 4,
+     "stood": 0,
+     "pts": 92.0,
+     "gid": "2026_08_BAL_BUF"
     }
    }
   },
@@ -1170,9 +1253,9 @@
    "g25": 16,
    "flags25": 14.4,
    "ppg25": 62.8,
-   "g26": 6,
-   "pts26": 381.8,
-   "ppg26": 63.6,
+   "g26": 7,
+   "pts26": 463.3,
+   "ppg26": 66.2,
    "weeks": {
     "1": {
      "game": "MIA @ LV",
@@ -1227,6 +1310,15 @@
      "stood": 0,
      "pts": 61.6,
      "gid": "2026_06_NYJ_NE"
+    },
+    "8": {
+     "game": "KC @ DEN",
+     "flags": 21,
+     "yards": 150,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 81.5,
+     "gid": "2026_08_KC_DEN"
     }
    }
   },
@@ -1318,9 +1410,9 @@
    "g25": 16,
    "flags25": 13.7,
    "ppg25": 61.3,
-   "g26": 6,
-   "pts26": 456.2,
-   "ppg26": 76.0,
+   "g26": 7,
+   "pts26": 501.5,
+   "ppg26": 71.6,
    "weeks": {
     "1": {
      "game": "TB @ CIN",
@@ -1375,6 +1467,15 @@
      "stood": 0,
      "pts": 47.0,
      "gid": "2026_07_KC_SEA"
+    },
+    "8": {
+     "game": "LV @ NYJ",
+     "flags": 15,
+     "yards": 69,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 45.3,
+     "gid": "2026_08_LV_NYJ"
     }
    }
   },
@@ -1383,9 +1484,9 @@
    "g25": 15,
    "flags25": 12.9,
    "ppg25": 57.9,
-   "g26": 6,
-   "pts26": 429.3,
-   "ppg26": 71.5,
+   "g26": 7,
+   "pts26": 508.1,
+   "ppg26": 72.6,
    "weeks": {
     "1": {
      "game": "CHI @ CAR",
@@ -1440,6 +1541,15 @@
      "stood": 0,
      "pts": 42.8,
      "gid": "2026_07_MIA_NYJ"
+    },
+    "8": {
+     "game": "TEN @ CIN",
+     "flags": 20,
+     "yards": 140,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 78.8,
+     "gid": "2026_08_TEN_CIN"
     }
    }
   }
@@ -1509,6 +1619,182 @@
  },
  "week_games": [
   {
+   "referee": "Clay Martin",
+   "game": "BAL @ BUF",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 125,
+   "overturns": 4,
+   "stood": 0,
+   "pts": 92.0,
+   "top": {
+    "type": "Chop Block",
+    "team": "BUF",
+    "player": "J.Cook",
+    "yards": 15,
+    "pts": 22.5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:05"
+   }
+  },
+  {
+   "referee": "Ron Torbert",
+   "game": "ARI @ DAL",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 122,
+   "overturns": 1,
+   "stood": 1,
+   "pts": 90.4,
+   "top": {
+    "type": "Illegal Touch Kick",
+    "team": "ARI",
+    "player": "M.Melton",
+    "yards": 5,
+    "pts": 23.0,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:11"
+   }
+  },
+  {
+   "referee": "Adrian Hill",
+   "game": "IND @ JAX",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 119,
+   "overturns": 0,
+   "stood": 2,
+   "pts": 88.3,
+   "top": {
+    "type": "Player Out of Bounds on Kick",
+    "team": "IND",
+    "player": "A.Dulin",
+    "yards": 5,
+    "pts": 19.5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:13"
+   }
+  },
+  {
+   "referee": "Clete Blakeman",
+   "game": "KC @ DEN",
+   "day": "Sunday",
+   "flags": 21,
+   "yards": 150,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 81.5,
+   "top": {
+    "type": "Illegal Block Above the Waist",
+    "team": "KC",
+    "player": "K.Fulton",
+    "yards": 5,
+    "pts": 7.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "11:07"
+   }
+  },
+  {
+   "referee": "Craig Wrolstad",
+   "game": "MIN @ DET",
+   "day": "Sunday",
+   "flags": 15,
+   "yards": 116,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 79.7,
+   "top": {
+    "type": "Taunting",
+    "team": "DET",
+    "player": "A.St. Brown",
+    "yards": 15,
+    "pts": 15.0,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "11:25"
+   }
+  },
+  {
+   "referee": "Brad Allen",
+   "game": "TEN @ CIN",
+   "day": "Sunday",
+   "flags": 20,
+   "yards": 140,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 78.8,
+   "top": {
+    "type": "Face Mask",
+    "team": "CIN",
+    "player": "J.Giles-Harris",
+    "yards": 15,
+    "pts": 7.5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:20"
+   }
+  },
+  {
+   "referee": "Alex Kemp",
+   "game": "CLE @ PIT",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 132,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 73.9,
+   "top": {
+    "type": "Taunting",
+    "team": "CLE",
+    "player": "S.Williams",
+    "yards": 15,
+    "pts": 15.0,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "09:39"
+   }
+  },
+  {
+   "referee": "Brad Rogers",
+   "game": "LAC @ LA",
+   "day": "Sunday",
+   "flags": 14,
+   "yards": 60,
+   "overturns": 0,
+   "stood": 1,
+   "pts": 54.0,
+   "top": {
+    "type": "Kickoff Short of Landing Zone",
+    "team": "LA",
+    "player": "J.Karty",
+    "yards": 0,
+    "pts": 9.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:19"
+   }
+  },
+  {
    "referee": "Scott Novak",
    "game": "CAR @ GB",
    "day": "Thursday",
@@ -1528,6 +1814,72 @@
     "clutch": false,
     "qtr": "4",
     "clock": "04:50"
+   }
+  },
+  {
+   "referee": "Alex Moore",
+   "game": "NE @ MIA",
+   "day": "Sunday",
+   "flags": 15,
+   "yards": 96,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 49.2,
+   "top": {
+    "type": "Unsportsmanlike Conduct",
+    "team": "MIA",
+    "player": "O.Gordon",
+    "yards": 15,
+    "pts": 9.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "09:10"
+   }
+  },
+  {
+   "referee": "John Hussey",
+   "game": "LV @ NYJ",
+   "day": "Sunday",
+   "flags": 15,
+   "yards": 69,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 45.3,
+   "top": {
+    "type": "Unnecessary Roughness",
+    "team": "LV",
+    "player": "J.Chinn",
+    "yards": 15,
+    "pts": 7.5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:20"
+   }
+  },
+  {
+   "referee": "Alan Eck",
+   "game": "ATL @ TB",
+   "day": "Sunday",
+   "flags": 8,
+   "yards": 65,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 28.0,
+   "top": {
+    "type": "Neutral Zone Infraction",
+    "team": "ATL",
+    "player": "M.Smith",
+    "yards": 5,
+    "pts": 7.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:05"
    }
   }
  ],
@@ -2103,6 +2455,21 @@
    "week": 7,
    "referee": "John Hussey",
    "game": "KC @ SEA"
+  },
+  {
+   "type": "Illegal Touch Kick",
+   "team": "ARI",
+   "player": "M.Melton",
+   "yards": 5,
+   "pts": 23.0,
+   "tier": "unicorn",
+   "status": "accepted",
+   "clutch": false,
+   "qtr": "4",
+   "clock": "02:11",
+   "week": 8,
+   "referee": "Ron Torbert",
+   "game": "ARI @ DAL"
   }
  ],
  "teams": [
@@ -2800,9 +3167,9 @@
        },
        {
         "crew": "John Hussey",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 45.3,
+        "game": "LV @ NYJ",
+        "status": "final",
         "starter": false
        }
       ],
@@ -2819,9 +3186,9 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 92.0,
+        "game": "BAL @ BUF",
+        "status": "final",
         "starter": true
        },
        {
@@ -2832,7 +3199,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 92.0
      },
      "final": false,
      "winner": null
@@ -2844,27 +3211,27 @@
       "crews": [
        {
         "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 49.2,
+        "game": "NE @ MIA",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Ron Torbert",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 90.4,
+        "game": "ARI @ DAL",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 28.0,
+        "game": "ATL @ TB",
+        "status": "final",
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 139.6
      },
      "B": {
       "crews": [
@@ -2877,9 +3244,9 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 54.0,
+        "game": "LAC @ LA",
+        "status": "final",
         "starter": true
        },
        {
@@ -2890,7 +3257,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 54.0
      },
      "final": false,
      "winner": null
@@ -2902,42 +3269,42 @@
       "crews": [
        {
         "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 79.7,
+        "game": "MIN @ DET",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Brad Allen",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 78.8,
+        "game": "TEN @ CIN",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Clete Blakeman",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 81.5,
+        "game": "KC @ DEN",
+        "status": "final",
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 158.5
      },
      "B": {
       "crews": [
        {
         "crew": "Adrian Hill",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 88.3,
+        "game": "IND @ JAX",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Alex Kemp",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 73.9,
+        "game": "CLE @ PIT",
+        "status": "final",
         "starter": true
        },
        {
@@ -2948,7 +3315,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 162.2
      },
      "final": false,
      "winner": null
@@ -7049,9 +7416,9 @@
        "crews": [
         {
          "crew": "Adrian Hill",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 88.3,
+         "game": "IND @ JAX",
+         "status": "final",
          "starter": true
         },
         {
@@ -7069,7 +7436,7 @@
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 88.3
       },
       "B": {
        "crews": [
@@ -7089,9 +7456,9 @@
         },
         {
          "crew": "Alan Eck",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 28.0,
+         "game": "ATL @ TB",
+         "status": "final",
          "starter": false
         }
        ],
@@ -7114,28 +7481,28 @@
         },
         {
          "crew": "Alex Kemp",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 73.9,
+         "game": "CLE @ PIT",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Clete Blakeman",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 81.5,
+         "game": "KC @ DEN",
+         "status": "final",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 73.9
       },
       "B": {
        "crews": [
         {
          "crew": "Craig Wrolstad",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 79.7,
+         "game": "MIN @ DET",
+         "status": "final",
          "starter": true
         },
         {
@@ -7147,13 +7514,13 @@
         },
         {
          "crew": "John Hussey",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 45.3,
+         "game": "LV @ NYJ",
+         "status": "final",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 79.7
       },
       "final": false,
       "winner": null
@@ -7165,9 +7532,9 @@
        "crews": [
         {
          "crew": "Alex Moore",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 49.2,
+         "game": "NE @ MIA",
+         "status": "final",
          "starter": true
         },
         {
@@ -7179,39 +7546,39 @@
         },
         {
          "crew": "Clay Martin",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 92.0,
+         "game": "BAL @ BUF",
+         "status": "final",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 49.2
       },
       "B": {
        "crews": [
         {
          "crew": "Ron Torbert",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 90.4,
+         "game": "ARI @ DAL",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Brad Rogers",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 54.0,
+         "game": "LAC @ LA",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Brad Allen",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 78.8,
+         "game": "TEN @ CIN",
+         "status": "final",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 144.4
       },
       "final": false,
       "winner": null
