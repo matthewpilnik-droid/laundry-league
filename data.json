@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-02T01:08Z",
+ "generated_at": "2026-11-02T07:29Z",
  "updated": "2026-11-01",
  "last_week": 8,
  "weeks_played": [
@@ -101,23 +101,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "novak": "Scott Novak",
-  "blakeman": "Clete Blakeman",
+  "smith": "Shawn Smith",
+  "torbert": "Ron Torbert",
+  "wrolstad": "Craig Wrolstad",
+  "moore": "Alex Moore",
+  "eck": "Alan Eck",
+  "hussey": "John Hussey",
   "rogers": "Brad Rogers",
   "cheffers": "Carl Cheffers",
-  "allen": "Brad Allen",
-  "moore": "Alex Moore",
-  "vinovich": "Bill Vinovich",
-  "hill": "Adrian Hill",
   "hochuli": "Shawn Hochuli",
-  "hussey": "John Hussey",
-  "wrolstad": "Craig Wrolstad",
-  "smith": "Shawn Smith",
-  "kemp": "Alex Kemp",
-  "torbert": "Ron Torbert",
-  "eck": "Alan Eck",
+  "novak": "Scott Novak",
   "martin": "Clay Martin",
-  "clark": "Land Clark"
+  "allen": "Brad Allen",
+  "hill": "Adrian Hill",
+  "blakeman": "Clete Blakeman",
+  "kemp": "Alex Kemp",
+  "clark": "Land Clark",
+  "vinovich": "Bill Vinovich"
  },
  "scored_espn": [
   "401872656",
@@ -238,7 +238,8 @@
   "401873031",
   "401873032",
   "401873033",
-  "401873034"
+  "401873034",
+  "401873035"
  ],
  "crews": [
   {
@@ -385,9 +386,9 @@
    "g25": 16,
    "flags25": 17.9,
    "ppg25": 79.3,
-   "g26": 6,
-   "pts26": 457.6,
-   "ppg26": 76.3,
+   "g26": 7,
+   "pts26": 516.6,
+   "ppg26": 73.8,
    "weeks": {
     "1": {
      "game": "GB @ MIN",
@@ -442,6 +443,15 @@
      "stood": 0,
      "pts": 90.4,
      "gid": "2026_06_HOU_JAX"
+    },
+    "8": {
+     "game": "PHI @ WAS",
+     "flags": 18,
+     "yards": 100,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 59.0,
+     "gid": "2026_08_PHI_WAS"
     }
    }
   },
@@ -1770,6 +1780,28 @@
     "clutch": false,
     "qtr": "3",
     "clock": "09:39"
+   }
+  },
+  {
+   "referee": "Shawn Hochuli",
+   "game": "PHI @ WAS",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 100,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 59.0,
+   "top": {
+    "type": "Illegal Block Above the Waist",
+    "team": "WAS",
+    "player": "T.Owens",
+    "yards": 10,
+    "pts": 8.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "02:40"
    }
   },
   {
@@ -3179,9 +3211,9 @@
       "crews": [
        {
         "crew": "Shawn Hochuli",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 59.0,
+        "game": "PHI @ WAS",
+        "status": "final",
         "starter": true
        },
        {
@@ -3199,7 +3231,7 @@
         "starter": false
        }
       ],
-      "pts": 92.0
+      "pts": 151.0
      },
      "final": false,
      "winner": null
@@ -7474,9 +7506,9 @@
        "crews": [
         {
          "crew": "Shawn Hochuli",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 59.0,
+         "game": "PHI @ WAS",
+         "status": "final",
          "starter": true
         },
         {
@@ -7494,7 +7526,7 @@
          "starter": false
         }
        ],
-       "pts": 73.9
+       "pts": 132.9
       },
       "B": {
        "crews": [
