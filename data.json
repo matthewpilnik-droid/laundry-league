@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-05T13:14Z",
+ "generated_at": "2026-11-05T16:32Z",
  "updated": "2026-11-02",
  "last_week": 8,
  "weeks_played": [
@@ -101,23 +101,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "rogers": "Brad Rogers",
-  "hill": "Adrian Hill",
-  "eck": "Alan Eck",
-  "vinovich": "Bill Vinovich",
-  "hochuli": "Shawn Hochuli",
-  "wrolstad": "Craig Wrolstad",
+  "kemp": "Alex Kemp",
   "torbert": "Ron Torbert",
   "martin": "Clay Martin",
-  "allen": "Brad Allen",
+  "hill": "Adrian Hill",
   "cheffers": "Carl Cheffers",
-  "blakeman": "Clete Blakeman",
+  "rogers": "Brad Rogers",
+  "moore": "Alex Moore",
   "novak": "Scott Novak",
-  "clark": "Land Clark",
-  "kemp": "Alex Kemp",
-  "hussey": "John Hussey",
   "smith": "Shawn Smith",
-  "moore": "Alex Moore"
+  "vinovich": "Bill Vinovich",
+  "hussey": "John Hussey",
+  "clark": "Land Clark",
+  "hochuli": "Shawn Hochuli",
+  "wrolstad": "Craig Wrolstad",
+  "blakeman": "Clete Blakeman",
+  "eck": "Alan Eck",
+  "allen": "Brad Allen"
  },
  "scored_espn": [
   "401872656",
@@ -1641,6 +1641,10 @@
    "Bill Vinovich",
    "Carl Cheffers",
    "Land Clark"
+  ],
+  "9": [
+   "Brad Rogers",
+   "Shawn Smith"
   ]
  },
  "week_games": [
@@ -2952,7 +2956,7 @@
   "9": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -2967,18 +2971,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "10": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -2993,18 +2997,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "11": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3019,18 +3023,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "12": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3045,18 +3049,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "13": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3071,18 +3075,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "14": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3097,18 +3101,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "15": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3123,18 +3127,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "16": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3149,18 +3153,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "17": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3175,18 +3179,18 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "18": {
    "Helen Keller's School for Refs that Don't See That Good": [
     "Scott Novak",
-    "2012 Replacement Refs"
+    "John Hussey"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
@@ -3201,12 +3205,12 @@
     "Alex Kemp"
    ],
    "DraftKings Employee of the Month": [
-    "Shawn Smith",
-    "Brad Rogers"
+    "Land Clark",
+    "Shawn Smith"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   }
  },
@@ -3410,14 +3414,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3429,6 +3433,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -3437,13 +3448,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3461,6 +3465,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -3469,13 +3480,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3591,14 +3595,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3642,6 +3646,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -3650,13 +3661,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3700,6 +3704,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -3708,13 +3719,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3772,14 +3776,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3881,6 +3885,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -3892,13 +3903,6 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
         "starter": false
        }
       ],
@@ -3906,6 +3910,13 @@
      },
      "B": {
       "crews": [
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
        {
         "crew": "Shawn Hochuli",
         "pts": 0,
@@ -3915,13 +3926,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -3953,14 +3957,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4030,6 +4034,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -4038,13 +4049,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4088,6 +4092,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -4096,13 +4107,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4127,6 +4131,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -4135,13 +4146,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4160,14 +4164,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4185,6 +4189,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -4193,13 +4204,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4308,6 +4312,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -4316,13 +4327,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4341,14 +4345,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4392,6 +4396,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -4400,13 +4411,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4522,14 +4526,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4573,6 +4577,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -4581,13 +4592,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4631,6 +4635,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -4639,13 +4650,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4703,14 +4707,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4786,6 +4790,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -4797,13 +4808,6 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
         "starter": false
        }
       ],
@@ -4811,6 +4815,13 @@
      },
      "B": {
       "crews": [
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
        {
         "crew": "Shawn Smith",
         "pts": 0,
@@ -4820,13 +4831,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4884,14 +4888,14 @@
         "starter": true
        },
        {
-        "crew": "2012 Replacement Refs",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "John Hussey",
+        "crew": "2012 Replacement Refs",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4909,6 +4913,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -4917,13 +4928,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -4967,6 +4971,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -4975,13 +4986,6 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
