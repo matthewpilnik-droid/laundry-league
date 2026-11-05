@@ -142,7 +142,8 @@ def score_play(r):
 
 def score_season(path):
     per_game = collections.defaultdict(lambda: {"flags": 0, "yards": 0, "pts": 0.0,
-                                                 "wipes": 0, "overturns": 0, "stood": 0, "list": []})
+                                                 "wipes": 0, "overturns": 0, "stood": 0, "list": [],
+                                                 "items": []})
     for r in plays(path):
         if r["game_id"] not in games:
             continue
@@ -154,15 +155,13 @@ def score_season(path):
             pg["pts"] += f["pts"]
             f["qtr"], f["clock"] = r["qtr"], r["time"]
             pg["list"].append(f)
-        if wipe:
-            pg["wipes"] += 1
-            pg["pts"] += wipe
-        if over:
-            pg["overturns"] += 1
-            pg["pts"] += over
-        if stood:
-            pg["stood"] += 1
-            pg["pts"] += stood
+            pg["items"].append({"k": "flag", **f})
+        # Non-flag scoring events, kept in play order with the flags for the drill-down.
+        for kind, pts in (("wipe", wipe), ("over", over), ("stood", stood)):
+            if pts:
+                pg[{"wipe": "wipes", "over": "overturns", "stood": "stood"}[kind]] += 1
+                pg["pts"] += pts
+                pg["items"].append({"k": kind, "pts": pts, "qtr": r["qtr"], "clock": r["time"]})
     return per_game
 
 
@@ -528,6 +527,24 @@ start_dates = sorted(g["gameday"] for g in games.values()
                      if g["season"] == str(SEASON) and int(g["week"]) == START)
 scored_espn = sorted(games[g]["espn"] for g in g_cur if games[g]["espn"])
 
+# ---- Score drill-down ----------------------------------------------------------
+# Every scoring line behind each crew's game total, for league weeks only, keyed by game id
+# (crews[].weeks[w].gid). k = "flag", "wipe" (a flag wiped out a touchdown), "over" (call
+# overturned) or "stood" (coach's challenge failed); flags also carry their call details.
+LEDGER_KEYS = ("k", "type", "team", "player", "yards", "tier", "status", "clutch", "qtr", "clock", "pts")
+ledger = {}
+for gid in g_cur:
+    if int(games[gid]["week"]) < league["league_start"]:
+        continue
+    items = [{k: it[k] for k in LEDGER_KEYS if k in it} for it in s_cur[gid]["items"]]
+    total, scored = round(sum(it["pts"] for it in items), 1), round(s_cur[gid]["pts"], 1)
+    if abs(total - scored) > 0.05:
+        # Display-only feature: warn and skip this game's list rather than stop the score update.
+        print(f"WARNING drill-down skipped - {gid}: lines add to {total}, but the game scored {scored}",
+              file=sys.stderr)
+        continue
+    ledger[gid] = items
+
 json.dump({
     "league_name": LEAGUE["league_name"],
     "season": SEASON, "cal_season": CAL,
@@ -564,6 +581,7 @@ json.dump({
     "week_games": week_games,
     "top_flags": top_flags,
     "sightings": sightings,
+    "ledger": ledger,
     **{k: league[k] for k in ("teams", "rosters", "starters", "weeks", "standings", "series", "awards")},
     "sample": sample,
     "tier_table": tier_table,

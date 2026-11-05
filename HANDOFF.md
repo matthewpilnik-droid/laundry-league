@@ -1,7 +1,8 @@
 # Laundry League handoff
 
 Everything needed to pick up The Laundry League on a new computer.
-Updated October 26, 2026: league starts Week 8 (Thursday, October 29); draft order set and teams listed in that order in `league.json`; the site's draft board shows the snake grid.
+Updated November 5, 2026: the league is live. The draft is entered, Week 8 is scored and final, and Week 9 is under way. Two open items are closed (ESPN referee lookups, assignment timing). New: score drill-down. Tap a crew's score in a matchup or a past result to see every flag and review behind it, with live (provisional) lists during games.
+~~Updated October 26, 2026: league starts Week 8 (Thursday, October 29); draft order set and teams listed in that order in `league.json`; the site's draft board shows the snake grid.~~
 ~~Updated October 21, 2026: three crews per team, two starters a week, and the 2012 Replacement Refs (the waiver wire is gone).~~
 ~~Updated October 20, 2026, after the switch to a 6-team head-to-head format with a waiver wire.~~
 
@@ -15,7 +16,7 @@ Updated October 26, 2026: league starts Week 8 (Thursday, October 29); draft ord
 | Commit email | `345613117+matthewpilnik-droid@users.noreply.github.com` (GitHub's no-reply address) |
 | Format | 6 teams, 3 crews each from a 3-round snake draft of all 17 crews + the 2012 Replacement Refs (scores the weekly average of crews that worked); start 2 of 3 each week, lineups carry forward; ~~head-to-head Weeks 7–17 (everyone plays everyone twice, Week 17 repeats Week 7's pairings)~~ → head-to-head Weeks 8–17, everyone plays everyone twice (2026-10-26: draft not done before Week 7); Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Delicates Bowl (5 v 6) |
 | League starts | ~~Week 8, Thursday, October 29, 2026~~ → ~~Week 7, Thursday, October 22, 2026 (moved up 2026-10-21)~~ → Week 8, Thursday, October 29, 2026 (2026-10-26: the draft wasn't held before Week 7) |
-| Status | Live in **preview mode**: draft not yet entered in `league.json` |
+| Status | ~~Live in **preview mode**: draft not yet entered in `league.json`~~ → **Live** (2026-11-05): draft entered 2026-10-26; Week 8 scored and final; real standings showing |
 | Draft order | ~~Random draw, 2026-10-22: 1 Bryan, 2 Matthew, 3 Mike, 4 Stephan, 5 Danny (Team Laundry), 6 Sean~~ → 1 Bryan, 2 Matthew, 3 Mike, 4 Stephan, 5 Sean, 6 Danny (Zebra Crime Syndicate) (2026-10-26: set by the commissioner); 3-round snake |
 
 The site updates itself. Nothing has to run on your computer. A new computer
@@ -93,17 +94,22 @@ The old Mac has a `gh` sign-in for `matthewpilnik-droid`. To remove it:
 
 - **Friday, October 23 check:** after Thursday's NE @ CHI game, confirm two things not yet
   seen in practice:
-  1. The update job can reach ESPN from GitHub's servers to look up referees. No lookup
+  1. ~~The update job can reach ESPN from GitHub's servers to look up referees. No lookup
      has been needed yet, because all 93 completed games' referees came from saved data. If ESPN
      blocks it, the fallback is the nflverse schedule's referee column, which runs about
-     3 weeks behind.
+     3 weeks behind.~~ → **Closed 2026-11-05:** it works. The update job added all 14 Week 8
+     referees to `data/referees.json` (commits of Oct 30 and Nov 2) using ESPN's spellings
+     (e.g. "Ronald Torbert").
   2. Whether ESPN lists the officials *during* a live game. If not, live cards show
-     "Crew not posted yet" until the next update.
+     "Crew not posted yet" until the next update. (Still open: watch a live card during a game.)
   Check in **Actions** → latest **Update scores** run → log line `referees: N games known, N added`.
-- **Confirm assignment timing.** Lineups depend on owners seeing which crews
+- ~~**Confirm assignment timing.** Lineups depend on owners seeing which crews
   are off before Thursday. Football Zebras posted 2018 Week 7 assignments on the Tuesday
   and 2026 preseason assignments two days ahead; a 2026 regular-season post wasn't found
-  in search. Check that Week 7 or 8 assignments appear before Thursday's game.
+  in search. Check that Week 7 or 8 assignments appear before Thursday's game.~~
+  → **Closed 2026-11-05:** Football Zebras posted the Week 9 assignments on Tuesday, November 3,
+  two days before Thursday's game. Each week's post is at
+  `footballzebras.com/2026/<month>/week-<N>-referee-assignments-2026/`.
 - **GitHub's 60-day pause rule.** GitHub disables scheduled jobs in public projects with
   "no repository activity" for 60 days and doesn't define activity. Each run commits an
   update (about 4 a day), which most likely counts. The page's "updated" time shows a stall.
@@ -118,9 +124,9 @@ The old Mac has a `gh` sign-in for `matthewpilnik-droid`. To remove it:
 |---|---|
 | `league.json` | League settings and rosters, the only file the commissioner edits |
 | `scripts/fetch_data.py` | Downloads the nflverse schedule and play-by-play; fills missing referees from ESPN into `data/referees.json` |
-| `scripts/build_data.py` | Reads every penalty from the play text, scores it, scores the Replacement Refs' weekly average, replays `lineups` week by week, runs the head-to-head schedule, standings and weekly awards, writes `data.json` |
+| `scripts/build_data.py` | Reads every penalty from the play text, scores it, scores the Replacement Refs' weekly average, replays `lineups` week by week, runs the head-to-head schedule, standings and weekly awards, writes `data.json`. Since 2026-11-05 it also writes `ledger`: every scoring line per league-week game. The build stops if a game's lines don't add up to its score |
 | `scripts/render.py` | Puts `data.json` inside `site/template.html` and writes `index.html` |
-| `site/template.html` | Page design, plus the live scorer that reads ESPN in each viewer's browser |
+| `site/template.html` | Page design, plus the live scorer that reads ESPN in each viewer's browser, and the tap-to-expand score drill-down (official lines from `ledger`, live lines from the live scorer) |
 | `.github/workflows/update.yml` | Runs the three scripts every 6 hours (at 17 minutes past 00, 06, 12 and 18 UTC), on edits to `league.json`, `site/` or `scripts/`, and on demand |
 
 **Scoring:**
