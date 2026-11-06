@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-06T13:08Z",
+ "generated_at": "2026-11-06T18:56Z",
  "updated": "2026-11-05",
  "last_week": 9,
  "weeks_played": [
@@ -102,23 +102,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "blakeman": "Clete Blakeman",
-  "hill": "Adrian Hill",
-  "vinovich": "Bill Vinovich",
-  "hochuli": "Shawn Hochuli",
-  "eck": "Alan Eck",
-  "clark": "Land Clark",
-  "rogers": "Brad Rogers",
-  "martin": "Clay Martin",
+  "moore": "Alex Moore",
   "allen": "Brad Allen",
+  "cheffers": "Carl Cheffers",
+  "hochuli": "Shawn Hochuli",
   "torbert": "Ron Torbert",
+  "clark": "Land Clark",
+  "novak": "Scott Novak",
+  "vinovich": "Bill Vinovich",
   "kemp": "Alex Kemp",
   "wrolstad": "Craig Wrolstad",
-  "cheffers": "Carl Cheffers",
-  "novak": "Scott Novak",
+  "martin": "Clay Martin",
+  "blakeman": "Clete Blakeman",
   "hussey": "John Hussey",
+  "rogers": "Brad Rogers",
+  "hill": "Adrian Hill",
   "smith": "Shawn Smith",
-  "moore": "Alex Moore"
+  "eck": "Alan Eck"
  },
  "scored_espn": [
   "401872656",
