@@ -13,9 +13,9 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-06T01:12Z",
- "updated": "2026-11-02",
- "last_week": 8,
+ "generated_at": "2026-11-06T07:20Z",
+ "updated": "2026-11-05",
+ "last_week": 9,
  "weeks_played": [
   1,
   2,
@@ -24,7 +24,8 @@
   5,
   6,
   7,
-  8
+  8,
+  9
  ],
  "current_week": 9,
  "calibration_games": 272,
@@ -101,23 +102,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "rogers": "Brad Rogers",
-  "smith": "Shawn Smith",
-  "allen": "Brad Allen",
-  "cheffers": "Carl Cheffers",
+  "martin": "Clay Martin",
+  "clark": "Land Clark",
   "wrolstad": "Craig Wrolstad",
-  "hussey": "John Hussey",
   "kemp": "Alex Kemp",
+  "hill": "Adrian Hill",
   "torbert": "Ron Torbert",
+  "cheffers": "Carl Cheffers",
+  "hussey": "John Hussey",
+  "eck": "Alan Eck",
+  "allen": "Brad Allen",
+  "moore": "Alex Moore",
   "novak": "Scott Novak",
   "hochuli": "Shawn Hochuli",
-  "vinovich": "Bill Vinovich",
-  "moore": "Alex Moore",
-  "clark": "Land Clark",
-  "martin": "Clay Martin",
-  "eck": "Alan Eck",
-  "hill": "Adrian Hill",
-  "blakeman": "Clete Blakeman"
+  "blakeman": "Clete Blakeman",
+  "smith": "Shawn Smith",
+  "rogers": "Brad Rogers",
+  "vinovich": "Bill Vinovich"
  },
  "scored_espn": [
   "401872656",
@@ -240,7 +241,8 @@
   "401873033",
   "401873034",
   "401873035",
-  "401873036"
+  "401873036",
+  "401873037"
  ],
  "crews": [
   {
@@ -312,7 +314,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 7,
    "pts26": 619.8,
    "ppg26": 88.5,
@@ -1510,9 +1512,9 @@
    "g25": 15,
    "flags25": 12.9,
    "ppg25": 57.9,
-   "g26": 7,
-   "pts26": 508.1,
-   "ppg26": 72.6,
+   "g26": 8,
+   "pts26": 564.1,
+   "ppg26": 70.5,
    "weeks": {
     "1": {
      "game": "CHI @ CAR",
@@ -1576,6 +1578,15 @@
      "stood": 0,
      "pts": 78.8,
      "gid": "2026_08_TEN_CIN"
+    },
+    "9": {
+     "game": "JAX @ BAL",
+     "flags": 11,
+     "yards": 70,
+     "overturns": 2,
+     "stood": 1,
+     "pts": 56.0,
+     "gid": "2026_09_JAX_BAL"
     }
    }
   }
@@ -1649,311 +1660,25 @@
  },
  "week_games": [
   {
-   "referee": "Clay Martin",
-   "game": "BAL @ BUF",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 125,
-   "overturns": 4,
-   "stood": 0,
-   "pts": 92.0,
-   "top": {
-    "type": "Chop Block",
-    "team": "BUF",
-    "player": "J.Cook",
-    "yards": 15,
-    "pts": 22.5,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "01:05"
-   }
-  },
-  {
-   "referee": "Ron Torbert",
-   "game": "ARI @ DAL",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 122,
-   "overturns": 1,
+   "referee": "Brad Allen",
+   "game": "JAX @ BAL",
+   "day": "Thursday",
+   "flags": 11,
+   "yards": 70,
+   "overturns": 2,
    "stood": 1,
-   "pts": 90.4,
+   "pts": 56.0,
    "top": {
-    "type": "Illegal Touch Kick",
-    "team": "ARI",
-    "player": "M.Melton",
-    "yards": 5,
-    "pts": 23.0,
+    "type": "Illegal Double-Team Block",
+    "team": "BAL",
+    "player": "R.Ali",
+    "yards": 11,
+    "pts": 24.2,
     "tier": "unicorn",
     "status": "accepted",
     "clutch": false,
-    "qtr": "4",
-    "clock": "02:11"
-   }
-  },
-  {
-   "referee": "Adrian Hill",
-   "game": "IND @ JAX",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 119,
-   "overturns": 0,
-   "stood": 2,
-   "pts": 88.3,
-   "top": {
-    "type": "Player Out of Bounds on Kick",
-    "team": "IND",
-    "player": "A.Dulin",
-    "yards": 5,
-    "pts": 19.5,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "01:13"
-   }
-  },
-  {
-   "referee": "Clete Blakeman",
-   "game": "KC @ DEN",
-   "day": "Sunday",
-   "flags": 21,
-   "yards": 150,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 81.5,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "KC",
-    "player": "K.Fulton",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "11:07"
-   }
-  },
-  {
-   "referee": "Craig Wrolstad",
-   "game": "MIN @ DET",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 116,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 79.7,
-   "top": {
-    "type": "Taunting",
-    "team": "DET",
-    "player": "A.St. Brown",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
     "qtr": "1",
-    "clock": "11:25"
-   }
-  },
-  {
-   "referee": "Brad Allen",
-   "game": "TEN @ CIN",
-   "day": "Sunday",
-   "flags": 20,
-   "yards": 140,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 78.8,
-   "top": {
-    "type": "Face Mask",
-    "team": "CIN",
-    "player": "J.Giles-Harris",
-    "yards": 15,
-    "pts": 7.5,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "00:20"
-   }
-  },
-  {
-   "referee": "Alex Kemp",
-   "game": "CLE @ PIT",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 132,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 73.9,
-   "top": {
-    "type": "Taunting",
-    "team": "CLE",
-    "player": "S.Williams",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "09:39"
-   }
-  },
-  {
-   "referee": "Shawn Smith",
-   "game": "CHI @ SEA",
-   "day": "Monday",
-   "flags": 17,
-   "yards": 128,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 63.7,
-   "top": {
-    "type": "Defensive Pass Interference",
-    "team": "CHI",
-    "player": "J.Johnson",
-    "yards": 16,
-    "pts": 7.8,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "01:03"
-   }
-  },
-  {
-   "referee": "Shawn Hochuli",
-   "game": "PHI @ WAS",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 100,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 59.0,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "WAS",
-    "player": "T.Owens",
-    "yards": 10,
-    "pts": 8.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "02:40"
-   }
-  },
-  {
-   "referee": "Brad Rogers",
-   "game": "LAC @ LA",
-   "day": "Sunday",
-   "flags": 14,
-   "yards": 60,
-   "overturns": 0,
-   "stood": 1,
-   "pts": 54.0,
-   "top": {
-    "type": "Kickoff Short of Landing Zone",
-    "team": "LA",
-    "player": "J.Karty",
-    "yards": 0,
-    "pts": 9.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "00:19"
-   }
-  },
-  {
-   "referee": "Scott Novak",
-   "game": "CAR @ GB",
-   "day": "Thursday",
-   "flags": 13,
-   "yards": 86,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 49.7,
-   "top": {
-    "type": "Intentional Grounding",
-    "team": "GB",
-    "player": "J.Love",
-    "yards": 15,
-    "pts": 9.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "04:50"
-   }
-  },
-  {
-   "referee": "Alex Moore",
-   "game": "NE @ MIA",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 96,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 49.2,
-   "top": {
-    "type": "Unsportsmanlike Conduct",
-    "team": "MIA",
-    "player": "O.Gordon",
-    "yards": 15,
-    "pts": 9.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "09:10"
-   }
-  },
-  {
-   "referee": "John Hussey",
-   "game": "LV @ NYJ",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 69,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 45.3,
-   "top": {
-    "type": "Unnecessary Roughness",
-    "team": "LV",
-    "player": "J.Chinn",
-    "yards": 15,
-    "pts": 7.5,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "00:20"
-   }
-  },
-  {
-   "referee": "Alan Eck",
-   "game": "ATL @ TB",
-   "day": "Sunday",
-   "flags": 8,
-   "yards": 65,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 28.0,
-   "top": {
-    "type": "Neutral Zone Infraction",
-    "team": "ATL",
-    "player": "M.Smith",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "03:05"
+    "clock": "02:00"
    }
   }
  ],
@@ -2544,6 +2269,21 @@
    "week": 8,
    "referee": "Ron Torbert",
    "game": "ARI @ DAL"
+  },
+  {
+   "type": "Illegal Double-Team Block",
+   "team": "BAL",
+   "player": "R.Ali",
+   "yards": 11,
+   "pts": 24.2,
+   "tier": "unicorn",
+   "status": "accepted",
+   "clutch": false,
+   "qtr": "1",
+   "clock": "02:00",
+   "week": 9,
+   "referee": "Brad Allen",
+   "game": "JAX @ BAL"
   }
  ],
  "ledger": {
@@ -5658,6 +5398,169 @@
     "clock": "03:54",
     "pts": 3.0
    }
+  ],
+  "2026_09_JAX_BAL": [
+   {
+    "k": "over",
+    "qtr": "1",
+    "clock": "06:55",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "BAL",
+    "player": "N.Madubuike",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "04:25",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Double-Team Block",
+    "team": "BAL",
+    "player": "R.Ali",
+    "yards": 11,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "02:00",
+    "pts": 24.2
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BAL",
+    "player": "R.Stanley",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "11:24",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BAL",
+    "player": "M.Andrews",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "11:06",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "JAX",
+    "player": "J.Lewis",
+    "yards": 9,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "03:07",
+    "pts": 3.8
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "JAX",
+    "player": "E.Pregnon",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:57",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BAL",
+    "player": "J.Lane",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:27",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BAL",
+    "player": "J.Cuevas",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "14:15",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "BAL",
+    "player": "M.Hibner",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "12:05",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "JAX",
+    "player": "E.Pregnon",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "09:21",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "11:52",
+    "pts": -5
+   },
+   {
+    "k": "stood",
+    "qtr": "4",
+    "clock": "08:12",
+    "pts": 3
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "JAX",
+    "player": "E.Pregnon",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:26",
+    "pts": 3.0
+   }
   ]
  },
  "teams": [
@@ -6671,9 +6574,9 @@
        },
        {
         "crew": "Brad Allen",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 56.0,
+        "game": "JAX @ BAL",
+        "status": "final",
         "starter": true
        },
        {
@@ -6684,7 +6587,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 56.0
      },
      "final": false,
      "winner": null
@@ -10967,9 +10870,9 @@
         },
         {
          "crew": "Brad Allen",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 56.0,
+         "game": "JAX @ BAL",
+         "status": "final",
          "starter": false
         }
        ],
