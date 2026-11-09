@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-09T01:11Z",
+ "generated_at": "2026-11-09T13:17Z",
  "updated": "2026-11-08",
  "last_week": 9,
  "weeks_played": [
@@ -102,23 +102,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "martin": "Clay Martin",
-  "hussey": "John Hussey",
-  "kemp": "Alex Kemp",
-  "smith": "Shawn Smith",
-  "novak": "Scott Novak",
   "cheffers": "Carl Cheffers",
   "allen": "Brad Allen",
-  "blakeman": "Clete Blakeman",
+  "clark": "Land Clark",
   "moore": "Alex Moore",
-  "torbert": "Ron Torbert",
-  "vinovich": "Bill Vinovich",
+  "martin": "Clay Martin",
+  "hill": "Adrian Hill",
+  "hussey": "John Hussey",
+  "kemp": "Alex Kemp",
   "hochuli": "Shawn Hochuli",
+  "smith": "Shawn Smith",
+  "vinovich": "Bill Vinovich",
+  "torbert": "Ron Torbert",
+  "wrolstad": "Craig Wrolstad",
+  "blakeman": "Clete Blakeman",
   "eck": "Alan Eck",
   "rogers": "Brad Rogers",
-  "wrolstad": "Craig Wrolstad",
-  "hill": "Adrian Hill",
-  "clark": "Land Clark"
+  "novak": "Scott Novak"
  },
  "scored_espn": [
   "401872656",
@@ -254,7 +254,8 @@
   "401873046",
   "401873047",
   "401873048",
-  "401873049"
+  "401873049",
+  "401873050"
  ],
  "crews": [
   {
@@ -335,7 +336,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 8,
    "pts26": 689.3,
    "ppg26": 86.2,
@@ -659,9 +660,9 @@
    "g25": 16,
    "flags25": 15.8,
    "ppg25": 75.6,
-   "g26": 7,
-   "pts26": 622.3,
-   "ppg26": 88.9,
+   "g26": 8,
+   "pts26": 688.1,
+   "ppg26": 86.0,
    "weeks": {
     "1": {
      "game": "ARI @ LAC",
@@ -725,6 +726,15 @@
      "stood": 1,
      "pts": 90.4,
      "gid": "2026_08_ARI_DAL"
+    },
+    "9": {
+     "game": "TB @ CHI",
+     "flags": 18,
+     "yards": 119,
+     "overturns": 1,
+     "stood": 1,
+     "pts": 65.8,
+     "gid": "2026_09_TB_CHI"
     }
    }
   },
@@ -1997,6 +2007,28 @@
     "clutch": false,
     "qtr": "4",
     "clock": "14:12"
+   }
+  },
+  {
+   "referee": "Ron Torbert",
+   "game": "TB @ CHI",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 119,
+   "overturns": 1,
+   "stood": 1,
+   "pts": 65.8,
+   "top": {
+    "type": "Kickoff Short of Landing Zone",
+    "team": "CHI",
+    "player": "C.Santos",
+    "yards": 0,
+    "pts": 6.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "09:38"
    }
   },
   {
@@ -9011,6 +9043,254 @@
     "clock": "04:39",
     "pts": 6.2
    }
+  ],
+  "2026_09_TB_CHI": [
+   {
+    "k": "flag",
+    "type": "Kickoff Short of Landing Zone",
+    "team": "CHI",
+    "player": "C.Santos",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "09:38",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "TB",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "14:07",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "CHI",
+    "player": "Z.Thomas",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "08:37",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TB",
+    "player": "T.Wirfs",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "05:35",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TB",
+    "player": "C.Otton",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "02:56",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "00:43",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TB",
+    "player": "C.Mauch",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:25",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "CHI",
+    "player": "J.Johnson",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:25",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "CHI",
+    "player": "D.Jackson",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:37",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TB",
+    "player": "L.Goedeke",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "10:31",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "CHI",
+    "player": "S.Carlson",
+    "yards": 9,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "07:26",
+    "pts": 3.8
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "TB",
+    "player": "B.Sharp",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "06:52",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "CHI",
+    "player": "J.Sanborn",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "00:33",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "TB",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:28",
+    "pts": 3.0
+   },
+   {
+    "k": "stood",
+    "qtr": "4",
+    "clock": "11:24",
+    "pts": 3
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "CHI",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "08:10",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TB",
+    "player": "T.Wirfs",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:25",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "CHI",
+    "player": "A.Booker",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:19",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "CHI",
+    "player": "C.Lewis",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "04:41",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "TB",
+    "player": "A.Robinson",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:03",
+    "pts": 3.0
+   }
   ]
  },
  "teams": [
@@ -9998,9 +10278,9 @@
        },
        {
         "crew": "Ron Torbert",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 65.8,
+        "game": "TB @ CHI",
+        "status": "final",
         "starter": true
        },
        {
@@ -10011,7 +10291,7 @@
         "starter": false
        }
       ],
-      "pts": 69.5
+      "pts": 135.3
      },
      "B": {
       "crews": [
@@ -14306,9 +14586,9 @@
        "crews": [
         {
          "crew": "Ron Torbert",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 65.8,
+         "game": "TB @ CHI",
+         "status": "final",
          "starter": true
         },
         {
@@ -14326,7 +14606,7 @@
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 65.8
       },
       "B": {
        "crews": [
