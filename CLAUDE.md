@@ -21,5 +21,7 @@ python3 -I scripts/build_data.py cache data.json
 python3 -I scripts/render.py
 open index.html
 ```
-GitHub builds with Python 3.12; this laptop has 3.9. If something works on GitHub but not
-locally (or the reverse), suspect the version difference.
+GitHub and this laptop both use Python 3.15 (laptop: Homebrew, `/opt/homebrew/bin/python3`).
+Keep them matched: Python 3.9 rounds some scores differently (e.g. 63.4 vs 63.5 points per
+game), so local test results only match the live site when the versions match. If you
+upgrade Python on one, update `.github/workflows/update.yml` or the laptop to match.
