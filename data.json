@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-11T13:13Z",
+ "generated_at": "2026-11-11T17:03Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -102,23 +102,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "hill": "Adrian Hill",
+  "hochuli": "Shawn Hochuli",
+  "martin": "Clay Martin",
   "moore": "Alex Moore",
-  "torbert": "Ron Torbert",
-  "cheffers": "Carl Cheffers",
+  "wrolstad": "Craig Wrolstad",
+  "kemp": "Alex Kemp",
+  "clark": "Land Clark",
+  "smith": "Shawn Smith",
+  "hill": "Adrian Hill",
+  "novak": "Scott Novak",
+  "allen": "Brad Allen",
+  "rogers": "Brad Rogers",
   "hussey": "John Hussey",
   "blakeman": "Clete Blakeman",
-  "novak": "Scott Novak",
-  "martin": "Clay Martin",
-  "wrolstad": "Craig Wrolstad",
   "vinovich": "Bill Vinovich",
-  "kemp": "Alex Kemp",
-  "hochuli": "Shawn Hochuli",
-  "smith": "Shawn Smith",
-  "allen": "Brad Allen",
   "eck": "Alan Eck",
-  "clark": "Land Clark",
-  "rogers": "Brad Rogers"
+  "torbert": "Ron Torbert",
+  "cheffers": "Carl Cheffers"
  },
  "scored_espn": [
   "401872656",
@@ -1802,6 +1802,11 @@
   "9": [
    "Brad Rogers",
    "Shawn Smith"
+  ],
+  "10": [
+   "Alex Kemp",
+   "Craig Wrolstad",
+   "Scott Novak"
   ]
  },
  "week_games": [
@@ -9967,20 +9972,20 @@
   },
   "10": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -9993,20 +9998,20 @@
   },
   "11": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10019,20 +10024,20 @@
   },
   "12": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10045,20 +10050,20 @@
   },
   "13": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10071,20 +10076,20 @@
   },
   "14": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10097,20 +10102,20 @@
   },
   "15": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10123,20 +10128,20 @@
   },
   "16": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10149,20 +10154,20 @@
   },
   "17": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10175,20 +10180,20 @@
   },
   "18": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "Scott Novak",
-    "John Hussey"
+    "John Hussey",
+    "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
     "Alex Moore",
     "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
-    "Craig Wrolstad",
-    "Brad Allen"
+    "Brad Allen",
+    "Clete Blakeman"
    ],
    "Zebras with Gambling Debts": [
     "Adrian Hill",
-    "Alex Kemp"
+    "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
     "Land Clark",
@@ -10574,13 +10579,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -10589,6 +10587,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10607,14 +10612,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10658,13 +10663,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -10673,6 +10671,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10755,13 +10760,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -10773,6 +10771,13 @@
         "pts": 0,
         "game": null,
         "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
         "starter": false
        }
       ],
@@ -10780,13 +10785,6 @@
      },
      "B": {
       "crews": [
-       {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
        {
         "crew": "Brad Allen",
         "pts": 0,
@@ -10796,6 +10794,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10820,14 +10825,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10936,13 +10941,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -10951,6 +10949,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10994,13 +10999,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -11009,6 +11007,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11059,14 +11064,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11143,13 +11148,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -11158,6 +11156,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11240,14 +11245,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11259,13 +11264,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -11274,6 +11272,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11324,13 +11329,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -11339,6 +11337,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11363,14 +11368,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11414,13 +11419,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -11429,6 +11427,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11486,14 +11491,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11505,13 +11510,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -11520,6 +11518,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11537,13 +11542,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -11552,6 +11550,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11660,13 +11665,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -11678,6 +11676,13 @@
         "pts": 0,
         "game": null,
         "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
         "starter": false
        }
       ],
@@ -11685,13 +11690,6 @@
      },
      "B": {
       "crews": [
-       {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
        {
         "crew": "John Hussey",
         "pts": 0,
@@ -11701,6 +11699,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11751,14 +11756,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11867,13 +11872,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Scott Novak",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "John Hussey",
         "pts": 0,
         "game": null,
@@ -11882,6 +11880,13 @@
        },
        {
         "crew": "2012 Replacement Refs",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11925,13 +11930,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Craig Wrolstad",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Brad Allen",
         "pts": 0,
         "game": null,
@@ -11940,6 +11938,13 @@
        },
        {
         "crew": "Clete Blakeman",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11990,14 +11995,14 @@
         "starter": true
        },
        {
-        "crew": "Alex Kemp",
+        "crew": "Bill Vinovich",
         "pts": 0,
         "game": null,
         "status": "pending",
         "starter": true
        },
        {
-        "crew": "Bill Vinovich",
+        "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
         "status": "pending",
