@@ -13,7 +13,7 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-11T07:19Z",
+ "generated_at": "2026-11-11T13:13Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -102,23 +102,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "vinovich": "Bill Vinovich",
-  "clark": "Land Clark",
-  "moore": "Alex Moore",
-  "novak": "Scott Novak",
   "hill": "Adrian Hill",
-  "wrolstad": "Craig Wrolstad",
-  "cheffers": "Carl Cheffers",
-  "eck": "Alan Eck",
-  "rogers": "Brad Rogers",
-  "smith": "Shawn Smith",
-  "blakeman": "Clete Blakeman",
+  "moore": "Alex Moore",
   "torbert": "Ron Torbert",
+  "cheffers": "Carl Cheffers",
   "hussey": "John Hussey",
-  "allen": "Brad Allen",
+  "blakeman": "Clete Blakeman",
+  "novak": "Scott Novak",
   "martin": "Clay Martin",
+  "wrolstad": "Craig Wrolstad",
+  "vinovich": "Bill Vinovich",
   "kemp": "Alex Kemp",
-  "hochuli": "Shawn Hochuli"
+  "hochuli": "Shawn Hochuli",
+  "smith": "Shawn Smith",
+  "allen": "Brad Allen",
+  "eck": "Alan Eck",
+  "clark": "Land Clark",
+  "rogers": "Brad Rogers"
  },
  "scored_espn": [
   "401872656",
@@ -337,7 +337,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.7,
+   "ppg25": 90.6,
    "g26": 8,
    "pts26": 689.3,
    "ppg26": 86.2,
@@ -422,8 +422,8 @@
    "flags25": 17.9,
    "ppg25": 79.3,
    "g26": 8,
-   "pts26": 596.2,
-   "ppg26": 74.5,
+   "pts26": 591.2,
+   "ppg26": 73.9,
    "weeks": {
     "1": {
      "game": "GB @ MIN",
@@ -492,9 +492,9 @@
      "game": "CLE @ NO",
      "flags": 17,
      "yards": 83,
-     "overturns": 0,
+     "overturns": 1,
      "stood": 0,
-     "pts": 79.6,
+     "pts": 74.6,
      "gid": "2026_09_CLE_NO"
     }
    }
@@ -829,7 +829,7 @@
    "flags25": 15.2,
    "ppg25": 71.8,
    "g26": 9,
-   "pts26": 699.5,
+   "pts26": 699.1,
    "ppg26": 77.7,
    "weeks": {
     "1": {
@@ -884,7 +884,7 @@
      "game": "Weekly average of 15 crews",
      "flags": null,
      "yards": null,
-     "pts": 78.5
+     "pts": 78.1
     }
    }
   },
@@ -1916,28 +1916,6 @@
    }
   },
   {
-   "referee": "Shawn Hochuli",
-   "game": "CLE @ NO",
-   "day": "Sunday",
-   "flags": 17,
-   "yards": 83,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 79.6,
-   "top": {
-    "type": "Illegal Touch Kick",
-    "team": "CLE",
-    "player": "D.Thomas",
-    "yards": 5,
-    "pts": 23.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "04:26"
-   }
-  },
-  {
    "referee": "Craig Wrolstad",
    "game": "CIN @ ATL",
    "day": "Sunday",
@@ -1979,6 +1957,28 @@
     "clutch": false,
     "qtr": "1",
     "clock": "15:00"
+   }
+  },
+  {
+   "referee": "Shawn Hochuli",
+   "game": "CLE @ NO",
+   "day": "Sunday",
+   "flags": 17,
+   "yards": 83,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 74.6,
+   "top": {
+    "type": "Illegal Touch Kick",
+    "team": "CLE",
+    "player": "D.Thomas",
+    "yards": 5,
+    "pts": 23.0,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "04:26"
    }
   },
   {
@@ -7593,6 +7593,12 @@
     "pts": 3.0
    },
    {
+    "k": "over",
+    "qtr": "3",
+    "clock": "02:20",
+    "pts": -5
+   },
+   {
     "k": "flag",
     "type": "Offensive Holding",
     "team": "CLE",
@@ -10402,7 +10408,7 @@
        },
        {
         "crew": "2012 Replacement Refs",
-        "pts": 78.5,
+        "pts": 78.1,
         "game": "Weekly average of 15 crews",
         "status": "final",
         "starter": false
@@ -10453,7 +10459,7 @@
        },
        {
         "crew": "Shawn Hochuli",
-        "pts": 79.6,
+        "pts": 74.6,
         "game": "CLE @ NO",
         "status": "final",
         "starter": true
@@ -10466,7 +10472,7 @@
         "starter": false
        }
       ],
-      "pts": 107.5
+      "pts": 102.5
      },
      "B": {
       "crews": [
@@ -12057,7 +12063,7 @@
    "l": 0,
    "t": 0,
    "pf": 281.1,
-   "pa": 266.0,
+   "pa": 261.0,
    "streak": "W2"
   },
   {
@@ -12086,7 +12092,7 @@
    "w": 1,
    "l": 1,
    "t": 0,
-   "pf": 258.5,
+   "pf": 253.5,
    "pa": 235.3,
    "streak": "L1"
   },
@@ -12193,8 +12199,8 @@
     "clutch": false
    },
    "overturned": {
-    "n": 4,
-    "pts": -20,
+    "n": 5,
+    "pts": -25,
     "teams": [
      {
       "team": "Zebra Crime Syndicate",
@@ -12203,6 +12209,11 @@
         "crew": "Carl Cheffers",
         "n": 4,
         "game": "BUF @ MIN"
+       },
+       {
+        "crew": "Shawn Hochuli",
+        "n": 1,
+        "game": "CLE @ NO"
        }
       ]
      }
@@ -14748,7 +14759,7 @@
        "crews": [
         {
          "crew": "Shawn Hochuli",
-         "pts": 79.6,
+         "pts": 74.6,
          "game": "CLE @ NO",
          "status": "final",
          "starter": true
@@ -14768,7 +14779,7 @@
          "starter": false
         }
        ],
-       "pts": 128.6
+       "pts": 123.6
       },
       "B": {
        "crews": [
@@ -14897,7 +14908,7 @@
         },
         {
          "crew": "2012 Replacement Refs",
-         "pts": 78.5,
+         "pts": 78.1,
          "game": "Weekly average of 15 crews",
          "status": "final",
          "starter": true
@@ -14910,7 +14921,7 @@
          "starter": false
         }
        ],
-       "pts": 157.7
+       "pts": 157.3
       },
       "final": true,
       "winner": "Pick Up the Flag"
@@ -16416,7 +16427,7 @@
     "w": 7,
     "l": 2,
     "t": 0,
-    "pf": 1560.8,
+    "pf": 1560.4,
     "pa": 1229.6,
     "streak": "W6"
    },
@@ -16447,7 +16458,7 @@
     "l": 5,
     "t": 0,
     "pf": 1247.3,
-    "pa": 1314.0,
+    "pa": 1313.6,
     "streak": "L1"
    },
    {
@@ -16457,7 +16468,7 @@
     "l": 5,
     "t": 0,
     "pf": 1167.3,
-    "pa": 1296.7,
+    "pa": 1291.7,
     "streak": "W1"
    },
    {
@@ -16466,7 +16477,7 @@
     "w": 2,
     "l": 7,
     "t": 0,
-    "pf": 1234.9,
+    "pf": 1229.9,
     "pa": 1494.4,
     "streak": "L5"
    }
