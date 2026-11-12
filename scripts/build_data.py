@@ -7,7 +7,7 @@ game), and the files fetch_data.py put in <cache_dir>. Until every team has
 its crews, the page runs in preview mode with a mock league; after that it
 scores the real league from start_week on.
 """
-import csv, datetime, gzip, json, pathlib, re, sys, collections
+import csv, datetime, gzip, json, math, pathlib, re, sys, collections
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CACHE, OUT = pathlib.Path(sys.argv[1]), sys.argv[2]
@@ -111,7 +111,10 @@ for g in games.values():
     g["referee"] = normalize(g["referee"])
 
 # ---- Calibrate rare-call tiers on the prior season -------------------------
-g_cal = {gid for gid, g in games.items() if g["season"] == str(CAL) and g["home_score"]}
+# Lists are kept in a fixed (sorted) order and totals use math.fsum, an exact sum, so every
+# build of the same data gives the same numbers. Adding floats in a different order can
+# shift a total by a hair and tip a value sitting on a rounding edge (e.g. 90.6 vs 90.7).
+g_cal = sorted(gid for gid, g in games.items() if g["season"] == str(CAL) and g["home_score"])
 type_count = collections.Counter()
 for r in plays(CACHE / f"pbp{CAL}.csv.gz"):
     for f in parse_flags(final_ruling(r["desc"])):
@@ -221,14 +224,14 @@ for h in held:
     print(f'HOLD Week {h["week"]}: {h["game"]} ({h["gid"]}) - {h["why"]}', file=sys.stderr)
 
 # ---- Crew summaries -------------------------------------------------------
-crews = collections.defaultdict(lambda: {"gc": 0, "flags": 0, "yds": 0, "pts": 0.0, "weeks": {}})
+crews = collections.defaultdict(lambda: {"gc": 0, "flags": 0, "yds": 0, "pts": [], "weeks": {}})
 for gid in g_cal:
     c = crews[games[gid]["referee"]]
     pg = s_cal.get(gid, {"flags": 0, "yards": 0, "pts": 0})
     c["gc"] += 1
     c["flags"] += pg["flags"]
     c["yds"] += pg["yards"]
-    c["pts"] += pg["pts"]
+    c["pts"].append(pg["pts"])
 for gid in g_cur:
     g, pg = games[gid], s_cur[gid]
     if g["referee"]:
@@ -242,14 +245,14 @@ for gid in g_cur:
 pool = {games[g]["referee"] for g in g_cur if games[g]["referee"] and g not in held_gids} or \
        {games[g]["referee"] for g in g_cal}
 crew_list = []
-for ref in pool:
+for ref in sorted(pool):
     c = crews[ref]
-    pts_cur = sum(w["pts"] for w in c["weeks"].values())
+    pts_cur = math.fsum(w["pts"] for w in c["weeks"].values())
     crew_list.append({
         "referee": ref,
         "g25": c["gc"],
         "flags25": round(c["flags"] / c["gc"], 1) if c["gc"] else None,
-        "ppg25": round(c["pts"] / c["gc"], 1) if c["gc"] else None,
+        "ppg25": round(math.fsum(c["pts"]) / c["gc"], 1) if c["gc"] else None,
         "g26": len(c["weeks"]),
         "pts26": round(pts_cur, 1),
         "ppg26": round(pts_cur / len(c["weeks"]), 1) if c["weeks"] else None,
@@ -264,13 +267,13 @@ for w in weeks_played:
     worked = [c["weeks"][w]["pts"] for c in crew_list if w in c["weeks"]]
     if week_final[w] and worked:
         rr_weeks[w] = {"game": f"Weekly average of {len(worked)} crews", "flags": None,
-                       "yards": None, "pts": round(sum(worked) / len(worked), 1)}
-rr_pts = sum(x["pts"] for x in rr_weeks.values())
+                       "yards": None, "pts": round(math.fsum(worked) / len(worked), 1)}
+rr_pts = math.fsum(x["pts"] for x in rr_weeks.values())
 crew_list.append({
     "referee": REPLACEMENT, "replacement": True,
     "g25": None,
     "flags25": round(sum(s_cal[g]["flags"] for g in g_cal if g in s_cal) / len(g_cal), 1),
-    "ppg25": round(sum(s_cal[g]["pts"] for g in g_cal if g in s_cal) / len(g_cal), 1),
+    "ppg25": round(math.fsum(s_cal[g]["pts"] for g in g_cal if g in s_cal) / len(g_cal), 1),
     "g26": len(rr_weeks),
     "pts26": round(rr_pts, 1),
     "ppg26": round(rr_pts / len(rr_weeks), 1) if rr_weeks else None,
@@ -617,7 +620,7 @@ json.dump({
     "weeks_played": weeks_played,
     "current_week": league["current_week"],
     "calibration_games": len(g_cal),
-    "avg_ppg25": round(sum(s_cal[g]["pts"] for g in g_cal if g in s_cal) / len(g_cal), 1),
+    "avg_ppg25": round(math.fsum(s_cal[g]["pts"] for g in g_cal if g in s_cal) / len(g_cal), 1),
     "avg_flags25": round(sum(s_cal[g]["flags"] for g in g_cal if g in s_cal) / len(g_cal), 1),
     "rules": {"per_flag": PTS_PER_FLAG, "per_yard": PTS_PER_YARD, "tiers": TIER_BONUS,
               "ejection": EJECTION_BONUS, "td_wipe": TD_WIPE_BONUS, "overturn": OVERTURN_PTS,
@@ -628,7 +631,7 @@ json.dump({
     "replay_pen_pattern": REPLAY_PEN_PATTERN,
     "upheld_pattern": UPHELD_PATTERN,
     "tier_of": tiers,
-    "ref_last_names": {k: next(iter(v)) for k, v in by_last.items() if len(v) == 1},
+    "ref_last_names": {k: next(iter(v)) for k, v in sorted(by_last.items()) if len(v) == 1},
     "scored_espn": scored_espn,
     "crews": crew_list,
     "draft": draft,
