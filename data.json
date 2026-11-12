@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-12T17:37Z",
+ "generated_at": "2026-11-12T17:41Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -104,22 +104,22 @@
  },
  "ref_last_names": {
   "vinovich": "Bill Vinovich",
-  "hussey": "John Hussey",
-  "eck": "Alan Eck",
-  "wrolstad": "Craig Wrolstad",
-  "blakeman": "Clete Blakeman",
-  "kemp": "Alex Kemp",
   "novak": "Scott Novak",
-  "hochuli": "Shawn Hochuli",
   "moore": "Alex Moore",
-  "hill": "Adrian Hill",
-  "smith": "Shawn Smith",
-  "torbert": "Ron Torbert",
-  "rogers": "Brad Rogers",
-  "cheffers": "Carl Cheffers",
-  "martin": "Clay Martin",
+  "kemp": "Alex Kemp",
+  "eck": "Alan Eck",
   "allen": "Brad Allen",
-  "clark": "Land Clark"
+  "martin": "Clay Martin",
+  "rogers": "Brad Rogers",
+  "blakeman": "Clete Blakeman",
+  "clark": "Land Clark",
+  "cheffers": "Carl Cheffers",
+  "torbert": "Ron Torbert",
+  "hochuli": "Shawn Hochuli",
+  "hill": "Adrian Hill",
+  "wrolstad": "Craig Wrolstad",
+  "smith": "Shawn Smith",
+  "hussey": "John Hussey"
  },
  "scored_espn": [
   "401872656",
@@ -338,7 +338,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.6,
+   "ppg25": 90.7,
    "g26": 8,
    "pts26": 689.3,
    "ppg26": 86.2,
@@ -9989,12 +9989,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "11": {
@@ -10015,12 +10015,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "12": {
@@ -10041,12 +10041,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "13": {
@@ -10067,12 +10067,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "14": {
@@ -10093,12 +10093,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "15": {
@@ -10119,12 +10119,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "16": {
@@ -10145,12 +10145,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "17": {
@@ -10171,12 +10171,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   },
   "18": {
@@ -10197,12 +10197,12 @@
     "Bill Vinovich"
    ],
    "DraftKings Employee of the Month": [
-    "Land Clark",
-    "Shawn Smith"
+    "Shawn Smith",
+    "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Carl Cheffers",
-    "Shawn Hochuli"
+    "Shawn Hochuli",
+    "Clay Martin"
    ]
   }
  },
@@ -10640,13 +10640,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -10655,6 +10648,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10698,13 +10698,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -10713,6 +10706,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10879,13 +10879,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -10897,6 +10890,13 @@
         "pts": 0,
         "game": null,
         "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
         "starter": false
        }
       ],
@@ -10904,13 +10904,6 @@
      },
      "B": {
       "crews": [
-       {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
        {
         "crew": "Shawn Hochuli",
         "pts": 0,
@@ -10920,6 +10913,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11028,13 +11028,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -11043,6 +11036,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11086,13 +11086,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -11101,6 +11094,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11125,13 +11125,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -11140,6 +11133,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11183,13 +11183,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -11198,6 +11191,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11306,13 +11306,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -11321,6 +11314,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11390,13 +11390,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -11405,6 +11398,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11571,13 +11571,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -11586,6 +11579,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11629,13 +11629,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -11644,6 +11637,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11784,13 +11784,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -11802,6 +11795,13 @@
         "pts": 0,
         "game": null,
         "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
         "starter": false
        }
       ],
@@ -11809,13 +11809,6 @@
      },
      "B": {
       "crews": [
-       {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
        {
         "crew": "Shawn Smith",
         "pts": 0,
@@ -11825,6 +11818,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11907,13 +11907,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -11922,6 +11915,13 @@
        },
        {
         "crew": "Clay Martin",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11965,13 +11965,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Shawn Smith",
         "pts": 0,
         "game": null,
@@ -11980,6 +11973,13 @@
        },
        {
         "crew": "Brad Rogers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Land Clark",
         "pts": 0,
         "game": null,
         "status": "pending",
