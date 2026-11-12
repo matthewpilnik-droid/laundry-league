@@ -15,6 +15,12 @@ from ESPN in each viewer's browser.
   the week is final).
 - Each week a team starts 2 of its 3 crews; only starters score. A crew with no
   game that week scores 0, so bench it.
+- **Open spot:** if a team has fewer than 2 crews with a game in a week, each
+  starting spot it can't fill scores 85% of that week's average crew score (the
+  same average the Replacement Refs get; they still get 100%). It posts when the
+  week is final. If the team had a working crew on the bench and started an idle
+  one instead, that spot still scores 0. The 85% is the `open_spot_pct` setting
+  in `league.json`; change that one number to adjust it (0 turns the rule off).
 - Weeks 8–17: head-to-head, everyone plays everyone twice.
 - Draft order: Bryan, Matthew, Mike, Stephan, Sean, Danny.
   `league.json` lists the teams in that order; the site's draft board reads it.
@@ -90,6 +96,7 @@ any owner starting one.
 | Stood tall: a coach's challenge of the crew's ruling fails (booth reviews don't count; no multipliers) | +3 |
 | Offsetting penalties | ×2 |
 | Last 2:00 of either half | ×1.5 |
+| Open spot (fewer than 2 crews with a game that week) | 85% of the week's average crew score (`open_spot_pct`) |
 
 Tiers come from how often each foul was called the previous season:
 0.1–0.3 per game is uncommon, 0.02–0.1 rare, under 0.02 unicorn.

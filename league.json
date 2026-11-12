@@ -6,6 +6,7 @@
   "playoff_week": 18,
   "crews_per_team": 3,
   "starters_per_week": 2,
+  "open_spot_pct": 85,
   "lineup_deadline": "Thursday kickoff",
   "teams": [
     { "name": "Helen Keller's School for Refs that Don't See That Good", "manager": "Bryan", "crews": ["Scott Novak", "John Hussey", "2012 Replacement Refs"] },

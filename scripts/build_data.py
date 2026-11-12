@@ -275,6 +275,11 @@ START = LEAGUE["start_week"]
 REG_END = LEAGUE["regular_season_end"]
 teams_cfg = LEAGUE["teams"]
 lineups_cfg = LEAGUE.get("lineups", [])
+# Open spot: when a team has fewer crews with a game than starting spots, each starting
+# spot it can't fill scores this percent of the week's average (the Replacement Refs' score).
+OPEN_PCT = LEAGUE.get("open_spot_pct", 85)
+if not isinstance(OPEN_PCT, (int, float)) or isinstance(OPEN_PCT, bool) or not 0 <= OPEN_PCT <= 100:
+    sys.exit(f"league.json problem - open_spot_pct must be a number from 0 to 100, not {OPEN_PCT!r}.")
 drafted = all(t["name"].strip() and len(t["crews"]) == ROSTER for t in teams_cfg)
 partly = any(t["crews"] for t in teams_cfg) and not drafted
 if len(teams_cfg) % 2:
@@ -384,6 +389,15 @@ def play_season(names, managers, init, starters, lg_start):
     def team_week(t, w):
         lines = [{**crew_week(c, w), "starter": c in starters[w][t]} for c in rosters[w][t]]
         lines.sort(key=lambda x: not x["starter"])               # starters first, bench last
+        # Open spots: a team with fewer crews working than starting spots gets credit for each
+        # spot it couldn't fill. An idle starter beyond that count is a lineup mistake and scores 0.
+        if week_final[w] and w in rr_weeks:
+            spots = max(0, STARTERS - sum(1 for c in rosters[w][t] if has_game(c, w)))
+            avg = rr_weeks[w]["pts"]
+            for x in lines:
+                if spots and x["starter"] and x["status"] == "bye":
+                    x.update(status="open", pts=round(avg * OPEN_PCT / 100, 1), avg=avg, pct=OPEN_PCT)
+                    spots -= 1
         return {"crews": lines, "pts": round(sum(x["pts"] for x in lines if x["starter"]), 1)}
 
     rec = {n: {"w": 0, "l": 0, "t": 0, "pf": 0.0, "pa": 0.0, "results": []} for n in names}
@@ -555,6 +569,7 @@ json.dump({
     "start_date": start_dates[0] if start_dates else None,
     "crews_per_team": ROSTER, "starters_per_week": STARTERS,
     "replacement": REPLACEMENT,
+    "open_spot_pct": OPEN_PCT,
     "lineup_deadline": LEAGUE.get("lineup_deadline", ""),
     "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
     "updated": max(games[g]["gameday"] for g in g_cur) if g_cur else None,

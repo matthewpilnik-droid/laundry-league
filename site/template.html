@@ -85,6 +85,7 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .cl .pts { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
 .st { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
 .st.bye { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
+.st.open { background: var(--flag-soft); color: var(--ink-2); }
 .st.live { background: color-mix(in srgb, var(--live) 16%, transparent); color: var(--live); }
 .cl.bench { opacity: .5; }
 .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
@@ -345,7 +346,7 @@ footer .stripes { margin-bottom: 24px; }
     <div class="card step"><div class="n">1</div><h3>Draft 3 crews</h3>
       <p>Six owners, three-round snake draft, 18 picks: all 17 real crews plus the <b>2012 Replacement Refs</b>, who never get a week off and score the weekly average of every crew that worked.</p></div>
     <div class="card step"><div class="n">2</div><h3>Set your lineup</h3>
-      <p>Start 2 of your 3 crews each week. Each week 1–4 crews get the week off, and an idle crew scores <b>zero</b> — bench it. Your lineup stays put until you change it.</p></div>
+      <p>Start 2 of your 3 crews each week. Each week 1–4 crews get the week off, and an idle crew scores <b>zero</b> — bench it. If you don't have 2 crews with a game, each open spot scores <b><span class="osp">85</span>% of the weekly average</b>. Your lineup stays put until you change it.</p></div>
     <div class="card step"><div class="n">3</div><h3>Go head-to-head</h3>
       <p>Your two starters' points face your opponent's two. Every flag in their games counts — either team, accepted, declined or offsetting. The bench doesn't score.</p></div>
     <div class="card step"><div class="n">4</div><h3>Win the Laundry Bowl</h3>
@@ -401,6 +402,7 @@ footer .stripes { margin-bottom: 24px; }
         <li><b>Text the commissioner</b> your 2 starters by <b id="deadline"></b>.</li>
         <li><b>No text, no change:</b> last week's lineup stands. Week <span class="sw"></span> starts the first 2 crews you drafted.</li>
         <li><b>An idle starter scores 0</b> — like starting a player on bye. The bench never scores.</li>
+        <li><b>Open spot:</b> if fewer than 2 of your crews have a game, each spot you can't fill scores <span class="osp">85</span>% of the weekly average (what the Replacement Refs get), once the week is final. Starting an idle crew when you had a working one on the bench still scores 0.</li>
         <li><b>The 2012 Replacement Refs</b> never have a week off. They score the average of every real crew that worked, once the week is final.</li>
       </ol>
     </div>
@@ -509,6 +511,8 @@ footer .stripes { margin-bottom: 24px; }
   const realCrews = D.crews.filter(c => !c.replacement);
   $('#ncrews').textContent = realCrews.length;
   document.querySelectorAll('.sw').forEach(e => e.textContent = D.start_week);
+  const OPEN_PCT = D.open_spot_pct ?? 85;
+  document.querySelectorAll('.osp').forEach(e => e.textContent = OPEN_PCT);
   document.querySelectorAll('.re').forEach(e => e.textContent = D.regular_season_end);
   // Weeks left over after two full cycles are rematches of the first weeks' pairings.
   const extra = D.regular_season_end - D.start_week + 1 - 2 * (D.draft.length - 1);
@@ -555,11 +559,18 @@ footer .stripes { margin-bottom: 24px; }
       <tr class="tot"><td>Average of ${rows.length} crews</td><td class="r">${fmt(avg)}</td></tr></table>
       <div class="how">The ${esc(D.replacement)} score the average of every real crew that worked this week.</div></div>`;
   }
+  // An open spot: the week's average and the share of it the spot scores.
+  function openHtml(l, w) {
+    return `<div class="ledger"><table><tr><td>Week ${w} average (what the ${esc(D.replacement)} score)</td><td class="r">${fmt(l.avg)}</td></tr>
+      <tr class="tot"><td>Open spot: ${l.pct}% of ${fmt(l.avg)}</td><td class="r">${fmt(l.pts)}</td></tr></table>
+      <div class="how">This team had fewer than ${D.starters_per_week} crews with a game this week, so each spot it couldn't fill scores ${l.pct}% of the weekly average.</div></div>`;
+  }
   // Which detail a crew line can open: official lines, the live list, or the Replacement Refs' average.
   function crewDetail(l, ov, w) {
     const c = byRef[l.crew] || {};
     if (w == null) return '';
     if (l.status === 'final' && c.replacement) return rrHtml(w);
+    if (l.status === 'open') return openHtml(l, w);
     const wk = (c.weeks || {})[w];
     if (l.status === 'final' && wk && wk.gid && D.ledger && D.ledger[wk.gid]) return ledgerHtml(D.ledger[wk.gid]);
     if (l.status === 'pending' && ov && ov.items) return ledgerHtml(ov.items, ov.state === 'in' ? 'live' : 'unofficial final');
@@ -578,6 +589,7 @@ footer .stripes { margin-bottom: 24px; }
     const c = byRef[l.crew] || {};
     let pts = l.pts, tag = '', where = l.game ? esc(l.game) : '';
     if (l.status === 'bye') tag = '<span class="st bye">Off · 0</span>';
+    else if (l.status === 'open') { tag = `<span class="st open">Open spot · ${l.pct}% of weekly average</span>`; where = 'No crew available'; }
     else if (l.status === 'pending' && c.replacement) { pts = null; tag = '<span class="st">Weekly average · posts when the week is final</span>'; }
     else if (l.status === 'pending' && ov) {
       pts = ov.pts; where = esc(ov.game);
@@ -725,10 +737,13 @@ footer .stripes { margin-bottom: 24px; }
   const offTag = c => isOff(c) ? `<span class="tag-off">Off Week ${offWeek}</span>` : '';
   function renderOffBox() {
     const idle = myTeam && live ? (luOn[myTeam] || []).filter(isOff) : [];
+    // Crews with a game this week; fewer than the starting spots means open spots score a share of the average.
+    const openN = myTeam && live ? Math.max(0, D.starters_per_week - rosterNow(myTeam).filter(c => !isOff(c)).length) : 0;
     $('#offbox').innerHTML = !offList
       ? `<b>Who's off in Week ${offWeek}:</b> not posted yet.<span class="faint">The commissioner adds it here once <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a> posts the week's assignments, usually Tuesday or Wednesday.</span>`
-      : `<b>Off in Week ${offWeek} (a starter with no game scores 0):</b> ${offList.length ? offList.map(esc).join(', ') : 'nobody, every crew has a game'}.` +
-        (idle.length ? `<span class="warn" style="display:block;margin-top:6px">${esc(myTeam)} is starting ${idle.map(esc).join(' and ')}. Send the commissioner a new lineup.</span>` : '') +
+      : `<b>Off in Week ${offWeek} (a starter with no game scores 0 unless it fills an open spot):</b> ${offList.length ? offList.map(esc).join(', ') : 'nobody, every crew has a game'}.` +
+        (idle.length > openN ? `<span class="warn" style="display:block;margin-top:6px">${esc(myTeam)} is starting ${idle.map(esc).join(' and ')}. Send the commissioner a new lineup.</span>`
+          : idle.length ? `<span style="display:block;margin-top:6px">${esc(myTeam)} doesn't have ${D.starters_per_week} crews with a game, so ${idle.map(esc).join(' and ')} will fill an open spot: ${OPEN_PCT}% of the weekly average, once the week is final.</span>` : '') +
         `<span class="faint">From <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a>' posted assignments. The Replacement Refs are never off.</span>`;
   }
   function renderLineups() {
