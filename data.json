@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-12T16:40Z",
+ "generated_at": "2026-11-12T17:37Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -103,22 +103,22 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "torbert": "Ron Torbert",
-  "novak": "Scott Novak",
   "vinovich": "Bill Vinovich",
-  "rogers": "Brad Rogers",
-  "blakeman": "Clete Blakeman",
-  "smith": "Shawn Smith",
-  "eck": "Alan Eck",
-  "kemp": "Alex Kemp",
-  "allen": "Brad Allen",
   "hussey": "John Hussey",
-  "hill": "Adrian Hill",
+  "eck": "Alan Eck",
   "wrolstad": "Craig Wrolstad",
-  "moore": "Alex Moore",
-  "martin": "Clay Martin",
+  "blakeman": "Clete Blakeman",
+  "kemp": "Alex Kemp",
+  "novak": "Scott Novak",
   "hochuli": "Shawn Hochuli",
+  "moore": "Alex Moore",
+  "hill": "Adrian Hill",
+  "smith": "Shawn Smith",
+  "torbert": "Ron Torbert",
+  "rogers": "Brad Rogers",
   "cheffers": "Carl Cheffers",
+  "martin": "Clay Martin",
+  "allen": "Brad Allen",
   "clark": "Land Clark"
  },
  "scored_espn": [
@@ -17206,5 +17206,6 @@
    "tier": "unicorn"
   }
  ],
- "unknown_ref_games": []
+ "unknown_ref_games": [],
+ "held": []
 }
