@@ -69,6 +69,16 @@ ol.how li { margin: 4px 0; }
       <p class="warn" id="lu-off" hidden>Finish the draft first.</p>
       <div id="lu-lock" hidden></div>
       <table id="lu-table"><thead><tr><th>Team</th><th>Start 2 of 3</th><th></th></tr></thead><tbody id="lu-rows"></tbody></table>
+      <div id="fx" hidden>
+        <h3 style="margin:18px 0 4px">Game fixes (rare)</h3>
+        <p class="muted">Leave every game on <b>Normal</b> unless something went wrong.
+          <b>Counts for crew</b>: the game was worked by that crew but the data shows another referee name
+          (a substitute referee, or a different spelling); the game counts for the crew.
+          <b>Cancelled</b>: the game won't be played; pick the crew assigned to it, which scores the open-spot
+          share of the week's average.</p>
+        <div id="fx-held"></div>
+        <table><thead><tr><th>Game</th><th>Fix</th><th>Crew</th></tr></thead><tbody id="fx-rows"></tbody></table>
+      </div>
     </section>
 
     <section class="card">
@@ -200,18 +210,56 @@ ol.how li { margin: 4px 0; }
     if (picked.length) off[String(week())] = picked; else delete off[String(week())];
     drawLineups(); update();
   });
+  // ---- Game fixes: a game credited to a crew, or a cancelled game (saved under "game_fixes") ----
+  const realCrews = crews.filter(c => c !== REPL);
+  const gameInfo = {};
+  Object.entries(D.schedule || {}).forEach(([w, gs]) => gs.forEach(g => gameInfo[g.gid] = { ...g, week: +w }));
+  const infoOf = gid => gameInfo[gid] || { gid, game: gid, week: +(gid.split('_')[1] || 0), played: false, referee: '' };
+  const fixFrom = f => { const [kind, crew] = Object.entries(f || {})[0] || ['', '']; return { kind, crew: resolve(crew) }; };
+  const fixesOrig = Object.fromEntries(Object.entries(L.game_fixes || {}).map(([g, f]) => [g, fixFrom(f)]));
+  const fixes = Object.fromEntries(Object.entries(fixesOrig).map(([g, f]) => [g, { ...f }]));
+  function drawFixes(locked) {
+    const w = week();
+    const held = D.held || [];
+    $('#fx-held').innerHTML = held.map(h => `<p class="warn">On hold: Week ${h.week}, ${esc(h.game)} (${esc(h.why)}).
+      If a drafted crew worked it under another name, set it to <b>Counts for crew</b>${h.week === w ? ' below' : ` in <button type="button" data-goto="${h.week}">Week ${h.week}</button>`}.</p>`).join('');
+    const gids = [...new Set([...((D.schedule || {})[String(w)] || []).map(g => g.gid),
+      ...Object.keys(fixes).filter(g => infoOf(g).week === w)])];
+    $('#fx-rows').innerHTML = gids.map(gid => {
+      const g = infoOf(gid), f = fixes[gid] || { kind: '', crew: '' }, dis = locked ? ' disabled' : '';
+      const kinds = [['', 'Normal'], ['crew', 'Counts for crew']].concat(!g.played || f.kind === 'cancelled' ? [['cancelled', 'Cancelled']] : []);
+      return `<tr><td>${esc(g.game)}<div class="muted">${g.played ? 'Played' : 'Not played yet'}${g.referee && !f.kind ? ' · referee ' + esc(g.referee) : ''}</div></td>
+        <td><select data-fx="kind" data-gid="${esc(gid)}"${dis}>${kinds.map(([k, t]) => `<option value="${k}" ${k === f.kind ? 'selected' : ''}>${t}</option>`).join('')}</select></td>
+        <td><select data-fx="crew" data-gid="${esc(gid)}"${dis || (f.kind ? '' : ' disabled')}><option value="">—</option>${realCrews.map(c =>
+          `<option value="${esc(c)}" ${c === f.crew ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select></td></tr>`;
+    }).join('');
+  }
+  $('#fx').addEventListener('change', e => {
+    const el = e.target, gid = el.dataset.gid;
+    if (!el.dataset.fx) return;
+    const f = fixes[gid] || (fixes[gid] = { kind: '', crew: '' });
+    f[el.dataset.fx] = el.value;
+    if (!f.kind) delete fixes[gid];
+    drawLineups(); update();
+  });
+  $('#fx').addEventListener('click', e => {
+    if (!e.target.dataset.goto) return;
+    $('#lu-week').value = e.target.dataset.goto; drawLineups(); update();
+  });
+
   function drawLineups() {
     drawOff();
     const ok = drafted();
-    $('#lu-off').hidden = ok; $('#lu-table').hidden = !ok;
+    $('#lu-off').hidden = ok; $('#lu-table').hidden = !ok; $('#fx').hidden = !ok;
     if (!ok) return;
     const w = week(), idle = offNow();
     const isFinal = finalWeeks.has(w), locked = isFinal && !unlocked.has(w);
     $('#lu-lock').hidden = !isFinal;
     $('#lu-lock').innerHTML = isFinal
-      ? `<p class="warn">Week ${w} is final. Its results are already in the standings, so starters are locked.</p>
+      ? `<p class="warn">Week ${w} is final. Its results are already in the standings, so starters and game fixes are locked.</p>
          <label class="pick"><input type="checkbox" id="lu-unlock" ${locked ? '' : 'checked'}> Unlock to correct Week ${w} (changes its result)</label>`
       : '';
+    drawFixes(locked);
     $('#lu-rows').innerHTML = teams.map((t, row) => {
       const on = standing(row, w);
       const n = on.filter(c => t.crews.includes(c)).length;
@@ -227,7 +275,14 @@ ol.how li { margin: 4px 0; }
     if (e.target.id !== 'lu-unlock') return;
     const w = week();
     if (e.target.checked) unlocked.add(w);
-    else { unlocked.delete(w); Object.keys(edits).filter(k => +k.split('|')[0] === w).forEach(k => delete edits[k]); }
+    else {
+      unlocked.delete(w);
+      Object.keys(edits).filter(k => +k.split('|')[0] === w).forEach(k => delete edits[k]);
+      new Set([...Object.keys(fixes), ...Object.keys(fixesOrig)]).forEach(g => {
+        if (infoOf(g).week !== w) return;
+        if (fixesOrig[g]) fixes[g] = { ...fixesOrig[g] }; else delete fixes[g];
+      });
+    }
     drawLineups(); update();
   });
   $('#lu-rows').addEventListener('change', e => {
@@ -271,6 +326,25 @@ ol.how li { margin: 4px 0; }
       if (orig[i].join() !== t.crews.join()) teamChanges.push(`${nm} crews: ${t.crews.filter(Boolean).join(', ') || '(none)'}`);
     });
     changes.unshift(...teamChanges);
+    // Game fixes: one per game; a crew can't be given two games in one week.
+    const fixOut = {}, perWeek = {};
+    Object.keys(fixes).sort().forEach(gid => {
+      const f = fixes[gid], g = infoOf(gid);
+      if (!f.kind) return;
+      if (!f.crew) { problems.push(`Week ${g.week}, ${g.game}: pick the crew for this game fix.`); return; }
+      fixOut[gid] = { [f.kind]: f.crew };
+      const k = g.week + '|' + f.crew;
+      if (perWeek[k]) problems.push(`Week ${g.week}: ${f.crew} is set for two games (${perWeek[k]} and ${g.game}).`);
+      perWeek[k] = g.game;
+    });
+    new Set([...Object.keys(fixesOrig), ...Object.keys(fixOut)]).forEach(gid => {
+      const was = fixesOrig[gid], now = fixOut[gid] && fixFrom(fixOut[gid]), g = infoOf(gid);
+      if (was && now && was.kind === now.kind && was.crew === now.crew) return;
+      const what = !now ? 'fix removed (back to normal)' : now.kind === 'crew' ? `counts for ${now.crew}`
+        : `cancelled; ${now.crew} scores ${L.open_spot_pct ?? 85}% of the weekly average`;
+      changes.push(`${finalWeeks.has(g.week) ? `⚠ Week ${g.week} is final, so this changes its result: ` : ''}Week ${g.week} · ${g.game}: ${what}`);
+    });
+
     const offBefore = L.off || {};
     Object.keys({ ...offBefore, ...off }).sort((a, b) => a - b).forEach(w => {
       const was = (offBefore[w] || []).map(resolve), now = off[w] || [];
@@ -281,8 +355,10 @@ ol.how li { margin: 4px 0; }
     const sortedOff = Object.fromEntries(Object.keys(off).sort((a, b) => a - b).map(w => [w, off[w]]));
     const out = { ...rest, teams: teams.map(t => ({ name: t.name.trim(), manager: t.manager.trim(), crews: t.crews.filter(Boolean) })),
       ...(Object.keys(sortedOff).length ? { off: sortedOff } : {}),
+      ...(Object.keys(fixOut).length ? { game_fixes: fixOut } : {}),
       lineups: merged.filter(l => l.row >= 0).map(l => ({ week: l.week, team: names[l.row], start: l.start })) };
     if (!Object.keys(sortedOff).length) delete out.off;
+    if (!Object.keys(fixOut).length) delete out.game_fixes;
     return { text: format(out), problems, changes };
   }
   // Same layout as the hand-edited file: one team or lineup per line.

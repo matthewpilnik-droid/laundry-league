@@ -576,12 +576,19 @@ footer .stripes { margin-bottom: 24px; }
       <tr class="tot"><td>Open spot: ${l.pct}% of ${fmt(l.avg)}</td><td class="r">${fmt(l.pts)}</td></tr></table>
       <div class="how">This team had fewer than ${D.starters_per_week} crews with a game this week, so each spot it couldn't fill scores ${l.pct}% of the weekly average.</div></div>`;
   }
+  // A cancelled game: the assigned crew scores the open-spot share of the week's average.
+  function cancelHtml(l, w) {
+    return `<div class="ledger"><table><tr><td>Week ${w} average (what the ${esc(D.replacement)} score)</td><td class="r">${fmt(l.avg)}</td></tr>
+      <tr class="tot"><td>Game cancelled: ${l.pct}% of ${fmt(l.avg)}</td><td class="r">${fmt(l.pts)}</td></tr></table>
+      <div class="how">${esc(l.game)} was cancelled, so the crew assigned to it scores ${l.pct}% of the weekly average, the same share as an open spot.</div></div>`;
+  }
   // Which detail a crew line can open: official lines, the live list, or the Replacement Refs' average.
   function crewDetail(l, ov, w) {
     const c = byRef[l.crew] || {};
     if (w == null) return '';
     if (l.status === 'final' && c.replacement) return rrHtml(w);
     if (l.status === 'open') return openHtml(l, w);
+    if (l.status === 'cancelled') return l.avg != null ? cancelHtml(l, w) : '';
     const wk = (c.weeks || {})[w];
     if (l.status === 'final' && wk && wk.gid && D.ledger && D.ledger[wk.gid]) return ledgerHtml(D.ledger[wk.gid]);
     if (l.status === 'pending' && ov && ov.items) return ledgerHtml(ov.items, ov.state === 'in' ? 'live' : 'unofficial final');
@@ -601,6 +608,10 @@ footer .stripes { margin-bottom: 24px; }
     let pts = l.pts, tag = '', where = l.game ? esc(l.game) : '';
     if (l.status === 'bye') tag = '<span class="st bye">Off · 0</span>';
     else if (l.status === 'open') { tag = `<span class="st open">Open spot · ${l.pct}% of weekly average</span>`; where = 'No crew available'; }
+    else if (l.status === 'cancelled') {
+      if (l.avg == null) pts = null;
+      tag = `<span class="st open">Game cancelled · ${l.pct}% of weekly average${l.avg == null ? ', posts when the week is final' : ''}</span>`;
+    }
     else if (l.status === 'pending' && c.replacement) { pts = null; tag = '<span class="st">Weekly average · posts when the week is final</span>'; }
     else if (l.status === 'pending' && ov) {
       pts = ov.pts; where = esc(ov.game);
