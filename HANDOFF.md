@@ -49,6 +49,11 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
 - **Scores look stale:** the page header shows "updated <time>". If it's more than a day old,
   go to **Actions** → **Update scores** → **Run workflow**. If GitHub paused the schedule,
   click **Enable workflow** there.
+- **Week on hold (added 2026-11-12):** if a finished game's referee isn't known, its week is held
+  (nothing in it counts), the page says so, and GitHub emails you each run until it clears.
+  It usually clears by itself; see README → "If a week is on hold" for the manual fix.
+- **Final weeks are locked** on the commissioner page (added 2026-11-12); tick "Unlock to correct
+  this week" only to fix a genuine mistake, since it rewrites that week's result.
 
 ## Setting up a new computer
 
@@ -89,6 +94,31 @@ The old Mac has a `gh` sign-in for `matthewpilnik-droid`. To remove it:
 - Optionally revoke the sign-in on github.com: **Settings** → **Applications** →
   **Authorized OAuth Apps** → GitHub CLI.
 - The project folder was `~/CODEDEVELOPER/laundry-league/`. Everything in it is also on GitHub.
+
+## New season checklist (written 2026-11-12, for 2027)
+
+Do this in the summer, before the draft, on a branch, and rehearse it locally before going live.
+None of it should be changed mid-season.
+
+1. **Fix the page crashes known to hit a new season** (`site/template.html`, found 2026-11-12):
+   - Before Week 1 is played there are no scored games, and the page's header code expects one
+     (`D.week_games[0]`, and `D.top_flags` for the scoring example), so most of the page goes blank.
+   - A newly promoted referee has no stats from last season, and the draft board calls
+     `.toFixed()` on that empty value, which stops everything drawn after it, including live scoring.
+2. **Check the draft pool.** Until the new season's first games are scored, the draftable crews
+   are last season's referees. Retired referees would still be listed and new ones missing, so
+   compare against the NFL's announced crews (Football Zebras posts them) before drafting.
+3. **Reset `league.json`:** `season`, `start_week`, `regular_season_end`, `playoff_week`; empty
+   each team's `crews` (the page switches to preview mode); clear `lineups` and `off`.
+4. **Check the data downloads.** `fetch_data.py` downloads the new season's play-by-play file
+   from nflverse. Confirm it exists before switching `season`; if it doesn't yet, the update
+   job fails until it does.
+5. **Small clean-up:** sort the `ref_last_names` list in `build_data.py`. Its order is random
+   today, so the robot commits a change every run even when no score changed.
+6. **Rehearse:** run the three local test commands, open `index.html`, and check that preview
+   mode, the draft board and the commissioner page all work before pushing.
+7. **Match Python versions** on the laptop and in `.github/workflows/update.yml` (see CLAUDE.md).
+8. Tiers recalibrate automatically from the previous season; nothing to do.
 
 ## Open items
 

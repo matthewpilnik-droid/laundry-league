@@ -64,7 +64,15 @@ when someone changes:
 ]
 ```
 
-Each week keeps the lineup it had, so a change never alters a past result.
+Each week keeps the lineup it had, so a new line never alters a past result. A line dated to a
+week that's already final does rewrite that week's result, so the commissioner page locks final
+weeks; tick **Unlock to correct this week** only to fix a genuine mistake. It then marks the
+change with a ⚠ warning.
+
+The commissioner page reads `league.json` straight from GitHub, so a change you saved a minute
+ago is already there. If it can't (GitHub allows 60 of these reads an hour per internet
+connection), it uses the live site's copy and says so; that copy can be a minute or two behind,
+so wait 2 minutes and reload before making another change.
 Weekly crew assignments: https://www.footballzebras.com/category/assignments/
 
 If a name is misspelled, a crew is drafted twice, or a lineup lists a crew the
@@ -78,6 +86,20 @@ The page shows "updated <time>" at the top. If that is more than a day old:
 - **Actions** tab → **Update scores** → **Run workflow** to run it now.
 - If GitHub has paused the schedule (it does this to public projects with no
   activity for 60 days), the Actions tab shows an **Enable workflow** button.
+
+### If a week is "on hold"
+
+A crew is scored through its referee, so a finished game whose referee isn't known (or doesn't
+match a drafted crew) can't be credited. Rather than score that crew as off, the whole week is
+put on hold: no result in it counts, the league page says which game is waiting, and the update
+run is marked failed after publishing, so GitHub emails you (every run, about 4 a day, until it
+clears). Usually ESPN lists the referee by the next run and the week finishes by itself.
+
+If it's still on hold after a day: check the referee for that game (Football Zebras or the game's
+ESPN page), add a line to `data/referees.json` such as `"2026_09_HOU_LAC": "Alex Moore"`, commit,
+then **Actions** → **Update scores** → **Run workflow**. That works while the NFL data source has
+no referee listed for the game. If the email says the referee "doesn't match a drafted crew"
+(a misspelling, or a substitute referee working a crew's game), it needs a code or settings fix.
 
 Each week, after Football Zebras posts assignments, tick the crews with no game under **Off this
 week** on the commissioner page's Lineups tab. The league page lists them for everyone and flags
