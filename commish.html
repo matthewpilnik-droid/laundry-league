@@ -43,6 +43,7 @@ ol.how li { margin: 4px 0; }
   <p class="muted">Builds <code>league.json</code> for you. Nothing here saves on its own: you copy the result into GitHub and commit it.
     <a href="./">Back to the league</a></p>
   <div class="card warn" id="load-err" hidden></div>
+  <p id="src" class="muted" hidden></p>
 
   <div id="app" hidden>
     <div class="tabs"><button id="tab-draft">Draft</button><button id="tab-lineups">Lineups</button></div>
@@ -66,6 +67,7 @@ ol.how li { margin: 4px 0; }
       <h3 style="margin:14px 0 4px">Starters</h3>
       <p class="muted">Ticked = starting. Current starters are pre-ticked; only change the teams that texted you. A lineup stands until it's changed.</p>
       <p class="warn" id="lu-off" hidden>Finish the draft first.</p>
+      <div id="lu-lock" hidden></div>
       <table id="lu-table"><thead><tr><th>Team</th><th>Start 2 of 3</th><th></th></tr></thead><tbody id="lu-rows"></tbody></table>
     </section>
 
@@ -94,9 +96,18 @@ ol.how li { margin: 4px 0; }
   const $ = s => document.querySelector(s);
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const bust = '?t=' + Date.now();
+  const getJson = (url, opts) => fetch(url, opts).then(r => { if (!r.ok) throw new Error(url.split('?')[0] + ' ' + r.status); return r.json(); });
+  // league.json comes straight from GitHub, so a change saved a minute ago is already here.
+  // The live site's copy can lag a minute or two behind a commit; pasting a stale copy back
+  // would quietly undo the earlier change. GitHub allows 60 of these reads an hour per
+  // internet connection; if that fails, fall back to the live site's copy and say so.
+  const API = 'https://api.github.com/repos/matthewpilnik-droid/laundry-league/contents/league.json?ref=main';
+  let fresh = true, why = '';
+  const latestLeague = () => getJson(API, { cache: 'no-store', headers: { Accept: 'application/vnd.github.raw+json' } })
+    .catch(e => { fresh = false; why = e.message; return getJson('league.json' + bust); });
   let L, D;
   try {
-    [L, D] = await Promise.all(['league.json', 'data.json'].map(f => fetch(f + bust).then(r => { if (!r.ok) throw new Error(f + ' ' + r.status); return r.json(); })));
+    [L, D] = await Promise.all([latestLeague(), getJson('data.json' + bust)]);
   } catch (e) {
     $('#load-err').hidden = false;
     $('#load-err').innerHTML = `Couldn't load the league files (${esc(e.message)}). Open this page from the live site:
@@ -104,6 +115,13 @@ ol.how li { margin: 4px 0; }
     return;
   }
   $('#app').hidden = false;
+  $('#src').hidden = false;
+  if (fresh) $('#src').textContent = 'Loaded the latest league.json straight from GitHub.';
+  else {
+    $('#src').className = 'warn';
+    $('#src').textContent = `Couldn't confirm this is the latest league.json (${why}), so this is the live site's copy, ` +
+      'which can be a minute or two behind. If you saved a change in the last few minutes, wait 2 minutes and reload before making another.';
+  }
 
   const N = L.crews_per_team, S = L.starters_per_week, REPL = D.replacement;
   const crews = D.crews.map(c => c.referee);
@@ -153,7 +171,11 @@ ol.how li { margin: 4px 0; }
   const drafted = () => teams.every(t => t.name.trim() && t.crews.every(Boolean));
   const weeks = []; for (let w = L.start_week; w <= L.playoff_week; w++) weeks.push(w);
   const defaultWeek = D.mode === 'live' ? Math.max(L.start_week, D.current_week) : L.start_week;
-  $('#lu-week').innerHTML = weeks.map(w => `<option value="${w}" ${w === defaultWeek ? 'selected' : ''}>Week ${w}${w === L.playoff_week ? ' (playoffs)' : ''}</option>`).join('');
+  // Final weeks are locked: changing a lineup there rewrites a result already in the standings.
+  // (Preview mode's weeks belong to the mock league, so nothing is final for the real one.)
+  const finalWeeks = new Set(D.mode === 'live' ? D.weeks.filter(w => w.final).map(w => w.week) : []);
+  const unlocked = new Set();
+  $('#lu-week').innerHTML = weeks.map(w => `<option value="${w}" ${w === defaultWeek ? 'selected' : ''}>Week ${w}${w === L.playoff_week ? ' (playoffs)' : ''}${finalWeeks.has(w) ? ' (final)' : ''}</option>`).join('');
   $('#lu-deadline').textContent = L.lineup_deadline || 'Thursday kickoff';
   const week = () => +$('#lu-week').value;
 
@@ -184,16 +206,30 @@ ol.how li { margin: 4px 0; }
     $('#lu-off').hidden = ok; $('#lu-table').hidden = !ok;
     if (!ok) return;
     const w = week(), idle = offNow();
+    const isFinal = finalWeeks.has(w), locked = isFinal && !unlocked.has(w);
+    $('#lu-lock').hidden = !isFinal;
+    $('#lu-lock').innerHTML = isFinal
+      ? `<p class="warn">Week ${w} is final. Its results are already in the standings, so starters are locked.</p>
+         <label class="pick"><input type="checkbox" id="lu-unlock" ${locked ? '' : 'checked'}> Unlock to correct Week ${w} (changes its result)</label>`
+      : '';
     $('#lu-rows').innerHTML = teams.map((t, row) => {
       const on = standing(row, w);
       const n = on.filter(c => t.crews.includes(c)).length;
       const bad = on.filter(c => idle.includes(c));
       return `<tr><td><b>${esc(t.name)}</b><div class="muted">${esc(t.manager)}</div></td>
-        <td>${t.crews.map(c => `<label class="pick"><input type="checkbox" data-row="${row}" value="${esc(c)}" ${on.includes(c) ? 'checked' : ''}> ${esc(c)}${idle.includes(c) ? ' <span class="tag-off">off</span>' : ''}</label>`).join('')}</td>
+        <td>${t.crews.map(c => `<label class="pick"><input type="checkbox" data-row="${row}" value="${esc(c)}" ${on.includes(c) ? 'checked' : ''}${locked ? ' disabled' : ''}> ${esc(c)}${idle.includes(c) ? ' <span class="tag-off">off</span>' : ''}</label>`).join('')}</td>
         <td>${n === S ? '' : `<span class="warn">Pick exactly ${S}</span>`}${bad.length ? `<div class="warn">Starting an off crew: ${bad.map(esc).join(', ')}</div>` : ''}</td></tr>`;
     }).join('');
   }
   $('#lu-week').addEventListener('change', () => { drawLineups(); update(); });
+  // Locking a week again throws away any changes made to it while unlocked.
+  $('#lu-lock').addEventListener('change', e => {
+    if (e.target.id !== 'lu-unlock') return;
+    const w = week();
+    if (e.target.checked) unlocked.add(w);
+    else { unlocked.delete(w); Object.keys(edits).filter(k => +k.split('|')[0] === w).forEach(k => delete edits[k]); }
+    drawLineups(); update();
+  });
   $('#lu-rows').addEventListener('change', e => {
     if (!e.target.dataset.row) return;
     const row = +e.target.dataset.row;
@@ -220,7 +256,10 @@ ol.how li { margin: 4px 0; }
       const before = (() => { let cur = teams[row].crews.slice(0, S);
         merged.filter(l => l.row === row && l.week < w).sort((a, b) => a.week - b.week).forEach(l => cur = l.start); return cur; })();
       if (i >= 0) merged.splice(i, 1);
-      if (!sameSet(v, before)) { merged.push({ week: w, row, start: v }); changes.push(`Week ${w} · ${names[row]} starts ${v.join(' + ')}`); }
+      if (!sameSet(v, before)) {
+        merged.push({ week: w, row, start: v });
+        changes.push(`${finalWeeks.has(w) ? `⚠ Week ${w} is final, so this changes its result: ` : ''}Week ${w} · ${names[row]} starts ${v.join(' + ')}`);
+      }
     });
     merged.sort((a, b) => a.week - b.week || a.row - b.row);
     merged.forEach(l => { if (l.row < 0) problems.push(`A saved lineup names a team that isn't in the league.`); });
@@ -261,7 +300,7 @@ ol.how li { margin: 4px 0; }
     $('#status').innerHTML = r.problems.length
       ? r.problems.map(p => `<div class="warn">${esc(p)}</div>`).join('')
       : (r.changes.length ? '<div class="ok">Ready to save.</div>' : '<div class="muted">No changes yet.</div>');
-    $('#changes').innerHTML = r.changes.map(c => `<div class="chg">• ${esc(c)}</div>`).join('');
+    $('#changes').innerHTML = r.changes.map(c => `<div class="chg${c.startsWith('⚠') ? ' warn' : ''}">• ${esc(c)}</div>`).join('');
     const blocking = r.problems.some(p => !/^Draft is incomplete/.test(p));
     $('#copy').disabled = blocking || !r.changes.length;
   }
