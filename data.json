@@ -12,8 +12,9 @@
  "crews_per_team": 3,
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
+ "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-12T13:17Z",
+ "generated_at": "2026-11-12T16:40Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -103,22 +104,22 @@
  },
  "ref_last_names": {
   "torbert": "Ron Torbert",
+  "novak": "Scott Novak",
+  "vinovich": "Bill Vinovich",
+  "rogers": "Brad Rogers",
   "blakeman": "Clete Blakeman",
-  "wrolstad": "Craig Wrolstad",
+  "smith": "Shawn Smith",
+  "eck": "Alan Eck",
+  "kemp": "Alex Kemp",
   "allen": "Brad Allen",
   "hussey": "John Hussey",
-  "novak": "Scott Novak",
-  "eck": "Alan Eck",
-  "cheffers": "Carl Cheffers",
-  "clark": "Land Clark",
-  "kemp": "Alex Kemp",
-  "rogers": "Brad Rogers",
-  "vinovich": "Bill Vinovich",
+  "hill": "Adrian Hill",
+  "wrolstad": "Craig Wrolstad",
   "moore": "Alex Moore",
   "martin": "Clay Martin",
-  "smith": "Shawn Smith",
   "hochuli": "Shawn Hochuli",
-  "hill": "Adrian Hill"
+  "cheffers": "Carl Cheffers",
+  "clark": "Land Clark"
  },
  "scored_espn": [
   "401872656",
@@ -337,7 +338,7 @@
    "referee": "Alex Moore",
    "g25": 16,
    "flags25": 19.4,
-   "ppg25": 90.7,
+   "ppg25": 90.6,
    "g26": 8,
    "pts26": 689.3,
    "ppg26": 86.2,
@@ -10432,10 +10433,12 @@
        },
        {
         "crew": "Shawn Smith",
-        "pts": 0,
+        "pts": 66.4,
         "game": null,
-        "status": "bye",
-        "starter": true
+        "status": "open",
+        "starter": true,
+        "avg": 78.1,
+        "pct": 85
        },
        {
         "crew": "Brad Rogers",
@@ -10445,7 +10448,7 @@
         "starter": false
        }
       ],
-      "pts": 78.5
+      "pts": 144.9
      },
      "final": true,
      "winner": "Helen Keller's School for Refs that Don't See That Good"
@@ -12088,7 +12091,7 @@
    "l": 1,
    "t": 0,
    "pf": 264.3,
-   "pa": 229.5,
+   "pa": 295.9,
    "streak": "W1"
   },
   {
@@ -12117,7 +12120,7 @@
    "w": 0,
    "l": 2,
    "t": 0,
-   "pf": 196.2,
+   "pf": 262.6,
    "pa": 287.5,
    "streak": "L2"
   }
@@ -14221,10 +14224,12 @@
        "crews": [
         {
          "crew": "Ron Torbert",
-         "pts": 0,
+         "pts": 78.2,
          "game": null,
-         "status": "bye",
-         "starter": true
+         "status": "open",
+         "starter": true,
+         "avg": 92.0,
+         "pct": 85
         },
         {
          "crew": "Brad Rogers",
@@ -14241,7 +14246,7 @@
          "starter": false
         }
        ],
-       "pts": 83.0
+       "pts": 161.2
       },
       "B": {
        "crews": [
@@ -14270,7 +14275,7 @@
        "pts": 120.5
       },
       "final": true,
-      "winner": "Holding Pattern"
+      "winner": "Yellow Hankies"
      },
      {
       "a": "Pick Up the Flag",
@@ -14518,10 +14523,12 @@
        "crews": [
         {
          "crew": "Shawn Hochuli",
-         "pts": 0,
+         "pts": 55.8,
          "game": null,
-         "status": "bye",
-         "starter": true
+         "status": "open",
+         "starter": true,
+         "avg": 65.6,
+         "pct": 85
         },
         {
          "crew": "Alex Kemp",
@@ -14538,7 +14545,7 @@
          "starter": false
         }
        ],
-       "pts": 57.4
+       "pts": 113.2
       },
       "B": {
        "crews": [
@@ -14609,10 +14616,12 @@
        "crews": [
         {
          "crew": "Bill Vinovich",
-         "pts": 0,
+         "pts": 56.7,
          "game": null,
-         "status": "bye",
-         "starter": true
+         "status": "open",
+         "starter": true,
+         "avg": 66.7,
+         "pct": 85
         },
         {
          "crew": "Alan Eck",
@@ -14629,7 +14638,7 @@
          "starter": false
         }
        ],
-       "pts": 28.0
+       "pts": 84.7
       },
       "final": true,
       "winner": "Flag on the Play"
@@ -16399,8 +16408,8 @@
       "winner": null
      },
      {
-      "a": "Flag on the Play",
-      "b": "Yellow Hankies",
+      "a": "Yellow Hankies",
+      "b": "Flag on the Play",
       "seeds": [
        3,
        4
@@ -16443,8 +16452,18 @@
     "l": 3,
     "t": 0,
     "pf": 1359.0,
-    "pa": 1212.2,
+    "pa": 1268.0,
     "streak": "W1"
+   },
+   {
+    "team": "Yellow Hankies",
+    "manager": "",
+    "w": 5,
+    "l": 4,
+    "t": 0,
+    "pf": 1325.5,
+    "pa": 1313.6,
+    "streak": "L1"
    },
    {
     "team": "Flag on the Play",
@@ -16453,27 +16472,17 @@
     "l": 5,
     "t": 0,
     "pf": 1343.4,
-    "pa": 1365.8,
-    "streak": "L1"
-   },
-   {
-    "team": "Yellow Hankies",
-    "manager": "",
-    "w": 4,
-    "l": 5,
-    "t": 0,
-    "pf": 1247.3,
-    "pa": 1313.6,
+    "pa": 1422.5,
     "streak": "L1"
    },
    {
     "team": "Holding Pattern",
     "manager": "",
-    "w": 4,
-    "l": 5,
+    "w": 3,
+    "l": 6,
     "t": 0,
-    "pf": 1167.3,
-    "pa": 1291.7,
+    "pf": 1224.0,
+    "pa": 1369.9,
     "streak": "W1"
    },
    {
@@ -16482,15 +16491,15 @@
     "w": 2,
     "l": 7,
     "t": 0,
-    "pf": 1229.9,
+    "pf": 1285.7,
     "pa": 1494.4,
     "streak": "L5"
    }
   ],
   "series": {
    "Holding Pattern|Yellow Hankies": [
-    1,
-    1,
+    0,
+    2,
     0
    ],
    "False Start Kids|Pick Up the Flag": [
