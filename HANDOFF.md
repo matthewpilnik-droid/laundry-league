@@ -54,6 +54,11 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
   It usually clears by itself; see README → "If a week is on hold" for the manual fix.
 - **Final weeks are locked** on the commissioner page (added 2026-11-12); tick "Unlock to correct
   this week" only to fix a genuine mistake, since it rewrites that week's result.
+- **Game fixes (added 2026-11-12):** commissioner page → Lineups → Game fixes. "Counts for crew"
+  credits a game to a crew when the data shows a substitute referee or an unmatched spelling (also
+  how to clear a week on hold); "Cancelled" gives the assigned crew 85% of the weekly average
+  (decided 2026-11-12: "bad luck is bad luck", same as open spots). Saved under `game_fixes`.
+  Not handled: a game moved to a different week; see README → "Game fixes".
 
 ## Setting up a new computer
 

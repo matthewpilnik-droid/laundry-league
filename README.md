@@ -21,6 +21,14 @@ from ESPN in each viewer's browser.
   week is final. If the team had a working crew on the bench and started an idle
   one instead, that spot still scores 0. The 85% is the `open_spot_pct` setting
   in `league.json`; change that one number to adjust it (0 turns the rule off).
+- **Cancelled game ("the NFL's fault"):** if a game is cancelled, the crew assigned
+  to it scores the same 85% of that week's average (the average of the games
+  actually played), once the week is final. It counts as having a game, so it
+  fills a starting spot like any working crew. The commissioner records it under
+  **Game fixes** (below).
+- **Substitute referee:** if a crew's referee is out and someone else referees
+  the crew's game, the game still counts for the crew. The commissioner records
+  it under **Game fixes** if the data shows the substitute's name.
 - Weeks 8–17: head-to-head, everyone plays everyone twice.
 - Draft order: Bryan, Matthew, Mike, Stephan, Sean, Danny.
   `league.json` lists the teams in that order; the site's draft board reads it.
@@ -73,11 +81,33 @@ The commissioner page reads `league.json` straight from GitHub, so a change you 
 ago is already there. If it can't (GitHub allows 60 of these reads an hour per internet
 connection), it uses the live site's copy and says so; that copy can be a minute or two behind,
 so wait 2 minutes and reload before making another change.
+
 Weekly crew assignments: https://www.footballzebras.com/category/assignments/
 
 If a name is misspelled, a crew is drafted twice, or a lineup lists a crew the
 team doesn't have (or not exactly 2 different crews), the update fails and
 GitHub emails you. The error says which line and lists the valid names.
+
+### Game fixes (rare)
+
+On the commissioner page's Lineups tab, pick the week and set the game under **Game fixes**:
+
+- **Counts for crew:** the game was worked by that crew, but the data shows another referee
+  name (a substitute referee, or a spelling the site can't match). The game counts for the crew.
+- **Cancelled:** the game won't be played. Pick the crew assigned to it (Football Zebras'
+  assignments); it scores the open-spot share of the week's average, and the week stops waiting
+  for the game.
+
+They're saved under `game_fixes` in `league.json`, keyed by game id:
+
+```json
+"game_fixes": {"2026_09_TB_CHI": {"cancelled": "Ron Torbert"}, "2026_10_DAL_NYG": {"crew": "Shawn Hochuli"}}
+```
+
+The update stops and emails you if a fix names a game or crew that doesn't exist, marks a
+played game as cancelled, or gives a crew two games in one week. Final weeks are locked like
+lineups. Not handled: a game moved to a different week (a crew could end up with two games in one
+week, and only one would count); ask for a code fix if that ever happens.
 
 ### If scores stop updating
 
@@ -95,11 +125,10 @@ put on hold: no result in it counts, the league page says which game is waiting,
 run is marked failed after publishing, so GitHub emails you (every run, about 4 a day, until it
 clears). Usually ESPN lists the referee by the next run and the week finishes by itself.
 
-If it's still on hold after a day: check the referee for that game (Football Zebras or the game's
-ESPN page), add a line to `data/referees.json` such as `"2026_09_HOU_LAC": "Alex Moore"`, commit,
-then **Actions** → **Update scores** → **Run workflow**. That works while the NFL data source has
-no referee listed for the game. If the email says the referee "doesn't match a drafted crew"
-(a misspelling, or a substitute referee working a crew's game), it needs a code or settings fix.
+If it's still on hold after a day, or the email says the referee "doesn't match a drafted crew"
+(a misspelling, or a substitute referee working a crew's game): check which crew worked the game
+(Football Zebras' assignments), then on the commissioner page set that game to **Counts for
+crew** under **Game fixes** and commit. The site rebuilds and the week finishes.
 
 Each week, after Football Zebras posts assignments, tick the crews with no game under **Off this
 week** on the commissioner page's Lineups tab. The league page lists them for everyone and flags
@@ -119,6 +148,7 @@ any owner starting one.
 | Offsetting penalties | ×2 |
 | Last 2:00 of either half | ×1.5 |
 | Open spot (fewer than 2 crews with a game that week) | 85% of the week's average crew score (`open_spot_pct`) |
+| Cancelled game (the crew assigned to it) | 85% of the week's average crew score (`open_spot_pct`) |
 
 Tiers come from how often each foul was called the previous season:
 0.1–0.3 per game is uncommon, 0.02–0.1 rare, under 0.02 unicorn.
