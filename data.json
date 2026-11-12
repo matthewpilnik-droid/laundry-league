@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-12T17:56Z",
+ "generated_at": "2026-11-12T17:57Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -9977,8 +9977,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10003,8 +10003,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10029,8 +10029,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10055,8 +10055,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10081,8 +10081,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10107,8 +10107,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10133,8 +10133,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10159,8 +10159,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10185,8 +10185,8 @@
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Alex Moore",
-    "Ron Torbert"
+    "Ron Torbert",
+    "Alan Eck"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -10724,13 +10724,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -10739,6 +10732,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10847,13 +10847,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -10862,6 +10855,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -10970,13 +10970,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -10985,6 +10978,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11209,13 +11209,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -11224,6 +11217,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11448,13 +11448,6 @@
      "B": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -11463,6 +11456,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11603,13 +11603,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -11618,6 +11611,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11726,13 +11726,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -11741,6 +11734,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -11849,13 +11849,6 @@
      "A": {
       "crews": [
        {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -11864,6 +11857,13 @@
        },
        {
         "crew": "Alan Eck",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
+        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
