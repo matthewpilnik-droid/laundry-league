@@ -2,9 +2,6 @@
 
 Everything needed to pick up The Laundry League on a new computer.
 Updated November 5, 2026: the league is live. The draft is entered, Week 8 is scored and final, and Week 9 is under way. Two open items are closed (ESPN referee lookups, assignment timing). New: score drill-down. Tap a crew's score in a matchup or a past result to see every flag and review behind it, with live (provisional) lists during games.
-~~Updated October 26, 2026: league starts Week 8 (Thursday, October 29); draft order set and teams listed in that order in `league.json`; the site's draft board shows the snake grid.~~
-~~Updated October 21, 2026: three crews per team, two starters a week, and the 2012 Replacement Refs (the waiver wire is gone).~~
-~~Updated October 20, 2026, after the switch to a 6-team head-to-head format with a waiver wire.~~
 
 ## At a glance
 
@@ -14,10 +11,10 @@ Updated November 5, 2026: the league is live. The draft is entered, Week 8 is sc
 | Code and data | https://github.com/matthewpilnik-droid/laundry-league |
 | GitHub account | `matthewpilnik-droid`: personal account only, never a firm account |
 | Commit email | `345613117+matthewpilnik-droid@users.noreply.github.com` (GitHub's no-reply address) |
-| Format | 6 teams, 3 crews each from a 3-round snake draft of all 17 crews + the 2012 Replacement Refs (scores the weekly average of crews that worked); start 2 of 3 each week, lineups carry forward; ~~head-to-head Weeks 7–17 (everyone plays everyone twice, Week 17 repeats Week 7's pairings)~~ → head-to-head Weeks 8–17, everyone plays everyone twice (2026-10-26: draft not done before Week 7); Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Delicates Bowl (5 v 6) |
-| League starts | ~~Week 8, Thursday, October 29, 2026~~ → ~~Week 7, Thursday, October 22, 2026 (moved up 2026-10-21)~~ → Week 8, Thursday, October 29, 2026 (2026-10-26: the draft wasn't held before Week 7) |
-| Status | ~~Live in **preview mode**: draft not yet entered in `league.json`~~ → **Live** (2026-11-05): draft entered 2026-10-26; Week 8 scored and final; real standings showing |
-| Draft order | ~~Random draw, 2026-10-22: 1 Bryan, 2 Matthew, 3 Mike, 4 Stephan, 5 Danny (Team Laundry), 6 Sean~~ → 1 Bryan, 2 Matthew, 3 Mike, 4 Stephan, 5 Sean, 6 Danny (Zebra Crime Syndicate) (2026-10-26: set by the commissioner); 3-round snake |
+| Format | 6 teams, 3 crews each from a 3-round snake draft of all 17 crews + the 2012 Replacement Refs (scores the weekly average of crews that worked); start 2 of 3 each week, lineups carry forward; head-to-head Weeks 8–17, everyone plays everyone twice; Week 18 playoffs: Laundry Bowl (1 v 2), third place (3 v 4), Delicates Bowl (5 v 6) |
+| League starts | Week 8, Thursday, October 29, 2026 |
+| Status | **Live** (2026-11-05): draft entered 2026-10-26; Week 8 scored and final; real standings showing |
+| Draft order | 1 Bryan, 2 Matthew, 3 Mike, 4 Stephan, 5 Sean, 6 Danny (Zebra Crime Syndicate) (set by the commissioner 2026-10-26); 3-round snake |
 
 The site updates itself. Nothing has to run on your computer. A new computer
 only matters for editing code or running Claude Code against the project.
@@ -36,8 +33,7 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
   in `league.json` only when a team changes, e.g.
   `{ "week": 9, "team": "Holding Pattern", "start": ["Hochuli", "Replacement Refs"] }`.
   A lineup stands until replaced; before any entry a team starts its first 2 listed crews.
-  ~~**Waiver claims:** owners text "add X, drop Y"… add one line per approved claim to `moves`.~~
-  → 2026-10-21: waiver wire removed; all 18 picks are drafted.
+  There is no waiver wire: all 18 picks are drafted.
 - **Crew assignments:** https://www.footballzebras.com/category/assignments/
 - **Off this week (added 2026-10-26):** once Football Zebras posts the week's assignments (usually
   Tuesday or Wednesday), open the commissioner page → **Lineups** → pick the week → tick every crew
@@ -127,24 +123,13 @@ None of it should be changed mid-season.
 
 ## Open items
 
-- **Friday, October 23 check:** after Thursday's NE @ CHI game, confirm two things not yet
-  seen in practice:
-  1. ~~The update job can reach ESPN from GitHub's servers to look up referees. No lookup
-     has been needed yet, because all 93 completed games' referees came from saved data. If ESPN
-     blocks it, the fallback is the nflverse schedule's referee column, which runs about
-     3 weeks behind.~~ → **Closed 2026-11-05:** it works. The update job added all 14 Week 8
-     referees to `data/referees.json` (commits of Oct 30 and Nov 2) using ESPN's spellings
-     (e.g. "Ronald Torbert").
-  2. Whether ESPN lists the officials *during* a live game. If not, live cards show
-     "Crew not posted yet" until the next update. (Still open: watch a live card during a game.)
-  Check in **Actions** → latest **Update scores** run → log line `referees: N games known, N added`.
-- ~~**Confirm assignment timing.** Lineups depend on owners seeing which crews
-  are off before Thursday. Football Zebras posted 2018 Week 7 assignments on the Tuesday
-  and 2026 preseason assignments two days ahead; a 2026 regular-season post wasn't found
-  in search. Check that Week 7 or 8 assignments appear before Thursday's game.~~
-  → **Closed 2026-11-05:** Football Zebras posted the Week 9 assignments on Tuesday, November 3,
-  two days before Thursday's game. Each week's post is at
-  `footballzebras.com/2026/<month>/week-<N>-referee-assignments-2026/`.
+- **Live crews:** check whether ESPN lists the officials *during* a live game. If not, live
+  cards show "Crew not posted yet" until the next update. Watch a live card during a game.
+  (Referee lookups from ESPN after games are confirmed working, using ESPN's spellings,
+  e.g. "Ronald Torbert". Check in **Actions** → latest **Update scores** run → log line
+  `referees: N games known, N added`.)
+- **Assignment timing** (confirmed): Football Zebras posts assignments about two days before
+  Thursday's game, at `footballzebras.com/2026/<month>/week-<N>-referee-assignments-2026/`.
 - **GitHub's 60-day pause rule.** GitHub disables scheduled jobs in public projects with
   "no repository activity" for 60 days and doesn't define activity. Each run commits an
   update (about 4 a day), which most likely counts. The page's "updated" time shows a stall.

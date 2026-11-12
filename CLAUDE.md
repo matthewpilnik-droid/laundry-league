@@ -13,6 +13,11 @@ Read `README.md` (league rules, scoring, files) and `HANDOFF.md` (setup, open it
   `site/template.html` or `scripts/`, then rebuild.
 - Scoring changes: rebuild locally and compare scores before and after, so I can see which
   past results change. Past weeks changing affects standings, so call that out clearly.
+- **The folder layout is intentional; don't reorganize it** (an exception to the global
+  `data/` / `output/` conventions). GitHub Pages serves `index.html` and `commish.html` from
+  the root, so moving them breaks links people use. `league.json` and `data.json` are read by
+  path from the scripts, the bot, the commissioner page and the docs. If a restructure ever
+  seems worth it, propose it for the off-season, never mid-season.
 
 ## Test locally
 ```
