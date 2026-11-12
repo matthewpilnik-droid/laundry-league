@@ -181,6 +181,45 @@ sched_count = collections.Counter(int(g["week"]) for g in games.values() if g["s
 done_count = collections.Counter(int(games[g]["week"]) for g in g_cur)
 week_final = {w: done_count[w] >= sched_count[w] > 0 for w in range(1, PLAYOFF + 1)}
 
+
+# ---- Hold a week whose referee isn't known ------------------------------------
+# A scored game with no referee, or (once the draft is in) a referee who isn't one of the
+# drafted crews, can't be credited to the right crew. Scoring it anyway would show that crew
+# as off (0 points) and skew the weekly average. Instead the week is held: it isn't final,
+# so no result in it counts, until the referee is known (usually by the next update).
+def drafted_referees():
+    """The drafted real crews' referee names, or None before the draft is complete."""
+    teams = LEAGUE["teams"]
+    if not all(t["name"].strip() and len(t["crews"]) == LEAGUE["crews_per_team"] for t in teams):
+        return None
+    names = canon | {games[g]["referee"] for g in g_cur if games[g]["referee"]}
+    out = set()
+    for t in teams:
+        for c in (c.strip() for c in t["crews"]):
+            if "replacement" in c.lower():
+                continue
+            hits = [n for n in names if n.split()[-1].lower() == c.lower()]
+            out.add(hits[0] if c not in names and len(hits) == 1 else c)
+    return out
+
+
+drafted_refs = drafted_referees()
+held = []
+for gid in g_cur:
+    g, w = games[gid], int(games[gid]["week"])
+    if not g["referee"]:
+        why = "no referee listed yet"
+    elif drafted_refs is not None and w >= LEAGUE["start_week"] and g["referee"] not in drafted_refs:
+        why = f"referee \"{g['referee']}\" doesn't match a drafted crew"
+    else:
+        continue
+    week_final[w] = False
+    held.append({"week": w, "game": label(g), "gid": gid, "why": why})
+held.sort(key=lambda h: (h["week"], h["gid"]))
+held_gids = {h["gid"] for h in held}
+for h in held:
+    print(f'HOLD Week {h["week"]}: {h["game"]} ({h["gid"]}) - {h["why"]}', file=sys.stderr)
+
 # ---- Crew summaries -------------------------------------------------------
 crews = collections.defaultdict(lambda: {"gc": 0, "flags": 0, "yds": 0, "pts": 0.0, "weeks": {}})
 for gid in g_cal:
@@ -199,7 +238,8 @@ for gid in g_cur:
 
 # The current season's referees are the draftable pool; fall back to the
 # calibration season's list early in a season.
-pool = {games[g]["referee"] for g in g_cur if games[g]["referee"]} or \
+# A held game's referee isn't a real crew (or isn't known), so it doesn't join the pool.
+pool = {games[g]["referee"] for g in g_cur if games[g]["referee"] and g not in held_gids} or \
        {games[g]["referee"] for g in g_cal}
 crew_list = []
 for ref in pool:
@@ -601,6 +641,9 @@ json.dump({
     "sample": sample,
     "tier_table": tier_table,
     "unknown_ref_games": unknown_ref,
+    # Games whose week is on hold until their referee is known (see "Hold a week" above).
+    "held": held,
 }, open(OUT, "w"), indent=1)
 print(f"wrote {OUT} | mode {'live' if drafted else 'preview'} | crews {len(crew_list)} "
-      f"| weeks {weeks_played} | current league week {league['current_week']} | games missing a referee: {len(unknown_ref)}")
+      f"| weeks {weeks_played} | current league week {league['current_week']} | games missing a referee: {len(unknown_ref)} "
+      f"| weeks on hold: {sorted({h['week'] for h in held}) or 'none'}")

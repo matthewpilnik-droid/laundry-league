@@ -49,3 +49,12 @@ jobs:
             git commit -m "Update scores $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
           fi
+
+      # Runs after publishing, so scores still update. Failing here makes GitHub email the
+      # commissioner while a week is on hold because a game's referee isn't known.
+      - name: Check for weeks on hold
+        run: >-
+          python3 -I -c 'import json, sys;
+          held = json.load(open("data.json"))["held"];
+          [print("::error::Week %s on hold: %s (%s) - %s" % (h["week"], h["game"], h["gid"], h["why"])) for h in held];
+          sys.exit(1 if held else 0)'

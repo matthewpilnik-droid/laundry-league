@@ -309,6 +309,8 @@ footer .stripes { margin-bottom: 24px; }
 
 <main class="wrap" id="main">
 
+<div class="card offbox" id="held" hidden></div>
+
 <section id="mine" hidden>
   <div class="sec-head"><div><h2 id="my-h">Your week</h2><p class="muted" id="my-sub"></p></div></div>
   <div class="my-grid">
@@ -522,6 +524,15 @@ footer .stripes { margin-bottom: 24px; }
       ? `<b>${SEA} season</b> · ${started ? `<b>Week ${curWeek}</b> ${curW.playoff ? 'playoffs' : 'matchups'}` : `kicks off <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`}`
       : `Preview · real ${SEA} numbers through <b>Week ${last}</b> · league starts <b>Week ${D.start_week} (${dayFmt(D.start_date)})</b>`) +
     ` · updated ${esc(stamp)}`;
+  // A week on hold: a game's referee isn't known yet, so that week's results wait (see build_data.py).
+  const held = D.held || [];
+  if (held.length) {
+    const wks = [...new Set(held.map(h => h.week))];
+    $('#held').hidden = false;
+    $('#held').innerHTML = `<b>Week ${wks.join(' and ')} results are on hold.</b> ` +
+      `The referee isn't known yet for ${held.map(h => `${esc(h.game)} (Week ${h.week})`).join(', ')}, so that crew can't be scored. ` +
+      `Nothing in ${wks.length > 1 ? 'those weeks' : 'that week'} counts until it is; it usually fills in by the next update. The commissioner has been notified.`;
+  }
   const best = D.week_games[0];
   $('#kpis').innerHTML = [
     [fmt(D.avg_ppg25), `avg points per crew game (${CAL})`],
