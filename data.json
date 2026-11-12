@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-12T17:41Z",
+ "generated_at": "2026-11-12T17:56Z",
  "updated": "2026-11-09",
  "last_week": 9,
  "weeks_played": [
@@ -103,23 +103,23 @@
   "Invalid Fair Catch Signal": "unicorn"
  },
  "ref_last_names": {
-  "vinovich": "Bill Vinovich",
-  "novak": "Scott Novak",
-  "moore": "Alex Moore",
-  "kemp": "Alex Kemp",
-  "eck": "Alan Eck",
   "allen": "Brad Allen",
-  "martin": "Clay Martin",
-  "rogers": "Brad Rogers",
   "blakeman": "Clete Blakeman",
-  "clark": "Land Clark",
   "cheffers": "Carl Cheffers",
-  "torbert": "Ron Torbert",
-  "hochuli": "Shawn Hochuli",
+  "clark": "Land Clark",
+  "eck": "Alan Eck",
   "hill": "Adrian Hill",
-  "wrolstad": "Craig Wrolstad",
+  "hochuli": "Shawn Hochuli",
+  "hussey": "John Hussey",
+  "kemp": "Alex Kemp",
+  "martin": "Clay Martin",
+  "moore": "Alex Moore",
+  "novak": "Scott Novak",
+  "rogers": "Brad Rogers",
   "smith": "Shawn Smith",
-  "hussey": "John Hussey"
+  "torbert": "Ron Torbert",
+  "vinovich": "Bill Vinovich",
+  "wrolstad": "Craig Wrolstad"
  },
  "scored_espn": [
   "401872656",
@@ -17207,5 +17207,1020 @@
   }
  ],
  "unknown_ref_games": [],
- "held": []
+ "held": [],
+ "schedule": {
+  "8": [
+   {
+    "gid": "2026_08_ARI_DAL",
+    "game": "ARI @ DAL",
+    "referee": "Ron Torbert",
+    "played": true
+   },
+   {
+    "gid": "2026_08_ATL_TB",
+    "game": "ATL @ TB",
+    "referee": "Alan Eck",
+    "played": true
+   },
+   {
+    "gid": "2026_08_BAL_BUF",
+    "game": "BAL @ BUF",
+    "referee": "Clay Martin",
+    "played": true
+   },
+   {
+    "gid": "2026_08_CAR_GB",
+    "game": "CAR @ GB",
+    "referee": "Scott Novak",
+    "played": true
+   },
+   {
+    "gid": "2026_08_CHI_SEA",
+    "game": "CHI @ SEA",
+    "referee": "Shawn Smith",
+    "played": true
+   },
+   {
+    "gid": "2026_08_CLE_PIT",
+    "game": "CLE @ PIT",
+    "referee": "Alex Kemp",
+    "played": true
+   },
+   {
+    "gid": "2026_08_IND_JAX",
+    "game": "IND @ JAX",
+    "referee": "Adrian Hill",
+    "played": true
+   },
+   {
+    "gid": "2026_08_KC_DEN",
+    "game": "KC @ DEN",
+    "referee": "Clete Blakeman",
+    "played": true
+   },
+   {
+    "gid": "2026_08_LAC_LA",
+    "game": "LAC @ LA",
+    "referee": "Brad Rogers",
+    "played": true
+   },
+   {
+    "gid": "2026_08_LV_NYJ",
+    "game": "LV @ NYJ",
+    "referee": "John Hussey",
+    "played": true
+   },
+   {
+    "gid": "2026_08_MIN_DET",
+    "game": "MIN @ DET",
+    "referee": "Craig Wrolstad",
+    "played": true
+   },
+   {
+    "gid": "2026_08_NE_MIA",
+    "game": "NE @ MIA",
+    "referee": "Alex Moore",
+    "played": true
+   },
+   {
+    "gid": "2026_08_PHI_WAS",
+    "game": "PHI @ WAS",
+    "referee": "Shawn Hochuli",
+    "played": true
+   },
+   {
+    "gid": "2026_08_TEN_CIN",
+    "game": "TEN @ CIN",
+    "referee": "Brad Allen",
+    "played": true
+   }
+  ],
+  "9": [
+   {
+    "gid": "2026_09_ARI_SEA",
+    "game": "ARI @ SEA",
+    "referee": "Clete Blakeman",
+    "played": true
+   },
+   {
+    "gid": "2026_09_BUF_MIN",
+    "game": "BUF @ MIN",
+    "referee": "Carl Cheffers",
+    "played": true
+   },
+   {
+    "gid": "2026_09_CIN_ATL",
+    "game": "CIN @ ATL",
+    "referee": "Craig Wrolstad",
+    "played": true
+   },
+   {
+    "gid": "2026_09_CLE_NO",
+    "game": "CLE @ NO",
+    "referee": "Shawn Hochuli",
+    "played": true
+   },
+   {
+    "gid": "2026_09_DAL_IND",
+    "game": "DAL @ IND",
+    "referee": "Clay Martin",
+    "played": true
+   },
+   {
+    "gid": "2026_09_DEN_CAR",
+    "game": "DEN @ CAR",
+    "referee": "Alan Eck",
+    "played": true
+   },
+   {
+    "gid": "2026_09_DET_MIA",
+    "game": "DET @ MIA",
+    "referee": "Land Clark",
+    "played": true
+   },
+   {
+    "gid": "2026_09_GB_NE",
+    "game": "GB @ NE",
+    "referee": "Alex Kemp",
+    "played": true
+   },
+   {
+    "gid": "2026_09_HOU_LAC",
+    "game": "HOU @ LAC",
+    "referee": "Alex Moore",
+    "played": true
+   },
+   {
+    "gid": "2026_09_JAX_BAL",
+    "game": "JAX @ BAL",
+    "referee": "Brad Allen",
+    "played": true
+   },
+   {
+    "gid": "2026_09_LA_WAS",
+    "game": "LA @ WAS",
+    "referee": "John Hussey",
+    "played": true
+   },
+   {
+    "gid": "2026_09_LV_SF",
+    "game": "LV @ SF",
+    "referee": "Scott Novak",
+    "played": true
+   },
+   {
+    "gid": "2026_09_NYG_PHI",
+    "game": "NYG @ PHI",
+    "referee": "Bill Vinovich",
+    "played": true
+   },
+   {
+    "gid": "2026_09_NYJ_KC",
+    "game": "NYJ @ KC",
+    "referee": "Adrian Hill",
+    "played": true
+   },
+   {
+    "gid": "2026_09_TB_CHI",
+    "game": "TB @ CHI",
+    "referee": "Ron Torbert",
+    "played": true
+   }
+  ],
+  "10": [
+   {
+    "gid": "2026_10_BUF_NYJ",
+    "game": "BUF @ NYJ",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_CAR_NO",
+    "game": "CAR @ NO",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_HOU_CLE",
+    "game": "HOU @ CLE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_JAX_TEN",
+    "game": "JAX @ TEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_KC_ATL",
+    "game": "KC @ ATL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_LAC_BAL",
+    "game": "LAC @ BAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_LA_ARI",
+    "game": "LA @ ARI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_MIA_IND",
+    "game": "MIA @ IND",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_MIN_GB",
+    "game": "MIN @ GB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_NE_DET",
+    "game": "NE @ DET",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_PIT_CIN",
+    "game": "PIT @ CIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_SEA_LV",
+    "game": "SEA @ LV",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_SF_DAL",
+    "game": "SF @ DAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_10_WAS_NYG",
+    "game": "WAS @ NYG",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "11": [
+   {
+    "gid": "2026_11_ARI_KC",
+    "game": "ARI @ KC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_BAL_CAR",
+    "game": "BAL @ CAR",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_CIN_WAS",
+    "game": "CIN @ WAS",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_IND_HOU",
+    "game": "IND @ HOU",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_JAX_NYG",
+    "game": "JAX @ NYG",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_LV_DEN",
+    "game": "LV @ DEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_MIA_BUF",
+    "game": "MIA @ BUF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_MIN_SF",
+    "game": "MIN @ SF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_NO_CHI",
+    "game": "NO @ CHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_NYJ_LAC",
+    "game": "NYJ @ LAC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_PIT_PHI",
+    "game": "PIT @ PHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_TB_DET",
+    "game": "TB @ DET",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_11_TEN_DAL",
+    "game": "TEN @ DAL",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "12": [
+   {
+    "gid": "2026_12_ATL_MIN",
+    "game": "ATL @ MIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_BAL_HOU",
+    "game": "BAL @ HOU",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_CAR_TB",
+    "game": "CAR @ TB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_CHI_DET",
+    "game": "CHI @ DET",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_DEN_PIT",
+    "game": "DEN @ PIT",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_GB_LA",
+    "game": "GB @ LA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_KC_BUF",
+    "game": "KC @ BUF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_LV_CLE",
+    "game": "LV @ CLE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_NE_LAC",
+    "game": "NE @ LAC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_NO_CIN",
+    "game": "NO @ CIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_NYG_IND",
+    "game": "NYG @ IND",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_NYJ_MIA",
+    "game": "NYJ @ MIA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_PHI_DAL",
+    "game": "PHI @ DAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_SEA_SF",
+    "game": "SEA @ SF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_TEN_JAX",
+    "game": "TEN @ JAX",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_12_WAS_ARI",
+    "game": "WAS @ ARI",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "13": [
+   {
+    "gid": "2026_13_BUF_NE",
+    "game": "BUF @ NE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_CAR_MIN",
+    "game": "CAR @ MIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_CIN_CLE",
+    "game": "CIN @ CLE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_DAL_SEA",
+    "game": "DAL @ SEA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_DET_ATL",
+    "game": "DET @ ATL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_GB_NO",
+    "game": "GB @ NO",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_HOU_PIT",
+    "game": "HOU @ PIT",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_JAX_CHI",
+    "game": "JAX @ CHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_KC_LA",
+    "game": "KC @ LA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_LAC_TB",
+    "game": "LAC @ TB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_MIA_DEN",
+    "game": "MIA @ DEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_PHI_ARI",
+    "game": "PHI @ ARI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_SF_NYG",
+    "game": "SF @ NYG",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_13_WAS_TEN",
+    "game": "WAS @ TEN",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "14": [
+   {
+    "gid": "2026_14_ATL_CLE",
+    "game": "ATL @ CLE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_BUF_GB",
+    "game": "BUF @ GB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_CHI_MIA",
+    "game": "CHI @ MIA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_DEN_NYJ",
+    "game": "DEN @ NYJ",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_HOU_WAS",
+    "game": "HOU @ WAS",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_IND_PHI",
+    "game": "IND @ PHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_KC_CIN",
+    "game": "KC @ CIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_LAC_LV",
+    "game": "LAC @ LV",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_LA_SF",
+    "game": "LA @ SF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_MIN_NE",
+    "game": "MIN @ NE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_NO_CAR",
+    "game": "NO @ CAR",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_NYG_SEA",
+    "game": "NYG @ SEA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_PIT_JAX",
+    "game": "PIT @ JAX",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_TB_BAL",
+    "game": "TB @ BAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_14_TEN_DET",
+    "game": "TEN @ DET",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "15": [
+   {
+    "gid": "2026_15_ATL_WAS",
+    "game": "ATL @ WAS",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_BAL_PIT",
+    "game": "BAL @ PIT",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_CHI_BUF",
+    "game": "CHI @ BUF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_CIN_CAR",
+    "game": "CIN @ CAR",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_CLE_NYG",
+    "game": "CLE @ NYG",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_DAL_LA",
+    "game": "DAL @ LA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_DEN_LV",
+    "game": "DEN @ LV",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_DET_MIN",
+    "game": "DET @ MIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_IND_TEN",
+    "game": "IND @ TEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_JAX_HOU",
+    "game": "JAX @ HOU",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_MIA_GB",
+    "game": "MIA @ GB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_NE_KC",
+    "game": "NE @ KC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_NO_TB",
+    "game": "NO @ TB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_NYJ_ARI",
+    "game": "NYJ @ ARI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_SEA_PHI",
+    "game": "SEA @ PHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_15_SF_LAC",
+    "game": "SF @ LAC",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "16": [
+   {
+    "gid": "2026_16_ARI_NO",
+    "game": "ARI @ NO",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_BUF_DEN",
+    "game": "BUF @ DEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_CAR_PIT",
+    "game": "CAR @ PIT",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_CIN_IND",
+    "game": "CIN @ IND",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_CLE_BAL",
+    "game": "CLE @ BAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_GB_CHI",
+    "game": "GB @ CHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_HOU_PHI",
+    "game": "HOU @ PHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_JAX_DAL",
+    "game": "JAX @ DAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_LAC_MIA",
+    "game": "LAC @ MIA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_LA_SEA",
+    "game": "LA @ SEA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_NE_NYJ",
+    "game": "NE @ NYJ",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_NYG_DET",
+    "game": "NYG @ DET",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_SF_KC",
+    "game": "SF @ KC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_TB_ATL",
+    "game": "TB @ ATL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_TEN_LV",
+    "game": "TEN @ LV",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_16_WAS_MIN",
+    "game": "WAS @ MIN",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "17": [
+   {
+    "gid": "2026_17_BAL_CIN",
+    "game": "BAL @ CIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_BUF_MIA",
+    "game": "BUF @ MIA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_DEN_NE",
+    "game": "DEN @ NE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_DET_CHI",
+    "game": "DET @ CHI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_HOU_GB",
+    "game": "HOU @ GB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_IND_CLE",
+    "game": "IND @ CLE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_KC_LAC",
+    "game": "KC @ LAC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_LA_TB",
+    "game": "LA @ TB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_LV_ARI",
+    "game": "LV @ ARI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_MIN_NYJ",
+    "game": "MIN @ NYJ",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_NO_ATL",
+    "game": "NO @ ATL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_NYG_DAL",
+    "game": "NYG @ DAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_PHI_SF",
+    "game": "PHI @ SF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_PIT_TEN",
+    "game": "PIT @ TEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_SEA_CAR",
+    "game": "SEA @ CAR",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_17_WAS_JAX",
+    "game": "WAS @ JAX",
+    "referee": "",
+    "played": false
+   }
+  ],
+  "18": [
+   {
+    "gid": "2026_18_ATL_CAR",
+    "game": "ATL @ CAR",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_CHI_MIN",
+    "game": "CHI @ MIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_CLE_CIN",
+    "game": "CLE @ CIN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_DAL_WAS",
+    "game": "DAL @ WAS",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_DET_GB",
+    "game": "DET @ GB",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_JAX_IND",
+    "game": "JAX @ IND",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_LAC_DEN",
+    "game": "LAC @ DEN",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_LV_KC",
+    "game": "LV @ KC",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_MIA_NE",
+    "game": "MIA @ NE",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_NYJ_BUF",
+    "game": "NYJ @ BUF",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_PHI_NYG",
+    "game": "PHI @ NYG",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_PIT_BAL",
+    "game": "PIT @ BAL",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_SEA_LA",
+    "game": "SEA @ LA",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_SF_ARI",
+    "game": "SF @ ARI",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_TB_NO",
+    "game": "TB @ NO",
+    "referee": "",
+    "played": false
+   },
+   {
+    "gid": "2026_18_TEN_HOU",
+    "game": "TEN @ HOU",
+    "referee": "",
+    "played": false
+   }
+  ]
+ },
+ "game_fixes": {}
 }
