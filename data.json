@@ -14,9 +14,9 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-13T01:13Z",
- "updated": "2026-11-09",
- "last_week": 9,
+ "generated_at": "2026-11-13T07:21Z",
+ "updated": "2026-11-12",
+ "last_week": 10,
  "weeks_played": [
   1,
   2,
@@ -26,7 +26,8 @@
   6,
   7,
   8,
-  9
+  9,
+  10
  ],
  "current_week": 10,
  "calibration_games": 272,
@@ -257,7 +258,8 @@
   "401873048",
   "401873049",
   "401873050",
-  "401873051"
+  "401873051",
+  "401873052"
  ],
  "crews": [
   {
@@ -745,9 +747,9 @@
    "g25": 16,
    "flags25": 15.4,
    "ppg25": 74.2,
-   "g26": 8,
-   "pts26": 503.2,
-   "ppg26": 62.9,
+   "g26": 9,
+   "pts26": 537.8,
+   "ppg26": 59.8,
    "weeks": {
     "1": {
      "game": "ATL @ PIT",
@@ -820,6 +822,15 @@
      "stood": 1,
      "pts": 54.0,
      "gid": "2026_08_LAC_LA"
+    },
+    "10": {
+     "game": "WAS @ NYG",
+     "flags": 12,
+     "yards": 79,
+     "overturns": 4,
+     "stood": 0,
+     "pts": 34.6,
+     "gid": "2026_10_WAS_NYG"
     }
    }
   },
@@ -1812,333 +1823,25 @@
  },
  "week_games": [
   {
-   "referee": "Bill Vinovich",
-   "game": "NYG @ PHI",
-   "day": "Sunday",
-   "flags": 22,
-   "yards": 142,
-   "overturns": 2,
+   "referee": "Brad Rogers",
+   "game": "WAS @ NYG",
+   "day": "Thursday",
+   "flags": 12,
+   "yards": 79,
+   "overturns": 4,
    "stood": 0,
-   "pts": 119.9,
-   "top": {
-    "type": "Illegal Motion",
-    "team": "NYG",
-    "player": "M.Fields",
-    "yards": 0,
-    "pts": 24.0,
-    "tier": "rare",
-    "status": "offsetting",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "14:52"
-   }
-  },
-  {
-   "referee": "Clay Martin",
-   "game": "DAL @ IND",
-   "day": "Sunday",
-   "flags": 26,
-   "yards": 220,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 117.2,
-   "top": {
-    "type": "Intentional Grounding",
-    "team": "IND",
-    "player": "D.Jones",
-    "yards": 12,
-    "pts": 12.6,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "01:03"
-   }
-  },
-  {
-   "referee": "Clete Blakeman",
-   "game": "ARI @ SEA",
-   "day": "Sunday",
-   "flags": 22,
-   "yards": 180,
-   "overturns": 0,
-   "stood": 1,
-   "pts": 110.9,
+   "pts": 34.6,
    "top": {
     "type": "Defensive Pass Interference",
-    "team": "ARI",
-    "player": "M.Melton",
-    "yards": 29,
-    "pts": 11.7,
+    "team": "NYG",
+    "player": "D.Banks",
+    "yards": 33,
+    "pts": 12.9,
     "tier": "common",
     "status": "accepted",
     "clutch": true,
-    "qtr": "2",
-    "clock": "00:32"
-   }
-  },
-  {
-   "referee": "Alan Eck",
-   "game": "DEN @ CAR",
-   "day": "Sunday",
-   "flags": 24,
-   "yards": 169,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 105.8,
-   "top": {
-    "type": "Taunting",
-    "team": "CAR",
-    "player": "M.Wilson",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "00:19"
-   }
-  },
-  {
-   "referee": "Scott Novak",
-   "game": "LV @ SF",
-   "day": "Sunday",
-   "flags": 13,
-   "yards": 88,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 87.1,
-   "top": {
-    "type": "Illegal Touch Pass",
-    "team": "SF",
-    "player": "C.Colby",
-    "yards": 0,
-    "pts": 22.0,
-    "tier": "unicorn",
-    "status": "declined",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "06:10"
-   }
-  },
-  {
-   "referee": "Craig Wrolstad",
-   "game": "CIN @ ATL",
-   "day": "Sunday",
-   "flags": 19,
-   "yards": 131,
-   "overturns": 0,
-   "stood": 1,
-   "pts": 79.2,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "ATL",
-    "player": "C.Blair",
-    "yards": 7,
-    "pts": 7.4,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
     "qtr": "4",
-    "clock": "09:27"
-   }
-  },
-  {
-   "referee": "Land Clark",
-   "game": "DET @ MIA",
-   "day": "Sunday",
-   "flags": 21,
-   "yards": 150,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 78.5,
-   "top": {
-    "type": "Kickoff Short of Landing Zone",
-    "team": "MIA",
-    "player": "B.Pinion",
-    "yards": 0,
-    "pts": 6.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "15:00"
-   }
-  },
-  {
-   "referee": "Shawn Hochuli",
-   "game": "CLE @ NO",
-   "day": "Sunday",
-   "flags": 17,
-   "yards": 83,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 74.6,
-   "top": {
-    "type": "Illegal Touch Kick",
-    "team": "CLE",
-    "player": "D.Thomas",
-    "yards": 5,
-    "pts": 23.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "04:26"
-   }
-  },
-  {
-   "referee": "Adrian Hill",
-   "game": "NYJ @ KC",
-   "day": "Sunday",
-   "flags": 13,
-   "yards": 77,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 69.9,
-   "top": {
-    "type": "Illegal Touch Kick",
-    "team": "KC",
-    "player": "M.Smith",
-    "yards": 0,
-    "pts": 22.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "07:39"
-   }
-  },
-  {
-   "referee": "Alex Moore",
-   "game": "HOU @ LAC",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 115,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 69.5,
-   "top": {
-    "type": "Kickoff Short of Landing Zone",
-    "team": "HOU",
-    "player": "K.Fairbairn",
-    "yards": 0,
-    "pts": 6.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "14:12"
-   }
-  },
-  {
-   "referee": "Ron Torbert",
-   "game": "TB @ CHI",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 119,
-   "overturns": 1,
-   "stood": 1,
-   "pts": 65.8,
-   "top": {
-    "type": "Kickoff Short of Landing Zone",
-    "team": "CHI",
-    "player": "C.Santos",
-    "yards": 0,
-    "pts": 6.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "09:38"
-   }
-  },
-  {
-   "referee": "John Hussey",
-   "game": "LA @ WAS",
-   "day": "Sunday",
-   "flags": 16,
-   "yards": 109,
-   "overturns": 2,
-   "stood": 2,
-   "pts": 60.8,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "WAS",
-    "player": "T.Owens",
-    "yards": 10,
-    "pts": 8.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "05:40"
-   }
-  },
-  {
-   "referee": "Brad Allen",
-   "game": "JAX @ BAL",
-   "day": "Thursday",
-   "flags": 11,
-   "yards": 70,
-   "overturns": 2,
-   "stood": 1,
-   "pts": 56.0,
-   "top": {
-    "type": "Illegal Double-Team Block",
-    "team": "BAL",
-    "player": "R.Ali",
-    "yards": 11,
-    "pts": 24.2,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "02:00"
-   }
-  },
-  {
-   "referee": "Alex Kemp",
-   "game": "GB @ NE",
-   "day": "Sunday",
-   "flags": 11,
-   "yards": 45,
-   "overturns": 0,
-   "stood": 2,
-   "pts": 49.0,
-   "top": {
-    "type": "Neutral Zone Infraction",
-    "team": "NE",
-    "player": "G.Jacas",
-    "yards": 5,
-    "pts": 7.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "02:36"
-   }
-  },
-  {
-   "referee": "Carl Cheffers",
-   "game": "BUF @ MIN",
-   "day": "Monday",
-   "flags": 13,
-   "yards": 82,
-   "overturns": 4,
-   "stood": 0,
-   "pts": 27.9,
-   "top": {
-    "type": "Intentional Grounding",
-    "team": "BUF",
-    "player": "J.Allen",
-    "yards": 13,
-    "pts": 8.6,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "06:34"
+    "clock": "01:46"
    }
   }
  ],
@@ -9536,6 +9239,188 @@
     "clock": "10:15",
     "pts": -5
    }
+  ],
+  "2026_10_WAS_NYG": [
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "NYG",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "11:28",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "WAS",
+    "player": "B.Coleman",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "08:50",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "WAS",
+    "player": "J.Bates",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "00:44",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "14:18",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "WAS",
+    "player": "J.Reaves",
+    "yards": 4,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "02:44",
+    "pts": 2.8
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "01:16",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "WAS",
+    "player": "",
+    "yards": 3,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "13:24",
+    "pts": 2.6
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "NYG",
+    "player": "C.Manhertz",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "15:00",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Kickoff Out of Bounds",
+    "team": "NYG",
+    "player": "D.Zvada",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "08:13",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "WAS",
+    "player": "B.Coleman",
+    "yards": 0,
+    "tier": "common",
+    "status": "offsetting",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:04",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "NYG",
+    "player": "M.McFadden",
+    "yards": 0,
+    "tier": "common",
+    "status": "offsetting",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:04",
+    "pts": 4.0
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "05:31",
+    "pts": -5
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "03:56",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "NYG",
+    "player": "",
+    "yards": 4,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:27",
+    "pts": 2.8
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "NYG",
+    "player": "D.Banks",
+    "yards": 33,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:46",
+    "pts": 12.9
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "NYG",
+    "player": "D.Alexander",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:23",
+    "pts": 7.5
+   }
   ]
  },
  "teams": [
@@ -10648,9 +10533,9 @@
        },
        {
         "crew": "Brad Rogers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 34.6,
+        "game": "WAS @ NYG",
+        "status": "final",
         "starter": true
        },
        {
@@ -10661,7 +10546,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 34.6
      },
      "B": {
       "crews": [
@@ -15019,9 +14904,9 @@
         },
         {
          "crew": "Brad Rogers",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 34.6,
+         "game": "WAS @ NYG",
+         "status": "final",
          "starter": true
         },
         {
@@ -15032,7 +14917,7 @@
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 34.6
       },
       "B": {
        "crews": [
@@ -17469,8 +17354,8 @@
    {
     "gid": "2026_10_WAS_NYG",
     "game": "WAS @ NYG",
-    "referee": "",
-    "played": false
+    "referee": "Brad Rogers",
+    "played": true
    }
   ],
   "11": [
