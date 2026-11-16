@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-16T01:28Z",
+ "generated_at": "2026-11-16T08:50Z",
  "updated": "2026-11-15",
  "last_week": 10,
  "weeks_played": [
@@ -270,7 +270,8 @@
   "401873060",
   "401873061",
   "401873062",
-  "401873063"
+  "401873063",
+  "401873064"
  ],
  "crews": [
   {
@@ -2060,6 +2061,28 @@
    }
   },
   {
+   "referee": "Don Willard",
+   "game": "PIT @ CIN",
+   "day": "Sunday",
+   "flags": 12,
+   "yards": 126,
+   "overturns": 4,
+   "stood": 1,
+   "pts": 66.2,
+   "top": {
+    "type": "Invalid Fair Catch Signal",
+    "team": "CIN",
+    "player": "D.Meyers",
+    "yards": 5,
+    "pts": 23.0,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "10:54"
+   }
+  },
+  {
    "referee": "Clete Blakeman",
    "game": "MIN @ GB",
    "day": "Sunday",
@@ -2877,6 +2900,21 @@
    "week": 10,
    "referee": "Bill Vinovich",
    "game": "SEA @ LV"
+  },
+  {
+   "type": "Invalid Fair Catch Signal",
+   "team": "CIN",
+   "player": "D.Meyers",
+   "yards": 5,
+   "pts": 23.0,
+   "tier": "unicorn",
+   "status": "accepted",
+   "clutch": false,
+   "qtr": "3",
+   "clock": "10:54",
+   "week": 10,
+   "referee": "Don Willard",
+   "game": "PIT @ CIN"
   }
  ],
  "ledger": {
@@ -11966,6 +12004,194 @@
     "clock": "00:51",
     "pts": 7.2
    }
+  ],
+  "2026_10_PIT_CIN": [
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "CIN",
+    "player": "J.Giles-Harris",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "15:00",
+    "pts": 4.0
+   },
+   {
+    "k": "stood",
+    "qtr": "1",
+    "clock": "04:00",
+    "pts": 3
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "PIT",
+    "player": "A.Samuel",
+    "yards": 26,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "15:00",
+    "pts": 7.2
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "PIT",
+    "player": "J.Sawyer",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "14:47",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Offside",
+    "team": "PIT",
+    "player": "D.Metcalf",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "14:00",
+    "pts": 7.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "13:25",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "CIN",
+    "player": "R.Yeast",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "13:21",
+    "pts": 4.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "08:33",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Taunting",
+    "team": "CIN",
+    "player": "J.Battle",
+    "yards": 15,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "04:41",
+    "pts": 15.0
+   },
+   {
+    "k": "flag",
+    "type": "Invalid Fair Catch Signal",
+    "team": "CIN",
+    "player": "D.Meyers",
+    "yards": 5,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "10:54",
+    "pts": 23.0
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "10:53",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "CIN",
+    "player": "K.Jenkins",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "08:18",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "PIT",
+    "player": "T.Fautanu",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:30",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "CIN",
+    "player": "J.Foster",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:34",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "CIN",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "05:02",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "03:34",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "CIN",
+    "player": "T.Slaton",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:48",
+    "pts": 5.0
+   }
   ]
  },
  "teams": [
@@ -19655,6 +19881,12 @@
    "game": "MIA @ IND",
    "gid": "2026_10_MIA_IND",
    "why": "referee \"Don Willard\" doesn't match a drafted crew"
+  },
+  {
+   "week": 10,
+   "game": "PIT @ CIN",
+   "gid": "2026_10_PIT_CIN",
+   "why": "referee \"Don Willard\" doesn't match a drafted crew"
   }
  ],
  "schedule": {
@@ -19900,8 +20132,8 @@
    {
     "gid": "2026_10_PIT_CIN",
     "game": "PIT @ CIN",
-    "referee": "",
-    "played": false
+    "referee": "Don Willard",
+    "played": true
    },
    {
     "gid": "2026_10_SEA_LV",
