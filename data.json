@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-16T15:10Z",
+ "generated_at": "2026-11-16T17:46Z",
  "updated": "2026-11-15",
  "last_week": 10,
  "weeks_played": [
@@ -362,9 +362,9 @@
    "g25": 16,
    "flags25": 19.4,
    "ppg25": 90.7,
-   "g26": 8,
-   "pts26": 689.3,
-   "ppg26": 86.2,
+   "g26": 9,
+   "pts26": 727.2,
+   "ppg26": 80.8,
    "weeks": {
     "1": {
      "game": "BUF @ HOU",
@@ -437,6 +437,15 @@
      "stood": 0,
      "pts": 69.5,
      "gid": "2026_09_HOU_LAC"
+    },
+    "10": {
+     "game": "JAX @ TEN",
+     "flags": 8,
+     "yards": 47,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 37.9,
+     "gid": "2026_10_JAX_TEN"
     }
    }
   },
@@ -445,9 +454,9 @@
    "g25": 16,
    "flags25": 17.9,
    "ppg25": 79.3,
-   "g26": 8,
-   "pts26": 591.2,
-   "ppg26": 73.9,
+   "g26": 9,
+   "pts26": 728.3,
+   "ppg26": 80.9,
    "weeks": {
     "1": {
      "game": "GB @ MIN",
@@ -520,6 +529,15 @@
      "stood": 0,
      "pts": 74.6,
      "gid": "2026_09_CLE_NO"
+    },
+    "10": {
+     "game": "CAR @ NO",
+     "flags": 21,
+     "yards": 198,
+     "overturns": 0,
+     "stood": 1,
+     "pts": 137.1,
+     "gid": "2026_10_CAR_NO"
     }
    }
   },
@@ -935,9 +953,9 @@
    "g25": 16,
    "flags25": 17.2,
    "ppg25": 71.5,
-   "g26": 8,
-   "pts26": 498.4,
-   "ppg26": 62.3,
+   "g26": 9,
+   "pts26": 595.5,
+   "ppg26": 66.2,
    "weeks": {
     "1": {
      "game": "DAL @ NYG",
@@ -1010,6 +1028,15 @@
      "stood": 0,
      "pts": 27.9,
      "gid": "2026_09_BUF_MIN"
+    },
+    "10": {
+     "game": "MIA @ IND",
+     "flags": 20,
+     "yards": 113,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 97.1,
+     "gid": "2026_10_MIA_IND"
     }
    }
   },
@@ -1754,9 +1781,9 @@
    "g25": 15,
    "flags25": 12.9,
    "ppg25": 57.9,
-   "g26": 8,
-   "pts26": 564.1,
-   "ppg26": 70.5,
+   "g26": 9,
+   "pts26": 630.3,
+   "ppg26": 70.0,
    "weeks": {
     "1": {
      "game": "CHI @ CAR",
@@ -1829,6 +1856,15 @@
      "stood": 1,
      "pts": 56.0,
      "gid": "2026_09_JAX_BAL"
+    },
+    "10": {
+     "game": "PIT @ CIN",
+     "flags": 12,
+     "yards": 126,
+     "overturns": 4,
+     "stood": 1,
+     "pts": 66.2,
+     "gid": "2026_10_PIT_CIN"
     }
    }
   }
@@ -1907,7 +1943,7 @@
  },
  "week_games": [
   {
-   "referee": "Duane Heydt",
+   "referee": "Shawn Hochuli",
    "game": "CAR @ NO",
    "day": "Sunday",
    "flags": 21,
@@ -1929,7 +1965,7 @@
    }
   },
   {
-   "referee": "Don Willard",
+   "referee": "Carl Cheffers",
    "game": "MIA @ IND",
    "day": "Sunday",
    "flags": 20,
@@ -2061,7 +2097,7 @@
    }
   },
   {
-   "referee": "Don Willard",
+   "referee": "Brad Allen",
    "game": "PIT @ CIN",
    "day": "Sunday",
    "flags": 12,
@@ -2127,7 +2163,7 @@
    }
   },
   {
-   "referee": "Barry Anderson",
+   "referee": "Alex Moore",
    "game": "JAX @ TEN",
    "day": "Sunday",
    "flags": 8,
@@ -2868,7 +2904,7 @@
    "qtr": "3",
    "clock": "09:18",
    "week": 10,
-   "referee": "Don Willard",
+   "referee": "Carl Cheffers",
    "game": "MIA @ IND"
   },
   {
@@ -2883,7 +2919,7 @@
    "qtr": "4",
    "clock": "06:18",
    "week": 10,
-   "referee": "Duane Heydt",
+   "referee": "Shawn Hochuli",
    "game": "CAR @ NO"
   },
   {
@@ -2913,7 +2949,7 @@
    "qtr": "3",
    "clock": "10:54",
    "week": 10,
-   "referee": "Don Willard",
+   "referee": "Brad Allen",
    "game": "PIT @ CIN"
   }
  ],
@@ -13323,9 +13359,9 @@
       "crews": [
        {
         "crew": "Brad Allen",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 66.2,
+        "game": "PIT @ CIN",
+        "status": "final",
         "starter": true
        },
        {
@@ -13343,7 +13379,7 @@
         "starter": false
        }
       ],
-      "pts": 58.0
+      "pts": 124.2
      },
      "final": false,
      "winner": null
@@ -13355,9 +13391,9 @@
       "crews": [
        {
         "crew": "Shawn Hochuli",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 137.1,
+        "game": "CAR @ NO",
+        "status": "final",
         "starter": true
        },
        {
@@ -13369,13 +13405,13 @@
        },
        {
         "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 97.1,
+        "game": "MIA @ IND",
+        "status": "final",
         "starter": false
        }
       ],
-      "pts": 82.0
+      "pts": 219.1
      },
      "B": {
       "crews": [
@@ -13395,9 +13431,9 @@
        },
        {
         "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 37.9,
+        "game": "JAX @ TEN",
+        "status": "final",
         "starter": false
        }
       ],
@@ -17610,9 +17646,9 @@
        "crews": [
         {
          "crew": "Alex Moore",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 37.9,
+         "game": "JAX @ TEN",
+         "status": "final",
          "starter": true
         },
         {
@@ -17630,7 +17666,7 @@
          "starter": false
         }
        ],
-       "pts": 96.8
+       "pts": 134.7
       },
       "B": {
        "crews": [
@@ -17682,9 +17718,9 @@
         },
         {
          "crew": "Brad Allen",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 66.2,
+         "game": "PIT @ CIN",
+         "status": "final",
          "starter": false
         }
        ],
@@ -17694,9 +17730,9 @@
        "crews": [
         {
          "crew": "Shawn Hochuli",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 137.1,
+         "game": "CAR @ NO",
+         "status": "final",
          "starter": true
         },
         {
@@ -17714,7 +17750,7 @@
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 137.1
       },
       "final": false,
       "winner": null
@@ -17759,9 +17795,9 @@
         },
         {
          "crew": "Carl Cheffers",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 97.1,
+         "game": "MIA @ IND",
+         "status": "final",
          "starter": true
         },
         {
@@ -17772,7 +17808,7 @@
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 97.1
       },
       "final": false,
       "winner": null
@@ -19863,32 +19899,7 @@
   }
  ],
  "unknown_ref_games": [],
- "held": [
-  {
-   "week": 10,
-   "game": "CAR @ NO",
-   "gid": "2026_10_CAR_NO",
-   "why": "referee \"Duane Heydt\" doesn't match a drafted crew"
-  },
-  {
-   "week": 10,
-   "game": "JAX @ TEN",
-   "gid": "2026_10_JAX_TEN",
-   "why": "referee \"Barry Anderson\" doesn't match a drafted crew"
-  },
-  {
-   "week": 10,
-   "game": "MIA @ IND",
-   "gid": "2026_10_MIA_IND",
-   "why": "referee \"Don Willard\" doesn't match a drafted crew"
-  },
-  {
-   "week": 10,
-   "game": "PIT @ CIN",
-   "gid": "2026_10_PIT_CIN",
-   "why": "referee \"Don Willard\" doesn't match a drafted crew"
-  }
- ],
+ "held": [],
  "schedule": {
   "8": [
    {
@@ -20078,7 +20089,7 @@
    {
     "gid": "2026_10_CAR_NO",
     "game": "CAR @ NO",
-    "referee": "Duane Heydt",
+    "referee": "Shawn Hochuli",
     "played": true
    },
    {
@@ -20090,7 +20101,7 @@
    {
     "gid": "2026_10_JAX_TEN",
     "game": "JAX @ TEN",
-    "referee": "Barry Anderson",
+    "referee": "Alex Moore",
     "played": true
    },
    {
@@ -20114,7 +20125,7 @@
    {
     "gid": "2026_10_MIA_IND",
     "game": "MIA @ IND",
-    "referee": "Don Willard",
+    "referee": "Carl Cheffers",
     "played": true
    },
    {
@@ -20132,7 +20143,7 @@
    {
     "gid": "2026_10_PIT_CIN",
     "game": "PIT @ CIN",
-    "referee": "Don Willard",
+    "referee": "Brad Allen",
     "played": true
    },
    {
@@ -20903,5 +20914,18 @@
    }
   ]
  },
- "game_fixes": {}
+ "game_fixes": {
+  "2026_10_CAR_NO": {
+   "crew": "Shawn Hochuli"
+  },
+  "2026_10_JAX_TEN": {
+   "crew": "Alex Moore"
+  },
+  "2026_10_MIA_IND": {
+   "crew": "Carl Cheffers"
+  },
+  "2026_10_PIT_CIN": {
+   "crew": "Brad Allen"
+  }
+ }
 }
