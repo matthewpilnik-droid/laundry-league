@@ -14,8 +14,8 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-15T18:50Z",
- "updated": "2026-11-12",
+ "generated_at": "2026-11-16T01:28Z",
+ "updated": "2026-11-15",
  "last_week": 10,
  "weeks_played": [
   1,
@@ -259,7 +259,18 @@
   "401873049",
   "401873050",
   "401873051",
-  "401873052"
+  "401873052",
+  "401873053",
+  "401873054",
+  "401873055",
+  "401873056",
+  "401873057",
+  "401873058",
+  "401873059",
+  "401873060",
+  "401873061",
+  "401873062",
+  "401873063"
  ],
  "crews": [
   {
@@ -267,9 +278,9 @@
    "g25": 17,
    "flags25": 16.2,
    "ppg25": 91.0,
-   "g26": 7,
-   "pts26": 507.7,
-   "ppg26": 72.5,
+   "g26": 8,
+   "pts26": 537.7,
+   "ppg26": 67.2,
    "weeks": {
     "2": {
      "game": "LV @ LAC",
@@ -333,6 +344,15 @@
      "stood": 0,
      "pts": 119.9,
      "gid": "2026_09_NYG_PHI"
+    },
+    "10": {
+     "game": "SEA @ LV",
+     "flags": 3,
+     "yards": 15,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 30.0,
+     "gid": "2026_10_SEA_LV"
     }
    }
   },
@@ -664,9 +684,9 @@
    "g25": 16,
    "flags25": 15.8,
    "ppg25": 75.6,
-   "g26": 8,
-   "pts26": 688.1,
-   "ppg26": 86.0,
+   "g26": 9,
+   "pts26": 776.2,
+   "ppg26": 86.2,
    "weeks": {
     "1": {
      "game": "ARI @ LAC",
@@ -739,6 +759,15 @@
      "stood": 1,
      "pts": 65.8,
      "gid": "2026_09_TB_CHI"
+    },
+    "10": {
+     "game": "BUF @ NYJ",
+     "flags": 18,
+     "yards": 88,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 88.1,
+     "gid": "2026_10_BUF_NYJ"
     }
    }
   },
@@ -1071,9 +1100,9 @@
    "g25": 15,
    "flags25": 14.6,
    "ppg25": 68.2,
-   "g26": 8,
-   "pts26": 507.6,
-   "ppg26": 63.5,
+   "g26": 9,
+   "pts26": 604.4,
+   "ppg26": 67.2,
    "weeks": {
     "1": {
      "game": "WAS @ PHI",
@@ -1146,6 +1175,15 @@
      "stood": 0,
      "pts": 63.7,
      "gid": "2026_08_CHI_SEA"
+    },
+    "10": {
+     "game": "HOU @ CLE",
+     "flags": 15,
+     "yards": 159,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 96.8,
+     "gid": "2026_10_HOU_CLE"
     }
    }
   },
@@ -1154,9 +1192,9 @@
    "g25": 16,
    "flags25": 13.5,
    "ppg25": 67.8,
-   "g26": 8,
-   "pts26": 564.3,
-   "ppg26": 70.5,
+   "g26": 9,
+   "pts26": 611.8,
+   "ppg26": 68.0,
    "weeks": {
     "1": {
      "game": "NYJ @ TEN",
@@ -1229,6 +1267,15 @@
      "stood": 0,
      "pts": 78.5,
      "gid": "2026_09_DET_MIA"
+    },
+    "10": {
+     "game": "LA @ ARI",
+     "flags": 10,
+     "yards": 35,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 47.5,
+     "gid": "2026_10_LA_ARI"
     }
    }
   },
@@ -1237,9 +1284,9 @@
    "g25": 16,
    "flags25": 13.3,
    "ppg25": 65.3,
-   "g26": 8,
-   "pts26": 697.1,
-   "ppg26": 87.1,
+   "g26": 9,
+   "pts26": 786.3,
+   "ppg26": 87.4,
    "weeks": {
     "1": {
      "game": "NO @ DET",
@@ -1312,6 +1359,15 @@
      "stood": 0,
      "pts": 105.8,
      "gid": "2026_09_DEN_CAR"
+    },
+    "10": {
+     "game": "KC @ ATL",
+     "flags": 18,
+     "yards": 126,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 89.2,
+     "gid": "2026_10_KC_ATL"
     }
    }
   },
@@ -1320,9 +1376,9 @@
    "g25": 16,
    "flags25": 14.4,
    "ppg25": 64.7,
-   "g26": 9,
-   "pts26": 649.5,
-   "ppg26": 72.2,
+   "g26": 10,
+   "pts26": 731.5,
+   "ppg26": 73.2,
    "weeks": {
     "1": {
      "game": "DEN @ KC",
@@ -1404,6 +1460,15 @@
      "stood": 0,
      "pts": 117.2,
      "gid": "2026_09_DAL_IND"
+    },
+    "10": {
+     "game": "NE @ DET",
+     "flags": 16,
+     "yards": 120,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 82.0,
+     "gid": "2026_10_NE_DET"
     }
    }
   },
@@ -1412,9 +1477,9 @@
    "g25": 16,
    "flags25": 14.4,
    "ppg25": 62.8,
-   "g26": 8,
-   "pts26": 574.2,
-   "ppg26": 71.8,
+   "g26": 9,
+   "pts26": 632.2,
+   "ppg26": 70.2,
    "weeks": {
     "1": {
      "game": "MIA @ LV",
@@ -1487,6 +1552,15 @@
      "stood": 1,
      "pts": 110.9,
      "gid": "2026_09_ARI_SEA"
+    },
+    "10": {
+     "game": "MIN @ GB",
+     "flags": 13,
+     "yards": 120,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 58.0,
+     "gid": "2026_10_MIN_GB"
     }
    }
   },
@@ -1587,9 +1661,9 @@
    "g25": 16,
    "flags25": 13.7,
    "ppg25": 61.3,
-   "g26": 8,
-   "pts26": 562.3,
-   "ppg26": 70.3,
+   "g26": 9,
+   "pts26": 649.7,
+   "ppg26": 72.2,
    "weeks": {
     "1": {
      "game": "TB @ CIN",
@@ -1662,6 +1736,15 @@
      "stood": 2,
      "pts": 60.8,
      "gid": "2026_09_LA_WAS"
+    },
+    "10": {
+     "game": "SF @ DAL",
+     "flags": 19,
+     "yards": 135,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 87.4,
+     "gid": "2026_10_SF_DAL"
     }
    }
   },
@@ -1823,6 +1906,226 @@
  },
  "week_games": [
   {
+   "referee": "Duane Heydt",
+   "game": "CAR @ NO",
+   "day": "Sunday",
+   "flags": 21,
+   "yards": 198,
+   "overturns": 0,
+   "stood": 1,
+   "pts": 137.1,
+   "top": {
+    "type": "Horse Collar Tackle",
+    "team": "CAR",
+    "player": "J.Phillips",
+    "yards": 15,
+    "pts": 25.0,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:18"
+   }
+  },
+  {
+   "referee": "Don Willard",
+   "game": "MIA @ IND",
+   "day": "Sunday",
+   "flags": 20,
+   "yards": 113,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 97.1,
+   "top": {
+    "type": "Fair Catch Interference",
+    "team": "MIA",
+    "player": "K.Louis",
+    "yards": 15,
+    "pts": 25.0,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "09:18"
+   }
+  },
+  {
+   "referee": "Shawn Smith",
+   "game": "HOU @ CLE",
+   "day": "Sunday",
+   "flags": 15,
+   "yards": 159,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 96.8,
+   "top": {
+    "type": "Player Out of Bounds on Kick",
+    "team": "HOU",
+    "player": "T.Smith",
+    "yards": 5,
+    "pts": 19.5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:49"
+   }
+  },
+  {
+   "referee": "Alan Eck",
+   "game": "KC @ ATL",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 126,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 89.2,
+   "top": {
+    "type": "Offensive Too Many Men on Field",
+    "team": "KC",
+    "player": "",
+    "yards": 5,
+    "pts": 19.5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:35"
+   }
+  },
+  {
+   "referee": "Ron Torbert",
+   "game": "BUF @ NYJ",
+   "day": "Sunday",
+   "flags": 18,
+   "yards": 88,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 88.1,
+   "top": {
+    "type": "Illegal Use of Hands",
+    "team": "BUF",
+    "player": "D.Igbinosun",
+    "yards": 0,
+    "pts": 18.0,
+    "tier": "uncommon",
+    "status": "offsetting",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:43"
+   }
+  },
+  {
+   "referee": "John Hussey",
+   "game": "SF @ DAL",
+   "day": "Sunday",
+   "flags": 19,
+   "yards": 135,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 87.4,
+   "top": {
+    "type": "Taunting",
+    "team": "DAL",
+    "player": "G.Pickens",
+    "yards": 15,
+    "pts": 22.5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:33"
+   }
+  },
+  {
+   "referee": "Clay Martin",
+   "game": "NE @ DET",
+   "day": "Sunday",
+   "flags": 16,
+   "yards": 120,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 82.0,
+   "top": {
+    "type": "Illegal Block Above the Waist",
+    "team": "NE",
+    "player": "R.Gilliam",
+    "yards": 10,
+    "pts": 8.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "06:13"
+   }
+  },
+  {
+   "referee": "Clete Blakeman",
+   "game": "MIN @ GB",
+   "day": "Sunday",
+   "flags": 13,
+   "yards": 120,
+   "overturns": 2,
+   "stood": 0,
+   "pts": 58.0,
+   "top": {
+    "type": "Illegal Motion",
+    "team": "MIN",
+    "player": "T.Felton",
+    "yards": 5,
+    "pts": 13.0,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:10"
+   }
+  },
+  {
+   "referee": "Land Clark",
+   "game": "LA @ ARI",
+   "day": "Sunday",
+   "flags": 10,
+   "yards": 35,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 47.5,
+   "top": {
+    "type": "Kickoff Short of Landing Zone",
+    "team": "LA",
+    "player": "J.Karty",
+    "yards": 0,
+    "pts": 9.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:06"
+   }
+  },
+  {
+   "referee": "Barry Anderson",
+   "game": "JAX @ TEN",
+   "day": "Sunday",
+   "flags": 8,
+   "yards": 47,
+   "overturns": 0,
+   "stood": 1,
+   "pts": 37.9,
+   "top": {
+    "type": "Kickoff Short of Landing Zone",
+    "team": "TEN",
+    "player": "J.Slye",
+    "yards": 0,
+    "pts": 6.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "15:00"
+   }
+  },
+  {
    "referee": "Brad Rogers",
    "game": "WAS @ NYG",
    "day": "Thursday",
@@ -1842,6 +2145,28 @@
     "clutch": true,
     "qtr": "4",
     "clock": "01:46"
+   }
+  },
+  {
+   "referee": "Bill Vinovich",
+   "game": "SEA @ LV",
+   "day": "Sunday",
+   "flags": 3,
+   "yards": 15,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 30.0,
+   "top": {
+    "type": "Illegal Bat",
+    "team": "SEA",
+    "player": "T.Horton",
+    "yards": 0,
+    "pts": 22.0,
+    "tier": "unicorn",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:04"
    }
   }
  ],
@@ -2507,6 +2832,51 @@
    "week": 9,
    "referee": "Scott Novak",
    "game": "LV @ SF"
+  },
+  {
+   "type": "Fair Catch Interference",
+   "team": "MIA",
+   "player": "K.Louis",
+   "yards": 15,
+   "pts": 25.0,
+   "tier": "unicorn",
+   "status": "accepted",
+   "clutch": false,
+   "qtr": "3",
+   "clock": "09:18",
+   "week": 10,
+   "referee": "Don Willard",
+   "game": "MIA @ IND"
+  },
+  {
+   "type": "Horse Collar Tackle",
+   "team": "CAR",
+   "player": "J.Phillips",
+   "yards": 15,
+   "pts": 25.0,
+   "tier": "unicorn",
+   "status": "accepted",
+   "clutch": false,
+   "qtr": "4",
+   "clock": "06:18",
+   "week": 10,
+   "referee": "Duane Heydt",
+   "game": "CAR @ NO"
+  },
+  {
+   "type": "Illegal Bat",
+   "team": "SEA",
+   "player": "T.Horton",
+   "yards": 0,
+   "pts": 22.0,
+   "tier": "unicorn",
+   "status": "declined",
+   "clutch": false,
+   "qtr": "4",
+   "clock": "02:04",
+   "week": 10,
+   "referee": "Bill Vinovich",
+   "game": "SEA @ LV"
   }
  ],
  "ledger": {
@@ -9421,6 +9791,2181 @@
     "clock": "00:23",
     "pts": 7.5
    }
+  ],
+  "2026_10_NE_DET": [
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "NE",
+    "player": "W.Campbell",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "10:05",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "NE",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "09:43",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Block Above the Waist",
+    "team": "NE",
+    "player": "R.Gilliam",
+    "yards": 10,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "06:13",
+    "pts": 8.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "DET",
+    "player": "E.Rakestraw",
+    "yards": 30,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "05:12",
+    "pts": 8.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "DET",
+    "player": "B.Miller",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:33",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Kickoff Out of Bounds",
+    "team": "DET",
+    "player": "J.Bates",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "02:06",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "NE",
+    "player": "A.Brown",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "12:21",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Use of Hands",
+    "team": "NE",
+    "player": "R.Gilliam",
+    "yards": 10,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:54",
+    "pts": 8.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "DET",
+    "player": "T.Ratledge",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "04:44",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "NE",
+    "player": "D.Douglas",
+    "yards": 0,
+    "tier": "common",
+    "status": "offsetting",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "02:21",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "DET",
+    "player": "R.Ya-Sin",
+    "yards": 0,
+    "tier": "common",
+    "status": "offsetting",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "02:21",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "NE",
+    "player": "E.Chism",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "13:39",
+    "pts": 4.0
+   },
+   {
+    "k": "wipe",
+    "qtr": "4",
+    "clock": "13:39",
+    "pts": 6
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "DET",
+    "player": "N.Whiteside",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "13:33",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Kickoff Out of Bounds",
+    "team": "NE",
+    "player": "A.Borregales",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "12:40",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "DET",
+    "player": "I.TeSlaa",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:21",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "DET",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:12",
+    "pts": 3.0
+   }
+  ],
+  "2026_10_KC_ATL": [
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "ATL",
+    "player": "J.Matthews",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "04:27",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "ATL",
+    "player": "J.Taylor",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "03:37",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "KC",
+    "player": "J.Hicks",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "03:15",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "KC",
+    "player": "M.Caliendo",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "01:45",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "KC",
+    "player": "A.Armstrong",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "01:39",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "KC",
+    "player": "C.Jones",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "10:55",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "ATL",
+    "player": "C.Lindstrom",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "09:54",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Tripping",
+    "team": "KC",
+    "player": "C.Humphrey",
+    "yards": 15,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "05:08",
+    "pts": 15.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Too Many Men on Field",
+    "team": "KC",
+    "player": "",
+    "yards": 5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:35",
+    "pts": 19.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "ATL",
+    "player": "M.Ford",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:28",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "ATL",
+    "player": "J.Taylor",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:41",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "ATL",
+    "player": "J.Matthews",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "03:30",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "ATL",
+    "player": "A.Hooper",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "00:24",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "ATL",
+    "player": "J.Matthews",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "14:56",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "ATL",
+    "player": "B.Dorlus",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:03",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "KC",
+    "player": "R.Thomas",
+    "yards": 3,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "08:19",
+    "pts": 2.6
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "KC",
+    "player": "C.Conner",
+    "yards": 18,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "08:12",
+    "pts": 5.6
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "KC",
+    "player": "C.Humphrey",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:46",
+    "pts": 2.0
+   }
+  ],
+  "2026_10_HOU_CLE": [
+   {
+    "k": "flag",
+    "type": "Illegal Shift",
+    "team": "HOU",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "10:43",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "HOU",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "07:33",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "HOU",
+    "player": "N.Remigio",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "04:12",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Block Above the Waist",
+    "team": "CLE",
+    "player": "T.Pride",
+    "yards": 10,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "14:36",
+    "pts": 8.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "HOU",
+    "player": "T.Smith",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "13:09",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "HOU",
+    "player": "A.Ersery",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:55",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "HOU",
+    "player": "M.Stewart",
+    "yards": 7,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "09:00",
+    "pts": 3.4
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "HOU",
+    "player": "A.Ersery",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:02",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "CLE",
+    "player": "M.Harden",
+    "yards": 37,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "10:53",
+    "pts": 9.4
+   },
+   {
+    "k": "flag",
+    "type": "Unsportsmanlike Conduct",
+    "team": "HOU",
+    "player": "N.Collins",
+    "yards": 15,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "09:20",
+    "pts": 9.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "HOU",
+    "player": "W.Anderson",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:08",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Player Out of Bounds on Kick",
+    "team": "HOU",
+    "player": "T.Smith",
+    "yards": 5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:49",
+    "pts": 19.5
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "HOU",
+    "player": "K.Lassiter",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:18",
+    "pts": 7.5
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "HOU",
+    "player": "K.Ramsey",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:53",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "HOU",
+    "player": "F.Nwaiwu",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:17",
+    "pts": 6.0
+   }
+  ],
+  "2026_10_MIN_GB": [
+   {
+    "k": "flag",
+    "type": "Illegal Block Above the Waist",
+    "team": "GB",
+    "player": "B.St-Juste",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "13:21",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "MIN",
+    "player": "W.Fries",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "12:01",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "MIN",
+    "player": "J.Ward",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "10:20",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "MIN",
+    "player": "D.Dallas",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "02:57",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "MIN",
+    "player": "E.Wilson",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "01:18",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Unsportsmanlike Conduct",
+    "team": "MIN",
+    "player": "D.Turner",
+    "yards": 15,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "00:36",
+    "pts": 9.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "GB",
+    "player": "T.Kraft",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "15:00",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "07:24",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "GB",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "05:26",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "05:26",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Shift",
+    "team": "MIN",
+    "player": "T.Felton",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "03:07",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Motion",
+    "team": "MIN",
+    "player": "T.Felton",
+    "yards": 5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:10",
+    "pts": 13.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "GB",
+    "player": "C.Valentine",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:00",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "GB",
+    "player": "K.Welch",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:56",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "GB",
+    "player": "T.Hopper",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:25",
+    "pts": 5.0
+   }
+  ],
+  "2026_10_MIA_IND": [
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "MIA",
+    "player": "G.Dulcich",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "13:50",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "IND",
+    "player": "K.Harris",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "12:23",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "IND",
+    "player": "C.Ward",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "09:41",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "IND",
+    "player": "A.Gardner",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "12:06",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Contact",
+    "team": "IND",
+    "player": "A.Gardner",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "08:55",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "MIA",
+    "player": "J.Kingston",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "08:31",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "IND",
+    "player": "A.Dulin",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:19",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Block Above the Waist",
+    "team": "MIA",
+    "player": "J.Wood",
+    "yards": 10,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "15:00",
+    "pts": 8.0
+   },
+   {
+    "k": "flag",
+    "type": "Fair Catch Interference",
+    "team": "MIA",
+    "player": "K.Louis",
+    "yards": 15,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "09:18",
+    "pts": 25.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Block Above the Waist",
+    "team": "IND",
+    "player": "T.Chambers",
+    "yards": 10,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "08:52",
+    "pts": 8.0
+   },
+   {
+    "k": "over",
+    "qtr": "3",
+    "clock": "02:47",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "IND",
+    "player": "T.Smith",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "02:36",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Shift",
+    "team": "MIA",
+    "player": "C.Douglas",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "01:31",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "IND",
+    "player": "J.Tuimoloau",
+    "yards": 3,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "00:25",
+    "pts": 2.6
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "IND",
+    "player": "A.Adebawore",
+    "yards": 1,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "15:00",
+    "pts": 2.2
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Motion",
+    "team": "IND",
+    "player": "A.Ogletree",
+    "yards": 5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "14:51",
+    "pts": 13.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "IND",
+    "player": "N.Westbrook-Ikhine",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "14:26",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "IND",
+    "player": "K.Harris",
+    "yards": 9,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:54",
+    "pts": 3.8
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Shift",
+    "team": "MIA",
+    "player": "",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:50",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "IND",
+    "player": "D.Tucker",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "09:09",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Contact",
+    "team": "IND",
+    "player": "K.Harris",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:17",
+    "pts": 3.0
+   }
+  ],
+  "2026_10_CAR_NO": [
+   {
+    "k": "flag",
+    "type": "Kickoff Out of Bounds",
+    "team": "CAR",
+    "player": "R.Fitzgerald",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "15:00",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Encroachment",
+    "team": "CAR",
+    "player": "J.Phillips",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "13:45",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "CAR",
+    "player": "R.Walker",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "06:26",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "CAR",
+    "player": "D.Waller",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "03:41",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "CAR",
+    "player": "D.Brown",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "01:43",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "NO",
+    "player": "Q.Riley",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "10:52",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Ineligible Downfield Pass",
+    "team": "CAR",
+    "player": "R.Walker",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "10:26",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "CAR",
+    "player": "L.Fortner",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "08:16",
+    "pts": 4.0
+   },
+   {
+    "k": "wipe",
+    "qtr": "2",
+    "clock": "08:16",
+    "pts": 6
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "NO",
+    "player": "C.Wooden",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:46",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "CAR",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:43",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "CAR",
+    "player": "T.Gipson",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "15:00",
+    "pts": 5.0
+   },
+   {
+    "k": "stood",
+    "qtr": "3",
+    "clock": "13:49",
+    "pts": 3
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "CAR",
+    "player": "D.Lloyd",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "08:46",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "NO",
+    "player": "M.Emerson",
+    "yards": 11,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "04:00",
+    "pts": 4.2
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "CAR",
+    "player": "F.Franks",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "02:30",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "CAR",
+    "player": "F.Franks",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "01:31",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "CAR",
+    "player": "T.Gipson",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:42",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Horse Collar Tackle",
+    "team": "CAR",
+    "player": "J.Phillips",
+    "yards": 15,
+    "tier": "unicorn",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:18",
+    "pts": 25.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "CAR",
+    "player": "T.Moehrig",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "04:42",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "CAR",
+    "player": "C.Thornton",
+    "yards": 17,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "04:40",
+    "pts": 5.4
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "CAR",
+    "player": "T.Dodson",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:10",
+    "pts": 7.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "NO",
+    "player": "K.McKinstry",
+    "yards": 30,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:28",
+    "pts": 12.0
+   }
+  ],
+  "2026_10_BUF_NYJ": [
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "BUF",
+    "player": "M.Hoecht",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "09:22",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "NYJ",
+    "player": "M.Moore",
+    "yards": 17,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "04:25",
+    "pts": 5.4
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "NYJ",
+    "player": "K.Enagbare",
+    "yards": 0,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "02:56",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "BUF",
+    "player": "E.Oliver",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "01:07",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BUF",
+    "player": "D.Knox",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "09:01",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BUF",
+    "player": "D.Dawkins",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:58",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "NYJ",
+    "player": "J.Tippmann",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:14",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "NYJ",
+    "player": "O.Fashanu",
+    "yards": 6,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "05:44",
+    "pts": 3.2
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "NYJ",
+    "player": "M.Taylor",
+    "yards": 0,
+    "tier": "common",
+    "status": "offsetting",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:43",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Use of Hands",
+    "team": "BUF",
+    "player": "D.Igbinosun",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "offsetting",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:43",
+    "pts": 18.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "BUF",
+    "player": "B.Chubb",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "14:12",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Too Many Men on Field",
+    "team": "NYJ",
+    "player": "",
+    "yards": 5,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:16",
+    "pts": 13.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "NYJ",
+    "player": "M.McClain",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "03:42",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BUF",
+    "player": "A.Anderson",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "00:20",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Shift",
+    "team": "BUF",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "13:37",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "10:59",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "BUF",
+    "player": "M.Hoecht",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "05:25",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "NYJ",
+    "player": "A.Membou",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:30",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BUF",
+    "player": "J.Hawes",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:51",
+    "pts": 4.5
+   }
+  ],
+  "2026_10_JAX_TEN": [
+   {
+    "k": "flag",
+    "type": "Kickoff Short of Landing Zone",
+    "team": "TEN",
+    "player": "J.Slye",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "15:00",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "TEN",
+    "player": "O.Oladejo",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "10:27",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "JAX",
+    "player": "Jay.Jones",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "02:37",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TEN",
+    "player": "J.Latham",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:22",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "TEN",
+    "player": "J.Franklin-Myers",
+    "yards": 12,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "08:56",
+    "pts": 4.4
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "TEN",
+    "player": "C.Zavala",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "05:52",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "JAX",
+    "player": "V.Miller",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "04:19",
+    "pts": 5.0
+   },
+   {
+    "k": "stood",
+    "qtr": "3",
+    "clock": "03:49",
+    "pts": 3
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "TEN",
+    "player": "J.Martin",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "01:20",
+    "pts": 3.0
+   }
+  ],
+  "2026_10_LA_ARI": [
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "LA",
+    "player": "M.Garrett",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "11:35",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "LA",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "07:23",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "ARI",
+    "player": "J.Fryar",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "02:41",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "ARI",
+    "player": "R.Lopez",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "00:03",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Contact",
+    "team": "ARI",
+    "player": "D.Burke",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "08:25",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "LA",
+    "player": "C.Daniels",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:18",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Kickoff Short of Landing Zone",
+    "team": "LA",
+    "player": "J.Karty",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:06",
+    "pts": 9.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "ARI",
+    "player": "D.Burke",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "13:39",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Kickoff Out of Bounds",
+    "team": "LA",
+    "player": "J.Karty",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "10:17",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "ARI",
+    "player": "D.Robinson",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "01:55",
+    "pts": 7.0
+   }
+  ],
+  "2026_10_SEA_LV": [
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "SEA",
+    "player": "J.Smith-Njigba",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "04:15",
+    "pts": 4.0
+   },
+   {
+    "k": "wipe",
+    "qtr": "1",
+    "clock": "04:15",
+    "pts": 6
+   },
+   {
+    "k": "flag",
+    "type": "Ineligible Downfield Pass",
+    "team": "SEA",
+    "player": "J.Jones",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "10:30",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "3",
+    "clock": "09:21",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Bat",
+    "team": "SEA",
+    "player": "T.Horton",
+    "yards": 0,
+    "tier": "unicorn",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:04",
+    "pts": 22.0
+   }
+  ],
+  "2026_10_SF_DAL": [
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "SF",
+    "player": "O.Odighizuwa",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "14:50",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "SF",
+    "player": "N.Bosa",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "14:46",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "DAL",
+    "player": "C.Downs",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "10:44",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "SF",
+    "player": "J.Brown",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:54",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "DAL",
+    "player": "B.Spann-Ford",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:12",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "SF",
+    "player": "N.Bosa",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "05:18",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "DAL",
+    "player": "J.Williams",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:24",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "SF",
+    "player": "G.Wallow",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "15:00",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "SF",
+    "player": "D.Puni",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "14:51",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "DAL",
+    "player": "C.Durant",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "14:14",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "DAL",
+    "player": "J.Houston",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "13:49",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "SF",
+    "player": "D.Lenoir",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:03",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "SF",
+    "player": "M.Mustapha",
+    "yards": 6,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "10:00",
+    "pts": 3.2
+   },
+   {
+    "k": "flag",
+    "type": "Face Mask",
+    "team": "SF",
+    "player": "S.Neal",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "06:50",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "SF",
+    "player": "G.Kittle",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:32",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "DAL",
+    "player": "J.Porter",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:23",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Taunting",
+    "team": "DAL",
+    "player": "G.Pickens",
+    "yards": 15,
+    "tier": "rare",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:33",
+    "pts": 22.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "SF",
+    "player": "N.Bosa",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "01:25",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "SF",
+    "player": "E.Prysock",
+    "yards": 14,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:51",
+    "pts": 7.2
+   }
   ]
  },
  "teams": [
@@ -10468,9 +13013,9 @@
       "crews": [
        {
         "crew": "John Hussey",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 87.4,
+        "game": "SF @ DAL",
+        "status": "final",
         "starter": true
        },
        {
@@ -10488,7 +13033,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 87.4
      },
      "B": {
       "crews": [
@@ -10501,9 +13046,9 @@
        },
        {
         "crew": "Bill Vinovich",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 30.0,
+        "game": "SEA @ LV",
+        "status": "final",
         "starter": true
        },
        {
@@ -10514,7 +13059,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 30.0
      },
      "final": false,
      "winner": null
@@ -10526,9 +13071,9 @@
       "crews": [
        {
         "crew": "Shawn Smith",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 96.8,
+        "game": "HOU @ CLE",
+        "status": "final",
         "starter": true
        },
        {
@@ -10540,13 +13085,13 @@
        },
        {
         "crew": "Land Clark",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 47.5,
+        "game": "LA @ ARI",
+        "status": "final",
         "starter": false
        }
       ],
-      "pts": 34.6
+      "pts": 131.4
      },
      "B": {
       "crews": [
@@ -10559,9 +13104,9 @@
        },
        {
         "crew": "Clete Blakeman",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 58.0,
+        "game": "MIN @ GB",
+        "status": "final",
         "starter": true
        },
        {
@@ -10572,7 +13117,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 58.0
      },
      "final": false,
      "winner": null
@@ -10591,9 +13136,9 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 82.0,
+        "game": "NE @ DET",
+        "status": "final",
         "starter": true
        },
        {
@@ -10604,22 +13149,22 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 82.0
      },
      "B": {
       "crews": [
        {
         "crew": "Ron Torbert",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 88.1,
+        "game": "BUF @ NYJ",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 89.2,
+        "game": "KC @ ATL",
+        "status": "final",
         "starter": true
        },
        {
@@ -10630,7 +13175,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 177.3
      },
      "final": false,
      "winner": null
@@ -14846,46 +17391,46 @@
         },
         {
          "crew": "Shawn Smith",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 96.8,
+         "game": "HOU @ CLE",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Clay Martin",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 82.0,
+         "game": "NE @ DET",
+         "status": "final",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 96.8
       },
       "B": {
        "crews": [
         {
          "crew": "Bill Vinovich",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 30.0,
+         "game": "SEA @ LV",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Land Clark",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 47.5,
+         "game": "LA @ ARI",
+         "status": "final",
          "starter": true
         },
         {
          "crew": "Alan Eck",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 89.2,
+         "game": "KC @ ATL",
+         "status": "final",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 77.5
       },
       "final": false,
       "winner": null
@@ -14897,9 +17442,9 @@
        "crews": [
         {
          "crew": "Ron Torbert",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 88.1,
+         "game": "BUF @ NYJ",
+         "status": "final",
          "starter": true
         },
         {
@@ -14917,7 +17462,7 @@
          "starter": false
         }
        ],
-       "pts": 34.6
+       "pts": 122.7
       },
       "B": {
        "crews": [
@@ -14937,9 +17482,9 @@
         },
         {
          "crew": "Clete Blakeman",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 58.0,
+         "game": "MIN @ GB",
+         "status": "final",
          "starter": false
         }
        ],
@@ -14969,9 +17514,9 @@
         },
         {
          "crew": "John Hussey",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 87.4,
+         "game": "SF @ DAL",
+         "status": "final",
          "starter": false
         }
        ],
@@ -17092,7 +19637,26 @@
   }
  ],
  "unknown_ref_games": [],
- "held": [],
+ "held": [
+  {
+   "week": 10,
+   "game": "CAR @ NO",
+   "gid": "2026_10_CAR_NO",
+   "why": "referee \"Duane Heydt\" doesn't match a drafted crew"
+  },
+  {
+   "week": 10,
+   "game": "JAX @ TEN",
+   "gid": "2026_10_JAX_TEN",
+   "why": "referee \"Barry Anderson\" doesn't match a drafted crew"
+  },
+  {
+   "week": 10,
+   "game": "MIA @ IND",
+   "gid": "2026_10_MIA_IND",
+   "why": "referee \"Don Willard\" doesn't match a drafted crew"
+  }
+ ],
  "schedule": {
   "8": [
    {
@@ -17276,32 +19840,32 @@
    {
     "gid": "2026_10_BUF_NYJ",
     "game": "BUF @ NYJ",
-    "referee": "",
-    "played": false
+    "referee": "Ron Torbert",
+    "played": true
    },
    {
     "gid": "2026_10_CAR_NO",
     "game": "CAR @ NO",
-    "referee": "",
-    "played": false
+    "referee": "Duane Heydt",
+    "played": true
    },
    {
     "gid": "2026_10_HOU_CLE",
     "game": "HOU @ CLE",
-    "referee": "",
-    "played": false
+    "referee": "Shawn Smith",
+    "played": true
    },
    {
     "gid": "2026_10_JAX_TEN",
     "game": "JAX @ TEN",
-    "referee": "",
-    "played": false
+    "referee": "Barry Anderson",
+    "played": true
    },
    {
     "gid": "2026_10_KC_ATL",
     "game": "KC @ ATL",
-    "referee": "",
-    "played": false
+    "referee": "Alan Eck",
+    "played": true
    },
    {
     "gid": "2026_10_LAC_BAL",
@@ -17312,26 +19876,26 @@
    {
     "gid": "2026_10_LA_ARI",
     "game": "LA @ ARI",
-    "referee": "",
-    "played": false
+    "referee": "Land Clark",
+    "played": true
    },
    {
     "gid": "2026_10_MIA_IND",
     "game": "MIA @ IND",
-    "referee": "",
-    "played": false
+    "referee": "Don Willard",
+    "played": true
    },
    {
     "gid": "2026_10_MIN_GB",
     "game": "MIN @ GB",
-    "referee": "",
-    "played": false
+    "referee": "Clete Blakeman",
+    "played": true
    },
    {
     "gid": "2026_10_NE_DET",
     "game": "NE @ DET",
     "referee": "Clay Martin",
-    "played": false
+    "played": true
    },
    {
     "gid": "2026_10_PIT_CIN",
@@ -17342,14 +19906,14 @@
    {
     "gid": "2026_10_SEA_LV",
     "game": "SEA @ LV",
-    "referee": "",
-    "played": false
+    "referee": "Bill Vinovich",
+    "played": true
    },
    {
     "gid": "2026_10_SF_DAL",
     "game": "SF @ DAL",
-    "referee": "",
-    "played": false
+    "referee": "John Hussey",
+    "played": true
    },
    {
     "gid": "2026_10_WAS_NYG",
