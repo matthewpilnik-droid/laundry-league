@@ -207,22 +207,33 @@ drafted_refs = drafted_referees()
 #   {"cancelled": "Ron Torbert"}  the game won't be played. The crew assigned to it scores the
 #                                 open-spot share (open_spot_pct) of the week's average, and the
 #                                 week stops waiting for the game.
+#   {"note": "..."}               optional, alone or with one of the above: a short line the
+#                                 league page shows with the game, e.g. "Alan Eck reassigned
+#                                 from HOU @ CLE (FAA ground stop)". Display only; no effect on scores.
 real_crews = drafted_refs if drafted_refs is not None else \
     ({games[g]["referee"] for g in g_cur if games[g]["referee"]} or canon)
 GID = re.compile(rf"{SEASON}_(\d\d)_[A-Z]{{2,3}}_[A-Z]{{2,3}}")
 g_cur_set = set(g_cur)
 credited, cancelled = {}, {}     # game id -> crew; game id -> {"week", "game", "crew"}
+notes = {}                       # game id -> the commissioner's note
 for gid, fx in LEAGUE.get("game_fixes", {}).items():
     where = f"league.json problem - game_fixes, {gid}"
     g = games.get(gid) if games.get(gid, {}).get("season") == str(SEASON) else None
     m = GID.fullmatch(gid)
-    if not (isinstance(fx, dict) and len(fx) == 1 and next(iter(fx)) in ("crew", "cancelled")
-            and isinstance(next(iter(fx.values())), str)):
-        sys.exit(f'{where}: write {{"crew": "Name"}} or {{"cancelled": "Name"}}.')
-    kind, raw = next(iter(fx.items()))
+    kinds = [k for k in fx if k in ("crew", "cancelled")] if isinstance(fx, dict) else []
+    if not (isinstance(fx, dict) and fx and set(fx) <= {"crew", "cancelled", "note"} and len(kinds) <= 1
+            and all(isinstance(v, str) and v.strip() for v in fx.values())):
+        sys.exit(f'{where}: write {{"crew": "Name"}} or {{"cancelled": "Name"}}, '
+                 f'optionally with "note": "Text" (or a note on its own).')
+    kind = kinds[0] if kinds else None
     # A cancelled game may drop off the schedule entirely; its id still says which week it was.
     if g is None and not (kind == "cancelled" and m):
         sys.exit(f"{where}: no {SEASON} regular-season game with that id (ids look like {SEASON}_09_TB_CHI).")
+    if "note" in fx:
+        notes[gid] = fx["note"].strip()
+    if kind is None:
+        continue
+    raw = fx[kind]
     crew = resolve_crew(raw, real_crews)
     if crew not in real_crews:
         sys.exit(f"{where}: '{raw}' isn't one of the real crews. Valid names: {sorted(real_crews)}")
@@ -232,7 +243,8 @@ for gid, fx in LEAGUE.get("game_fixes", {}).items():
     else:
         if gid in g_cur_set:
             sys.exit(f"{where}: this game was played, so it can't be marked cancelled.")
-        cancelled[gid] = {"week": int(g["week"]) if g else int(m.group(1)), "game": label(g) if g else gid, "crew": crew}
+        cancelled[gid] = {"week": int(g["week"]) if g else int(m.group(1)), "game": label(g) if g else gid,
+                          "crew": crew, "note": notes.get(gid)}
 
 unknown_ref = [gid for gid in g_cur if not games[gid]["referee"]]
 
@@ -252,8 +264,11 @@ for gid in g_cur + list(cancelled):
         sys.exit(f"league.json problem - game_fixes: {crew} would have two games in Week {w} "
                  f"({other} and {gid}). Check which game that crew actually worked.")
 cancelled_crews = collections.defaultdict(dict)  # week -> crew -> label of its cancelled game
+cancelled_notes = collections.defaultdict(dict)  # week -> crew -> note on its cancelled game
 for c in cancelled.values():
     cancelled_crews[c["week"]][c["crew"]] = c["game"]
+    if c["note"]:
+        cancelled_notes[c["week"]][c["crew"]] = c["note"]
 
 
 # ---- Hold a week whose referee isn't known ------------------------------------
@@ -292,7 +307,8 @@ for gid in g_cur:
     if g["referee"]:
         crews[g["referee"]]["weeks"][int(g["week"])] = {
             "game": label(g), "flags": pg["flags"], "yards": pg["yards"],
-            "overturns": pg["overturns"], "stood": pg["stood"], "pts": round(pg["pts"], 1), "gid": gid}
+            "overturns": pg["overturns"], "stood": pg["stood"], "pts": round(pg["pts"], 1), "gid": gid,
+            **({"note": notes[gid]} if gid in notes else {})}
 
 # The current season's referees are the draftable pool; fall back to the
 # calibration season's list early in a season.
@@ -349,7 +365,7 @@ for gid in g_cur:
     week_games.append({
         "referee": g["referee"] or "Unknown", "game": label(g), "day": g["weekday"],
         "flags": pg["flags"], "yards": pg["yards"], "overturns": pg["overturns"], "stood": pg["stood"],
-        "pts": round(pg["pts"], 1),
+        "pts": round(pg["pts"], 1), **({"note": notes[gid]} if gid in notes else {}),
         "top": {k: top[k] for k in ("type", "team", "player", "yards", "pts", "tier",
                                      "status", "clutch", "qtr", "clock")},
     })
@@ -480,14 +496,16 @@ def play_season(names, managers, init, starters, lg_start):
         """Score and status of one crew in one week."""
         wk = by_ref[c]["weeks"].get(w)
         if wk:
-            return {"crew": c, "pts": wk["pts"], "game": wk["game"], "status": "final"}
+            return {"crew": c, "pts": wk["pts"], "game": wk["game"], "status": "final",
+                    **({"note": wk["note"]} if wk.get("note") else {})}
         if c == REPLACEMENT:
             return {"crew": c, "pts": 0, "game": None, "status": "pending"}
         if c in cancelled_crews.get(w, {}):
             # Its game was cancelled: the open-spot share of the week's average, once the week is final.
             avg = rr_weeks[w]["pts"] if week_final[w] and w in rr_weeks else None
             return {"crew": c, "pts": round(avg * OPEN_PCT / 100, 1) if avg is not None else 0,
-                    "game": cancelled_crews[w][c], "status": "cancelled", "avg": avg, "pct": OPEN_PCT}
+                    "game": cancelled_crews[w][c], "status": "cancelled", "avg": avg, "pct": OPEN_PCT,
+                    **({"note": cancelled_notes[w][c]} if c in cancelled_notes.get(w, {}) else {})}
         return {"crew": c, "pts": 0, "game": None, "status": "bye" if week_final[w] else "pending"}
 
     def team_week(t, w):
@@ -720,8 +738,10 @@ json.dump({
     "held": held,
     # Every league week's games, for the commissioner page's game fixes.
     "schedule": schedule_out,
-    "game_fixes": {gid: {"crew": c} for gid, c in credited.items()} |
-                  {gid: {"cancelled": c["crew"]} for gid, c in cancelled.items()},
+    "game_fixes": {gid: {**({"crew": credited[gid]} if gid in credited else {}),
+                         **({"cancelled": cancelled[gid]["crew"]} if gid in cancelled else {}),
+                         **({"note": notes[gid]} if gid in notes else {})}
+                   for gid in sorted(credited.keys() | cancelled.keys() | notes.keys())},
 }, open(OUT, "w"), indent=1)
 print(f"wrote {OUT} | mode {'live' if drafted else 'preview'} | crews {len(crew_list)} "
       f"| weeks {weeks_played} | current league week {league['current_week']} | games missing a referee: {len(unknown_ref)} "

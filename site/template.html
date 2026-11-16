@@ -88,6 +88,8 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .st.open { background: var(--flag-soft); color: var(--ink-2); }
 .st.live { background: color-mix(in srgb, var(--live) 16%, transparent); color: var(--live); }
 .cl.bench { opacity: .5; }
+/* The commissioner's note on a game (league.json game_fixes "note"), e.g. a reassigned referee. */
+.cl .note, .gnote { flex-basis: 100%; display: block; font-size: 12px; font-style: italic; color: var(--ink-3); }
 .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
 .award { padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; }
 .award .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--flag); color: var(--flag-ink); font-family: Oswald, sans-serif; font-weight: 700; font-size: 20px; }
@@ -566,7 +568,7 @@ footer .stripes { margin-bottom: 24px; }
   function rrHtml(w) {
     const rows = D.crews.filter(c => !c.replacement && c.weeks[w]).map(c => ({ ref: c.referee, ...c.weeks[w] })).sort((a, b) => b.pts - a.pts);
     const avg = rows.reduce((a, x) => a + x.pts, 0) / (rows.length || 1);
-    return `<div class="ledger"><table>${rows.map(x => `<tr><td>${esc(x.ref)} <span class="faint">${esc(x.game)}</span></td><td class="r">${fmt(x.pts)}</td></tr>`).join('')}
+    return `<div class="ledger"><table>${rows.map(x => `<tr><td>${esc(x.ref)} <span class="faint">${esc(x.game)}</span>${x.note ? `<span class="gnote">${esc(x.note)}</span>` : ''}</td><td class="r">${fmt(x.pts)}</td></tr>`).join('')}
       <tr class="tot"><td>Average of ${rows.length} crews</td><td class="r">${fmt(avg)}</td></tr></table>
       <div class="how">The ${esc(D.replacement)} score the average of every real crew that worked this week.</div></div>`;
   }
@@ -618,7 +620,7 @@ footer .stripes { margin-bottom: 24px; }
       tag = ov.state === 'in' ? `<span class="st live">Live · ${esc(ov.detail)}</span>` : '<span class="st">Final · unofficial</span>';
     } else if (l.status === 'pending') { pts = null; tag = '<span class="st">Not played yet</span>'; }
     if (!l.starter) tag = '<span class="st">Bench</span> ' + tag;
-    const line = `<div class="cl${l.starter ? '' : ' bench'}"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts)}</span>` : ''} ${tag} <span>${where}</span></div>`;
+    const line = `<div class="cl${l.starter ? '' : ' bench'}"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts)}</span>` : ''} ${tag} <span>${where}</span>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
     const detail = crewDetail(l, ov, w), k = `${scope}|${w}|${l.crew}`;
     return { pts: l.starter ? pts || 0 : 0, html: detail
       ? `<details class="dd" data-k="${esc(k)}"${openK.has(k) ? ' open' : ''}><summary>${line}</summary>${detail}</details>`
@@ -856,7 +858,7 @@ footer .stripes { margin-bottom: 24px; }
   const maxPts = Math.max(...D.week_games.map(g => g.pts));
   $('#week-tbl').innerHTML = `<thead><tr><th>Crew (referee)</th><th class="hide-sm">Game</th><th class="r">Flags</th><th class="r hide-sm">Penalty yards</th><th>Points</th><th class="hide-sm">Biggest flag</th></tr></thead><tbody>` +
     D.week_games.map(g => `<tr>
-      <td><div class="ref">${esc(g.referee)}</div><div class="game mob">${esc(g.game)} · ${esc(g.day)}</div>${ownLast[g.referee] ? `<div class="own">${live ? '' : 'Sample: '}${esc(ownLast[g.referee])}</div>` : ''}</td>
+      <td><div class="ref">${esc(g.referee)}</div><div class="game mob">${esc(g.game)} · ${esc(g.day)}</div>${g.note ? `<div class="gnote">${esc(g.note)}</div>` : ''}${ownLast[g.referee] ? `<div class="own">${live ? '' : 'Sample: '}${esc(ownLast[g.referee])}</div>` : ''}</td>
       <td class="hide-sm game">${esc(g.game)}</td>
       <td class="r">${g.flags}</td><td class="r hide-sm">${g.yards}</td>
       <td class="bar"><div><span>${fmt(g.pts)}</span><u><i style="width:${(g.pts / maxPts * 100).toFixed(1)}%"></i></u></div></td>

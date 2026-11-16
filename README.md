@@ -98,11 +98,22 @@ On the commissioner page's Lineups tab, pick the week and set the game under **G
   assignments); it scores the open-spot share of the week's average, and the week stops waiting
   for the game.
 
+- **Note** (optional, any game, alone or with a fix): a short line the league page shows with
+  the game, e.g. "Alan Eck reassigned from HOU @ CLE". Display only; it never changes a score, so
+  it can be added to a final week without unlocking it.
+
 They're saved under `game_fixes` in `league.json`, keyed by game id:
 
 ```json
-"game_fixes": {"2026_09_TB_CHI": {"cancelled": "Ron Torbert"}, "2026_10_DAL_NYG": {"crew": "Shawn Hochuli"}}
+"game_fixes": {"2026_09_TB_CHI": {"cancelled": "Ron Torbert"}, "2026_10_DAL_NYG": {"crew": "Shawn Hochuli", "note": "Substitute referee"}}
 ```
+
+**Emergency referees (decided in Week 10 of 2026, FAA ground stop):** a referee moved to a different
+game is credited for the game he actually worked; add a note saying where he was moved from. A game
+worked by an emergency referee who isn't one of the 17 crews is set to **Counts for crew**, credited
+to the league crew left without a game (its original referee, or the end of the chain of moves), with a
+note explaining it. Every scheduled crew ends up with exactly one game, and those games count in the
+weekly average. A suspended crew is simply off that week (0 points).
 
 The update stops and emails you if a fix names a game or crew that doesn't exist, marks a
 played game as cancelled, or gives a crew two games in one week. Final weeks are locked like
