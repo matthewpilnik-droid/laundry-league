@@ -17,7 +17,19 @@
     { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": ["Carl Cheffers", "Shawn Hochuli", "Clay Martin"] }
   ],
   "off": {"8":["Bill Vinovich","Carl Cheffers","Land Clark"],"9":["Brad Rogers","Shawn Smith"],"10":["Alex Kemp","Craig Wrolstad","Scott Novak"]},
-  "game_fixes": {"2026_10_CAR_NO":{"crew":"Shawn Hochuli"},"2026_10_JAX_TEN":{"crew":"Alex Moore"},"2026_10_MIA_IND":{"crew":"Carl Cheffers"},"2026_10_PIT_CIN":{"crew":"Brad Allen"}},
+  "game_fixes": {
+    "2026_10_CAR_NO": {"crew": "Shawn Hochuli", "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck"},
+    "2026_10_HOU_CLE": {"note": "Ground stop: moved from CAR @ NO"},
+    "2026_10_JAX_TEN": {"crew": "Alex Moore", "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew"},
+    "2026_10_KC_ATL": {"note": "Ground stop: moved from HOU @ CLE"},
+    "2026_10_LAC_BAL": {"note": "Ground stop: swapped with Clark (was LA @ ARI)"},
+    "2026_10_LA_ARI": {"note": "Ground stop: swapped with Hill (was LAC @ BAL)"},
+    "2026_10_MIA_IND": {"crew": "Carl Cheffers", "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew"},
+    "2026_10_MIN_GB": {"note": "Ground stop: moved from PIT @ CIN"},
+    "2026_10_PIT_CIN": {"crew": "Brad Allen", "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich"},
+    "2026_10_SEA_LV": {"note": "Ground stop: moved from SF @ DAL"},
+    "2026_10_SF_DAL": {"note": "Ground stop: moved from MIN @ GB"}
+  },
   "lineups": [
     { "week": 8, "team": "Helen Keller's School for Refs that Don't See That Good", "start": ["Scott Novak", "2012 Replacement Refs"] },
     { "week": 8, "team": "Zebras with Gambling Debts", "start": ["Adrian Hill", "Alex Kemp"] },
