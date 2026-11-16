@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-16T17:46Z",
+ "generated_at": "2026-11-16T17:57Z",
  "updated": "2026-11-15",
  "last_week": 10,
  "weeks_played": [
@@ -353,7 +353,8 @@
      "overturns": 1,
      "stood": 0,
      "pts": 30.0,
-     "gid": "2026_10_SEA_LV"
+     "gid": "2026_10_SEA_LV",
+     "note": "Ground stop: moved from SF @ DAL"
     }
    }
   },
@@ -445,7 +446,8 @@
      "overturns": 0,
      "stood": 1,
      "pts": 37.9,
-     "gid": "2026_10_JAX_TEN"
+     "gid": "2026_10_JAX_TEN",
+     "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew"
     }
    }
   },
@@ -537,7 +539,8 @@
      "overturns": 0,
      "stood": 1,
      "pts": 137.1,
-     "gid": "2026_10_CAR_NO"
+     "gid": "2026_10_CAR_NO",
+     "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck"
     }
    }
   },
@@ -1036,7 +1039,8 @@
      "overturns": 1,
      "stood": 0,
      "pts": 97.1,
-     "gid": "2026_10_MIA_IND"
+     "gid": "2026_10_MIA_IND",
+     "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew"
     }
    }
   },
@@ -1211,7 +1215,8 @@
      "overturns": 0,
      "stood": 0,
      "pts": 96.8,
-     "gid": "2026_10_HOU_CLE"
+     "gid": "2026_10_HOU_CLE",
+     "note": "Ground stop: moved from CAR @ NO"
     }
    }
   },
@@ -1303,7 +1308,8 @@
      "overturns": 0,
      "stood": 0,
      "pts": 47.5,
-     "gid": "2026_10_LA_ARI"
+     "gid": "2026_10_LA_ARI",
+     "note": "Ground stop: swapped with Hill (was LAC @ BAL)"
     }
    }
   },
@@ -1395,7 +1401,8 @@
      "overturns": 0,
      "stood": 0,
      "pts": 89.2,
-     "gid": "2026_10_KC_ATL"
+     "gid": "2026_10_KC_ATL",
+     "note": "Ground stop: moved from HOU @ CLE"
     }
    }
   },
@@ -1588,7 +1595,8 @@
      "overturns": 2,
      "stood": 0,
      "pts": 58.0,
-     "gid": "2026_10_MIN_GB"
+     "gid": "2026_10_MIN_GB",
+     "note": "Ground stop: moved from PIT @ CIN"
     }
    }
   },
@@ -1772,7 +1780,8 @@
      "overturns": 0,
      "stood": 0,
      "pts": 87.4,
-     "gid": "2026_10_SF_DAL"
+     "gid": "2026_10_SF_DAL",
+     "note": "Ground stop: moved from MIN @ GB"
     }
    }
   },
@@ -1864,7 +1873,8 @@
      "overturns": 4,
      "stood": 1,
      "pts": 66.2,
-     "gid": "2026_10_PIT_CIN"
+     "gid": "2026_10_PIT_CIN",
+     "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich"
     }
    }
   }
@@ -1951,6 +1961,7 @@
    "overturns": 0,
    "stood": 1,
    "pts": 137.1,
+   "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck",
    "top": {
     "type": "Horse Collar Tackle",
     "team": "CAR",
@@ -1973,6 +1984,7 @@
    "overturns": 1,
    "stood": 0,
    "pts": 97.1,
+   "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew",
    "top": {
     "type": "Fair Catch Interference",
     "team": "MIA",
@@ -1995,6 +2007,7 @@
    "overturns": 0,
    "stood": 0,
    "pts": 96.8,
+   "note": "Ground stop: moved from CAR @ NO",
    "top": {
     "type": "Player Out of Bounds on Kick",
     "team": "HOU",
@@ -2017,6 +2030,7 @@
    "overturns": 0,
    "stood": 0,
    "pts": 89.2,
+   "note": "Ground stop: moved from HOU @ CLE",
    "top": {
     "type": "Offensive Too Many Men on Field",
     "team": "KC",
@@ -2061,6 +2075,7 @@
    "overturns": 0,
    "stood": 0,
    "pts": 87.4,
+   "note": "Ground stop: moved from MIN @ GB",
    "top": {
     "type": "Taunting",
     "team": "DAL",
@@ -2105,6 +2120,7 @@
    "overturns": 4,
    "stood": 1,
    "pts": 66.2,
+   "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich",
    "top": {
     "type": "Invalid Fair Catch Signal",
     "team": "CIN",
@@ -2127,6 +2143,7 @@
    "overturns": 2,
    "stood": 0,
    "pts": 58.0,
+   "note": "Ground stop: moved from PIT @ CIN",
    "top": {
     "type": "Illegal Motion",
     "team": "MIN",
@@ -2149,6 +2166,7 @@
    "overturns": 0,
    "stood": 0,
    "pts": 47.5,
+   "note": "Ground stop: swapped with Hill (was LAC @ BAL)",
    "top": {
     "type": "Kickoff Short of Landing Zone",
     "team": "LA",
@@ -2171,6 +2189,7 @@
    "overturns": 0,
    "stood": 1,
    "pts": 37.9,
+   "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew",
    "top": {
     "type": "Kickoff Short of Landing Zone",
     "team": "TEN",
@@ -2215,6 +2234,7 @@
    "overturns": 1,
    "stood": 0,
    "pts": 30.0,
+   "note": "Ground stop: moved from SF @ DAL",
    "top": {
     "type": "Illegal Bat",
     "team": "SEA",
@@ -13278,6 +13298,7 @@
         "pts": 87.4,
         "game": "SF @ DAL",
         "status": "final",
+        "note": "Ground stop: moved from MIN @ GB",
         "starter": true
        },
        {
@@ -13311,6 +13332,7 @@
         "pts": 30.0,
         "game": "SEA @ LV",
         "status": "final",
+        "note": "Ground stop: moved from SF @ DAL",
         "starter": true
        },
        {
@@ -13336,6 +13358,7 @@
         "pts": 96.8,
         "game": "HOU @ CLE",
         "status": "final",
+        "note": "Ground stop: moved from CAR @ NO",
         "starter": true
        },
        {
@@ -13350,6 +13373,7 @@
         "pts": 47.5,
         "game": "LA @ ARI",
         "status": "final",
+        "note": "Ground stop: swapped with Hill (was LAC @ BAL)",
         "starter": false
        }
       ],
@@ -13362,6 +13386,7 @@
         "pts": 66.2,
         "game": "PIT @ CIN",
         "status": "final",
+        "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich",
         "starter": true
        },
        {
@@ -13369,6 +13394,7 @@
         "pts": 58.0,
         "game": "MIN @ GB",
         "status": "final",
+        "note": "Ground stop: moved from PIT @ CIN",
         "starter": true
        },
        {
@@ -13394,6 +13420,7 @@
         "pts": 137.1,
         "game": "CAR @ NO",
         "status": "final",
+        "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck",
         "starter": true
        },
        {
@@ -13408,6 +13435,7 @@
         "pts": 97.1,
         "game": "MIA @ IND",
         "status": "final",
+        "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew",
         "starter": false
        }
       ],
@@ -13427,6 +13455,7 @@
         "pts": 89.2,
         "game": "KC @ ATL",
         "status": "final",
+        "note": "Ground stop: moved from HOU @ CLE",
         "starter": true
        },
        {
@@ -13434,6 +13463,7 @@
         "pts": 37.9,
         "game": "JAX @ TEN",
         "status": "final",
+        "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew",
         "starter": false
        }
       ],
@@ -17649,6 +17679,7 @@
          "pts": 37.9,
          "game": "JAX @ TEN",
          "status": "final",
+         "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew",
          "starter": true
         },
         {
@@ -17656,6 +17687,7 @@
          "pts": 96.8,
          "game": "HOU @ CLE",
          "status": "final",
+         "note": "Ground stop: moved from CAR @ NO",
          "starter": true
         },
         {
@@ -17675,6 +17707,7 @@
          "pts": 30.0,
          "game": "SEA @ LV",
          "status": "final",
+         "note": "Ground stop: moved from SF @ DAL",
          "starter": true
         },
         {
@@ -17682,6 +17715,7 @@
          "pts": 47.5,
          "game": "LA @ ARI",
          "status": "final",
+         "note": "Ground stop: swapped with Hill (was LAC @ BAL)",
          "starter": true
         },
         {
@@ -17689,6 +17723,7 @@
          "pts": 89.2,
          "game": "KC @ ATL",
          "status": "final",
+         "note": "Ground stop: moved from HOU @ CLE",
          "starter": false
         }
        ],
@@ -17721,6 +17756,7 @@
          "pts": 66.2,
          "game": "PIT @ CIN",
          "status": "final",
+         "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich",
          "starter": false
         }
        ],
@@ -17733,6 +17769,7 @@
          "pts": 137.1,
          "game": "CAR @ NO",
          "status": "final",
+         "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck",
          "starter": true
         },
         {
@@ -17747,6 +17784,7 @@
          "pts": 58.0,
          "game": "MIN @ GB",
          "status": "final",
+         "note": "Ground stop: moved from PIT @ CIN",
          "starter": false
         }
        ],
@@ -17779,6 +17817,7 @@
          "pts": 87.4,
          "game": "SF @ DAL",
          "status": "final",
+         "note": "Ground stop: moved from MIN @ GB",
          "starter": false
         }
        ],
@@ -17798,6 +17837,7 @@
          "pts": 97.1,
          "game": "MIA @ IND",
          "status": "final",
+         "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew",
          "starter": true
         },
         {
@@ -20916,16 +20956,41 @@
  },
  "game_fixes": {
   "2026_10_CAR_NO": {
-   "crew": "Shawn Hochuli"
+   "crew": "Shawn Hochuli",
+   "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck"
+  },
+  "2026_10_HOU_CLE": {
+   "note": "Ground stop: moved from CAR @ NO"
   },
   "2026_10_JAX_TEN": {
-   "crew": "Alex Moore"
+   "crew": "Alex Moore",
+   "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew"
+  },
+  "2026_10_KC_ATL": {
+   "note": "Ground stop: moved from HOU @ CLE"
+  },
+  "2026_10_LAC_BAL": {
+   "note": "Ground stop: swapped with Clark (was LA @ ARI)"
+  },
+  "2026_10_LA_ARI": {
+   "note": "Ground stop: swapped with Hill (was LAC @ BAL)"
   },
   "2026_10_MIA_IND": {
-   "crew": "Carl Cheffers"
+   "crew": "Carl Cheffers",
+   "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew"
+  },
+  "2026_10_MIN_GB": {
+   "note": "Ground stop: moved from PIT @ CIN"
   },
   "2026_10_PIT_CIN": {
-   "crew": "Brad Allen"
+   "crew": "Brad Allen",
+   "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich"
+  },
+  "2026_10_SEA_LV": {
+   "note": "Ground stop: moved from SF @ DAL"
+  },
+  "2026_10_SF_DAL": {
+   "note": "Ground stop: moved from MIN @ GB"
   }
  }
 }
