@@ -14,8 +14,8 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-17T01:15Z",
- "updated": "2026-11-15",
+ "generated_at": "2026-11-17T07:24Z",
+ "updated": "2026-11-16",
  "last_week": 10,
  "weeks_played": [
   1,
@@ -29,7 +29,7 @@
   9,
   10
  ],
- "current_week": 10,
+ "current_week": 11,
  "calibration_games": 272,
  "avg_ppg25": 71.8,
  "avg_flags25": 15.2,
@@ -271,7 +271,8 @@
   "401873061",
   "401873062",
   "401873063",
-  "401873064"
+  "401873064",
+  "401873065"
  ],
  "crews": [
   {
@@ -549,9 +550,9 @@
    "g25": 14,
    "flags25": 17.9,
    "ppg25": 79.2,
-   "g26": 7,
-   "pts26": 660.0,
-   "ppg26": 94.3,
+   "g26": 8,
+   "pts26": 712.5,
+   "ppg26": 89.1,
    "weeks": {
     "1": {
      "game": "NE @ SEA",
@@ -615,6 +616,16 @@
      "stood": 0,
      "pts": 69.9,
      "gid": "2026_09_NYJ_KC"
+    },
+    "10": {
+     "game": "LAC @ BAL",
+     "flags": 13,
+     "yards": 75,
+     "overturns": 1,
+     "stood": 0,
+     "pts": 52.5,
+     "gid": "2026_10_LAC_BAL",
+     "note": "Ground stop: swapped with Clark (was LA @ ARI)"
     }
    }
   },
@@ -891,9 +902,9 @@
    "g25": null,
    "flags25": 15.2,
    "ppg25": 71.8,
-   "g26": 9,
-   "pts26": 699.1,
-   "ppg26": 77.7,
+   "g26": 10,
+   "pts26": 770.8,
+   "ppg26": 77.1,
    "weeks": {
     "1": {
      "game": "Weekly average of 16 crews",
@@ -948,6 +959,12 @@
      "flags": null,
      "yards": null,
      "pts": 78.1
+    },
+    "10": {
+     "game": "Weekly average of 14 crews",
+     "flags": null,
+     "yards": null,
+     "pts": 71.7
     }
    }
   },
@@ -2155,6 +2172,29 @@
     "clutch": false,
     "qtr": "4",
     "clock": "11:10"
+   }
+  },
+  {
+   "referee": "Adrian Hill",
+   "game": "LAC @ BAL",
+   "day": "Monday",
+   "flags": 13,
+   "yards": 75,
+   "overturns": 1,
+   "stood": 0,
+   "pts": 52.5,
+   "note": "Ground stop: swapped with Clark (was LA @ ARI)",
+   "top": {
+    "type": "Tripping",
+    "team": "BAL",
+    "player": "R.Rosengarten",
+    "yards": 0,
+    "pts": 12.0,
+    "tier": "rare",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:17"
    }
   },
   {
@@ -12248,6 +12288,183 @@
     "clock": "02:48",
     "pts": 5.0
    }
+  ],
+  "2026_10_LAC_BAL": [
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "BAL",
+    "player": "J.Simpson",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "07:15",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "1",
+    "clock": "03:53",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Ineligible Downfield Pass",
+    "team": "LAC",
+    "player": "T.Burke",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "03:39",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Formation",
+    "team": "LAC",
+    "player": "",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "02:28",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "BAL",
+    "player": "O.Ioane",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "13:40",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Unnecessary Roughness",
+    "team": "LAC",
+    "player": "C.Strange",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "07:30",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "BAL",
+    "player": "Z.Young",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "04:38",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "BAL",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:05",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "LAC",
+    "player": "R.Mickens",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:05",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "BAL",
+    "player": "R.Stanley",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:57",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Tripping",
+    "team": "BAL",
+    "player": "R.Rosengarten",
+    "yards": 0,
+    "tier": "rare",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "11:17",
+    "pts": 12.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "BAL",
+    "player": "C.Campbell",
+    "yards": 0,
+    "tier": "common",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "10:49",
+    "pts": 2.0
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "BAL",
+    "player": "M.Green",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "03:28",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "LAC",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:18",
+    "pts": 4.5
+   }
   ]
  },
  "teams": [
@@ -13285,7 +13502,7 @@
   },
   {
    "week": 10,
-   "final": false,
+   "final": true,
    "playoff": false,
    "games": [
     {
@@ -13303,28 +13520,29 @@
        },
        {
         "crew": "2012 Replacement Refs",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 71.7,
+        "game": "Weekly average of 14 crews",
+        "status": "final",
         "starter": true
        },
        {
         "crew": "Scott Novak",
         "pts": 0,
         "game": null,
-        "status": "pending",
+        "status": "bye",
         "starter": false
        }
       ],
-      "pts": 87.4
+      "pts": 159.1
      },
      "B": {
       "crews": [
        {
         "crew": "Adrian Hill",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 52.5,
+        "game": "LAC @ BAL",
+        "status": "final",
+        "note": "Ground stop: swapped with Clark (was LA @ ARI)",
         "starter": true
        },
        {
@@ -13339,14 +13557,14 @@
         "crew": "Alex Kemp",
         "pts": 0,
         "game": null,
-        "status": "pending",
+        "status": "bye",
         "starter": false
        }
       ],
-      "pts": 30.0
+      "pts": 82.5
      },
-     "final": false,
-     "winner": null
+     "final": true,
+     "winner": "Helen Keller's School for Refs that Don't See That Good"
     },
     {
      "a": "DraftKings Employee of the Month",
@@ -13401,14 +13619,14 @@
         "crew": "Craig Wrolstad",
         "pts": 0,
         "game": null,
-        "status": "pending",
+        "status": "bye",
         "starter": false
        }
       ],
       "pts": 124.2
      },
-     "final": false,
-     "winner": null
+     "final": true,
+     "winner": "DraftKings Employee of the Month"
     },
     {
      "a": "Zebra Crime Syndicate",
@@ -13469,8 +13687,8 @@
       ],
       "pts": 177.3
      },
-     "final": false,
-     "winner": null
+     "final": true,
+     "winner": "Zebra Crime Syndicate"
     }
    ]
   },
@@ -14747,7 +14965,7 @@
    "playoff": true,
    "games": [
     {
-     "a": "Zebras with Gambling Debts",
+     "a": "Zebra Crime Syndicate",
      "b": "I'm Blind, I'm Deaf",
      "seeds": [
       1,
@@ -14760,7 +14978,7 @@
     },
     {
      "a": "Helen Keller's School for Refs that Don't See That Good",
-     "b": "Zebra Crime Syndicate",
+     "b": "Zebras with Gambling Debts",
      "seeds": [
       3,
       4
@@ -14771,8 +14989,8 @@
      "winner": null
     },
     {
-     "a": "This is not Nam, there are rules",
-     "b": "DraftKings Employee of the Month",
+     "a": "DraftKings Employee of the Month",
+     "b": "This is not Nam, there are rules",
      "seeds": [
       5,
       6
@@ -14787,64 +15005,64 @@
  ],
  "standings": [
   {
-   "team": "Zebras with Gambling Debts",
-   "manager": "Stephan",
+   "team": "Zebra Crime Syndicate",
+   "manager": "Danny",
    "w": 2,
-   "l": 0,
+   "l": 1,
    "t": 0,
-   "pf": 281.1,
-   "pa": 261.0,
-   "streak": "W2"
+   "pf": 472.6,
+   "pa": 412.6,
+   "streak": "W1"
   },
   {
    "team": "I'm Blind, I'm Deaf",
    "manager": "Matthew",
    "w": 2,
-   "l": 0,
+   "l": 1,
    "t": 0,
-   "pf": 274.9,
-   "pa": 252.9,
-   "streak": "W2"
+   "pf": 452.2,
+   "pa": 472.0,
+   "streak": "L1"
   },
   {
    "team": "Helen Keller's School for Refs that Don't See That Good",
    "manager": "Bryan",
-   "w": 1,
+   "w": 2,
    "l": 1,
    "t": 0,
-   "pf": 264.3,
-   "pa": 295.9,
-   "streak": "W1"
+   "pf": 423.4,
+   "pa": 378.4,
+   "streak": "W2"
   },
   {
-   "team": "Zebra Crime Syndicate",
-   "manager": "Danny",
-   "w": 1,
+   "team": "Zebras with Gambling Debts",
+   "manager": "Stephan",
+   "w": 2,
    "l": 1,
    "t": 0,
-   "pf": 253.5,
-   "pa": 235.3,
+   "pf": 363.6,
+   "pa": 420.1,
    "streak": "L1"
+  },
+  {
+   "team": "DraftKings Employee of the Month",
+   "manager": "Sean",
+   "w": 1,
+   "l": 2,
+   "t": 0,
+   "pf": 394.0,
+   "pa": 411.7,
+   "streak": "W1"
   },
   {
    "team": "This is not Nam, there are rules",
    "manager": "Mike",
    "w": 0,
-   "l": 2,
+   "l": 3,
    "t": 0,
-   "pf": 293.7,
-   "pa": 297.5,
-   "streak": "L2"
-  },
-  {
-   "team": "DraftKings Employee of the Month",
-   "manager": "Sean",
-   "w": 0,
-   "l": 2,
-   "t": 0,
-   "pf": 262.6,
-   "pa": 287.5,
-   "streak": "L2"
+   "pf": 417.9,
+   "pa": 428.9,
+   "streak": "L3"
   }
  ],
  "series": {
@@ -14876,6 +15094,21 @@
   "I'm Blind, I'm Deaf|This is not Nam, there are rules": [
    1,
    0,
+   0
+  ],
+  "Helen Keller's School for Refs that Don't See That Good|Zebras with Gambling Debts": [
+   1,
+   0,
+   0
+  ],
+  "DraftKings Employee of the Month|This is not Nam, there are rules": [
+   1,
+   0,
+   0
+  ],
+  "I'm Blind, I'm Deaf|Zebra Crime Syndicate": [
+   0,
+   1,
    0
   ]
  },
@@ -14949,11 +15182,46 @@
      }
     ]
    }
+  },
+  "10": {
+   "golden_flag": {
+    "team": "Zebra Crime Syndicate",
+    "crew": "Shawn Hochuli",
+    "type": "Horse Collar Tackle",
+    "pts": 25.0,
+    "tier": "unicorn",
+    "nfl_team": "CAR",
+    "player": "J.Phillips",
+    "game": "CAR @ NO",
+    "status": "accepted",
+    "clutch": false
+   },
+   "overturned": {
+    "n": 6,
+    "pts": -30,
+    "teams": [
+     {
+      "team": "This is not Nam, there are rules",
+      "crews": [
+       {
+        "crew": "Brad Allen",
+        "n": 4,
+        "game": "PIT @ CIN"
+       },
+       {
+        "crew": "Clete Blakeman",
+        "n": 2,
+        "game": "MIN @ GB"
+       }
+      ]
+     }
+    ]
+   }
   }
  },
  "sample": {
   "league_start": 1,
-  "current_week": 10,
+  "current_week": 11,
   "teams": [
    {
     "team": "Holding Pattern",
@@ -15804,15 +16072,15 @@
     ],
     "Laundry Day": [
      "Shawn Hochuli",
-     "Alex Kemp"
+     "Clete Blakeman"
     ],
     "Flag on the Play": [
      "Adrian Hill",
      "Carl Cheffers"
     ],
     "Pick Up the Flag": [
-     "Craig Wrolstad",
-     "2012 Replacement Refs"
+     "2012 Replacement Refs",
+     "John Hussey"
     ],
     "Yellow Hankies": [
      "Ron Torbert",
@@ -17666,7 +17934,7 @@
    },
    {
     "week": 10,
-    "final": false,
+    "final": true,
     "playoff": false,
     "games": [
      {
@@ -17729,8 +17997,8 @@
        ],
        "pts": 77.5
       },
-      "final": false,
-      "winner": null
+      "final": true,
+      "winner": "False Start Kids"
      },
      {
       "a": "Yellow Hankies",
@@ -17773,25 +18041,25 @@
          "starter": true
         },
         {
-         "crew": "Alex Kemp",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
-         "starter": true
-        },
-        {
          "crew": "Clete Blakeman",
          "pts": 58.0,
          "game": "MIN @ GB",
          "status": "final",
          "note": "Ground stop: moved from PIT @ CIN",
+         "starter": true
+        },
+        {
+         "crew": "Alex Kemp",
+         "pts": 0,
+         "game": null,
+         "status": "bye",
          "starter": false
         }
        ],
-       "pts": 137.1
+       "pts": 195.1
       },
-      "final": false,
-      "winner": null
+      "final": true,
+      "winner": "Laundry Day"
      },
      {
       "a": "Pick Up the Flag",
@@ -17799,17 +18067,10 @@
       "A": {
        "crews": [
         {
-         "crew": "Craig Wrolstad",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
-         "starter": true
-        },
-        {
          "crew": "2012 Replacement Refs",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 71.7,
+         "game": "Weekly average of 14 crews",
+         "status": "final",
          "starter": true
         },
         {
@@ -17818,18 +18079,26 @@
          "game": "SF @ DAL",
          "status": "final",
          "note": "Ground stop: moved from MIN @ GB",
+         "starter": true
+        },
+        {
+         "crew": "Craig Wrolstad",
+         "pts": 0,
+         "game": null,
+         "status": "bye",
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 159.1
       },
       "B": {
        "crews": [
         {
          "crew": "Adrian Hill",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 52.5,
+         "game": "LAC @ BAL",
+         "status": "final",
+         "note": "Ground stop: swapped with Clark (was LA @ ARI)",
          "starter": true
         },
         {
@@ -17844,14 +18113,14 @@
          "crew": "Scott Novak",
          "pts": 0,
          "game": null,
-         "status": "pending",
+         "status": "bye",
          "starter": false
         }
        ],
-       "pts": 97.1
+       "pts": 149.6
       },
-      "final": false,
-      "winner": null
+      "final": true,
+      "winner": "Pick Up the Flag"
      }
     ]
    },
@@ -19152,8 +19421,8 @@
       "winner": null
      },
      {
-      "a": "Holding Pattern",
-      "b": "Laundry Day",
+      "a": "Laundry Day",
+      "b": "Holding Pattern",
       "seeds": [
        5,
        6
@@ -19170,62 +19439,62 @@
    {
     "team": "Pick Up the Flag",
     "manager": "",
-    "w": 7,
+    "w": 8,
     "l": 2,
     "t": 0,
-    "pf": 1560.4,
-    "pa": 1229.6,
-    "streak": "W6"
+    "pf": 1719.5,
+    "pa": 1379.2,
+    "streak": "W7"
    },
    {
     "team": "False Start Kids",
     "manager": "",
-    "w": 6,
+    "w": 7,
     "l": 3,
     "t": 0,
-    "pf": 1359.0,
-    "pa": 1268.0,
-    "streak": "W1"
+    "pf": 1493.7,
+    "pa": 1345.5,
+    "streak": "W2"
    },
    {
     "team": "Yellow Hankies",
     "manager": "",
     "w": 5,
-    "l": 4,
+    "l": 5,
     "t": 0,
-    "pf": 1325.5,
-    "pa": 1313.6,
-    "streak": "L1"
+    "pf": 1448.2,
+    "pa": 1508.7,
+    "streak": "L2"
    },
    {
     "team": "Flag on the Play",
     "manager": "",
     "w": 4,
-    "l": 5,
+    "l": 6,
     "t": 0,
-    "pf": 1343.4,
-    "pa": 1422.5,
-    "streak": "L1"
+    "pf": 1493.0,
+    "pa": 1581.6,
+    "streak": "L2"
+   },
+   {
+    "team": "Laundry Day",
+    "manager": "",
+    "w": 3,
+    "l": 7,
+    "t": 0,
+    "pf": 1480.8,
+    "pa": 1617.1,
+    "streak": "W1"
    },
    {
     "team": "Holding Pattern",
     "manager": "",
     "w": 3,
-    "l": 6,
-    "t": 0,
-    "pf": 1224.0,
-    "pa": 1369.9,
-    "streak": "W1"
-   },
-   {
-    "team": "Laundry Day",
-    "manager": "",
-    "w": 2,
     "l": 7,
     "t": 0,
-    "pf": 1285.7,
-    "pa": 1494.4,
-    "streak": "L5"
+    "pf": 1301.5,
+    "pa": 1504.6,
+    "streak": "L1"
    }
   ],
   "series": {
@@ -19290,18 +19559,18 @@
     0
    ],
    "False Start Kids|Holding Pattern": [
-    0,
+    1,
     1,
     0
    ],
    "Laundry Day|Yellow Hankies": [
-    0,
+    1,
     1,
     0
    ],
    "Flag on the Play|Pick Up the Flag": [
     0,
-    1,
+    2,
     0
    ]
   },
@@ -19640,6 +19909,41 @@
          "crew": "Carl Cheffers",
          "n": 4,
          "game": "BUF @ MIN"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "10": {
+    "golden_flag": {
+     "team": "Laundry Day",
+     "crew": "Shawn Hochuli",
+     "type": "Horse Collar Tackle",
+     "pts": 25.0,
+     "tier": "unicorn",
+     "nfl_team": "CAR",
+     "player": "J.Phillips",
+     "game": "CAR @ NO",
+     "status": "accepted",
+     "clutch": false
+    },
+    "overturned": {
+     "n": 5,
+     "pts": -25,
+     "teams": [
+      {
+       "team": "Yellow Hankies",
+       "crews": [
+        {
+         "crew": "Ron Torbert",
+         "n": 1,
+         "game": "BUF @ NYJ"
+        },
+        {
+         "crew": "Brad Rogers",
+         "n": 4,
+         "game": "WAS @ NYG"
         }
        ]
       }
@@ -20153,8 +20457,8 @@
    {
     "gid": "2026_10_LAC_BAL",
     "game": "LAC @ BAL",
-    "referee": "",
-    "played": false
+    "referee": "Adrian Hill",
+    "played": true
    },
    {
     "gid": "2026_10_LA_ARI",
