@@ -14,7 +14,7 @@
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-18T13:19Z",
+ "generated_at": "2026-11-18T17:55Z",
  "updated": "2026-11-16",
  "last_week": 10,
  "weeks_played": [
@@ -1966,6 +1966,12 @@
    "Alex Kemp",
    "Craig Wrolstad",
    "Scott Novak"
+  ],
+  "11": [
+   "Alan Eck",
+   "Clay Martin",
+   "John Hussey",
+   "Ron Torbert"
   ]
  },
  "week_games": [
@@ -12928,12 +12934,12 @@
   },
   "11": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -12948,18 +12954,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "12": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -12974,18 +12980,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "13": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -13000,18 +13006,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "14": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -13026,18 +13032,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "15": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -13052,18 +13058,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "16": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -13078,18 +13084,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "17": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -13104,18 +13110,18 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   },
   "18": {
    "Helen Keller's School for Refs that Don't See That Good": [
-    "John Hussey",
+    "Scott Novak",
     "2012 Replacement Refs"
    ],
    "I'm Blind, I'm Deaf": [
-    "Ron Torbert",
-    "Alan Eck"
+    "Alex Moore",
+    "Ron Torbert"
    ],
    "This is not Nam, there are rules": [
     "Brad Allen",
@@ -13130,8 +13136,8 @@
     "Brad Rogers"
    ],
    "Zebra Crime Syndicate": [
-    "Shawn Hochuli",
-    "Clay Martin"
+    "Carl Cheffers",
+    "Shawn Hochuli"
    ]
   }
  },
@@ -13703,7 +13709,7 @@
      "A": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13717,7 +13723,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13787,6 +13793,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -13795,13 +13808,6 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13845,6 +13851,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -13853,13 +13866,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13884,7 +13890,7 @@
      "A": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13898,7 +13904,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13910,6 +13916,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -13918,13 +13931,6 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -13968,6 +13974,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -13976,13 +13989,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14065,6 +14071,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -14076,13 +14089,6 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
         "starter": false
        }
       ],
@@ -14091,7 +14097,7 @@
      "B": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14105,7 +14111,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14149,6 +14155,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -14157,13 +14170,6 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14272,7 +14278,7 @@
      "B": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14286,7 +14292,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14330,6 +14336,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -14338,13 +14351,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14388,6 +14394,13 @@
      "B": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -14396,13 +14409,6 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14453,7 +14459,7 @@
      "B": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14467,7 +14473,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14543,6 +14549,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -14554,13 +14567,6 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
         "starter": false
        }
       ],
@@ -14568,6 +14574,13 @@
      },
      "B": {
       "crews": [
+       {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
        {
         "crew": "Shawn Hochuli",
         "pts": 0,
@@ -14577,13 +14590,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14634,7 +14640,7 @@
      "B": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14648,7 +14654,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14666,6 +14672,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -14674,13 +14687,6 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14724,6 +14730,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -14732,13 +14745,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14789,6 +14795,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Alex Moore",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Ron Torbert",
         "pts": 0,
         "game": null,
@@ -14800,13 +14813,6 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Alex Moore",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
         "starter": false
        }
       ],
@@ -14815,7 +14821,7 @@
      "B": {
       "crews": [
        {
-        "crew": "John Hussey",
+        "crew": "Scott Novak",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14829,7 +14835,7 @@
         "starter": true
        },
        {
-        "crew": "Scott Novak",
+        "crew": "John Hussey",
         "pts": 0,
         "game": null,
         "status": "pending",
@@ -14847,6 +14853,13 @@
      "A": {
       "crews": [
        {
+        "crew": "Carl Cheffers",
+        "pts": 0,
+        "game": null,
+        "status": "pending",
+        "starter": true
+       },
+       {
         "crew": "Shawn Hochuli",
         "pts": 0,
         "game": null,
@@ -14855,13 +14868,6 @@
        },
        {
         "crew": "Clay Martin",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
-        "starter": true
-       },
-       {
-        "crew": "Carl Cheffers",
         "pts": 0,
         "game": null,
         "status": "pending",
