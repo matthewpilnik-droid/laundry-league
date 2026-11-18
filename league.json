@@ -16,7 +16,7 @@
     { "name": "DraftKings Employee of the Month", "manager": "Sean", "crews": ["Land Clark", "Shawn Smith", "Brad Rogers"] },
     { "name": "Zebra Crime Syndicate", "manager": "Danny", "crews": ["Carl Cheffers", "Shawn Hochuli", "Clay Martin"] }
   ],
-  "off": {"8":["Bill Vinovich","Carl Cheffers","Land Clark"],"9":["Brad Rogers","Shawn Smith"],"10":["Alex Kemp","Craig Wrolstad","Scott Novak"]},
+  "off": {"8":["Bill Vinovich","Carl Cheffers","Land Clark"],"9":["Brad Rogers","Shawn Smith"],"10":["Alex Kemp","Craig Wrolstad","Scott Novak"],"11":["Alan Eck","Clay Martin","John Hussey","Ron Torbert"]},
   "game_fixes": {
     "2026_10_CAR_NO": {"crew": "Shawn Hochuli", "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck"},
     "2026_10_HOU_CLE": {"note": "Ground stop: moved from CAR @ NO"},
@@ -43,6 +43,9 @@
     { "week": 10, "team": "This is not Nam, there are rules", "start": ["Brad Allen", "Clete Blakeman"] },
     { "week": 10, "team": "Zebras with Gambling Debts", "start": ["Adrian Hill", "Bill Vinovich"] },
     { "week": 10, "team": "DraftKings Employee of the Month", "start": ["Shawn Smith", "Brad Rogers"] },
-    { "week": 10, "team": "Zebra Crime Syndicate", "start": ["Shawn Hochuli", "Clay Martin"] }
+    { "week": 10, "team": "Zebra Crime Syndicate", "start": ["Shawn Hochuli", "Clay Martin"] },
+    { "week": 11, "team": "Helen Keller's School for Refs that Don't See That Good", "start": ["Scott Novak", "2012 Replacement Refs"] },
+    { "week": 11, "team": "I'm Blind, I'm Deaf", "start": ["Alex Moore", "Ron Torbert"] },
+    { "week": 11, "team": "Zebra Crime Syndicate", "start": ["Carl Cheffers", "Shawn Hochuli"] }
   ]
 }
