@@ -55,6 +55,10 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
   how to clear a week on hold); "Cancelled" gives the assigned crew 85% of the weekly average
   (decided 2026-11-12: "bad luck is bad luck", same as open spots). Saved under `game_fixes`.
   Not handled: a game moved to a different week; see README → "Game fixes".
+  **Notes (added 2026-11-16):** any game can carry a short note shown on the league page (display
+  only, editable on final weeks without unlocking). First used for Week 10's FAA ground stop: moved
+  referees score the game they worked, and emergency-referee games count for the crew left without a
+  game. See README → "Game fixes" → "Emergency referees". Suspensions need no fix: the crew is just off.
 
 ## Setting up a new computer
 
