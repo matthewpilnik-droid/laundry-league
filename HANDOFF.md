@@ -60,6 +60,15 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
   referees score the game they worked, and emergency-referee games count for the crew left without a
   game. See README → "Game fixes" → "Emergency referees". Suspensions need no fix: the crew is just off.
 
+- **Captains and projections (added 2026-11-18, live from Week 11):** each team names one starter
+  captain, who scores 1.5× the crew's whole game score (open spots, cancelled games and the Replacement
+  Refs included). Set it on the commissioner page (**Captain** under each team's starters), or add
+  `"captain": "Hochuli"` to the lineup line. It stands until changed; a new lineup that benches the
+  captain leaves the team with none. Head-to-head only, not the weekly awards. The Matchups cards now show
+  projected totals from 2026 season averages (off crew = 0, or 85% if it fills an open spot).
+  Standings tiebreakers, in order: wins, total points, head-to-head, coin flip (the last two by hand).
+  See README → League format.
+
 ## Setting up a new computer
 
 1. **Install git**, which comes with Apple's command-line tools (`xcode-select --install`).
