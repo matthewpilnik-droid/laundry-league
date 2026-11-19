@@ -64,7 +64,7 @@ nav.toc a.live-a { color: var(--live); }
 
 section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .sec-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-.sec-head p { max-width: 640px; margin-top: 8px; }
+.sec-head p { max-width: 920px; margin-top: 8px; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
 .badge { display: inline-block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; padding: 3px 9px; border-radius: 999px; background: var(--flag); color: var(--flag-ink); vertical-align: middle; }
 
@@ -637,6 +637,11 @@ footer .stripes { margin-bottom: 24px; }
     }
   }
   const anyProv = Object.values(slots).some(x => x.prov);
+  // ["MIA @ BUF", "Sun 1:00 pm ET", "<Provisional tag>"] for a crew's game this week.
+  const slotParts = sl => {
+    const day = sl.date ? new Date(sl.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short' }) : '';
+    return [esc(sl.game), `${esc(day)} ${esc(timeFmt(sl.time) || 'TBD')} ET`, ...(sl.prov ? ['<span class="pill-prov">Provisional</span>'] : [])];
+  };
   function crewLine(l, ov, w, scope = '') {
     const c = byRef[l.crew] || {};
     const cap = D.captain_multiplier || 1.5;
@@ -657,9 +662,7 @@ footer .stripes { margin-bottom: 24px; }
       const sl = w === curWeek ? slots[l.crew] : null;
       if (off) parts = ['<span class="bad">Off this week</span>'];
       else if (sl) {
-        const day = sl.date ? new Date(sl.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short' }) : '';
-        parts = [esc(sl.game), `${esc(day)} ${esc(timeFmt(sl.time) || 'TBD')} ET`];
-        if (sl.prov) parts.push('<span class="pill-prov">Provisional</span>');
+        parts = slotParts(sl);
       } else parts = ['Not played yet'];
     }
     // Captain: official lines carry their own bonus; live lines are worked out here.
@@ -715,7 +718,7 @@ footer .stripes { margin-bottom: 24px; }
     $('#mu-sub').textContent = sample + (curW.playoff && !curW.games[0].set
       ? 'Matchups are set after Week 17. Shown with current seeds.'
       : 'Your 2 starters count; the bench doesn\'t. Scores update live during games; official numbers post the next morning.' +
-        (anyProv ? ' Provisional: the referee comes from the weekly Football Zebras post and can change until kickoff.' : ''));
+        (anyProv ? ' Provisional = referee from the weekly Football Zebras post; can change until kickoff.' : ''));
     const games = curW.games.filter(isMine).concat(curW.games.filter(m => !isMine(m)));
     $('#mu-grid').innerHTML = games.map(m => muCard(m, ov)).join('');
     const hasProj = games.some(m => m.A && m.A.proj);
@@ -842,7 +845,7 @@ footer .stripes { margin-bottom: 24px; }
     $('#lu-tbl').innerHTML = `<thead><tr><th>Team</th><th>Starting</th><th>Bench</th></tr></thead><tbody>` +
       teams.map(({ team }) => {
         const on = luOn[team] || [], all = rosterNow(team);
-        const cell = (cs, t) => cs.map(c => `<div class="ref">${esc(c)}${captainOf(curWeek, t) === c ? ' <span class="st cap">Captain</span>' : ''}${offTag(c)}</div><div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
+        const cell = (cs, t) => cs.map(c => `<div class="ref">${esc(c)}${captainOf(curWeek, t) === c ? ' <span class="st cap">Captain</span>' : ''}${offTag(c)}</div>${slots[c] ? `<div class="game">${slotParts(slots[c]).join(' · ')}</div>` : ''}<div class="game">Last 3 games: ${avg3(c)} pts avg</div>`).join('');
         return `<tr${team === myTeam ? ' class="mine"' : ''}><td><div class="ref">${esc(team)}</div>${mgr[team] ? `<div class="own">${esc(mgr[team])}</div>` : ''}</td>
           <td>${cell(on, team)}</td><td>${cell(all.filter(c => !on.includes(c)), team)}</td></tr>`;
       }).join('') + '</tbody>';
