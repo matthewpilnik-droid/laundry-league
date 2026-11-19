@@ -69,6 +69,16 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
   Standings tiebreakers, in order: wins, total points, head-to-head, coin flip (the last two by hand).
   See README → League format.
 
+- **Games this week and provisional assignments (added 2026-11-19):** the main page lists the week's NFL
+  games by day with Eastern kickoff times and, once Football Zebras posts the weekly assignments (usually
+  Tuesday or Wednesday), which crew works each game, marked **Provisional** (with the owner, and
+  starter/captain/bench). It warns "No captain set" for a team without one from Week 11, and notes if
+  Football Zebras' "off" list differs from the league's. Display only: nothing here affects scoring.
+  `scripts/fetch_assignments.py` (a step in "Update scores") reads the public post with plain pattern
+  matching and saves `data/assignments.json`, and saves ESPN kickoff times to `data/kickoffs.json` (nflverse's
+  schedule lags when the NFL swaps a game's time). If a site is down or changes shape, the step warns and
+  the page just shows less; scores still update. Not yet automated: the "Off this week" ticks.
+
 ## Setting up a new computer
 
 1. **Install git**, which comes with Apple's command-line tools (`xcode-select --install`).

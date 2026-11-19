@@ -737,13 +737,23 @@ scored_espn = sorted(games[g]["espn"] for g in g_cur if games[g]["espn"])
 # (crews[].weeks[w].gid). k = "flag", "wipe" (a flag wiped out a touchdown), "over" (call
 # overturned) or "stood" (coach's challenge failed); flags also carry their call details.
 # ---- League weeks' games, for the commissioner page ------------------------------
+# ESPN's kickoff times (saved by fetch_assignments.py) beat nflverse's, which lag when a game is swapped or flexed.
+# Provisional referee assignments read from Football Zebras (display only; never used for scoring).
+assign_file = ROOT / "data" / "assignments.json"
+assignments_out = {w: {"games": {gid: x["referee"] for gid, x in v["games"].items()},
+                       "off": v.get("off", []), "complete": v.get("complete", False), "source": v.get("source", "")}
+                   for w, v in (json.loads(assign_file.read_text()).get("weeks", {}).items() if assign_file.exists() else [])}
+kick_file = ROOT / "data" / "kickoffs.json"
+espn_kick = json.loads(kick_file.read_text()) if kick_file.exists() else {}
 schedule_out = collections.defaultdict(list)
 for gid, g in sorted(games.items()):
     if g["season"] == str(SEASON) and START <= int(g["week"]) <= PLAYOFF:
         schedule_out[str(int(g["week"]))].append(
             {"gid": gid, "game": label(g), "referee": g["referee"] or "", "played": gid in g_cur_set,
              # Kickoff as nflverse lists it: Eastern time, e.g. "Thursday" / "20:15" (blank when not set).
-             "day": g.get("weekday") or "", "date": g.get("gameday") or "", "time": g.get("gametime") or ""})
+             "day": g.get("weekday") or "",
+             "date": espn_kick.get(gid, {}).get("date") or g.get("gameday") or "",
+             "time": espn_kick.get(gid, {}).get("time") or g.get("gametime") or ""})
 for gid, c in cancelled.items():          # a cancelled game that's gone from the schedule
     if gid not in games:
         schedule_out[str(c["week"])].append({"gid": gid, "game": gid, "referee": "", "played": False})
@@ -810,6 +820,7 @@ json.dump({
     "held": held,
     # Every league week's games, for the commissioner page's game fixes.
     "schedule": schedule_out,
+    "assignments": assignments_out,
     "game_fixes": {gid: {**({"crew": credited[gid]} if gid in credited else {}),
                          **({"cancelled": cancelled[gid]["crew"]} if gid in cancelled else {}),
                          **({"note": notes[gid]} if gid in notes else {})}

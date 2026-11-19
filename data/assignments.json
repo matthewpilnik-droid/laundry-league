@@ -1,0 +1,69 @@
+{
+ "note": "Provisional referee assignments read from footballzebras.com; display only.",
+ "weeks": {
+  "11": {
+   "source": "https://www.footballzebras.com/2026/11/week-11-referee-assignments-2026/",
+   "games": {
+    "2026_11_IND_HOU": {
+     "referee": "Shawn Smith",
+     "time": "8:15 p.m."
+    },
+    "2026_11_MIA_BUF": {
+     "referee": "Scott Novak",
+     "time": "1 p.m."
+    },
+    "2026_11_BAL_CAR": {
+     "referee": "Shawn Hochuli",
+     "time": "1 p.m."
+    },
+    "2026_11_NO_CHI": {
+     "referee": "Brad Rogers",
+     "time": "1 p.m."
+    },
+    "2026_11_TEN_DAL": {
+     "referee": "Clete Blakeman",
+     "time": "1 p.m."
+    },
+    "2026_11_TB_DET": {
+     "referee": "Adrian Hill",
+     "time": "1 p.m."
+    },
+    "2026_11_ARI_KC": {
+     "referee": "Brad Allen",
+     "time": "1 p.m."
+    },
+    "2026_11_PIT_PHI": {
+     "referee": "Land Clark",
+     "time": "1 p.m."
+    },
+    "2026_11_NYJ_LAC": {
+     "referee": "Alex Kemp",
+     "time": "4:05 p.m."
+    },
+    "2026_11_LV_DEN": {
+     "referee": "Carl Cheffers",
+     "time": "4:25 p.m."
+    },
+    "2026_11_JAX_NYG": {
+     "referee": "Craig Wrolstad",
+     "time": "4:25 p.m."
+    },
+    "2026_11_MIN_SF": {
+     "referee": "Alex Moore",
+     "time": "8:20 p.m."
+    },
+    "2026_11_CIN_WAS": {
+     "referee": "Bill Vinovich",
+     "time": "8:15 p.m."
+    }
+   },
+   "off": [
+    "Alan Eck",
+    "John Hussey",
+    "Clay Martin",
+    "Ron Torbert"
+   ],
+   "complete": true
+  }
+ }
+}

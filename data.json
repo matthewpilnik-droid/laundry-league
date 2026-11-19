@@ -16,7 +16,7 @@
  "captain_multiplier": 1.5,
  "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-19T22:51Z",
+ "generated_at": "2026-11-19T22:58Z",
  "updated": "2026-11-16",
  "last_week": 10,
  "weeks_played": [
@@ -20961,7 +20961,7 @@
     "played": false,
     "day": "Sunday",
     "date": "2026-11-22",
-    "time": "13:00"
+    "time": "16:25"
    },
    {
     "gid": "2026_11_LV_DEN",
@@ -21015,7 +21015,7 @@
     "played": false,
     "day": "Sunday",
     "date": "2026-11-22",
-    "time": "16:25"
+    "time": "13:00"
    },
    {
     "gid": "2026_11_TB_DET",
@@ -22031,6 +22031,33 @@
     "time": "13:00"
    }
   ]
+ },
+ "assignments": {
+  "11": {
+   "games": {
+    "2026_11_IND_HOU": "Shawn Smith",
+    "2026_11_MIA_BUF": "Scott Novak",
+    "2026_11_BAL_CAR": "Shawn Hochuli",
+    "2026_11_NO_CHI": "Brad Rogers",
+    "2026_11_TEN_DAL": "Clete Blakeman",
+    "2026_11_TB_DET": "Adrian Hill",
+    "2026_11_ARI_KC": "Brad Allen",
+    "2026_11_PIT_PHI": "Land Clark",
+    "2026_11_NYJ_LAC": "Alex Kemp",
+    "2026_11_LV_DEN": "Carl Cheffers",
+    "2026_11_JAX_NYG": "Craig Wrolstad",
+    "2026_11_MIN_SF": "Alex Moore",
+    "2026_11_CIN_WAS": "Bill Vinovich"
+   },
+   "off": [
+    "Alan Eck",
+    "John Hussey",
+    "Clay Martin",
+    "Ron Torbert"
+   ],
+   "complete": true,
+   "source": "https://www.footballzebras.com/2026/11/week-11-referee-assignments-2026/"
+  }
  },
  "game_fixes": {
   "2026_10_CAR_NO": {

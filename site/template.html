@@ -129,6 +129,10 @@ table.t td.r { font-variant-numeric: tabular-nums; }
 .slate-day { margin-top: 12px; }
 .slate-row { display: flex; gap: 14px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .slate-row .when { min-width: 86px; color: var(--ink-2); }
+.slate-row .who { margin-left: auto; text-align: right; }
+.pill-prov { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; border: 1px solid var(--line); border-radius: 999px; padding: 1px 7px; margin-left: 6px; color: var(--ink-3); font-weight: 600; white-space: nowrap; }
+.slate .warn { color: var(--bad); font-weight: 700; }
+@media (max-width: 560px) { .slate-row { flex-wrap: wrap; } .slate-row .who { margin-left: 0; text-align: left; width: 100%; } }
 .trend.up { color: var(--good); font-weight: 700; } .trend.down { color: var(--ink-3); }
 .spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
 .spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
@@ -718,9 +722,29 @@ footer .stripes { margin-bottom: 24px; }
   // ---- This week's games: kickoff times (Eastern), grouped by day. Display only. ----
   const timeFmt = t => { if (!t) return 'TBD'; const [h, m] = t.split(':').map(Number); return `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}`; };
   function renderSlate() {
-    const games = (D.schedule && D.schedule[String(curWeek)]) || [];
+    const wk = String(curWeek);
+    const games = (D.schedule && D.schedule[wk]) || [];
     $('#slate').hidden = !games.length;
     if (!games.length) return;
+    // Who owns each crew, and whether it starts / captains this week.
+    const asg = (D.assignments && D.assignments[wk]) || null;
+    const mgr = Object.fromEntries((D.teams || []).map(t => [t.team, t.manager]));
+    const rost = (D.rosters && D.rosters[wk]) || {}, strt = (D.starters && D.starters[wk]) || {}, caps = (D.captains && D.captains[wk]) || {};
+    const owner = {};
+    for (const [team, crews] of Object.entries(rost)) crews.forEach(c => { owner[c] = team; });
+    const capOn = curWeek >= (D.captain_start_week || 99) && Object.keys(rost).length > 0;
+    const noCap = capOn ? Object.keys(rost).filter(t => !caps[t]).map(t => mgr[t] || t) : [];
+    let anyProv = false;
+    const who = g => {
+      const ref = g.referee || (asg && asg.games[g.gid]) || '';
+      if (!ref) return '';
+      const prov = !g.referee;
+      anyProv = anyProv || prov;
+      const t = owner[ref], isStarter = t && (strt[t] || []).includes(ref), isCap = t && caps[t] === ref;
+      const role = !t ? '' : isCap ? ` · ${esc(mgr[t] || t)} <b>captain</b>` : isStarter ? ` · ${esc(mgr[t] || t)} starter` : ` · <span class="faint">${esc(mgr[t] || t)} bench</span>`;
+      const flag = capOn && isStarter && !caps[t] ? ' <span class="warn">no captain set</span>' : '';
+      return `<span class="who">${esc(ref)}${prov ? '<span class="pill-prov">Provisional</span>' : ''}${role}${flag}</span>`;
+    };
     const key = g => (g.date || '9999') + ' ' + (g.time || '99:99');
     const days = [];
     for (const g of games.slice().sort((x, y) => key(x).localeCompare(key(y)))) {
@@ -728,9 +752,15 @@ footer .stripes { margin-bottom: 24px; }
       if (!d || d.date !== g.date) { d = { date: g.date, games: [] }; days.push(d); }
       d.games.push(g);
     }
-    $('#slate').innerHTML = `<h3>Week ${curWeek} games</h3><p class="muted" style="margin:0">Kickoff times are Eastern.</p>` +
-      days.map(d => `<div class="slate-day"><b>${d.date ? dayFmt(d.date) : 'Date TBD'}</b>` +
-        d.games.map(g => `<div class="slate-row"><span class="when num">${timeFmt(g.time)} ET</span><span>${esc(g.game)}</span>${g.played ? '<span class="faint">played</span>' : ''}</div>`).join('') + '</div>').join('');
+    const rows = days.map(d => `<div class="slate-day"><b>${d.date ? dayFmt(d.date) : 'Date TBD'}</b>` +
+      d.games.map(g => `<div class="slate-row"><span class="when num">${timeFmt(g.time)} ET</span><span>${esc(g.game)}${g.played ? ' <span class="faint">played</span>' : ''}</span>${who(g)}</div>`).join('') + '</div>').join('');
+    // Football Zebras also says which crews are off; flag a disagreement with the league's own off list.
+    const mine = ((D.off_weeks && D.off_weeks[wk]) || []).slice().sort().join(', '), theirs = asg ? (asg.off || []).slice().sort().join(', ') : null;
+    $('#slate').innerHTML = `<h3>Week ${curWeek} games</h3><p class="muted" style="margin:0">Kickoff times are Eastern.` +
+      `${anyProv ? ' <b>Provisional</b> referees are from the weekly Football Zebras post and can change until kickoff.' : ''}</p>` +
+      (noCap.length ? `<p class="warn" style="margin:8px 0 0">No captain set: ${noCap.map(esc).join(', ')}</p>` : '') +
+      rows +
+      (theirs !== null && theirs !== mine ? `<p class="faint" style="margin:10px 0 0">Football Zebras lists ${esc(theirs || 'no one')} as off this week; the league's off list has ${esc(mine || 'no one')}.</p>` : '');
   }
   renderSlate();
   renderMatchups();

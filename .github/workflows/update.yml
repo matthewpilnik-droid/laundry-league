@@ -32,6 +32,12 @@ jobs:
       - name: Download schedule, play-by-play and referees
         run: python3 -I scripts/fetch_data.py cache
 
+      # Provisional referee assignments (Football Zebras) and ESPN kickoff times, for the page only.
+      # Never fails the run: if a site is down or changes shape, scores still update.
+      - name: Read assignments and kickoff times
+        continue-on-error: true
+        run: python3 -I scripts/fetch_assignments.py cache
+
       - name: Score every flag
         run: python3 -I scripts/build_data.py cache data.json
 
@@ -42,7 +48,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json index.html data/referees.json
+          git add data.json index.html data/referees.json data/assignments.json data/kickoffs.json
           if git diff --cached --quiet; then
             echo "No changes."
           else
