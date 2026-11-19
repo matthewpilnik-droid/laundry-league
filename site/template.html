@@ -76,10 +76,13 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 @supports (grid-template-rows: subgrid) {
   .mu-grid > .mu { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 0; }
 }
-.side > div:first-child { align-self: start; }
 .pill-prov { font-style: italic; }
 .mu .mu-top { display: flex; justify-content: space-between; gap: 8px; padding: 10px 16px; font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; border-bottom: 1px solid var(--line); }
 .side { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; }
+/* Matchup cards: team name and score share the top row, so the crew lines below get the full card width. */
+.mu .side { display: block; }
+.mu .side-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.mu .side-head .score { font-size: 30px; line-height: 1; flex: none; }
 .side + .side { border-top: 1px dashed var(--line); }
 .side.win { background: var(--flag-soft); }
 .side .tname { font-family: Oswald, sans-serif; font-size: 20px; font-weight: 700; text-transform: uppercase; line-height: 1.15; }
@@ -720,8 +723,9 @@ footer .stripes { margin-bottom: 24px; }
     const label = curW.playoff ? `${esc(m.name)} · seeds ${m.seeds[0]} v ${m.seeds[1]}` : seriesLine(m.a, m.b);
     const any = A.pts + B.pts > 0;
     const side = (S, k) => `<div class="side ${any && lead === k ? 'win' : ''}">
-        <div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}${noCap(S.team)}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
-        ${any || !S.proj ? `<div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div>` : `<div class="score est">${fmt(S.proj.pts)}*<small>projected</small></div>`}</div>`;
+        <div class="side-head"><div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}${noCap(S.team)}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}</div>
+        ${any || !S.proj ? `<div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div>` : `<div class="score est">${fmt(S.proj.pts)}*<small>projected</small></div>`}</div>
+        <div class="crewlines">${S.html}</div></div>`;
     return `<div class="card mu${isMine(m) ? ' mine' : ''}"><div class="mu-top"><span>${label}</span><span>${curW.playoff ? '' : 'Week ' + curWeek}</span></div>${side(A, 'A')}${side(B, 'B')}</div>`;
   }
   let lastOv = {};
@@ -821,9 +825,9 @@ footer .stripes { margin-bottom: 24px; }
     if (sw) {
       $('#sm-wk').textContent = `Week ${sw.week}, final`;
       $('#sm-mu').innerHTML = sw.games.map(m => {
-        const side = (t, X, win) => `<div class="side ${win ? 'win' : ''}"><div><div class="tname">${esc(t)}</div>
-          <div class="crewlines">${X.crews.map(l => crewLine(l, null, sw.week, 'sm').html).join('')}</div></div>
-          <div class="score">${fmt(X.pts)}<small>points</small></div></div>`;
+        const side = (t, X, win) => `<div class="side ${win ? 'win' : ''}">
+          <div class="side-head"><div class="tname">${esc(t)}</div><div class="score">${fmt(X.pts)}<small>points</small></div></div>
+          <div class="crewlines">${X.crews.map(l => crewLine(l, null, sw.week, 'sm').html).join('')}</div></div>`;
         return `<div class="card mu">${side(m.a, m.A, m.winner === m.a)}${side(m.b, m.B, m.winner === m.b)}</div>`;
       }).join('');
     }
