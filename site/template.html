@@ -79,23 +79,28 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .side .mgr { font-size: 13px; color: var(--ink-3); }
 .side .score { font-family: Oswald, sans-serif; font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
 .side .score small { display: block; font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
-.crewlines { margin-top: 8px; display: grid; gap: 4px; }
-.cl { display: flex; gap: 6px; align-items: baseline; font-size: 13px; color: var(--ink-2); flex-wrap: wrap; }
+.crewlines { margin-top: 10px; display: grid; gap: 10px; }
+.cl { font-size: 13px; color: var(--ink-2); }
 .cl b { color: var(--ink); font-weight: 600; }
-.cl .pts { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
+.cl-top { display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+.cl-sub { margin-top: 1px; font-size: 12px; color: var(--ink-3); line-height: 1.5; }
+.cl .pts { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); font-size: 13px; }
+.cl .bad { color: var(--bad); font-weight: 600; }
+.cl .live { color: var(--live); font-weight: 600; }
+.cl .warnish { color: var(--ink-2); }
 .st { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 5px; background: var(--surface-2); color: var(--ink-3); text-transform: uppercase; letter-spacing: .03em; }
 .st.bye { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
 .st.open { background: var(--flag-soft); color: var(--ink-2); }
 .st.cap { background: var(--flag); color: var(--flag-ink); }
-.proj-pts { font-weight: 600; font-style: italic; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.proj-pts { font-weight: 600; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 .side .score.est { color: var(--ink-3); font-style: italic; }
 .proj { margin-top: 8px; font-size: 13px; color: var(--ink-2); }
 .proj b { font-variant-numeric: tabular-nums; }
 .proj .faint { display: block; font-size: 12px; }
 .st.live { background: color-mix(in srgb, var(--live) 16%, transparent); color: var(--live); }
-.cl.bench { opacity: .5; }
+.cl.bench { opacity: .6; }
 /* The commissioner's note on a game (league.json game_fixes "note"), e.g. a reassigned referee. */
-.cl .note, .gnote { flex-basis: 100%; display: block; font-size: 12px; font-style: italic; color: var(--ink-3); }
+.cl .note, .gnote { display: block; margin-top: 2px; font-size: 12px; font-style: italic; color: var(--ink-3); }
 .awards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
 .award { padding: 16px 18px; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; }
 .award .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--flag); color: var(--flag-ink); font-family: Oswald, sans-serif; font-weight: 700; font-size: 20px; }
@@ -125,16 +130,6 @@ table.t td.r { font-variant-numeric: tabular-nums; }
 .topflag { font-size: 14px; }
 .topflag .who { color: var(--ink-3); font-size: 13px; }
 .byes { padding: 14px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
-.slate { padding: 20px 22px; }
-.slate h3 { margin: 0 0 4px; }
-.slate-day { margin-top: 16px; }
-.slate-day > b { display: block; margin-bottom: 4px; }
-.slate-row { display: grid; grid-template-columns: 92px 104px 1fr; gap: 2px 14px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; }
-.slate-row .when { color: var(--ink-2); }
-.slate-row .who { min-width: 0; }
-.pill-prov { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; border: 1px solid var(--line); border-radius: 999px; padding: 1px 6px; margin-left: 6px; color: var(--ink-3); font-weight: 600; white-space: nowrap; vertical-align: 1px; }
-.slate .warn { color: var(--bad); font-weight: 700; }
-@media (max-width: 560px) { .slate { padding: 16px; } .slate-row { grid-template-columns: 84px 1fr; } .slate-row .who { grid-column: 2; } }
 .trend.up { color: var(--good); font-weight: 700; } .trend.down { color: var(--ink-3); }
 .spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
 .spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
@@ -347,7 +342,7 @@ footer .stripes { margin-bottom: 24px; }
   <div class="sec-head"><div><h2 id="mu-h">Matchups</h2><p class="muted" id="mu-sub"></p></div></div>
   <div class="mu-grid" id="mu-grid"></div>
   <p class="faint" id="mu-note" style="margin-top:12px" hidden></p>
-  <div class="card slate" id="slate" style="margin-top:14px" hidden></div>
+  <p class="faint" id="mu-off" style="margin-top:8px" hidden></p>
   <div class="awards" id="awards"></div>
 </section>
 
@@ -630,34 +625,56 @@ footer .stripes { margin-bottom: 24px; }
 
   // scope: which section is drawing the line ('my', 'mu', 'res', 'sm'), so the same crew-week
   // shown in two places opens and closes independently.
+  // This week's kickoff + referee per crew, for the crew lines. Referees from Football Zebras are
+  // "provisional" until the NFL data names the real one. Display only.
+  const timeFmt = t => { if (!t) return ''; const [h, m] = t.split(':').map(Number); return `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}`; };
+  const slots = {};
+  {
+    const wk = String(curWeek), asg = (D.assignments && D.assignments[wk]) || null;
+    for (const g of (D.schedule && D.schedule[wk]) || []) {
+      const ref = g.referee || (asg && asg.games[g.gid]) || '';
+      if (ref) slots[ref] = { game: g.game, date: g.date, time: g.time, prov: !g.referee };
+    }
+  }
+  const anyProv = Object.values(slots).some(x => x.prov);
   function crewLine(l, ov, w, scope = '') {
     const c = byRef[l.crew] || {};
-    let pts = l.pts, tag = '', where = l.game ? esc(l.game) : '';
-    if (l.status === 'bye') tag = '<span class="st bye">Off · 0</span>';
-    else if (l.status === 'open') { tag = `<span class="st open">Open spot · ${l.pct}% of weekly average</span>`; where = 'No crew available'; }
+    const cap = D.captain_multiplier || 1.5;
+    let pts = l.pts, state = '', where = l.game ? esc(l.game) : '';
+    const off = w === curWeek && offSet(w).has(l.crew) && !c.replacement;
+    if (l.status === 'bye') state = '<span class="bad">Off · 0</span>';
+    else if (l.status === 'open') { state = `<span class="warnish">Open spot · ${l.pct}% of weekly average</span>`; where = 'No crew available'; }
     else if (l.status === 'cancelled') {
       if (l.avg == null) pts = null;
-      tag = `<span class="st open">Game cancelled · ${l.pct}% of weekly average${l.avg == null ? ', posts when the week is final' : ''}</span>`;
+      state = `<span class="warnish">Game cancelled · ${l.pct}% of weekly average${l.avg == null ? ', posts when the week is final' : ''}</span>`;
     }
-    else if (l.status === 'pending' && c.replacement) { pts = null; tag = '<span class="st">Weekly average · posts when the week is final</span>'; }
+    else if (l.status === 'pending' && c.replacement) { pts = null; state = 'Weekly average · posts when the week is final'; }
     else if (l.status === 'pending' && ov) {
       pts = ov.pts; where = esc(ov.game);
-      tag = ov.state === 'in' ? `<span class="st live">Live · ${esc(ov.detail)}</span>` : '<span class="st">Final · unofficial</span>';
+      state = ov.state === 'in' ? `<span class="live">Live · ${esc(ov.detail)}</span>` : 'Final · unofficial';
     } else if (l.status === 'pending') {
-      pts = null;
-      tag = w === curWeek && offSet(w).has(l.crew) && !c.replacement ? '<span class="st bye">Off this week</span>' : '<span class="st">Not played yet</span>';
+      pts = null; where = '';
+      const sl = w === curWeek ? slots[l.crew] : null;
+      if (off) state = '<span class="bad">Off this week</span>';
+      else if (sl) {
+        const day = sl.date ? new Date(sl.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short' }) : '';
+        state = `${esc(day)} ${esc(timeFmt(sl.time) || 'TBD')} ET`; where = esc(sl.game);
+        if (sl.prov) where += ' <span class="pill-prov">Provisional</span>';
+      } else state = 'Not played yet';
     }
-    if (!l.starter) tag = '<span class="st">Bench</span> ' + tag;
     // Captain: official lines carry their own bonus; live lines are worked out here.
     let bonus = 0;
-    if (l.captain && l.starter && pts !== null) {
-      bonus = l.status !== 'pending' && l.bonus != null ? l.bonus : Math.round(pts * ((D.captain_multiplier || 1.5) - 1) * 10) / 10;
-      tag = `<span class="st cap">Captain ×${D.captain_multiplier || 1.5} · ${fmt(pts)} + ${fmt(bonus)}</span> ` + tag;
-    } else if (l.captain && l.starter) tag = `<span class="st cap">Captain ×${D.captain_multiplier || 1.5}</span> ` + tag;
+    if (l.captain && l.starter && pts !== null)
+      bonus = l.status !== 'pending' && l.bonus != null ? l.bonus : Math.round(pts * (cap - 1) * 10) / 10;
     // Pre-game projection for a starter whose game hasn't scored yet.
     const pr = l.proj && l.starter && l.status === 'pending' && pts === null ? l.proj : null;
-    const prTxt = pr ? ` <span class="pts proj-pts">proj ${fmt(pr.pts)}*${pr.flag === 'open' ? ` (off, nobody else to start: ${OPEN_PCT}% of the weekly average)` : ''}</span>${pr.swap ? ` <span class="tag-off">OFF: ${esc(pr.swap.join(' or '))} ${pr.swap.length > 1 ? 'are' : 'is'} working, swap in</span>` : ''}` : '';
-    const line = `<div class="cl${l.starter ? '' : ' bench'}"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts + bonus)}</span>` : prTxt} ${tag} <span>${where}</span>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
+    const val = l.status === 'bye' ? '' : pts !== null ? `<span class="pts">${fmt(pts + bonus)}</span>${bonus ? ` <span class="faint">(${fmt(pts)} + ${fmt(bonus)})</span>` : ''}`
+      : pr ? `<span class="proj-pts">Proj ${fmt(pr.pts)}*</span>` : '';
+    const extra = pr && pr.flag === 'open' ? `<span class="warnish">nobody else to start: ${OPEN_PCT}% of the weekly average</span>` : '';
+    const swap = pr && pr.swap ? `<span class="bad">${esc(pr.swap.join(' or '))} ${pr.swap.length > 1 ? 'are' : 'is'} working: swap in</span>` : '';
+    const sub = [val, state, extra, where, swap].filter(Boolean).join(' · ');
+    const pills = (l.captain && l.starter ? `<span class="st cap">Captain ×${cap}</span>` : '') + (l.starter ? '' : '<span class="st">Bench</span>');
+    const line = `<div class="cl${l.starter ? '' : ' bench'}"><div class="cl-top"><b>${esc(l.crew)}</b>${pills}</div><div class="cl-sub">${sub}</div>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
     const detail = crewDetail(l, ov, w), k = `${scope}|${w}|${l.crew}`;
     return { pts: l.starter ? (pts || 0) + bonus : 0, html: detail
       ? `<details class="dd" data-k="${esc(k)}"${openK.has(k) ? ' open' : ''}><summary>${line}</summary>${detail}</details>`
@@ -678,13 +695,16 @@ footer .stripes { margin-bottom: 24px; }
     return { team, pts: out.reduce((a, x) => a + x.pts, 0), html: out.map(x => x.html).join(''), proj: m[side] && m[side].proj };
   }
   const isMine = m => !!myTeam && (m.a === myTeam || m.b === myTeam);
+  // From the first captain week on, a team with no captain gets a red tag by its name.
+  const noCap = t => live && curWeek >= (D.captain_start_week || 99) && !captainOf(curWeek, t) && (D.rosters[String(curWeek)] || {})[t]
+    ? ' <span class="st bye">No captain set</span>' : '';
   function muCard(m, ov, scope = 'mu') {
     const A = sideLines(m, 'A', ov, scope), B = sideLines(m, 'B', ov, scope);
     const lead = A.pts === B.pts ? '' : A.pts > B.pts ? 'A' : 'B';
     const label = curW.playoff ? `${esc(m.name)} · seeds ${m.seeds[0]} v ${m.seeds[1]}` : seriesLine(m.a, m.b);
     const any = A.pts + B.pts > 0;
     const side = (S, k) => `<div class="side ${any && lead === k ? 'win' : ''}">
-        <div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
+        <div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}${noCap(S.team)}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
         ${any || !S.proj ? `<div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div>` : `<div class="score est">${fmt(S.proj.pts)}*<small>projected</small></div>`}</div>`;
     return `<div class="card mu${isMine(m) ? ' mine' : ''}"><div class="mu-top"><span>${label}</span><span>${curW.playoff ? '' : 'Week ' + curWeek}</span></div>${side(A, 'A')}${side(B, 'B')}</div>`;
   }
@@ -694,13 +714,19 @@ footer .stripes { margin-bottom: 24px; }
     $('#mu-h').textContent = curW.playoff ? `Week ${curWeek} · Playoffs` : `Week ${curWeek} matchups`;
     $('#mu-sub').textContent = sample + (curW.playoff && !curW.games[0].set
       ? 'Matchups are set after Week 17. Shown with current seeds.'
-      : 'Your 2 starters count; the bench doesn\'t. Scores update live during games; official numbers post the next morning.');
+      : 'Your 2 starters count; the bench doesn\'t. Scores update live during games; official numbers post the next morning.' +
+        (anyProv ? ' Provisional: the referee comes from the weekly Football Zebras post and can change until kickoff.' : ''));
     const games = curW.games.filter(isMine).concat(curW.games.filter(m => !isMine(m)));
     $('#mu-grid').innerHTML = games.map(m => muCard(m, ov)).join('');
     const hasProj = games.some(m => m.A && m.A.proj);
     $('#mu-note').hidden = !hasProj;
     if (hasProj) $('#mu-note').innerHTML = `* Projected from each crew's 2026 average points per game. An off starter projects 0. The one exception: if a team has no working crew left to start in that spot, the spot scores ${OPEN_PCT}% of the week's average crew score instead of 0, and that is what's shown. A captain counts ×${D.captain_multiplier || 1.5}.` +
       (games.every(m => m.A.proj.assigned) ? '' : " Who's off isn't posted yet, so no crew is flagged.");
+    // Football Zebras also says which crews are off; mention it if that differs from the league's own off list.
+    const asgOff = D.assignments && D.assignments[String(curWeek)] ? D.assignments[String(curWeek)].off || [] : null;
+    const mineOff = [...offSet(curWeek)].sort().join(', '), theirsOff = asgOff ? asgOff.slice().sort().join(', ') : null;
+    $('#mu-off').hidden = !(live && theirsOff !== null && theirsOff !== mineOff);
+    if (!$('#mu-off').hidden) $('#mu-off').textContent = `Football Zebras lists ${theirsOff || 'no one'} as off this week; the league's off list has ${mineOff || 'no one'}.`;
     renderMyWeek(ov);
   }
   // "Your week" card: this week's game for the picked team (re-rendered with live scores)
@@ -721,50 +747,6 @@ footer .stripes { margin-bottom: 24px; }
       (pm && po ? `<br>Projected: <b>${esc(myTeam)} ${fmt(pm.pts)}</b> – ${esc(opp)} ${fmt(po.pts)} <span class="faint">(season averages, see the note under Matchups)</span>` : '');
     $('#my-mu').innerHTML = muCard(m, ov, 'my');
   }
-  // ---- This week's games: kickoff times (Eastern), grouped by day. Display only. ----
-  const timeFmt = t => { if (!t) return 'TBD'; const [h, m] = t.split(':').map(Number); return `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}`; };
-  function renderSlate() {
-    const wk = String(curWeek);
-    const games = (D.schedule && D.schedule[wk]) || [];
-    $('#slate').hidden = !games.length;
-    if (!games.length) return;
-    // Who owns each crew, and whether it starts / captains this week.
-    const asg = (D.assignments && D.assignments[wk]) || null;
-    const mgr = Object.fromEntries((D.teams || []).map(t => [t.team, t.manager]));
-    const rost = (D.rosters && D.rosters[wk]) || {}, strt = (D.starters && D.starters[wk]) || {}, caps = (D.captains && D.captains[wk]) || {};
-    const owner = {};
-    for (const [team, crews] of Object.entries(rost)) crews.forEach(c => { owner[c] = team; });
-    const capOn = curWeek >= (D.captain_start_week || 99) && Object.keys(rost).length > 0;
-    const noCap = capOn ? Object.keys(rost).filter(t => !caps[t]).map(t => mgr[t] || t) : [];
-    let anyProv = false;
-    const who = g => {
-      const ref = g.referee || (asg && asg.games[g.gid]) || '';
-      if (!ref) return '';
-      const prov = !g.referee;
-      anyProv = anyProv || prov;
-      const t = owner[ref], isStarter = t && (strt[t] || []).includes(ref), isCap = t && caps[t] === ref;
-      const role = !t ? '' : isCap ? ` · ${esc(mgr[t] || t)} <b>captain</b>` : isStarter ? ` · ${esc(mgr[t] || t)} starter` : ` · <span class="faint">${esc(mgr[t] || t)} bench</span>`;
-      const flag = capOn && isStarter && !caps[t] ? ' <span class="warn">no captain set</span>' : '';
-      return `<span class="who">${esc(ref)}${prov ? '<span class="pill-prov">Provisional</span>' : ''}${role}${flag}</span>`;
-    };
-    const key = g => (g.date || '9999') + ' ' + (g.time || '99:99');
-    const days = [];
-    for (const g of games.slice().sort((x, y) => key(x).localeCompare(key(y)))) {
-      let d = days[days.length - 1];
-      if (!d || d.date !== g.date) { d = { date: g.date, games: [] }; days.push(d); }
-      d.games.push(g);
-    }
-    const rows = days.map(d => `<div class="slate-day"><b>${d.date ? dayFmt(d.date) : 'Date TBD'}</b>` +
-      d.games.map(g => `<div class="slate-row"><span class="when num">${timeFmt(g.time)} ET</span><span>${esc(g.game)}${g.played ? ' <span class="faint">played</span>' : ''}</span>${who(g)}</div>`).join('') + '</div>').join('');
-    // Football Zebras also says which crews are off; flag a disagreement with the league's own off list.
-    const mine = ((D.off_weeks && D.off_weeks[wk]) || []).slice().sort().join(', '), theirs = asg ? (asg.off || []).slice().sort().join(', ') : null;
-    $('#slate').innerHTML = `<h3>Week ${curWeek} games</h3><p class="muted" style="margin:0">Kickoff times are Eastern.` +
-      `${anyProv ? ' <b>Provisional</b> referees are from the weekly Football Zebras post and can change until kickoff.' : ''}</p>` +
-      (noCap.length ? `<p class="warn" style="margin:8px 0 0">No captain set: ${noCap.map(esc).join(', ')}</p>` : '') +
-      rows +
-      (theirs !== null && theirs !== mine ? `<p class="faint" style="margin:10px 0 0">Football Zebras lists ${esc(theirs || 'no one')} as off this week; the league's off list has ${esc(mine || 'no one')}.</p>` : '');
-  }
-  renderSlate();
   renderMatchups();
 
   // Last final week's awards
