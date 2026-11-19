@@ -71,6 +71,13 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 /* Matchups */
 .mu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
 .mu { padding: 0; overflow: hidden; }
+/* The three matchup cards share rows (top bar, first team, second team), so team sections and the dashed dividers
+   line up across cards instead of each card sizing itself. */
+@supports (grid-template-rows: subgrid) {
+  .mu-grid > .mu { display: grid; grid-template-rows: subgrid; grid-row: span 3; row-gap: 0; }
+}
+.side > div:first-child { align-self: start; }
+.pill-prov { font-style: italic; }
 .mu .mu-top { display: flex; justify-content: space-between; gap: 8px; padding: 10px 16px; font-size: 12px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; font-weight: 600; border-bottom: 1px solid var(--line); }
 .side { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; }
 .side + .side { border-top: 1px dashed var(--line); }
