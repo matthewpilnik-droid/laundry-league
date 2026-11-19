@@ -125,6 +125,10 @@ table.t td.r { font-variant-numeric: tabular-nums; }
 .topflag { font-size: 14px; }
 .topflag .who { color: var(--ink-3); font-size: 13px; }
 .byes { padding: 14px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.slate h3 { margin: 0 0 4px; }
+.slate-day { margin-top: 12px; }
+.slate-row { display: flex; gap: 14px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.slate-row .when { min-width: 86px; color: var(--ink-2); }
 .trend.up { color: var(--good); font-weight: 700; } .trend.down { color: var(--ink-3); }
 .spark { display: inline-flex; gap: 4px; align-items: end; height: 32px; vertical-align: middle; }
 .spark i { width: 10px; background: var(--ink-2); border-radius: 2px 2px 0 0; opacity: .7; }
@@ -337,6 +341,7 @@ footer .stripes { margin-bottom: 24px; }
   <div class="sec-head"><div><h2 id="mu-h">Matchups</h2><p class="muted" id="mu-sub"></p></div></div>
   <div class="mu-grid" id="mu-grid"></div>
   <p class="faint" id="mu-note" style="margin-top:12px" hidden></p>
+  <div class="card slate" id="slate" style="margin-top:14px" hidden></div>
   <div class="awards" id="awards"></div>
 </section>
 
@@ -710,6 +715,24 @@ footer .stripes { margin-bottom: 24px; }
       (pm && po ? `<br>Projected: <b>${esc(myTeam)} ${fmt(pm.pts)}</b> – ${esc(opp)} ${fmt(po.pts)} <span class="faint">(season averages, see the note under Matchups)</span>` : '');
     $('#my-mu').innerHTML = muCard(m, ov, 'my');
   }
+  // ---- This week's games: kickoff times (Eastern), grouped by day. Display only. ----
+  const timeFmt = t => { if (!t) return 'TBD'; const [h, m] = t.split(':').map(Number); return `${((h + 11) % 12) + 1}:${String(m).padStart(2, '0')} ${h < 12 ? 'am' : 'pm'}`; };
+  function renderSlate() {
+    const games = (D.schedule && D.schedule[String(curWeek)]) || [];
+    $('#slate').hidden = !games.length;
+    if (!games.length) return;
+    const key = g => (g.date || '9999') + ' ' + (g.time || '99:99');
+    const days = [];
+    for (const g of games.slice().sort((x, y) => key(x).localeCompare(key(y)))) {
+      let d = days[days.length - 1];
+      if (!d || d.date !== g.date) { d = { date: g.date, games: [] }; days.push(d); }
+      d.games.push(g);
+    }
+    $('#slate').innerHTML = `<h3>Week ${curWeek} games</h3><p class="muted" style="margin:0">Kickoff times are Eastern.</p>` +
+      days.map(d => `<div class="slate-day"><b>${d.date ? dayFmt(d.date) : 'Date TBD'}</b>` +
+        d.games.map(g => `<div class="slate-row"><span class="when num">${timeFmt(g.time)} ET</span><span>${esc(g.game)}</span>${g.played ? '<span class="faint">played</span>' : ''}</div>`).join('') + '</div>').join('');
+  }
+  renderSlate();
   renderMatchups();
 
   // Last final week's awards

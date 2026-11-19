@@ -741,7 +741,9 @@ schedule_out = collections.defaultdict(list)
 for gid, g in sorted(games.items()):
     if g["season"] == str(SEASON) and START <= int(g["week"]) <= PLAYOFF:
         schedule_out[str(int(g["week"]))].append(
-            {"gid": gid, "game": label(g), "referee": g["referee"] or "", "played": gid in g_cur_set})
+            {"gid": gid, "game": label(g), "referee": g["referee"] or "", "played": gid in g_cur_set,
+             # Kickoff as nflverse lists it: Eastern time, e.g. "Thursday" / "20:15" (blank when not set).
+             "day": g.get("weekday") or "", "date": g.get("gameday") or "", "time": g.get("gametime") or ""})
 for gid, c in cancelled.items():          # a cancelled game that's gone from the schedule
     if gid not in games:
         schedule_out[str(c["week"])].append({"gid": gid, "game": gid, "referee": "", "played": False})
