@@ -219,6 +219,12 @@ details.dd-res[open] .res-row .sc::after { content: " ▾"; }
 /* Lineups */
 .ww { display: grid; grid-template-columns: 1fr 1.6fr; gap: 16px; align-items: start; }
 .ww > *, .score-grid > *, .faq > *, .awards > *, .mu-grid > *, .steps > * { min-width: 0; }
+/* Lineups: the table gets the full width (it has game lines now), with the rules card underneath. */
+#lineups .ww { grid-template-columns: 1fr; }
+#lineups .ww > .rules { order: 2; }
+#lu-tbl td:first-child .ref { white-space: normal; max-width: 260px; }
+#lu-tbl td:first-child { width: 28%; }
+@media (max-width: 860px) { #lu-tbl .game { white-space: normal; } }
 .rules { padding: 22px; }
 .rules ol, .rules ul { margin: 10px 0 0; padding-left: 20px; font-size: 15px; color: var(--ink-2); }
 .rules li { margin: 6px 0; }
