@@ -1,3 +1,8 @@
 cache/
 .DS_Store
 __pycache__/
+# Secrets and private Supabase files (never commit)
+.env
+.env.*
+supabase/.temp/
+supabase/seed-private.sql
