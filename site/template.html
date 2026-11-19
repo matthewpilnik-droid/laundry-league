@@ -640,27 +640,27 @@ footer .stripes { margin-bottom: 24px; }
   function crewLine(l, ov, w, scope = '') {
     const c = byRef[l.crew] || {};
     const cap = D.captain_multiplier || 1.5;
-    let pts = l.pts, state = '', where = l.game ? esc(l.game) : '';
+    let pts = l.pts, parts = l.game ? [esc(l.game)] : [];
     const off = w === curWeek && offSet(w).has(l.crew) && !c.replacement;
-    if (l.status === 'bye') state = '<span class="bad">Off · 0</span>';
-    else if (l.status === 'open') { state = `<span class="warnish">Open spot · ${l.pct}% of weekly average</span>`; where = 'No crew available'; }
+    if (l.status === 'bye') parts = ['<span class="bad">Off · 0</span>'];
+    else if (l.status === 'open') parts = [`Open spot · ${l.pct}% of weekly average`, 'No crew available'];
     else if (l.status === 'cancelled') {
       if (l.avg == null) pts = null;
-      state = `<span class="warnish">Game cancelled · ${l.pct}% of weekly average${l.avg == null ? ', posts when the week is final' : ''}</span>`;
+      parts = [`Game cancelled · ${l.pct}% of weekly average${l.avg == null ? ', posts when the week is final' : ''}`, ...parts];
     }
-    else if (l.status === 'pending' && c.replacement) { pts = null; state = 'Weekly average · posts when the week is final'; }
+    else if (l.status === 'pending' && c.replacement) { pts = null; parts = ['Weekly average · posts when the week is final']; }
     else if (l.status === 'pending' && ov) {
-      pts = ov.pts; where = esc(ov.game);
-      state = ov.state === 'in' ? `<span class="live">Live · ${esc(ov.detail)}</span>` : 'Final · unofficial';
+      pts = ov.pts;
+      parts = [esc(ov.game), ov.state === 'in' ? `<span class="live">Live · ${esc(ov.detail)}</span>` : 'Final · unofficial'];
     } else if (l.status === 'pending') {
-      pts = null; where = '';
+      pts = null;
       const sl = w === curWeek ? slots[l.crew] : null;
-      if (off) state = '<span class="bad">Off this week</span>';
+      if (off) parts = ['<span class="bad">Off this week</span>'];
       else if (sl) {
         const day = sl.date ? new Date(sl.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short' }) : '';
-        state = `${esc(day)} ${esc(timeFmt(sl.time) || 'TBD')} ET`; where = esc(sl.game);
-        if (sl.prov) where += ' <span class="pill-prov">Provisional</span>';
-      } else state = 'Not played yet';
+        parts = [esc(sl.game), `${esc(day)} ${esc(timeFmt(sl.time) || 'TBD')} ET`];
+        if (sl.prov) parts.push('<span class="pill-prov">Provisional</span>');
+      } else parts = ['Not played yet'];
     }
     // Captain: official lines carry their own bonus; live lines are worked out here.
     let bonus = 0;
@@ -670,11 +670,10 @@ footer .stripes { margin-bottom: 24px; }
     const pr = l.proj && l.starter && l.status === 'pending' && pts === null ? l.proj : null;
     const val = l.status === 'bye' ? '' : pts !== null ? `<span class="pts">${fmt(pts + bonus)}</span>${bonus ? ` <span class="faint">(${fmt(pts)} + ${fmt(bonus)})</span>` : ''}`
       : pr ? `<span class="proj-pts">Proj ${fmt(pr.pts)}*</span>` : '';
-    const extra = pr && pr.flag === 'open' ? `<span class="warnish">nobody else to start: ${OPEN_PCT}% of the weekly average</span>` : '';
-    const swap = pr && pr.swap ? `<span class="bad">${esc(pr.swap.join(' or '))} ${pr.swap.length > 1 ? 'are' : 'is'} working: swap in</span>` : '';
-    const sub = [val, state, extra, where, swap].filter(Boolean).join(' · ');
+    if (pr && pr.flag === 'open') parts.push(`nobody else to start: ${OPEN_PCT}% of the weekly average`);
+    if (pr && pr.swap) parts.push(`<span class="bad">${esc(pr.swap.join(' or '))} ${pr.swap.length > 1 ? 'are' : 'is'} working: swap in</span>`);
     const pills = (l.captain && l.starter ? `<span class="st cap">Captain ×${cap}</span>` : '') + (l.starter ? '' : '<span class="st">Bench</span>');
-    const line = `<div class="cl${l.starter ? '' : ' bench'}"><div class="cl-top"><b>${esc(l.crew)}</b>${pills}</div><div class="cl-sub">${sub}</div>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
+    const line = `<div class="cl${l.starter ? '' : ' bench'}"><div class="cl-top"><b>${esc(l.crew)}</b>${val}${pills}</div><div class="cl-sub">${parts.join(' · ')}</div>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
     const detail = crewDetail(l, ov, w), k = `${scope}|${w}|${l.crew}`;
     return { pts: l.starter ? (pts || 0) + bonus : 0, html: detail
       ? `<details class="dd" data-k="${esc(k)}"${openK.has(k) ? ' open' : ''}><summary>${line}</summary>${detail}</details>`
@@ -691,7 +690,8 @@ footer .stripes { margin-bottom: 24px; }
       .map(c => ({ crew: c, pts: 0, status: 'pending', game: null, starter: on.includes(c), captain: captainOf(curWeek, team) === c }))
       .sort((x, y) => y.starter - x.starter);
     const pj = m[side] && m[side].proj ? Object.fromEntries(m[side].proj.crews.map(r => [r.crew, r])) : {};
-    const out = lines.map(l => crewLine({ ...l, proj: pj[l.crew] }, ov[l.crew], curWeek, scope));
+    // Only the two starters: the bench doesn't score. (Bench crews are still listed in the Lineups section.)
+    const out = lines.filter(l => l.starter).map(l => crewLine({ ...l, proj: pj[l.crew] }, ov[l.crew], curWeek, scope));
     return { team, pts: out.reduce((a, x) => a + x.pts, 0), html: out.map(x => x.html).join(''), proj: m[side] && m[side].proj };
   }
   const isMine = m => !!myTeam && (m.a === myTeam || m.b === myTeam);
