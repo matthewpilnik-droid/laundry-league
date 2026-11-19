@@ -222,12 +222,11 @@ details.dd-res[open] .res-row .sc::after { content: " ▾"; }
 /* Lineups */
 .ww { display: grid; grid-template-columns: 1fr 1.6fr; gap: 16px; align-items: start; }
 .ww > *, .score-grid > *, .faq > *, .awards > *, .mu-grid > *, .steps > * { min-width: 0; }
-/* Lineups: the table gets the full width (it has game lines now), with the rules card underneath. */
-#lineups .ww { grid-template-columns: 1fr; }
-#lineups .ww > .rules { order: 2; }
 #lu-tbl td:first-child .ref { white-space: normal; max-width: 260px; }
 #lu-tbl td:first-child { width: 28%; }
 @media (max-width: 860px) { #lu-tbl .game { white-space: normal; } }
+/* Rules: two columns when there is room, one list item never split across columns. */
+@media (min-width: 861px) { #how .rules ol { columns: 2; column-gap: 40px; } #how .rules li { break-inside: avoid; } }
 .rules { padding: 22px; }
 .rules ol, .rules ul { margin: 10px 0 0; padding-left: 20px; font-size: 15px; color: var(--ink-2); }
 .rules li { margin: 6px 0; }
@@ -385,6 +384,18 @@ footer .stripes { margin-bottom: 24px; }
     <div class="card step"><div class="n">4</div><h3>Win the Laundry Bowl</h3>
       <p>Weeks <span class="sw"></span>–<span class="re"></span>: play everyone twice<span id="rematch"></span>. Week 18: 1st vs 2nd for the title, 3rd vs 4th, and 5th vs 6th in the Delicates Bowl.</p></div>
   </div>
+  <div class="card rules" style="margin-top:16px">
+    <h3>The rules</h3>
+    <ol>
+      <li><b>Check assignments.</b> <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a> posts each week's referee for every game before kickoff. A crew not listed has the week off.</li>
+      <li><b>Text the commissioner</b> your 2 starters by <b id="deadline"></b>.</li>
+      <li><b>No text, no change:</b> last week's lineup stands. Week <span class="sw"></span> starts the first 2 crews you drafted.</li>
+      <li><b>An idle starter scores 0</b> — like starting a player on bye. The bench never scores.</li>
+      <li><b>Open spot:</b> if fewer than 2 of your crews have a game, each spot you can't fill scores <span class="osp">85</span>% of the weekly average (what the Replacement Refs get), once the week is final. Starting an idle crew when you had a working one on the bench still scores 0.</li>
+      <li class="captxt" hidden><b>Captain:</b> one starter per team is your captain and scores <b>×<span class="capm"></span></b> its whole game score, including an open spot, a cancelled game or the Replacement Refs' average. Pick a different captain any week; with no pick it carries forward, and if your captain leaves the starting spots you simply have none. From Week <span class="caps"></span> on, playoffs included.</li>
+      <li><b>The 2012 Replacement Refs</b> never have a week off. They score the average of every real crew that worked, once the week is final.</li>
+    </ol>
+  </div>
 </section>
 
 <section id="scoring" data-nav="Scoring">
@@ -427,21 +438,7 @@ footer .stripes { margin-bottom: 24px; }
 <section id="lineups" data-nav="Lineups">
   <div class="sec-head"><div><h2>Lineups</h2><p class="muted" id="lu-sub"></p></div></div>
   <div class="card offbox" id="offbox"></div>
-  <div class="ww">
-    <div class="card rules">
-      <h3>The rules</h3>
-      <ol>
-        <li><b>Check assignments.</b> <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a> posts each week's referee for every game before kickoff. A crew not listed has the week off.</li>
-        <li><b>Text the commissioner</b> your 2 starters by <b id="deadline"></b>.</li>
-        <li><b>No text, no change:</b> last week's lineup stands. Week <span class="sw"></span> starts the first 2 crews you drafted.</li>
-        <li><b>An idle starter scores 0</b> — like starting a player on bye. The bench never scores.</li>
-        <li><b>Open spot:</b> if fewer than 2 of your crews have a game, each spot you can't fill scores <span class="osp">85</span>% of the weekly average (what the Replacement Refs get), once the week is final. Starting an idle crew when you had a working one on the bench still scores 0.</li>
-        <li class="captxt" hidden><b>Captain:</b> one starter per team is your captain and scores <b>×<span class="capm"></span></b> its whole game score, including an open spot, a cancelled game or the Replacement Refs' average. Pick a different captain any week; with no pick it carries forward, and if your captain leaves the starting spots you simply have none. From Week <span class="caps"></span> on, playoffs included.</li>
-        <li><b>The 2012 Replacement Refs</b> never have a week off. They score the average of every real crew that worked, once the week is final.</li>
-      </ol>
-    </div>
-    <div class="card"><div class="tbl-wrap"><table class="t" id="lu-tbl"></table></div></div>
-  </div>
+  <div class="card"><div class="tbl-wrap"><table class="t" id="lu-tbl"></table></div></div>
 </section>
 
 <section id="board" data-nav="Draft board">
