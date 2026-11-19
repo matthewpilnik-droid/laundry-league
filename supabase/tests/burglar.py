@@ -34,8 +34,8 @@ UNLOCKED_WEEK, LOCK_WEEK = 12, 11
 
 
 class Resp:
-    def __init__(self, status, text):
-        self.status, self.text = status, text
+    def __init__(self, status, text, method="GET"):
+        self.status, self.text, self.method = status, text, method
         try:
             self.json = json.loads(text) if text else None
         except ValueError:
@@ -51,17 +51,21 @@ def http(method, path, body=None, token=None, headers=None):
     if token:
         h["Authorization"] = "Bearer " + token
     h.update(headers or {})
-    # Writes always ask for the changed rows back. Otherwise a SUCCESSFUL attack replies with an
-    # empty body and looks the same as a blocked one.
-    if method != "GET" and "/rest/v1/" in path and "/rpc/" not in path:
-        h.setdefault("Prefer", "return=representation")
+    # Inserts do NOT ask for the row back: asking can make a successful insert fail only because the
+    # attacker can't READ the row, which would hide a real hole. So for inserts, status 2xx = it worked.
+    # Updates/deletes ask for the changed rows, so "changed nothing" can be told from "changed something".
+    if "/rest/v1/" in path and "/rpc/" not in path:
+        if method == "POST":
+            h.setdefault("Prefer", "return=minimal")
+        elif method in ("PATCH", "DELETE"):
+            h.setdefault("Prefer", "return=representation")
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(URL + path, data=data, method=method, headers=h)
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return Resp(r.status, r.read().decode())
+            return Resp(r.status, r.read().decode(), method)
     except urllib.error.HTTPError as e:
-        return Resp(e.code, e.read().decode())
+        return Resp(e.code, e.read().decode(), method)
     except urllib.error.URLError as e:
         sys.exit("Could not reach Supabase: %s" % e.reason)
 
@@ -95,7 +99,10 @@ def refused(label, r, contains=None):
 
 def blocked_write(label, r):
     """A write is blocked if refused outright, or if it succeeded but changed no rows."""
-    ok = r.status >= 400 or (r.status < 300 and r.text.strip() in ("", "[]"))
+    if r.method == "POST":
+        ok = r.status >= 400                      # an insert that returns 2xx went in
+    else:
+        ok = r.status >= 400 or r.text.strip() in ("", "[]")
     record(label, ok, "write went through? %s: %s" % (r.status, r.text))
 
 
@@ -113,7 +120,7 @@ def get(path, token=None, headers=None):
     return http("GET", path, token=token, headers=headers)
 
 
-ZERO = {"Prefer": "return=representation"}
+ZERO = None   # (defaults in http() decide how each write asks for rows back)
 
 # ---------------------------------------------------------------- sign in
 print("Signing in four fake users...")
