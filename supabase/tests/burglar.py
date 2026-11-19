@@ -2,7 +2,8 @@
 
 Every attack must be refused, and every normal action must work. Prints PASS/FAIL per attempt.
 Run:   python3 -I supabase/tests/burglar.py
-Needs: .env.rehearsal in the project root (gitignored) with SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, TEST_PASSWORD.
+Needs: .env.rehearsal in the project root (gitignored) with SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY and a password
+       for each fake user: PW_COMMISH, PW_BRYAN, PW_MIKE, PW_OUTSIDER (or one shared TEST_PASSWORD for all four).
 Needs the fake users and the seed from supabase/tests/README.md.
 Starts from an empty lineup history (the script checks, and tells you how to reset).
 Uses only the public key and the fake users' passwords. No secret key is involved.
@@ -24,7 +25,7 @@ try:
             env[k.strip()] = v.strip()
     URL = env["SUPABASE_URL"].rstrip("/")
     KEY = env["SUPABASE_PUBLISHABLE_KEY"]
-    PW = env["TEST_PASSWORD"]
+    PWS = {u: env.get("PW_" + u) or env["TEST_PASSWORD"] for u in ("COMMISH", "BRYAN", "MIKE", "OUTSIDER")}
 except (OSError, KeyError) as e:
     sys.exit("Missing or incomplete .env.rehearsal (%s). See supabase/tests/README.md." % e)
 
@@ -62,10 +63,11 @@ def http(method, path, body=None, token=None, headers=None):
 
 
 def sign_in(email):
-    r = http("POST", "/auth/v1/token?grant_type=password", {"email": email, "password": PW})
+    who = email.split("@")[0].replace("ll-", "").upper()
+    r = http("POST", "/auth/v1/token?grant_type=password", {"email": email, "password": PWS[who]})
     if r.status != 200:
-        sys.exit("Could not sign in as %s (%s %s). Did you create the fake users with Auto Confirm and the "
-                 "shared test password? See supabase/tests/README.md." % (email, r.status, r.message[:120]))
+        sys.exit("Could not sign in as %s (%s %s). Is the user created with Auto Confirm, and does the "
+                 "password in .env.rehearsal match? See supabase/tests/README.md." % (email, r.status, r.message[:120]))
     return r.json["access_token"], r.json["user"]["id"]
 
 

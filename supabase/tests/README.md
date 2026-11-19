@@ -5,8 +5,9 @@ normal action must work. Rehearsal project only; never point this at the real le
 
 ## One-time setup
 1. **Create four fake users** in the Supabase dashboard: Authentication -> Users -> Add user -> Create new user.
-   For each: tick **Auto Confirm User**, and use the shared test password from `.env.rehearsal`
-   (copy it with: `! grep TEST_PASSWORD .env.rehearsal | cut -d= -f2 | pbcopy`).
+   For each: tick **Auto Confirm User**, and pick any throwaway password (never one you use anywhere real).
+   Put each password in `.env.rehearsal` as PW_COMMISH, PW_BRYAN, PW_MIKE, PW_OUTSIDER
+   (or use one shared TEST_PASSWORD for all four).
    - ll-commish@example.com
    - ll-bryan@example.com
    - ll-mike@example.com
@@ -17,5 +18,5 @@ normal action must work. Rehearsal project only; never point this at the real le
 1. SQL Editor: `truncate public.lineups, public.audit_log;` (the test needs an empty lineup history)
 2. `python3 -I supabase/tests/burglar.py`
 
-`.env.rehearsal` (gitignored) holds the project URL, the public key and the shared test password.
+`.env.rehearsal` (gitignored) holds the project URL, the public key and the fake users' passwords.
 No secret key is needed.
