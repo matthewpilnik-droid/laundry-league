@@ -574,14 +574,18 @@ def play_season(names, managers, init, starters, lg_start, captains=None, projec
         for c in starters[w][t]:
             avg = by_ref[c]["ppg26"] or 0
             flag, pts = "", avg
+            swap = []
             if c in off_now:
                 if spots:
                     flag, pts, spots = "open", round(rr_avg * OPEN_PCT / 100, 1), spots - 1
                 else:
+                    # An avoidable mistake: a working crew sits on the bench.
                     flag, pts = "off", 0
+                    swap = [b for b in rosters[w][t] if b not in starters[w][t] and b not in off_now]
             if c == cap:
                 pts = round(pts * CAPTAIN_MULT, 1)
-            rows.append({"crew": c, "avg": avg, "pts": pts, "flag": flag, "captain": c == cap})
+            rows.append({"crew": c, "avg": avg, "pts": pts, "flag": flag, "captain": c == cap,
+                         **({"swap": swap} if swap else {})})
             total += pts
         return {"crews": rows, "pts": round(total, 1), "assigned": str(w) in off_weeks}
 

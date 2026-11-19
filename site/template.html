@@ -87,6 +87,8 @@ section { padding: 56px 0 8px; scroll-margin-top: 48px; }
 .st.bye { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
 .st.open { background: var(--flag-soft); color: var(--ink-2); }
 .st.cap { background: var(--flag); color: var(--flag-ink); }
+.proj-pts { font-weight: 600; font-style: italic; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.side .score.est { color: var(--ink-3); font-style: italic; }
 .proj { margin-top: 8px; font-size: 13px; color: var(--ink-2); }
 .proj b { font-variant-numeric: tabular-nums; }
 .proj .faint { display: block; font-size: 12px; }
@@ -641,7 +643,10 @@ footer .stripes { margin-bottom: 24px; }
       bonus = l.status !== 'pending' && l.bonus != null ? l.bonus : Math.round(pts * ((D.captain_multiplier || 1.5) - 1) * 10) / 10;
       tag = `<span class="st cap">Captain ×${D.captain_multiplier || 1.5} · ${fmt(pts)} + ${fmt(bonus)}</span> ` + tag;
     } else if (l.captain && l.starter) tag = `<span class="st cap">Captain ×${D.captain_multiplier || 1.5}</span> ` + tag;
-    const line = `<div class="cl${l.starter ? '' : ' bench'}"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts + bonus)}</span>` : ''} ${tag} <span>${where}</span>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
+    // Pre-game projection for a starter whose game hasn't scored yet.
+    const pr = l.proj && l.starter && l.status === 'pending' && pts === null ? l.proj : null;
+    const prTxt = pr ? ` <span class="pts proj-pts">proj ${fmt(pr.pts)}*${pr.flag === 'open' ? ` (off, nobody else to start: ${OPEN_PCT}% of the weekly average)` : ''}</span>${pr.swap ? ` <span class="tag-off">OFF: ${esc(pr.swap.join(' or '))} ${pr.swap.length > 1 ? 'are' : 'is'} working, swap in</span>` : ''}` : '';
+    const line = `<div class="cl${l.starter ? '' : ' bench'}"><b>${esc(l.crew)}</b>${pts !== null ? ` <span class="pts">${fmt(pts + bonus)}</span>` : prTxt} ${tag} <span>${where}</span>${l.note ? `<span class="note">${esc(l.note)}</span>` : ''}</div>`;
     const detail = crewDetail(l, ov, w), k = `${scope}|${w}|${l.crew}`;
     return { pts: l.starter ? (pts || 0) + bonus : 0, html: detail
       ? `<details class="dd" data-k="${esc(k)}"${openK.has(k) ? ' open' : ''}><summary>${line}</summary>${detail}</details>`
@@ -657,17 +662,10 @@ footer .stripes { margin-bottom: 24px; }
     const lines = m[side] ? m[side].crews : (D.rosters[String(curWeek)][team] || [])
       .map(c => ({ crew: c, pts: 0, status: 'pending', game: null, starter: on.includes(c), captain: captainOf(curWeek, team) === c }))
       .sort((x, y) => y.starter - x.starter);
-    const out = lines.map(l => crewLine(l, ov[l.crew], curWeek, scope));
+    const pj = m[side] && m[side].proj ? Object.fromEntries(m[side].proj.crews.map(r => [r.crew, r])) : {};
+    const out = lines.map(l => crewLine({ ...l, proj: pj[l.crew] }, ov[l.crew], curWeek, scope));
     return { team, pts: out.reduce((a, x) => a + x.pts, 0), html: out.map(x => x.html).join(''), proj: m[side] && m[side].proj };
   }
-  // Pre-game projection for a team: starters' 2026 averages (see build_data.py project_team).
-  const projHtml = p => {
-    if (!p) return '';
-    const bits = p.crews.map(r => r.flag
-      ? `${esc(shortName(r.crew))} OFF (avg ${fmt(r.avg)}) → ${r.flag === 'open' ? fmt(r.pts) + ' open spot' : '0'}${r.captain ? ` ×${D.captain_multiplier}` : ''}`
-      : `${esc(shortName(r.crew))} ${fmt(r.avg)}${r.captain ? ` ×${D.captain_multiplier}` : ''}`);
-    return `<div class="proj">Projected <b>${fmt(p.pts)}*</b><span class="faint">${bits.join(' + ')}</span></div>`;
-  };
   const isMine = m => !!myTeam && (m.a === myTeam || m.b === myTeam);
   function muCard(m, ov, scope = 'mu') {
     const A = sideLines(m, 'A', ov, scope), B = sideLines(m, 'B', ov, scope);
@@ -675,8 +673,8 @@ footer .stripes { margin-bottom: 24px; }
     const label = curW.playoff ? `${esc(m.name)} · seeds ${m.seeds[0]} v ${m.seeds[1]}` : seriesLine(m.a, m.b);
     const any = A.pts + B.pts > 0;
     const side = (S, k) => `<div class="side ${any && lead === k ? 'win' : ''}">
-        <div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div>${projHtml(S.proj)}</div>
-        <div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div></div>`;
+        <div><div class="tname">${esc(S.team)}${S.team === myTeam ? '<span class="badge">You</span>' : ''}</div>${mgr[S.team] ? `<div class="mgr">${esc(mgr[S.team])}</div>` : ''}<div class="crewlines">${S.html}</div></div>
+        ${any || !S.proj ? `<div class="score">${any ? fmt(S.pts) : '–'}<small>points</small></div>` : `<div class="score est">${fmt(S.proj.pts)}*<small>projected</small></div>`}</div>`;
     return `<div class="card mu${isMine(m) ? ' mine' : ''}"><div class="mu-top"><span>${label}</span><span>${curW.playoff ? '' : 'Week ' + curWeek}</span></div>${side(A, 'A')}${side(B, 'B')}</div>`;
   }
   let lastOv = {};
@@ -690,7 +688,7 @@ footer .stripes { margin-bottom: 24px; }
     $('#mu-grid').innerHTML = games.map(m => muCard(m, ov)).join('');
     const hasProj = games.some(m => m.A && m.A.proj);
     $('#mu-note').hidden = !hasProj;
-    if (hasProj) $('#mu-note').innerHTML = `* Projections are each starter's 2026 average per game (the ${esc(D.replacement)}: the average of the weekly averages), so they will often be wrong. An off crew projects 0, or ${OPEN_PCT}% of the weekly average if it fills an open spot. A captain counts ×${D.captain_multiplier || 1.5}.` +
+    if (hasProj) $('#mu-note').innerHTML = `* Projected from each crew's 2026 average points per game. An off starter projects 0. The one exception: if a team has no working crew left to start in that spot, the spot scores ${OPEN_PCT}% of the week's average crew score instead of 0, and that is what's shown. A captain counts ×${D.captain_multiplier || 1.5}.` +
       (games.every(m => m.A.proj.assigned) ? '' : " Who's off isn't posted yet, so no crew is flagged.");
     renderMyWeek(ov);
   }
