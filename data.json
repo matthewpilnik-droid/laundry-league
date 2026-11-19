@@ -13,8 +13,10 @@
  "starters_per_week": 2,
  "replacement": "2012 Replacement Refs",
  "open_spot_pct": 85,
+ "captain_multiplier": 1.5,
+ "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-19T01:18Z",
+ "generated_at": "2026-11-19T02:34Z",
  "updated": "2026-11-16",
  "last_week": 10,
  "weeks_played": [
@@ -13141,6 +13143,72 @@
    ]
   }
  },
+ "captains": {
+  "11": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "12": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "13": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "14": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "15": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "16": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "17": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  },
+  "18": {
+   "Helen Keller's School for Refs that Don't See That Good": "Scott Novak",
+   "I'm Blind, I'm Deaf": "Alex Moore",
+   "This is not Nam, there are rules": "Clete Blakeman",
+   "Zebras with Gambling Debts": "Adrian Hill",
+   "DraftKings Employee of the Month": "Shawn Smith",
+   "Zebra Crime Syndicate": "Shawn Hochuli"
+  }
+ },
  "weeks": [
   {
    "week": 8,
@@ -13713,7 +13781,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -13730,7 +13800,27 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0,
+      "proj": {
+       "crews": [
+        {
+         "crew": "Scott Novak",
+         "avg": 105.7,
+         "pts": 158.6,
+         "flag": "",
+         "captain": true
+        },
+        {
+         "crew": "2012 Replacement Refs",
+         "avg": 77.1,
+         "pts": 77.1,
+         "flag": "",
+         "captain": false
+        }
+       ],
+       "pts": 235.7,
+       "assigned": true
+      }
      },
      "B": {
       "crews": [
@@ -13746,7 +13836,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -13756,7 +13848,27 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0,
+      "proj": {
+       "crews": [
+        {
+         "crew": "Brad Allen",
+         "avg": 70.0,
+         "pts": 70.0,
+         "flag": "",
+         "captain": false
+        },
+        {
+         "crew": "Clete Blakeman",
+         "avg": 70.2,
+         "pts": 105.3,
+         "flag": "",
+         "captain": true
+        }
+       ],
+       "pts": 175.3,
+       "assigned": true
+      }
      },
      "final": false,
      "winner": null
@@ -13771,7 +13883,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -13788,7 +13902,27 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0,
+      "proj": {
+       "crews": [
+        {
+         "crew": "Adrian Hill",
+         "avg": 89.1,
+         "pts": 133.6,
+         "flag": "",
+         "captain": true
+        },
+        {
+         "crew": "Bill Vinovich",
+         "avg": 67.2,
+         "pts": 67.2,
+         "flag": "",
+         "captain": false
+        }
+       ],
+       "pts": 200.8,
+       "assigned": true
+      }
      },
      "B": {
       "crews": [
@@ -13797,7 +13931,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -13814,7 +13950,27 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0,
+      "proj": {
+       "crews": [
+        {
+         "crew": "Alex Moore",
+         "avg": 80.8,
+         "pts": 121.2,
+         "flag": "",
+         "captain": true
+        },
+        {
+         "crew": "Ron Torbert",
+         "avg": 86.2,
+         "pts": 65.5,
+         "flag": "open",
+         "captain": false
+        }
+       ],
+       "pts": 186.7,
+       "assigned": true
+      }
      },
      "final": false,
      "winner": null
@@ -13829,7 +13985,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -13846,7 +14004,27 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0,
+      "proj": {
+       "crews": [
+        {
+         "crew": "Shawn Smith",
+         "avg": 67.2,
+         "pts": 100.8,
+         "flag": "",
+         "captain": true
+        },
+        {
+         "crew": "Brad Rogers",
+         "avg": 59.8,
+         "pts": 59.8,
+         "flag": "",
+         "captain": false
+        }
+       ],
+       "pts": 160.6,
+       "assigned": true
+      }
      },
      "B": {
       "crews": [
@@ -13862,7 +14040,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -13872,7 +14052,27 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0,
+      "proj": {
+       "crews": [
+        {
+         "crew": "Carl Cheffers",
+         "avg": 66.2,
+         "pts": 66.2,
+         "flag": "",
+         "captain": false
+        },
+        {
+         "crew": "Shawn Hochuli",
+         "avg": 80.9,
+         "pts": 121.4,
+         "flag": "",
+         "captain": true
+        }
+       ],
+       "pts": 187.6,
+       "assigned": true
+      }
      },
      "final": false,
      "winner": null
@@ -13894,7 +14094,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -13911,7 +14113,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -13920,7 +14122,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -13937,7 +14141,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -13959,7 +14163,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -13969,7 +14175,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -13985,7 +14191,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -13995,7 +14203,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14010,7 +14218,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -14027,7 +14237,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14036,7 +14246,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -14053,7 +14265,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14082,7 +14294,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -14092,7 +14306,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14101,7 +14315,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -14118,7 +14334,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14133,7 +14349,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -14150,7 +14368,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14159,7 +14377,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -14176,7 +14396,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14191,7 +14411,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -14208,7 +14430,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14224,7 +14446,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -14234,7 +14458,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14256,7 +14480,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -14273,7 +14499,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14282,7 +14508,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -14299,7 +14527,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14314,7 +14542,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -14331,7 +14561,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14347,7 +14577,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -14357,7 +14589,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14379,7 +14611,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -14389,7 +14623,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14398,7 +14632,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -14415,7 +14651,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14437,7 +14673,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -14454,7 +14692,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14463,7 +14701,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -14480,7 +14720,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14502,7 +14742,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -14512,7 +14754,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14521,7 +14763,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -14538,7 +14782,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14553,7 +14797,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -14570,7 +14816,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14586,7 +14832,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -14596,7 +14844,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14625,7 +14873,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -14635,7 +14885,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14644,7 +14894,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -14661,7 +14913,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14676,7 +14928,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -14693,7 +14947,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14702,7 +14956,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -14719,7 +14975,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14741,7 +14997,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -14751,7 +15009,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14760,7 +15018,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -14777,7 +15037,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14799,7 +15059,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Ron Torbert",
@@ -14816,7 +15078,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14825,7 +15087,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "2012 Replacement Refs",
@@ -14842,7 +15106,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14864,7 +15128,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Clay Martin",
@@ -14874,7 +15140,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14890,7 +15156,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Craig Wrolstad",
@@ -14900,7 +15168,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -14915,7 +15183,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Brad Rogers",
@@ -14932,7 +15202,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "B": {
       "crews": [
@@ -14941,7 +15211,9 @@
         "pts": 0,
         "game": null,
         "status": "pending",
-        "starter": true
+        "starter": true,
+        "captain": true,
+        "bonus": 0.0
        },
        {
         "crew": "Bill Vinovich",
@@ -14958,7 +15230,7 @@
         "starter": false
        }
       ],
-      "pts": 0
+      "pts": 0.0
      },
      "final": false,
      "winner": null
@@ -16302,6 +16574,7 @@
     ]
    }
   },
+  "captains": {},
   "weeks": [
    {
     "week": 1,
