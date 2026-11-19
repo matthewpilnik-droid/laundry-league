@@ -51,6 +51,10 @@ def http(method, path, body=None, token=None, headers=None):
     if token:
         h["Authorization"] = "Bearer " + token
     h.update(headers or {})
+    # Writes always ask for the changed rows back. Otherwise a SUCCESSFUL attack replies with an
+    # empty body and looks the same as a blocked one.
+    if method != "GET" and "/rest/v1/" in path and "/rpc/" not in path:
+        h.setdefault("Prefer", "return=representation")
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(URL + path, data=data, method=method, headers=h)
     try:
