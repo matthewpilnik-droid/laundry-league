@@ -138,7 +138,8 @@ for table in ["leagues", "teams", "roster", "league_members", "game_slots", "lin
     refused("read %s" % table, get("/rest/v1/%s?select=*" % table))
 refused("call set_lineup", http("POST", "/rest/v1/rpc/set_lineup", body={
     "p_team_id": TB, "p_week": 12, "p_starters": [NOVAK, HUSSEY], "p_captain": None}))
-refused("insert a lineup directly", http("POST", "/rest/v1/lineups", {"week": 12}))
+refused("insert a lineup directly (a complete, valid row)", http("POST", "/rest/v1/lineups", {
+    "league_id": league_id, "team_id": TB, "week": 12, "starters": [NOVAK, HUSSEY], "created_by": NOBODY}))
 refused("reach the private schema", get("/rest/v1/teams", headers={"Accept-Profile": "private"}), "invalid schema")
 refused("call the removed public helper", http("POST", "/rest/v1/rpc/is_league_member", {"p_league": league_id}))
 
@@ -203,8 +204,8 @@ writes = [
     ("update lineups", "PATCH", "/rest/v1/lineups?id=gt.0", {"week": 9}),
     ("delete lineups", "DELETE", "/rest/v1/lineups?id=gt.0", None),
     ("make himself commissioner", "PATCH", "/rest/v1/league_members?user_id=eq." + id_bry, {"role": "commissioner"}),
-    ("insert a commissioner row", "POST", "/rest/v1/league_members",
-     {"league_id": league_id, "user_id": id_bry, "role": "commissioner"}),
+    ("make the outsider a commissioner (valid new row)", "POST", "/rest/v1/league_members",
+     {"league_id": league_id, "user_id": id_out, "role": "commissioner"}),
     ("delete members", "DELETE", "/rest/v1/league_members?role=eq.commissioner", None),
     ("write the audit log", "POST", "/rest/v1/audit_log", {"league_id": league_id, "action": "fake"}),
     ("edit kickoff times", "PATCH", "/rest/v1/game_slots?crew=eq.Scott%20Novak", {"kickoff_at": "2099-01-01T00:00:00Z"}),
