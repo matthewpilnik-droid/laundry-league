@@ -394,6 +394,14 @@ lineups_cfg = LEAGUE.get("lineups", [])
 OPEN_PCT = LEAGUE.get("open_spot_pct", 85)
 if not isinstance(OPEN_PCT, (int, float)) or isinstance(OPEN_PCT, bool) or not 0 <= OPEN_PCT <= 100:
     sys.exit(f"league.json problem - open_spot_pct must be a number from 0 to 100, not {OPEN_PCT!r}.")
+# Captain: one starter per team scores CAPTAIN_MULT times its game score. It counts only from
+# CAPTAIN_START on, so no earlier week's result can change.
+CAPTAIN_MULT = LEAGUE.get("captain_multiplier", 1.5)
+if not isinstance(CAPTAIN_MULT, (int, float)) or isinstance(CAPTAIN_MULT, bool) or not 1 <= CAPTAIN_MULT <= 5:
+    sys.exit(f"league.json problem - captain_multiplier must be a number from 1 to 5, not {CAPTAIN_MULT!r}.")
+CAPTAIN_START = LEAGUE.get("captain_start_week")
+if CAPTAIN_START is not None and (not isinstance(CAPTAIN_START, int) or isinstance(CAPTAIN_START, bool)):
+    sys.exit(f"league.json problem - captain_start_week must be a whole week number, not {CAPTAIN_START!r}.")
 drafted = all(t["name"].strip() and len(t["crews"]) == ROSTER for t in teams_cfg)
 partly = any(t["crews"] for t in teams_cfg) and not drafted
 if len(teams_cfg) % 2:
@@ -438,10 +446,14 @@ def has_game(c, w):
 
 def weekly_starters(roster, lineups, start):
     """Replay the commissioner's lineup entries; a lineup stands until the team sends a new one.
-    With no entry yet, a team starts the first crews listed on its roster."""
+    With no entry yet, a team starts the first crews listed on its roster.
+    Returns (starters, captains), each {week: {team: ...}}. A captain stands like a lineup does,
+    until the team names another one (or "" for none). If a new lineup leaves the old captain
+    on the bench, the team simply has no captain."""
     cur = {t: cs[:STARTERS] for t, cs in roster.items()}
+    cap = {t: None for t in roster}
     ordered = sorted(enumerate(lineups), key=lambda x: (x[1]["week"], x[0]))
-    out, i = {}, 0
+    out, caps, i = {}, {}, 0
     for w in range(start, PLAYOFF + 1):
         while i < len(ordered) and ordered[i][1]["week"] <= w:
             n, l = ordered[i]
@@ -455,9 +467,23 @@ def weekly_starters(roster, lineups, start):
             if off:
                 sys.exit(f"league.json problem - {where}: {off} not on {team}'s roster {roster[team]}.")
             cur[team] = picks
+            if cap[team] not in picks:
+                cap[team] = None                      # old captain no longer starts
+            if l.get("captain"):
+                c = roster_name(l["captain"])
+                if CAPTAIN_START is None or l["week"] < CAPTAIN_START:
+                    sys.exit(f"league.json problem - {where}: captains start in Week {CAPTAIN_START}; "
+                             f"a captain on an earlier week would change a past result.")
+                if c not in picks:
+                    sys.exit(f"league.json problem - {where}: captain '{c}' must be one of the starters {picks}.")
+                cap[team] = c
+            elif "captain" in l:
+                cap[team] = None                      # "captain": "" clears it
             i += 1
         out[w] = {t: list(c) for t, c in cur.items()}
-    return out
+        on = CAPTAIN_START is not None and w >= CAPTAIN_START
+        caps[w] = {t: (cap[t] if on else None) for t in cap}
+    return out, caps
 
 
 def mock_starters(roster, start):
@@ -487,8 +513,12 @@ def mock_league():
 PLAYOFF_NAMES = ["Laundry Bowl", "Third-place game", "Delicates Bowl"]
 
 
-def play_season(names, managers, init, starters, lg_start):
-    """Head-to-head weeks, standings, Week 18 playoffs and weekly awards for one league."""
+def play_season(names, managers, init, starters, lg_start, captains=None, project=False):
+    """Head-to-head weeks, standings, Week 18 playoffs and weekly awards for one league.
+    captains: {week: {team: crew}} (see weekly_starters). project: add pre-game projections
+    to the first week that isn't final."""
+    captains = captains or {}
+    proj_week = next((x for x in range(lg_start, PLAYOFF + 1) if not week_final[x]), None) if project else None
     schedule = make_schedule(names, lg_start)
     rosters = {w: {t: list(cs) for t, cs in init.items()} for w in range(lg_start, PLAYOFF + 1)}
 
@@ -520,7 +550,44 @@ def play_season(names, managers, init, starters, lg_start):
                 if spots and x["starter"] and x["status"] == "bye":
                     x.update(status="open", pts=round(avg * OPEN_PCT / 100, 1), avg=avg, pct=OPEN_PCT)
                     spots -= 1
-        return {"crews": lines, "pts": round(sum(x["pts"] for x in lines if x["starter"]), 1)}
+        # Captain: the team's chosen starter scores CAPTAIN_MULT times its game score.
+        cap = captains.get(w, {}).get(t)
+        total = sum(x["pts"] for x in lines if x["starter"])
+        for x in lines:
+            if x["starter"] and x["crew"] == cap:
+                x["captain"] = True
+                x["bonus"] = round(x["pts"] * (CAPTAIN_MULT - 1), 1)
+                total += x["bonus"]
+        out = {"crews": lines, "pts": round(total, 1)}
+        if w == proj_week:
+            out["proj"] = project_team(t, w, cap)
+        return out
+
+    def project_team(t, w, cap):
+        """Pre-game estimate: each starter at its 2026 average per game (the Replacement Refs at the
+        average of the weekly averages). An off crew scores 0, unless the team has no working crew
+        left to fill the spot, which is the open-spot rule: OPEN_PCT of the Replacement Refs' average."""
+        off_now = off_weeks.get(str(w), [])
+        spots = max(0, STARTERS - sum(1 for c in rosters[w][t] if c not in off_now))
+        rr_avg = by_ref[REPLACEMENT]["ppg26"] or 0
+        rows, total = [], 0.0
+        for c in starters[w][t]:
+            avg = by_ref[c]["ppg26"] or 0
+            flag, pts = "", avg
+            swap = []
+            if c in off_now:
+                if spots:
+                    flag, pts, spots = "open", round(rr_avg * OPEN_PCT / 100, 1), spots - 1
+                else:
+                    # An avoidable mistake: a working crew sits on the bench.
+                    flag, pts = "off", 0
+                    swap = [b for b in rosters[w][t] if b not in starters[w][t] and b not in off_now]
+            if c == cap:
+                pts = round(pts * CAPTAIN_MULT, 1)
+            rows.append({"crew": c, "avg": avg, "pts": pts, "flag": flag, "captain": c == cap,
+                         **({"swap": swap} if swap else {})})
+            total += pts
+        return {"crews": rows, "pts": round(total, 1), "assigned": str(w) in off_weeks}
 
     rec = {n: {"w": 0, "l": 0, "t": 0, "pf": 0.0, "pa": 0.0, "results": []} for n in names}
     series = collections.defaultdict(lambda: [0, 0, 0])      # "A|B" (sorted) -> A wins, B wins, ties
@@ -615,28 +682,13 @@ def play_season(names, managers, init, starters, lg_start):
         "teams": [{"team": n, "manager": managers.get(n, "")} for n in names],
         "rosters": {str(w): r for w, r in rosters.items()},
         "starters": {str(w): s for w, s in starters.items()},
+        "captains": {str(w): c for w, c in captains.items() if any(c.values())},
         "weeks": weeks_out,
         "standings": standings,
         "series": dict(series),
         "awards": awards,
     }
 
-
-if drafted:
-    names = [t["name"].strip() for t in teams_cfg]
-    managers = {t["name"].strip(): t.get("manager", "") for t in teams_cfg}
-    init = {t["name"].strip(): [roster_name(c) for c in t["crews"]] for t in teams_cfg}
-    picks = [c for r in init.values() for c in r]
-    bad = [c for c in picks if c not in by_ref]
-    dupes = [c for c, n in collections.Counter(picks).items() if n > 1]
-    if bad or dupes:
-        sys.exit(f"league.json problem - unknown crews: {bad}, drafted twice: {dupes}. "
-                 f"Valid names: {sorted(by_ref)}")
-    league = play_season(names, managers, init, weekly_starters(init, lineups_cfg, START), START)
-    # Once live, the mock league stays on the page as a "what a season looks like" sample.
-    sample = play_season(*mock_league())
-else:
-    league, sample = play_season(*mock_league()), None
 
 # Crews the commissioner marked as off (no assignment) ahead of each week,
 # from Football Zebras' posted assignments. Shown on the site before games are played.
@@ -648,6 +700,23 @@ for w, cs in LEAGUE.get("off", {}).items():
         sys.exit(f"league.json problem - off, Week {w}: unknown crews {bad}. "
                  f"Valid names: {sorted(c for c in by_ref if c != REPLACEMENT)}")
     off_weeks[str(int(w))] = names
+
+if drafted:
+    names = [t["name"].strip() for t in teams_cfg]
+    managers = {t["name"].strip(): t.get("manager", "") for t in teams_cfg}
+    init = {t["name"].strip(): [roster_name(c) for c in t["crews"]] for t in teams_cfg}
+    picks = [c for r in init.values() for c in r]
+    bad = [c for c in picks if c not in by_ref]
+    dupes = [c for c, n in collections.Counter(picks).items() if n > 1]
+    if bad or dupes:
+        sys.exit(f"league.json problem - unknown crews: {bad}, drafted twice: {dupes}. "
+                 f"Valid names: {sorted(by_ref)}")
+    real_starters, real_captains = weekly_starters(init, lineups_cfg, START)
+    league = play_season(names, managers, init, real_starters, START, real_captains, project=True)
+    # Once live, the mock league stays on the page as a "what a season looks like" sample.
+    sample = play_season(*mock_league())
+else:
+    league, sample = play_season(*mock_league()), None
 
 # The real draft as entered so far. Teams are listed in draft-slot order, so the
 # site's draft board can lay out the snake before the league goes live.
@@ -703,6 +772,7 @@ json.dump({
     "crews_per_team": ROSTER, "starters_per_week": STARTERS,
     "replacement": REPLACEMENT,
     "open_spot_pct": OPEN_PCT,
+    "captain_multiplier": CAPTAIN_MULT, "captain_start_week": CAPTAIN_START,
     "lineup_deadline": LEAGUE.get("lineup_deadline", ""),
     "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
     "updated": max(games[g]["gameday"] for g in g_cur) if g_cur else None,
@@ -730,7 +800,7 @@ json.dump({
     "top_flags": top_flags,
     "sightings": sightings,
     "ledger": ledger,
-    **{k: league[k] for k in ("teams", "rosters", "starters", "weeks", "standings", "series", "awards")},
+    **{k: league[k] for k in ("teams", "rosters", "starters", "captains", "weeks", "standings", "series", "awards")},
     "sample": sample,
     "tier_table": tier_table,
     "unknown_ref_games": unknown_ref,

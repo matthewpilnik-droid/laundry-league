@@ -29,12 +29,25 @@ from ESPN in each viewer's browser.
 - **Substitute referee:** if a crew's referee is out and someone else referees
   the crew's game, the game still counts for the crew. The commissioner records
   it under **Game fixes** if the data shows the substitute's name.
+- **Captain (from Week 11, playoffs included):** each week a team names one of its two starters
+  captain, and that crew scores **1.5×** its whole game score. That includes an open spot, a cancelled
+  game and the Replacement Refs' weekly average. The captain stands until the team names another (like
+  a lineup), and if a new lineup benches the captain the team has none. It changes head-to-head and
+  standings only, not the weekly awards. The 1.5 is `captain_multiplier` and the first week is
+  `captain_start_week` in `league.json`; a captain set for an earlier week stops the build, because it
+  would change a past result.
+- **Projections:** the Matchups cards for the current week show each team's projected total, using each
+  starter's 2026 average per game (the Replacement Refs: the average of the weekly averages). An off
+  crew projects 0, unless the team has no working crew left, in which case it fills an open spot at 85%
+  of the Replacement Refs' average. A captain counts ×1.5. Projections are for fun and often wrong.
 - Weeks 8–17: head-to-head, everyone plays everyone twice.
 - Draft order: Bryan, Matthew, Mike, Stephan, Sean, Danny.
   `league.json` lists the teams in that order; the site's draft board reads it.
 - Week 18: Laundry Bowl (1st vs 2nd), third-place game (3rd vs 4th) and the
   Delicates Bowl (5th vs 6th). Seeds come from the Week 17 standings.
-- Standings: win–loss record, ties broken by total points scored.
+- Standings: win–loss record. Ties are broken by total points scored, then head-to-head record between
+  the tied teams, then a coin flip. (The build sorts by wins, then points; the last two have never been needed,
+  since scores run to the decimal, and would be applied by hand.)
 
 ## Commissioner guide
 
@@ -71,6 +84,14 @@ when someone changes:
   { "week": 9, "team": "Holding Pattern", "start": ["Hochuli", "Replacement Refs"] }
 ]
 ```
+
+To name a captain (Week 11 on), add `"captain"` to the same line. It must be one of the two starters:
+
+```json
+{ "week": 11, "team": "Holding Pattern", "start": ["Hochuli", "Replacement Refs"], "captain": "Hochuli" }
+```
+
+The commissioner page has a **Captain** picker under each team's starters. `"captain": ""` clears it.
 
 Each week keeps the lineup it had, so a new line never alters a past result. A line dated to a
 week that's already final does rewrite that week's result, so the commissioner page locks final
@@ -156,6 +177,7 @@ any owner starting one.
 | Flag wipes out a touchdown | +6 |
 | Call overturned: ruling reversed by a coach's challenge or replay review, or a flag picked up after replay help (no multipliers) | −5 |
 | Stood tall: a coach's challenge of the crew's ruling fails (booth reviews don't count; no multipliers) | +3 |
+| Captain (one starter per team, from Week 11): the crew's whole game score | ×1.5 (`captain_multiplier`) |
 | Offsetting penalties | ×2 |
 | Last 2:00 of either half | ×1.5 |
 | Open spot (fewer than 2 crews with a game that week) | 85% of the week's average crew score (`open_spot_pct`) |

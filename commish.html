@@ -156,6 +156,9 @@ ol.how li { margin: 4px 0; }
   const teams = L.teams.map(t => ({ name: t.name, manager: t.manager || '', crews: slots(t) }));
   const lineupsIn = (L.lineups || []).map(l => ({ ...l, row: oldNames.indexOf(l.team), start: l.start.map(resolve) }));
   const edits = {};   // "week|row" -> [crew, crew]
+  const capEdits = {};   // "week|row" -> captain crew, or "" for none (only set when the commissioner changes it)
+  // Captains count from this week on; null means the league has no captains.
+  const capOn = w => L.captain_start_week != null && w >= L.captain_start_week;
 
   // ---- Draft ----
   const label = c => c === REPL ? `${c} (weekly average)` : `${c} (${ppg[c] ?? '—'} pts/game last season)`;
@@ -198,6 +201,24 @@ ol.how li { margin: 4px 0; }
     Object.entries(edits).map(([k, v]) => [k.split('|').map(Number), v]).filter(([[ew, er]]) => er === row && ew <= w)
       .sort((a, b) => a[0][0] - b[0][0]).forEach(([, v]) => cur = v);
     return cur;
+  }
+  // The captain standing in a week: like starters, it stands until changed, and is dropped
+  // when the new lineup leaves that crew on the bench. (Mirrors weekly_starters in build_data.py.)
+  function standingCap(row, w) {
+    const byWeek = {};
+    lineupsIn.filter(l => l.row === row && l.week <= w).forEach(l => byWeek[l.week] = { start: l.start, cap: 'captain' in l ? (l.captain || '') : undefined });
+    Object.entries(edits).forEach(([k, v]) => { const [ew, er] = k.split('|').map(Number);
+      if (er === row && ew <= w) byWeek[ew] = { ...(byWeek[ew] || {}), start: v, cap: k in capEdits ? capEdits[k] : (byWeek[ew] || {}).cap }; });
+    Object.entries(capEdits).forEach(([k, v]) => { const [ew, er] = k.split('|').map(Number);
+      if (er === row && ew <= w) byWeek[ew] = { ...(byWeek[ew] || {}), cap: v }; });
+    let cur = teams[row].crews.slice(0, S), cap = null;
+    Object.keys(byWeek).map(Number).sort((a, b) => a - b).forEach(wk => {
+      const e = byWeek[wk];
+      if (e.start) cur = e.start;
+      if (!cur.includes(cap)) cap = null;
+      if (e.cap !== undefined) cap = e.cap || null;
+    });
+    return capOn(w) && cur.includes(cap) ? cap : null;
   }
   // Crews with no assignment, per week: saved under "off" in league.json.
   const off = Object.fromEntries(Object.entries(L.off || {}).map(([w, cs]) => [w, cs.map(resolve)]));
@@ -272,7 +293,9 @@ ol.how li { margin: 4px 0; }
       const bad = on.filter(c => idle.includes(c));
       return `<tr><td><b>${esc(t.name)}</b><div class="muted">${esc(t.manager)}</div></td>
         <td>${t.crews.map(c => `<label class="pick"><input type="checkbox" data-row="${row}" value="${esc(c)}" ${on.includes(c) ? 'checked' : ''}${locked ? ' disabled' : ''}> ${esc(c)}${idle.includes(c) ? ' <span class="tag-off">off</span>' : ''}</label>`).join('')}</td>
-        <td>${n === S ? '' : `<span class="warn">Pick exactly ${S}</span>`}${bad.length ? `<div class="warn">Starting an off crew: ${bad.map(esc).join(', ')}</div>` : ''}</td></tr>`;
+        <td>${capOn(w) && on.length === S ? `<label class="muted">Captain ×${L.captain_multiplier ?? 1.5}<br><select data-cap="${row}"${locked ? ' disabled' : ''}><option value="">None</option>${on.map(c =>
+          `<option value="${esc(c)}" ${c === standingCap(row, w) ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select></label>` : ''}
+        ${n === S ? '' : `<span class="warn">Pick exactly ${S}</span>`}${bad.length ? `<div class="warn">Starting an off crew: ${bad.map(esc).join(', ')}</div>` : ''}</td></tr>`;
     }).join('');
   }
   $('#lu-week').addEventListener('change', () => { drawLineups(); update(); });
@@ -284,6 +307,7 @@ ol.how li { margin: 4px 0; }
     else {
       unlocked.delete(w);
       Object.keys(edits).filter(k => +k.split('|')[0] === w).forEach(k => delete edits[k]);
+      Object.keys(capEdits).filter(k => +k.split('|')[0] === w).forEach(k => delete capEdits[k]);
       new Set([...Object.keys(fixes), ...Object.keys(fixesOrig)]).forEach(g => {
         if (infoOf(g).week !== w) return;
         const note = (fixes[g] || fixesOrig[g] || {}).note || '';
@@ -294,9 +318,15 @@ ol.how li { margin: 4px 0; }
     drawLineups(); update();
   });
   $('#lu-rows').addEventListener('change', e => {
+    if (e.target.dataset.cap !== undefined) {
+      capEdits[week() + '|' + e.target.dataset.cap] = e.target.value;
+      drawLineups(); update();
+      return;
+    }
     if (!e.target.dataset.row) return;
-    const row = +e.target.dataset.row;
-    edits[week() + '|' + row] = [...document.querySelectorAll(`#lu-rows input[data-row="${row}"]:checked`)].map(x => x.value);
+    const row = +e.target.dataset.row, key = week() + '|' + row;
+    edits[key] = [...document.querySelectorAll(`#lu-rows input[data-row="${row}"]:checked`)].map(x => x.value);
+    if (capEdits[key] && !edits[key].includes(capEdits[key])) delete capEdits[key];   // captain must start
     drawLineups(); update();
   });
 
@@ -311,17 +341,34 @@ ol.how li { margin: 4px 0; }
     if (partial) problems.push(`Draft is incomplete: ${picked.length} of ${teams.length * N} picks entered. The league stays in preview until all are in.`);
 
     // Existing lineups (renamed with their team), with this session's edits on top.
-    const merged = lineupsIn.map(l => ({ week: l.week, row: l.row, start: l.start }));
-    Object.entries(edits).forEach(([k, v]) => {
+    const merged = lineupsIn.map(l => ({ week: l.week, row: l.row, start: l.start, ...('captain' in l ? { captain: l.captain } : {}) }));
+    // Starters and captain standing just before week w (mirrors weekly_starters in build_data.py).
+    const before = (row, w) => { let cur = teams[row].crews.slice(0, S), cap = null;
+      merged.filter(l => l.row === row && l.week < w).sort((a, b) => a.week - b.week).forEach(l => {
+        cur = l.start; if (!cur.includes(cap)) cap = null; if ('captain' in l) cap = l.captain || null; });
+      return { start: cur, cap: cur.includes(cap) ? cap : null }; };
+    const keys = [...new Set([...Object.keys(edits), ...Object.keys(capEdits)])]
+      .sort((x, y) => x.split('|')[0] - y.split('|')[0] || x.split('|')[1] - y.split('|')[1]);
+    keys.forEach(k => {
       const [w, row] = k.split('|').map(Number);
+      const i = merged.findIndex(l => l.week === w && l.row === row), had = i >= 0 ? merged[i] : null;
+      const prior = before(row, w);
+      const v = edits[k] ?? (had ? had.start : prior.start);
       if (v.length !== S) { problems.push(`Week ${w}, ${names[row]}: pick exactly ${S} starters.`); return; }
-      const i = merged.findIndex(l => l.week === w && l.row === row);
-      const before = (() => { let cur = teams[row].crews.slice(0, S);
-        merged.filter(l => l.row === row && l.week < w).sort((a, b) => a.week - b.week).forEach(l => cur = l.start); return cur; })();
-      if (i >= 0) merged.splice(i, 1);
-      if (!sameSet(v, before)) {
-        merged.push({ week: w, row, start: v });
-        changes.push(`${finalWeeks.has(w) ? `⚠ Week ${w} is final, so this changes its result: ` : ''}Week ${w} · ${names[row]} starts ${v.join(' + ')}`);
+      const c = k in capEdits ? capEdits[k] : (had && 'captain' in had ? had.captain : undefined);   // undefined: no instruction
+      const eff = c === undefined ? (v.includes(prior.cap) ? prior.cap : null) : (c || null);
+      if (eff && !v.includes(eff)) { problems.push(`Week ${w}, ${names[row]}: the captain must be one of the starters.`); return; }
+      if (eff && !capOn(w)) { problems.push(`Week ${w}, ${names[row]}: captains start in Week ${L.captain_start_week}.`); return; }
+      // What stood for this week before this session, so only real changes are listed.
+      const was = had ? { start: had.start, cap: 'captain' in had ? (had.captain || null) : (had.start.includes(prior.cap) ? prior.cap : null) }
+                      : { start: prior.start, cap: prior.cap };
+      if (had) merged.splice(i, 1);
+      const startersChanged = !sameSet(v, prior.start), capChanged = eff !== (v.includes(prior.cap) ? prior.cap : null);
+      if (startersChanged || capChanged) {
+        merged.push({ week: w, row, start: v, ...(eff ? { captain: eff } : prior.cap && v.includes(prior.cap) ? { captain: '' } : {}) });
+        const flag = finalWeeks.has(w) ? `⚠ Week ${w} is final, so this changes its result: ` : '';
+        if (!sameSet(v, was.start)) changes.push(`${flag}Week ${w} · ${names[row]} starts ${v.join(' + ')}`);
+        if (eff !== was.cap) changes.push(`${flag}Week ${w} · ${names[row]} captain: ${eff || 'none'}`);
       }
     });
     merged.sort((a, b) => a.week - b.week || a.row - b.row);
@@ -369,7 +416,7 @@ ol.how li { margin: 4px 0; }
     const out = { ...rest, teams: teams.map(t => ({ name: t.name.trim(), manager: t.manager.trim(), crews: t.crews.filter(Boolean) })),
       ...(Object.keys(sortedOff).length ? { off: sortedOff } : {}),
       ...(Object.keys(fixOut).length ? { game_fixes: fixOut } : {}),
-      lineups: merged.filter(l => l.row >= 0).map(l => ({ week: l.week, team: names[l.row], start: l.start })) };
+      lineups: merged.filter(l => l.row >= 0).map(l => ({ week: l.week, team: names[l.row], start: l.start, ...('captain' in l ? { captain: l.captain } : {}) })) };
     if (!Object.keys(sortedOff).length) delete out.off;
     if (!Object.keys(fixOut).length) delete out.game_fixes;
     return { text: format(out), problems, changes };

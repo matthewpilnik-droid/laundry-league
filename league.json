@@ -7,6 +7,8 @@
   "crews_per_team": 3,
   "starters_per_week": 2,
   "open_spot_pct": 85,
+  "captain_multiplier": 1.5,
+  "captain_start_week": 11,
   "lineup_deadline": "Thursday kickoff",
   "teams": [
     { "name": "Helen Keller's School for Refs that Don't See That Good", "manager": "Bryan", "crews": ["Scott Novak", "John Hussey", "2012 Replacement Refs"] },
@@ -44,8 +46,11 @@
     { "week": 10, "team": "Zebras with Gambling Debts", "start": ["Adrian Hill", "Bill Vinovich"] },
     { "week": 10, "team": "DraftKings Employee of the Month", "start": ["Shawn Smith", "Brad Rogers"] },
     { "week": 10, "team": "Zebra Crime Syndicate", "start": ["Shawn Hochuli", "Clay Martin"] },
-    { "week": 11, "team": "Helen Keller's School for Refs that Don't See That Good", "start": ["Scott Novak", "2012 Replacement Refs"] },
-    { "week": 11, "team": "I'm Blind, I'm Deaf", "start": ["Alex Moore", "Ron Torbert"] },
-    { "week": 11, "team": "Zebra Crime Syndicate", "start": ["Carl Cheffers", "Shawn Hochuli"] }
+    { "week": 11, "team": "Helen Keller's School for Refs that Don't See That Good", "start": ["Scott Novak", "2012 Replacement Refs"], "captain": "Scott Novak" },
+    { "week": 11, "team": "I'm Blind, I'm Deaf", "start": ["Alex Moore", "Ron Torbert"], "captain": "Alex Moore" },
+    { "week": 11, "team": "This is not Nam, there are rules", "start": ["Brad Allen", "Clete Blakeman"], "captain": "Clete Blakeman" },
+    { "week": 11, "team": "Zebras with Gambling Debts", "start": ["Adrian Hill", "Bill Vinovich"], "captain": "Adrian Hill" },
+    { "week": 11, "team": "DraftKings Employee of the Month", "start": ["Shawn Smith", "Brad Rogers"], "captain": "Shawn Smith" },
+    { "week": 11, "team": "Zebra Crime Syndicate", "start": ["Carl Cheffers", "Shawn Hochuli"], "captain": "Shawn Hochuli" }
   ]
 }
