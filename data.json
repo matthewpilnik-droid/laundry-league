@@ -16,9 +16,9 @@
  "captain_multiplier": 1.5,
  "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-20T01:12Z",
- "updated": "2026-11-16",
- "last_week": 10,
+ "generated_at": "2026-11-20T07:24Z",
+ "updated": "2026-11-19",
+ "last_week": 11,
  "weeks_played": [
   1,
   2,
@@ -29,7 +29,8 @@
   7,
   8,
   9,
-  10
+  10,
+  11
  ],
  "current_week": 11,
  "calibration_games": 272,
@@ -274,7 +275,8 @@
   "401873062",
   "401873063",
   "401873064",
-  "401873065"
+  "401873065",
+  "401873066"
  ],
  "crews": [
   {
@@ -1151,9 +1153,9 @@
    "g25": 15,
    "flags25": 14.6,
    "ppg25": 68.2,
-   "g26": 9,
-   "pts26": 604.4,
-   "ppg26": 67.2,
+   "g26": 10,
+   "pts26": 623.5,
+   "ppg26": 62.4,
    "weeks": {
     "1": {
      "game": "WAS @ PHI",
@@ -1236,6 +1238,15 @@
      "pts": 96.8,
      "gid": "2026_10_HOU_CLE",
      "note": "Ground stop: moved from CAR @ NO"
+    },
+    "11": {
+     "game": "IND @ HOU",
+     "flags": 6,
+     "yards": 38,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 19.1,
+     "gid": "2026_11_IND_HOU"
     }
    }
   },
@@ -1978,322 +1989,25 @@
  },
  "week_games": [
   {
-   "referee": "Shawn Hochuli",
-   "game": "CAR @ NO",
-   "day": "Sunday",
-   "flags": 21,
-   "yards": 198,
-   "overturns": 0,
-   "stood": 1,
-   "pts": 137.1,
-   "note": "Ground stop: emergency ref Duane Heydt worked it; counts here because Hochuli's KC @ ATL went to Eck",
-   "top": {
-    "type": "Horse Collar Tackle",
-    "team": "CAR",
-    "player": "J.Phillips",
-    "yards": 15,
-    "pts": 25.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "06:18"
-   }
-  },
-  {
-   "referee": "Carl Cheffers",
-   "game": "MIA @ IND",
-   "day": "Sunday",
-   "flags": 20,
-   "yards": 113,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 97.1,
-   "note": "Ground stop: emergency ref Don Willard worked it; counts for its original crew",
-   "top": {
-    "type": "Fair Catch Interference",
-    "team": "MIA",
-    "player": "K.Louis",
-    "yards": 15,
-    "pts": 25.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "09:18"
-   }
-  },
-  {
    "referee": "Shawn Smith",
-   "game": "HOU @ CLE",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 159,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 96.8,
-   "note": "Ground stop: moved from CAR @ NO",
-   "top": {
-    "type": "Player Out of Bounds on Kick",
-    "team": "HOU",
-    "player": "T.Smith",
-    "yards": 5,
-    "pts": 19.5,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "01:49"
-   }
-  },
-  {
-   "referee": "Alan Eck",
-   "game": "KC @ ATL",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 126,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 89.2,
-   "note": "Ground stop: moved from HOU @ CLE",
-   "top": {
-    "type": "Offensive Too Many Men on Field",
-    "team": "KC",
-    "player": "",
-    "yards": 5,
-    "pts": 19.5,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "00:35"
-   }
-  },
-  {
-   "referee": "Ron Torbert",
-   "game": "BUF @ NYJ",
-   "day": "Sunday",
-   "flags": 18,
-   "yards": 88,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 88.1,
-   "top": {
-    "type": "Illegal Use of Hands",
-    "team": "BUF",
-    "player": "D.Igbinosun",
-    "yards": 0,
-    "pts": 18.0,
-    "tier": "uncommon",
-    "status": "offsetting",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "01:43"
-   }
-  },
-  {
-   "referee": "John Hussey",
-   "game": "SF @ DAL",
-   "day": "Sunday",
-   "flags": 19,
-   "yards": 135,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 87.4,
-   "note": "Ground stop: moved from MIN @ GB",
-   "top": {
-    "type": "Taunting",
-    "team": "DAL",
-    "player": "G.Pickens",
-    "yards": 15,
-    "pts": 22.5,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "01:33"
-   }
-  },
-  {
-   "referee": "Clay Martin",
-   "game": "NE @ DET",
-   "day": "Sunday",
-   "flags": 16,
-   "yards": 120,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 82.0,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "NE",
-    "player": "R.Gilliam",
-    "yards": 10,
-    "pts": 8.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "06:13"
-   }
-  },
-  {
-   "referee": "Brad Allen",
-   "game": "PIT @ CIN",
-   "day": "Sunday",
-   "flags": 12,
-   "yards": 126,
-   "overturns": 4,
-   "stood": 1,
-   "pts": 66.2,
-   "note": "Ground stop: emergency ref Don Willard worked it; counts here because Allen's SEA @ LV went to Vinovich",
-   "top": {
-    "type": "Invalid Fair Catch Signal",
-    "team": "CIN",
-    "player": "D.Meyers",
-    "yards": 5,
-    "pts": 23.0,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "10:54"
-   }
-  },
-  {
-   "referee": "Clete Blakeman",
-   "game": "MIN @ GB",
-   "day": "Sunday",
-   "flags": 13,
-   "yards": 120,
+   "game": "IND @ HOU",
+   "day": "Thursday",
+   "flags": 6,
+   "yards": 38,
    "overturns": 2,
    "stood": 0,
-   "pts": 58.0,
-   "note": "Ground stop: moved from PIT @ CIN",
+   "pts": 19.1,
    "top": {
-    "type": "Illegal Motion",
-    "team": "MIN",
-    "player": "T.Felton",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "11:10"
-   }
-  },
-  {
-   "referee": "Adrian Hill",
-   "game": "LAC @ BAL",
-   "day": "Monday",
-   "flags": 13,
-   "yards": 75,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 52.5,
-   "note": "Ground stop: swapped with Clark (was LA @ ARI)",
-   "top": {
-    "type": "Tripping",
-    "team": "BAL",
-    "player": "R.Rosengarten",
-    "yards": 0,
-    "pts": 12.0,
-    "tier": "rare",
-    "status": "declined",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "11:17"
-   }
-  },
-  {
-   "referee": "Land Clark",
-   "game": "LA @ ARI",
-   "day": "Sunday",
-   "flags": 10,
-   "yards": 35,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 47.5,
-   "note": "Ground stop: swapped with Hill (was LAC @ BAL)",
-   "top": {
-    "type": "Kickoff Short of Landing Zone",
-    "team": "LA",
-    "player": "J.Karty",
-    "yards": 0,
-    "pts": 9.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": true,
-    "qtr": "2",
-    "clock": "01:06"
-   }
-  },
-  {
-   "referee": "Alex Moore",
-   "game": "JAX @ TEN",
-   "day": "Sunday",
-   "flags": 8,
-   "yards": 47,
-   "overturns": 0,
-   "stood": 1,
-   "pts": 37.9,
-   "note": "Ground stop: emergency ref Barry Anderson worked it; counts for its original crew",
-   "top": {
-    "type": "Kickoff Short of Landing Zone",
-    "team": "TEN",
-    "player": "J.Slye",
-    "yards": 0,
-    "pts": 6.0,
+    "type": "Illegal Block Above the Waist",
+    "team": "HOU",
+    "player": "C.Muma",
+    "yards": 9,
+    "pts": 7.8,
     "tier": "uncommon",
     "status": "accepted",
     "clutch": false,
-    "qtr": "1",
-    "clock": "15:00"
-   }
-  },
-  {
-   "referee": "Brad Rogers",
-   "game": "WAS @ NYG",
-   "day": "Thursday",
-   "flags": 12,
-   "yards": 79,
-   "overturns": 4,
-   "stood": 0,
-   "pts": 34.6,
-   "top": {
-    "type": "Defensive Pass Interference",
-    "team": "NYG",
-    "player": "D.Banks",
-    "yards": 33,
-    "pts": 12.9,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": true,
     "qtr": "4",
-    "clock": "01:46"
-   }
-  },
-  {
-   "referee": "Bill Vinovich",
-   "game": "SEA @ LV",
-   "day": "Sunday",
-   "flags": 3,
-   "yards": 15,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 30.0,
-   "note": "Ground stop: moved from SF @ DAL",
-   "top": {
-    "type": "Illegal Bat",
-    "team": "SEA",
-    "player": "T.Horton",
-    "yards": 0,
-    "pts": 22.0,
-    "tier": "unicorn",
-    "status": "declined",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "02:04"
+    "clock": "07:03"
    }
   }
  ],
@@ -12473,6 +12187,98 @@
     "clock": "00:18",
     "pts": 4.5
    }
+  ],
+  "2026_11_IND_HOU": [
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "HOU",
+    "player": "A.Ersery",
+    "yards": 4,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "08:57",
+    "pts": 2.8
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "IND",
+    "player": "K.Harris",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "08:38",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Use of Hands",
+    "team": "HOU",
+    "player": "K.Lassiter",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "04:06",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "IND",
+    "player": "L.Tenuta",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "00:42",
+    "pts": 4.0
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "05:54",
+    "pts": -5
+   },
+   {
+    "k": "over",
+    "qtr": "2",
+    "clock": "00:59",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "HOU",
+    "player": "D.Schultz",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:56",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Block Above the Waist",
+    "team": "HOU",
+    "player": "C.Muma",
+    "yards": 9,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "07:03",
+    "pts": 7.8
+   }
   ]
  },
  "teams": [
@@ -13982,12 +13788,12 @@
       "crews": [
        {
         "crew": "Shawn Smith",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 19.1,
+        "game": "IND @ HOU",
+        "status": "final",
         "starter": true,
         "captain": true,
-        "bonus": 0.0
+        "bonus": 9.6
        },
        {
         "crew": "Brad Rogers",
@@ -14004,13 +13810,13 @@
         "starter": false
        }
       ],
-      "pts": 0.0,
+      "pts": 28.7,
       "proj": {
        "crews": [
         {
          "crew": "Shawn Smith",
-         "avg": 67.2,
-         "pts": 100.8,
+         "avg": 62.4,
+         "pts": 93.6,
          "flag": "",
          "captain": true
         },
@@ -14022,7 +13828,7 @@
          "captain": false
         }
        ],
-       "pts": 160.6,
+       "pts": 153.4,
        "assigned": true
       }
      },
@@ -18480,9 +18286,9 @@
         },
         {
          "crew": "Shawn Smith",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 19.1,
+         "game": "IND @ HOU",
+         "status": "final",
          "starter": true
         },
         {
@@ -18493,7 +18299,7 @@
          "starter": false
         }
        ],
-       "pts": 0
+       "pts": 19.1
       },
       "B": {
        "crews": [
@@ -20948,8 +20754,8 @@
    {
     "gid": "2026_11_IND_HOU",
     "game": "IND @ HOU",
-    "referee": "",
-    "played": false,
+    "referee": "Shawn Smith",
+    "played": true,
     "day": "Thursday",
     "date": "2026-11-19",
     "time": "20:15"
