@@ -64,6 +64,77 @@
     "Ron Torbert"
    ],
    "complete": true
+  },
+  "12": {
+   "source": "https://www.footballzebras.com/2026/11/week-12-referee-assignments-2026/",
+   "games": {
+    "2026_12_GB_LA": {
+     "referee": "Alan Eck",
+     "time": "8 p.m."
+    },
+    "2026_12_CHI_DET": {
+     "referee": "Shawn Hochuli",
+     "time": "1 p.m."
+    },
+    "2026_12_PHI_DAL": {
+     "referee": "Adrian Hill",
+     "time": "4:30 p.m."
+    },
+    "2026_12_KC_BUF": {
+     "referee": "Alex Kemp",
+     "time": "8:20 p.m."
+    },
+    "2026_12_DEN_PIT": {
+     "referee": "Brad Allen",
+     "time": "3 p.m."
+    },
+    "2026_12_NO_CIN": {
+     "referee": "Scott Novak",
+     "time": "1 p.m."
+    },
+    "2026_12_BAL_HOU": {
+     "referee": "Brad Rogers",
+     "time": "1 p.m."
+    },
+    "2026_12_NYG_IND": {
+     "referee": "Ron Torbert",
+     "time": "1 p.m."
+    },
+    "2026_12_NYJ_MIA": {
+     "referee": "Clay Martin",
+     "time": "1 p.m."
+    },
+    "2026_12_ATL_MIN": {
+     "referee": "Shawn Smith",
+     "time": "1 p.m."
+    },
+    "2026_12_TEN_JAX": {
+     "referee": "Bill Vinovich",
+     "time": "1 p.m."
+    },
+    "2026_12_NE_LAC": {
+     "referee": "John Hussey",
+     "time": "4:05 p.m."
+    },
+    "2026_12_WAS_ARI": {
+     "referee": "Land Clark",
+     "time": "4:25 p.m."
+    },
+    "2026_12_SEA_SF": {
+     "referee": "Carl Cheffers",
+     "time": "4:25 p.m."
+    },
+    "2026_12_LV_CLE": {
+     "referee": "Craig Wrolstad",
+     "time": "8:20 p.m."
+    },
+    "2026_12_CAR_TB": {
+     "referee": "Clete Blakeman",
+     "time": "8:15 p.m."
+    }
+   },
+   "off": [],
+   "complete": true
   }
  }
 }

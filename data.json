@@ -16,7 +16,7 @@
  "captain_multiplier": 1.5,
  "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-23T07:29Z",
+ "generated_at": "2026-11-23T23:49Z",
  "updated": "2026-11-22",
  "last_week": 11,
  "weeks_played": [
@@ -24382,6 +24382,29 @@
    ],
    "complete": true,
    "source": "https://www.footballzebras.com/2026/11/week-11-referee-assignments-2026/"
+  },
+  "12": {
+   "games": {
+    "2026_12_GB_LA": "Alan Eck",
+    "2026_12_CHI_DET": "Shawn Hochuli",
+    "2026_12_PHI_DAL": "Adrian Hill",
+    "2026_12_KC_BUF": "Alex Kemp",
+    "2026_12_DEN_PIT": "Brad Allen",
+    "2026_12_NO_CIN": "Scott Novak",
+    "2026_12_BAL_HOU": "Brad Rogers",
+    "2026_12_NYG_IND": "Ron Torbert",
+    "2026_12_NYJ_MIA": "Clay Martin",
+    "2026_12_ATL_MIN": "Shawn Smith",
+    "2026_12_TEN_JAX": "Bill Vinovich",
+    "2026_12_NE_LAC": "John Hussey",
+    "2026_12_WAS_ARI": "Land Clark",
+    "2026_12_SEA_SF": "Carl Cheffers",
+    "2026_12_LV_CLE": "Craig Wrolstad",
+    "2026_12_CAR_TB": "Clete Blakeman"
+   },
+   "off": [],
+   "complete": true,
+   "source": "https://www.footballzebras.com/2026/11/week-12-referee-assignments-2026/"
   }
  },
  "game_fixes": {
