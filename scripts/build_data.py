@@ -389,6 +389,12 @@ START = LEAGUE["start_week"]
 REG_END = LEAGUE["regular_season_end"]
 teams_cfg = LEAGUE["teams"]
 lineups_cfg = LEAGUE.get("lineups", [])
+# Lineups saved in the app (Supabase). `lineups_from_db_week` is the one switch: weeks BEFORE it use the lineups
+# in league.json exactly as always; weeks FROM it on use the app's. Absent = the app is not used for scoring
+# (it is still read, for a "shadow" comparison printed in the log). See load_db_lineups() below.
+FROM_DB = LEAGUE.get("lineups_from_db_week")
+if FROM_DB is not None and (not isinstance(FROM_DB, int) or isinstance(FROM_DB, bool) or FROM_DB < START):
+    sys.exit(f"league.json problem - lineups_from_db_week must be a whole week number from {START} on, or left out; not {FROM_DB!r}.")
 # Open spot: when a team has fewer crews with a game than starting spots, each starting
 # spot it can't fill scores this percent of the week's average (the Replacement Refs' score).
 OPEN_PCT = LEAGUE.get("open_spot_pct", 85)
@@ -484,6 +490,51 @@ def weekly_starters(roster, lineups, start):
         on = CAPTAIN_START is not None and w >= CAPTAIN_START
         caps[w] = {t: (cap[t] if on else None) for t in cap}
     return out, caps
+
+
+def load_db_lineups(roster, path):
+    """Read the lineups the app saved (cache/lineups_db.json, written by fetch_lineups.py) and turn each into the same
+    entry shape league.json uses, so the existing replay (weekly_starters) handles both identically.
+
+    NEVER stops the build. A row that breaks a rule is SKIPPED with a warning, so that team's previous lineup
+    stands (the database already refuses these, so a skipped row means something unexpected happened).
+    Returns (entries, notes, fetched_at); entries is None when the file is missing or unreadable.
+    One real difference from league.json: the app always states the captain (null = none), so every entry here
+    carries "captain": "" or a name; nothing is left to "carry over" from an earlier entry."""
+    try:
+        raw = json.loads(pathlib.Path(path).read_text())
+        rows, fetched = raw["entries"], raw.get("fetched_at", "unknown time")
+        if not isinstance(rows, list):
+            raise ValueError("entries is not a list")
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        return None, [f"app lineups unavailable ({type(e).__name__}: {e})"], None
+    notes, out = [], []
+    rows = sorted(enumerate(rows), key=lambda x: (x[1].get("id") if isinstance(x[1], dict) and isinstance(x[1].get("id"), int) else 10**12, x[0]))
+    for _, r in rows:
+        try:
+            rid = r.get("id", "?")
+            week, team = r["week"], r["team"]
+            if not isinstance(week, int) or isinstance(week, bool) or not START <= week <= PLAYOFF:
+                raise ValueError(f"week {week!r} is outside the season")
+            if team not in roster:
+                raise ValueError(f"no team named '{team}'")
+            picks = [roster_name(c) for c in r["start"]]
+            if len(picks) != STARTERS or len(set(picks)) != STARTERS:
+                raise ValueError(f"needs exactly {STARTERS} different crews, got {picks}")
+            off = [c for c in picks if c not in roster[team]]
+            if off:
+                raise ValueError(f"{off} not on {team}'s roster")
+            cap = r.get("captain")
+            cap = roster_name(cap) if cap else ""
+            if cap:
+                if CAPTAIN_START is None or week < CAPTAIN_START:
+                    raise ValueError(f"captain named before Week {CAPTAIN_START}")
+                if cap not in picks:
+                    raise ValueError(f"captain '{cap}' is not one of the starters")
+            out.append({"week": week, "team": team, "start": picks, "captain": cap, "db_id": rid})
+        except (ValueError, KeyError, TypeError, AttributeError) as e:
+            notes.append(f"skipped app lineup row {r.get('id', '?') if isinstance(r, dict) else '?'}: {e}")
+    return out, notes, fetched
 
 
 def mock_starters(roster, start):
@@ -737,8 +788,39 @@ if drafted:
     if bad or dupes:
         sys.exit(f"league.json problem - unknown crews: {bad}, drafted twice: {dupes}. "
                  f"Valid names: {sorted(by_ref)}")
-    real_starters, real_captains = weekly_starters(init, lineups_cfg, START)
+    db_entries, db_notes, db_fetched = load_db_lineups(init, CACHE / "lineups_db.json")
+    for n in db_notes:
+        if FROM_DB is not None or db_entries is not None:      # only worth a warning if we use, or half-read, the file
+            print(f"::warning::lineups: {n}")
+    lineups_use = lineups_cfg
+    if FROM_DB is not None:
+        if db_entries is None:
+            print(f"::warning::lineups: lineups_from_db_week is {FROM_DB} but the app's lineups could not be read; using league.json for every week")
+        else:
+            lineups_use = [e for e in lineups_cfg if e["week"] < FROM_DB] + [e for e in db_entries if e["week"] >= FROM_DB]
+            print(f"lineups: week {FROM_DB} and later come from the app (read {db_fetched}); earlier weeks from league.json")
+    real_starters, real_captains = weekly_starters(init, lineups_use, START)
     league = play_season(names, managers, init, real_starters, START, real_captains, project=True)
+    # Shadow report (printed only, never changes a score): where would the app's lineups and league.json disagree?
+    if db_entries:
+        sh_first = FROM_DB if FROM_DB is not None else min(e["week"] for e in db_entries)
+        sh_last = min(PLAYOFF, league["current_week"] + 1)
+        sh_a, sh_ac = weekly_starters(init, lineups_cfg, START)
+        sh_b, sh_bc = weekly_starters(init, [e for e in lineups_cfg if e["week"] < sh_first] + [e for e in db_entries if e["week"] >= sh_first], START)
+        # A lineup stands until replaced, so one disagreement repeats every week after it. Show it once, when it starts or changes.
+        sh_diffs, sh_prev = [], {}
+        for w in range(sh_first, sh_last + 1):
+            for t in sh_a[w]:
+                pair = ((sh_a[w][t], sh_ac[w][t]), (sh_b[w][t], sh_bc[w][t]))
+                if pair[0] == pair[1]:
+                    sh_prev[t] = None
+                elif sh_prev.get(t) != pair:
+                    sh_prev[t] = pair
+                    sh_diffs.append(f"  From week {w}, {t}: league.json {pair[0][0]} captain {pair[0][1] or 'none'}  |  app {pair[1][0]} captain {pair[1][1] or 'none'}")
+        print(f"lineups shadow check, weeks {sh_first}-{sh_last}: " + (f"{len(sh_diffs)} difference(s) between league.json and the app:" if sh_diffs
+              else "league.json and the app agree"))
+        for sh_line in sh_diffs:
+            print(sh_line)
     # Once live, the mock league stays on the page as a "what a season looks like" sample.
     sample = play_season(*mock_league())
 else:
