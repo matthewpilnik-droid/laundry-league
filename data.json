@@ -16,7 +16,7 @@
  "captain_multiplier": 1.5,
  "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-24T09:49Z",
+ "generated_at": "2026-11-24T19:41Z",
  "updated": "2026-11-23",
  "last_week": 11,
  "weeks_played": [
@@ -2111,6 +2111,27 @@
    "Clay Martin",
    "John Hussey",
    "Ron Torbert"
+  ],
+  "12": [
+   "Alex Moore"
+  ]
+ },
+ "off_source": {
+  "8": "commissioner",
+  "9": "commissioner",
+  "10": "commissioner",
+  "11": "commissioner",
+  "12": "assignments"
+ },
+ "off_derived": {
+  "11": [
+   "Alan Eck",
+   "Clay Martin",
+   "John Hussey",
+   "Ron Torbert"
+  ],
+  "12": [
+   "Alex Moore"
   ]
  },
  "week_games": [
@@ -16509,7 +16530,7 @@
         }
        ],
        "pts": 223.7,
-       "assigned": false
+       "assigned": true
       }
      },
      "B": {
@@ -16544,9 +16565,12 @@
         {
          "crew": "Alex Moore",
          "avg": 79.3,
-         "pts": 118.9,
-         "flag": "",
-         "captain": true
+         "pts": 0.0,
+         "flag": "off",
+         "captain": true,
+         "swap": [
+          "Alan Eck"
+         ]
         },
         {
          "crew": "Ron Torbert",
@@ -16556,8 +16580,8 @@
          "captain": false
         }
        ],
-       "pts": 205.1,
-       "assigned": false
+       "pts": 86.2,
+       "assigned": true
       }
      },
      "final": false,
@@ -16611,7 +16635,7 @@
         }
        ],
        "pts": 175.9,
-       "assigned": false
+       "assigned": true
       }
      },
      "B": {
@@ -16659,7 +16683,7 @@
         }
        ],
        "pts": 181.9,
-       "assigned": false
+       "assigned": true
       }
      },
      "final": false,
@@ -16713,7 +16737,7 @@
         }
        ],
        "pts": 194.9,
-       "assigned": false
+       "assigned": true
       }
      },
      "B": {
@@ -16761,7 +16785,7 @@
         }
        ],
        "pts": 152.3,
-       "assigned": false
+       "assigned": true
       }
      },
      "final": false,
