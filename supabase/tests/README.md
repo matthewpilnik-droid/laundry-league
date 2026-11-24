@@ -12,8 +12,10 @@ normal action must work. Rehearsal project only; never point this at the real le
    - ll-bryan@example.com
    - ll-mike@example.com
    - ll-outsider@example.com
-2. **Run the seeds** once, in this order, pasting each into the SQL Editor and pressing Run:
-   `supabase/seed/rehearsal.sql`, then (after migration 05) `supabase/seed/rehearsal_weeks.sql`.
+2. **Run the seed** once: paste `supabase/seed/rehearsal.sql` into the SQL Editor and Run.
+3. **The schedule fixtures install themselves** if the bot's key is in `.env.rehearsal-bot` (the test saves the real
+   schedule, installs its own, and restores the real one at the end). Without that file, also run
+   `supabase/seed/rehearsal_weeks.sql` by hand.
 
 ## Each run
 1. SQL Editor: `truncate public.lineups, public.audit_log;` (the test needs an empty lineup history)
@@ -27,3 +29,9 @@ No secret key is needed.
   builds all migrations and seeds in a throwaway in-memory database and checks the rules (including the
   finished-week and fail-closed rules, which the live test cannot reach because they need the bot's key to set up).
 - **Live burglar test (above):** the real rehearsal project, signed in as the fake users.
+- **Sync logic test (no network, no key):** `python3 -I supabase/tests/test_sync_logic.py` checks
+  `scripts/sync_supabase.py`: time zones, provisional vs actual referees, game fixes, write order, no heartbeat after a failure.
+
+## Feeding the lock (rehearsal)
+`python3 -I scripts/sync_supabase.py` is a dry run; add `--apply` to write the real schedule and kickoffs into the
+rehearsal project (needs `.env.rehearsal-bot`). If the security test is killed midway, re-run it with `--apply`.

@@ -4,12 +4,14 @@ Every attack must be refused, and every normal action must work. Prints PASS/FAI
 Run:   python3 -I supabase/tests/burglar.py
 Needs: .env.rehearsal in the project root (gitignored) with SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY and a password
        for each fake user: PW_COMMISH, PW_BRYAN, PW_MIKE, PW_OUTSIDER (or one shared TEST_PASSWORD for all four).
-Needs the fake users and BOTH seeds from supabase/tests/README.md (rehearsal.sql and rehearsal_weeks.sql).
+Needs the fake users and the seed from supabase/tests/README.md. The schedule fixtures are installed automatically when
+.env.rehearsal-bot holds the bot's key (the real schedule is restored afterward); otherwise run rehearsal_weeks.sql by hand.
 Starts from an empty lineup history (the script checks, and tells you how to reset).
 Uses only the public key and the fake users' passwords. No secret key is involved.
 Python standard library only.
 """
 import base64
+import datetime
 import json
 import sys
 import urllib.error
@@ -141,6 +143,60 @@ if existing:
              "  truncate public.lineups, public.audit_log;\nThen run this script again." % len(existing))
 
 NOVAK, HUSSEY, RR = "Scott Novak", "John Hussey", "2012 Replacement Refs"
+
+# ---------------------------------------------------------------- test fixtures
+# The lock rules need a known schedule: Weeks 8-10 finished, Week 11 half kicked off, Weeks 12-18 in the future.
+# If the bot's key is in .env.rehearsal-bot, this script saves the REAL schedule from the rehearsal project,
+# installs these fixtures, and puts the real schedule back when it ends (even on an early exit). If the key isn't
+# there, it assumes you ran supabase/seed/rehearsal_weeks.sql by hand. The key is used only for the two schedule
+# tables (weeks, game_slots) and is never printed.
+FIXTURE_WEEKS = [(8, "2026-10-25T17:00:00Z", "2026-10-27T12:00:00Z"), (9, "2026-11-01T17:00:00Z", "2026-11-03T12:00:00Z"),
+                 (10, "2026-11-01T17:00:00Z", "2026-11-03T12:00:00Z"), (11, "2026-11-01T00:00:00Z", "2099-01-02T00:00:00Z")] + [
+                 (w, (datetime.date(2099, 1, 1) + datetime.timedelta(days=7 * (w - 12))).isoformat() + "T00:00:00Z",
+                  (datetime.date(2099, 1, 2) + datetime.timedelta(days=7 * (w - 12))).isoformat() + "T00:00:00Z") for w in range(12, 19)]
+FIXTURE_SLOTS = [("Scott Novak", "2026-11-01T00:00:00Z"), ("Craig Wrolstad", "2026-11-01T00:00:00Z"), ("John Hussey", "2099-01-01T00:00:00Z"),
+                 ("Brad Allen", "2099-01-01T00:00:00Z"), ("Clete Blakeman", "2099-01-01T00:00:00Z")]
+SECRET = None
+try:
+    for _line in (ROOT / ".env.rehearsal-bot").read_text().splitlines():
+        if _line.startswith("SUPABASE_SECRET_KEY="):
+            SECRET = _line.split("=", 1)[1].strip() or None
+except OSError:
+    pass
+
+
+def bot(method, path, body=None):
+    """Request as the bot (secret key). Exits with a clear message on failure; never prints the key."""
+    r = http(method, path, body, token=SECRET,
+             headers={"apikey": SECRET, "Prefer": "return=minimal" if method == "POST" else "return=representation"})
+    if r.status >= 300:
+        sys.exit("Fixture setup failed (%s %s): %s" % (method, path.split("?")[0], r.text.replace(SECRET, "<key>")[:200]))
+    return r.json
+
+
+def install_fixtures():
+    import atexit
+    saved_weeks, saved_slots = bot("GET", "/rest/v1/weeks?select=*&season=eq.2026"), bot("GET", "/rest/v1/game_slots?select=*&season=eq.2026")
+
+    def restore():
+        bot("DELETE", "/rest/v1/game_slots?season=eq.2026")
+        bot("DELETE", "/rest/v1/weeks?season=eq.2026")
+        if saved_weeks:
+            bot("POST", "/rest/v1/weeks", saved_weeks)
+        if saved_slots:
+            bot("POST", "/rest/v1/game_slots", saved_slots)
+        print("(restored the real schedule: %d weeks, %d crew kickoffs)" % (len(saved_weeks), len(saved_slots)))
+
+    atexit.register(restore)   # runs on normal exit AND on sys.exit; if the process is killed, re-run scripts/sync_supabase.py --apply
+    bot("DELETE", "/rest/v1/game_slots?season=eq.2026")
+    bot("DELETE", "/rest/v1/weeks?season=eq.2026")
+    bot("POST", "/rest/v1/weeks", [{"season": 2026, "week": w, "starts_at": a, "ends_at": b} for w, a, b in FIXTURE_WEEKS])
+    bot("POST", "/rest/v1/game_slots", [{"season": 2026, "week": 11, "crew": c, "kickoff_at": t} for c, t in FIXTURE_SLOTS])
+    print("(installed the test schedule; the real one is saved and will be restored at the end)")
+if SECRET:
+    install_fixtures()
+else:
+    print("(no .env.rehearsal-bot: assuming you ran supabase/seed/rehearsal_weeks.sql by hand)")
 ok_lineups = 0   # normal saves we expect to succeed; used for the final cross-check
 
 # ---------------------------------------------------------------- A. stranger (not signed in)
