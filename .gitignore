@@ -1,3 +1,6 @@
 cache/
 .DS_Store
 __pycache__/
+# Secrets: passwords, API keys, tokens. Never commit these.
+.env
+.env.*
