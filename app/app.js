@@ -226,13 +226,13 @@
     } else {
       // Same message whether or not the email is on the league, so nobody can use this page to find out who is.
       si.step = 'code'; si.code = '';
-      si.msg = { kind: 'ok', text: 'If that email is on the league, a 6-digit code is on its way. It can take a minute.' };
+      si.msg = { kind: 'ok', text: 'If that email is on the league, a code is on its way. It can take a minute.' };
     }
     render();
   }
   async function checkCode() {
     const si = S.signin, token = si.code.replace(/\s+/g, '');
-    if (!/^\d{6}$/.test(token)) { si.msg = { kind: 'err', text: 'The code is 6 digits.' }; return render(); }
+    if (!/^\d{6,8}$/.test(token)) { si.msg = { kind: 'err', text: 'The code is the 6 to 8 digits from your email.' }; return render(); }
     si.busy = true; si.msg = null; render();
     const { data, error } = await sb.auth.verifyOtp({ email: si.email.trim(), token, type: 'email' });
     si.busy = false;
@@ -326,7 +326,7 @@
     if (si.step === 'email') {
       return h('div', { class: 'card stack' },
         h('h2', null, 'Sign in'),
-        h('p', { class: 'muted' }, "Type your league email and we'll send you a 6-digit code. No password."),
+        h('p', { class: 'muted' }, "Type your league email and we'll email you a code. No password."),
         msg,
         h('div', null, h('label', { class: 'label', for: 'email' }, 'Email'),
           h('input', { id: 'email', type: 'email', autocomplete: 'email', inputmode: 'email', value: si.email,

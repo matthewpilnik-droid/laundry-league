@@ -69,7 +69,7 @@ function makeFake(o = {}) {
       onAuthStateChange: (cb) => { f.listeners.push(cb); return { data: { subscription: {} } }; },
       signInWithOtp: async (a) => { f.calls.push(['otp', a]); return { error: f.otpError }; },
       verifyOtp: async (a) => { f.calls.push(['verify', a]);
-        if (a.token === '123456') { f.session = { user: { id: a.email.startsWith('bryan') ? 'u-bry' : a.email.startsWith('matthew') ? 'u-mat' : a.email.startsWith('stranger') ? 'u-out' : 'u-bry' } }; return { data: { session: f.session }, error: null }; }
+        if (a.token === '123456' || a.token === '12345678') { f.session = { user: { id: a.email.startsWith('bryan') ? 'u-bry' : a.email.startsWith('matthew') ? 'u-mat' : a.email.startsWith('stranger') ? 'u-out' : 'u-bry' } }; return { data: { session: f.session }, error: null }; }
         return { data: { session: null }, error: { message: 'Token has expired or is invalid' } }; },
       signOut: async () => { f.session = null; f.listeners.forEach((cb) => cb('SIGNED_OUT', null)); return { error: null }; },
     },
@@ -144,7 +144,7 @@ t.type('#email', 'bryan@example.com'); t.click(t.btn('Send code'));
 await t.waitFor(() => t.$('#code'), 'code screen');
 const NEUTRAL = t.$('.notice').textContent;
 ok('code requested for a known email, with sign-ups OFF (shouldCreateUser false)', JSON.stringify(t.fake.calls.find((c) => c[0] === 'otp')[1]) === JSON.stringify({ email: 'bryan@example.com', options: { shouldCreateUser: false } }));
-ok('neutral message: "If that email is on the league..."', /If that email is on the league/.test(NEUTRAL), NEUTRAL);
+ok('neutral message: "If that email is on the league..." (and it does not promise a code length)', /If that email is on the league/.test(NEUTRAL), NEUTRAL);
 let t2 = await start({ otpError: { status: 422, message: 'Signups not allowed for otp' } });
 await t2.waitFor(() => t2.$('#email'));
 t2.type('#email', 'stranger@example.com'); t2.click(t2.btn('Send code'));
@@ -155,7 +155,7 @@ await t3.waitFor(() => t3.$('#email')); t3.type('#email', 'bryan@example.com'); 
 await t3.waitFor(() => /wait a minute/.test(t3.text()), 'rate-limit message');
 ok('too many code requests: plain "wait a minute" message, stays on the email step', !t3.$('#code'));
 t.type('#code', '12'); t.click(t.btn('Sign in'));
-await t.waitFor(() => /6 digits/.test(t.text()));
+await t.waitFor(() => /6 to 8 digits/.test(t.text()));
 ok('a short code is refused before any request', !t.fake.calls.some((c) => c[0] === 'verify'));
 t.type('#code', '000000'); t.click(t.btn('Sign in'));
 await t.waitFor(() => /didn't work/.test(t.text()), 'wrong code message');
@@ -163,6 +163,12 @@ ok('a wrong code gets a plain message and stays on the code screen', !!t.$('#cod
 t.type('#code', '123 456'); t.click(t.btn('Sign in'));
 await t.waitFor(() => /Week 11/.test(t.text()), 'main screen');
 ok('the right code (spaces ignored) signs in and shows My week', /Bryan/.test(t.text()) && /Helen Keller/.test(t.text()));
+
+let t8 = await start();
+await t8.waitFor(() => t8.$('#email')); t8.type('#email', 'bryan@example.com'); t8.click(t8.btn('Send code'));
+await t8.waitFor(() => t8.$('#code')); t8.type('#code', '1234 5678'); t8.click(t8.btn('Sign in'));
+await t8.waitFor(() => /Week 11/.test(t8.text()), 'main screen via 8-digit code');
+ok('an 8-digit code (what this project actually emails) works too', t8.fake.calls.find((c) => c[0] === 'verify')[1].token === '12345678');
 
 // ================================================================ My week
 console.log('\nMy week (manager)');

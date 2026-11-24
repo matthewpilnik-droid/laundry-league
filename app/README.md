@@ -1,6 +1,6 @@
 # The lineup app (`app.html` + this folder)
 
-Players sign in with an emailed 6-digit code, set their lineup, and see the league. The database decides what is allowed;
+Players sign in with an emailed code (6 to 8 digits), set their lineup, and see the league. The database decides what is allowed;
 this page only shows its answers. **Currently points at the REHEARSAL project (fake data).** Not linked from the public page.
 
 | File | What it is |
