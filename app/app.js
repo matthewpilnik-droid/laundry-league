@@ -51,7 +51,7 @@
     eff: {},                 // "teamId|week" -> {starters, captain, from_week}
     draft: null,             // {key, starters, captain}
     msg: null,               // {kind: 'ok'|'err'|'warn', text}
-    busy: false, confirm: null, audit: [], now: Date.now(), sig: '', fatal: null,
+    busy: false, confirm: null, justSaved: false, audit: [], now: Date.now(), sig: '', fatal: null,
   };
   LL._state = S;
 
@@ -272,7 +272,7 @@
       if (hit) { S.msg = { kind: 'err', text: hit + "'s game has already kicked off, so that spot is locked." }; return render(); }
     }
     S.draft = { key: d.key, starters: next.starters, captain: next.captain };
-    S.msg = null; S.confirm = null; render();
+    S.msg = null; S.confirm = null; S.justSaved = false; render();
   }
   function toggleStart(teamId, crew) {
     tryDraft(teamId, (n) => {
@@ -291,12 +291,17 @@
     if (!d) return;
     const order = crewsOf(teamId), starters = d.starters.slice().sort((a, b) => order.indexOf(a) - order.indexOf(b));
     // A correction to a FINISHED week changes later weeks too (a lineup stands until replaced): show how far, ask first.
-    if (asCommish && weekState(S.week) === 'past' && !S.confirm) {
-      try {
-        const r = await q(sb.rpc('lineup_effect_range', { p_team_id: teamId, p_week: S.week }));
-        S.confirm = { from: r[0].from_week, to: r[0].to_week };
-      } catch (e) { S.msg = { kind: 'err', text: friendly(e) }; }
-      return render();
+    if (asCommish && !S.confirm) {
+      if (weekState(S.week) === 'past') {
+        try {
+          const r = await q(sb.rpc('lineup_effect_range', { p_team_id: teamId, p_week: S.week }));
+          S.confirm = { kind: 'past', from: r[0].from_week, to: r[0].to_week };
+        } catch (e) { S.msg = { kind: 'err', text: friendly(e) }; }
+        return render();
+      }
+      // A change that touches a crew whose game already kicked off rewrites this week's score after the fact: ask first.
+      const hit = lockConflict(S.eff[d.key], d, (c) => kickedOff(S.week, c));
+      if (hit) { S.confirm = { kind: 'locked', crew: hit }; return render(); }
     }
     S.busy = true; S.msg = null; render();
     try {
@@ -305,7 +310,7 @@
       await refreshSchedule();
       S.busy = false;
       await refreshTab();
-      S.msg = { kind: 'ok', text: 'Saved.' }; render();
+      S.msg = null; S.justSaved = true; render();
     } catch (e) {
       S.busy = false; S.confirm = null; S.msg = { kind: 'err', text: friendly(e) }; render();
     }
@@ -346,7 +351,7 @@
   }
 
   function weekNav() {
-    const go = (d) => { S.week = clampWeek(S.week + d); S.draft = null; S.msg = null; S.confirm = null; render(); refreshTab(); };
+    const go = (d) => { S.week = clampWeek(S.week + d); S.draft = null; S.msg = null; S.confirm = null; S.justSaved = false; render(); refreshTab(); };
     const st = weekState(S.week);
     const note = { past: 'Finished', open: '', noschedule: 'Schedule not loaded yet', nokickoffs: 'Kickoff times missing' }[st];
     return h('div', { class: 'weeknav' },
@@ -378,16 +383,21 @@
     const past = asCommish && st === 'past';
     return h('div', null,
       closed ? h('p', { class: 'notice' }, why) : null,
+      asCommish && (st === 'past' || crewsOf(teamId).some((c) => kickedOff(S.week, c))) ? h('p', { class: 'small muted' }, "You're the commissioner: locks and finished weeks don't stop you. Changes to them ask you to confirm and are logged.") : null,
+      cap && d.captain && isOff(S.week, d.captain) ? h('p', { class: 'notice' }, d.captain + ' has no game this week, so the captain bonus will earn little or nothing. You can still save.') : null,
       S.msg ? h('p', { class: 'notice ' + S.msg.kind, role: 'status' }, S.msg.text) : null,
       h('div', { class: 'crews' }, crews),
-      S.confirm ? h('div', { class: 'notice' },
+      S.confirm && S.confirm.kind === 'locked' ? h('div', { class: 'notice' },
+        h('strong', null, S.confirm.crew + "'s game has already kicked off. "),
+        "Saving changes Week " + S.week + "'s score after the fact for " + team.manager_name + '. The change is logged.') : null,
+      S.confirm && S.confirm.kind === 'past' ? h('div', { class: 'notice' },
         h('strong', null, 'Week ' + S.week + ' is finished. '),
         'Saving this changes ' + (S.confirm.from === S.confirm.to ? 'Week ' + S.confirm.from : 'Weeks ' + S.confirm.from + ' to ' + S.confirm.to) +
         " for " + team.manager_name + '. A lineup stands until it is replaced, so the standings can change. The correction is logged.') : null,
       h('div', { class: 'row between' },
-        h('span', { class: 'small muted' }, needs || (dirty ? 'Not saved yet.' : (cur.from_week && cur.from_week !== S.week ? 'Carried over from Week ' + cur.from_week + '.' : (cur.from_week ? 'Saved.' : 'Default lineup: your first two crews.')))),
+        h('span', { class: 'small ' + (S.justSaved && !dirty ? 'ok' : 'muted') }, needs || (dirty ? 'Not saved yet.' : S.justSaved ? 'Saved.' : (cur.from_week && cur.from_week !== S.week ? 'Carried over from Week ' + cur.from_week + '.' : (cur.from_week ? 'Saved.' : 'Default lineup: your first two crews.')))),
         h('button', { class: 'primary', disabled: closed || S.busy || !dirty || !draftValid(d), onclick: () => save(teamId, asCommish) },
-          S.busy ? 'Saving…' : S.confirm ? 'Confirm correction' : past ? 'Save correction' : 'Save lineup')));
+          S.busy ? 'Saving…' : S.confirm ? (S.confirm.kind === 'past' ? 'Confirm correction' : 'Confirm change') : past ? 'Save correction' : 'Save lineup')));
   }
 
   function viewWeek() {
@@ -407,12 +417,12 @@
     const p = S.pub, wk = p && (p.weeks || []).find((w) => w.week === S.week);
     const row = (name) => {
       const t = S.teams.find((x) => x.name === name);
-      return h('div', { class: 'stack' }, h('div', null, h('strong', null, t ? t.manager_name : name), ' ', h('span', { class: 'muted small' }, name)),
-        h('div', { class: 'small' }, t ? lineupText(t.id) : ''));
+      return h('div', { class: 'team' }, h('div', null, h('strong', null, t ? t.manager_name : name), ' ', h('span', { class: 'muted small' }, name)),
+        h('div', { class: 'lineup' }, t ? lineupText(t.id) : ''));
     };
     const cards = wk && wk.games && wk.games.length
-      ? wk.games.map((g) => h('div', { class: 'card stack' }, g.name ? h('h3', null, g.name) : null, row(g.a), h('div', { class: 'small muted' }, 'vs'), row(g.b)))
-      : [h('div', { class: 'card stack' }, S.teams.map((t) => row(t.name)))];
+      ? wk.games.map((g) => h('div', { class: 'card match' }, g.name ? h('h3', null, g.name) : null, row(g.a), h('div', { class: 'vs' }, 'vs'), row(g.b)))
+      : [h('div', { class: 'card match' }, S.teams.map((t) => row(t.name)))];
     const st = (p && p.standings) || [];
     return h('div', null, weekNav(),
       h('p', { class: 'small muted' }, 'Lineups as saved in the app. Matchups come from the public page.'),
@@ -434,7 +444,7 @@
     return h('div', null, weekNav(),
       h('div', { class: 'card stack' },
         h('div', null, h('label', { class: 'label', for: 'cteam' }, 'Set the lineup for'),
-          h('select', { id: 'cteam', onchange: (e) => { S.cTeam = e.target.value; S.draft = null; S.msg = null; S.confirm = null; render(); refreshTab(); } },
+          h('select', { id: 'cteam', onchange: (e) => { S.cTeam = e.target.value; S.draft = null; S.msg = null; S.confirm = null; S.justSaved = false; render(); refreshTab(); } },
             S.teams.map((t) => h('option', { value: t.id, selected: t.id === tid }, t.manager_name + ' · ' + t.name)))),
         tid !== S.me.team_id ? h('p', { class: 'notice' }, "You're setting " + d(tid).manager_name + "'s lineup. It will be flagged as yours in the change log.") : null),
       editor(tid, true),
@@ -452,7 +462,7 @@
     const tabs = [['week', 'My week'], ['league', 'League']].concat(isCommish() ? [['commish', 'Commissioner']] : []);
     return h('div', null,
       h('div', { class: 'tabs', role: 'tablist' }, tabs.map(([id, label]) =>
-        h('button', { role: 'tab', 'aria-selected': String(S.tab === id), class: S.tab === id ? 'on' : '', onclick: () => { S.tab = id; S.msg = null; S.confirm = null; S.draft = null; render(); refreshTab(); } }, label))),
+        h('button', { role: 'tab', 'aria-selected': String(S.tab === id), class: S.tab === id ? 'on' : '', onclick: () => { S.tab = id; S.msg = null; S.confirm = null; S.justSaved = false; S.draft = null; render(); refreshTab(); } }, label))),
       S.tab === 'week' ? viewWeek() : S.tab === 'league' ? viewLeague() : viewCommish());
   }
 

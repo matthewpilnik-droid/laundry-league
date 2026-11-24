@@ -308,6 +308,58 @@ await t.waitFor(() => t.fake.rpcCalls.some((c) => c[0] === 'set_lineup'), 'save 
 const cs = t.fake.rpcCalls.find((c) => c[0] === 'set_lineup')[1];
 ok('after confirming, it saves for Bryan\'s team, Week 10', cs.p_team_id === 't-bry' && cs.p_week === 10 && cs.p_starters[0] === 'Scott Novak', JSON.stringify(cs));
 
+// ================================================================ new behaviours (round 2)
+console.log('\nCommissioner: confirm before changing a kicked-off crew');
+t = await start(signedIn('u-mat'));
+await t.waitFor(() => t.crewCard('Alex Moore') && t.crewCard('Alan Eck'));
+const btnAt = (name, i) => [...t.crewCard(name).querySelectorAll('button')][i];
+ok('a note tells the commissioner that locks do not stop them', /locks and finished weeks don't stop you/.test(t.text()));
+ok('...and her kicked-off crew (Alex Moore, Locked) is still editable', /Locked/.test(t.crewCard('Alex Moore').textContent) && !btnAt('Alex Moore', 0).disabled);
+t.click(btnAt('Ron Torbert', 1));                       // make Ron captain: touches Alex (the old captain), who has kicked off
+await t.waitFor(() => !t.btn('Save lineup').disabled, 'save enabled');
+t.click(t.btn('Save lineup'));
+await t.waitFor(() => t.btn('Confirm change'), 'confirm step');
+ok('touching a kicked-off crew asks first, naming the crew', /Alex Moore's game has already kicked off/.test(t.text()) && /after the fact/.test(t.text()), t.text().slice(0, 300));
+ok('...and nothing is saved until she confirms', !t.fake.rpcCalls.some((c) => c[0] === 'set_lineup'));
+t.click(t.btn('Confirm change'));
+await t.waitFor(() => t.fake.rpcCalls.some((c) => c[0] === 'set_lineup') && /Saved\./.test(t.text()), 'saved after confirm');
+ok('after confirming it saves (captain Ron)', t.fake.rpcCalls.find((c) => c[0] === 'set_lineup')[1].p_captain === 'Ron Torbert');
+ok('"Saved." is shown exactly once (no duplicate message)', (t.text().match(/Saved\./g) || []).length === 1, (t.text().match(/Saved\./g) || []).length);
+
+console.log('\nCaptain with no game: a warning, but doable');
+t = await start(signedIn('u-mat'));
+await t.waitFor(() => t.crewCard('Alex Moore') && t.crewCard('Alan Eck'));
+t.click(btnAt('Ron Torbert', 0));                       // bench Ron
+t.click(btnAt('Alan Eck', 0));                          // start Alan Eck, who is OFF this week
+t.click(btnAt('Alan Eck', 1));                          // ...and make him captain
+await t.waitFor(() => /Alan Eck has no game this week/.test(t.text()), 'warning');
+ok('the warning says the bonus will earn little or nothing, and that she can still save', /earn little or nothing\. You can still save/.test(t.text()));
+ok('...and Save is NOT blocked', !t.btn('Save lineup').disabled);
+t.click(t.btn('Save lineup'));
+await t.waitFor(() => t.btn('Confirm change'));
+t.click(t.btn('Confirm change'));
+await t.waitFor(() => t.fake.rpcCalls.some((c) => c[0] === 'set_lineup'), 'save');
+ok('...and it saves with the off-week crew as captain', t.fake.rpcCalls.find((c) => c[0] === 'set_lineup')[1].p_captain === 'Alan Eck');
+t = await start(signedIn('u-mat'));
+await t.waitFor(() => t.crewCard('Alex Moore'));
+ok('no warning when the captain has a game', !/has no game this week, so the captain bonus/.test(t.text()));
+
+console.log('\nCommissioner changing an UNLOCKED week saves without a confirm step');
+t = await start(signedIn('u-mat'));
+await t.waitFor(() => t.crewCard('Alex Moore'));
+t.click(t.btn('Next week'));
+await t.waitFor(() => t.$('.weeknav h2').textContent === 'Week 12' && t.$$('.crew').length === 3, 'week 12');
+t.click(btnAt('Ron Torbert', 0)); t.click(btnAt('Alan Eck', 0));
+await t.waitFor(() => !t.btn('Save lineup').disabled);
+t.click(t.btn('Save lineup'));
+await t.waitFor(() => t.fake.rpcCalls.some((c) => c[0] === 'set_lineup'), 'direct save');
+ok('no kicked-off crew touched: saved directly, no confirm', !t.btn('Confirm change') && !t.btn('Confirm correction'));
+
+console.log('\nA manager never sees commissioner prompts');
+t = await start(signedIn('u-bry'));
+await t.waitFor(() => t.crewCard('Scott Novak'));
+ok('no commissioner note for a manager', !/don't stop you/.test(t.text()));
+
 // ================================================================ escaping
 console.log('\nHostile text stays text');
 const EVIL = '<img src=x onerror="window.__pwned=1">';

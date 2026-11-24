@@ -137,6 +137,7 @@ if len(teams) != 6:
 TB, TM, TMK = teams["Bryan"], teams["Matthew"], teams["Mike"]
 league_id = get("/rest/v1/leagues?select=id", t_bry).json[0]["id"]
 
+members_before = sorted((m["user_id"], m["role"], str(m["team_id"])) for m in get("/rest/v1/league_members?select=user_id,role,team_id", t_comm).json)
 existing = get("/rest/v1/lineups?select=id", t_comm).json
 if existing:
     sys.exit("lineups is not empty (%d rows). Reset first in the SQL Editor:\n"
@@ -371,10 +372,11 @@ allowed("a team with no later row runs to the end of the season (Mike, Week 12 r
         lambda r: r.json and (r.json[0]["from_week"], r.json[0]["to_week"]) == (12, 18))
 weeks = get("/rest/v1/weeks?select=week,ends_at&order=week", t_out).json
 record("weeks schedule unchanged (Week 10 still finished)", any(w["week"] == 10 and w["ends_at"].startswith("2026-11-03") for w in weeks), str(weeks[:4]))
-members = get("/rest/v1/league_members?select=user_id,role", t_comm).json
-roles = {m["user_id"]: m["role"] for m in members}
-record("members unchanged: 1 commissioner, 2 managers, outsider absent",
-       roles == {id_comm: "commissioner", id_bry: "manager", id_mike: "manager"}, str(roles))
+members_after = sorted((m["user_id"], m["role"], str(m["team_id"])) for m in get("/rest/v1/league_members?select=user_id,role,team_id", t_comm).json)
+record("membership unchanged by the whole run (same people, roles and teams as before it started)", members_after == members_before, "%d before, %d after" % (len(members_before), len(members_after)))
+record("the outsider was never added", id_out not in [m[0] for m in members_after])
+record("the three test users still have their original roles",
+       {m[0]: m[1] for m in members_after if m[0] in (id_comm, id_bry, id_mike)} == {id_comm: "commissioner", id_bry: "manager", id_mike: "manager"})
 slots = get("/rest/v1/game_slots?select=crew", t_out).json
 record("kickoff times unchanged (5)", len(slots) == 5, str(len(slots)))
 record("team names unchanged", get("/rest/v1/teams?select=manager_name&manager_name=eq.Hacked", t_comm).json == [], "")
