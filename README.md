@@ -195,6 +195,9 @@ Tiers come from how often each foul was called the previous season:
 | `scripts/fetch_data.py` | Downloads the nflverse schedule and play-by-play; fills missing referees from ESPN into `data/referees.json`. |
 | `scripts/build_data.py` | Parses every penalty from the play text, scores it, scores the Replacement Refs' weekly average, applies lineups, runs the head-to-head schedule, standings and awards, builds `data.json`. |
 | `scripts/render.py` | Inlines `data.json` into `site/template.html` → `index.html`. |
+| `scripts/fetch_assignments.py` | Reads Football Zebras' weekly referee assignments (provisional) into `data/assignments.json` and ESPN's kickoff times into `data/kickoffs.json`. Display only; the page also works out each week's off crews from it. |
+| `scripts/check_secrets.py` | Looks for passwords, keys and tokens in every file git tracks and in past commits. Run by the push hook below. |
+| `scripts/git-hooks/pre-push`, `scripts/install-hooks.sh` | The push check: install once per computer with `sh scripts/install-hooks.sh`, then every `git push` runs the secret scanner first and is cancelled if it finds something. |
 | `.github/workflows/update.yml` | Runs the three scripts every 6 hours and publishes changes. |
 
 Run locally: `python3 -I scripts/fetch_data.py cache && python3 -I scripts/build_data.py cache data.json && python3 -I scripts/render.py`

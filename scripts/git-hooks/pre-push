@@ -1,0 +1,12 @@
+#!/bin/sh
+# Runs automatically before every `git push` from this folder. If the secret scanner finds a password,
+# key or token in any tracked file or past commit, the push is cancelled and nothing is sent.
+# (Installed by `sh scripts/install-hooks.sh`. Skipping it, `git push --no-verify`, is possible but defeats the point.)
+cd "$(git rev-parse --show-toplevel)" || exit 1
+PY=$(command -v python3 || echo /opt/homebrew/bin/python3)
+if ! "$PY" -I scripts/check_secrets.py --history; then
+  echo "" >&2
+  echo "PUSH CANCELLED: the secret scanner found something (listed above). Nothing was sent." >&2
+  echo "Remove it from the file (and from history if it was committed), and cancel the key if it was real." >&2
+  exit 1
+fi

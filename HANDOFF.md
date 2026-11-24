@@ -109,6 +109,12 @@ Easiest: the commissioner page, https://matthewpilnik-droid.github.io/laundry-le
    ```
    Then open `index.html` in a browser. The `cache/` folder is ignored by git.
 
+6. **Install the push check (once per computer):** `sh scripts/install-hooks.sh`. After that, every `git push`
+   from this folder first runs the secret scanner (`scripts/check_secrets.py`) and is cancelled if it finds a
+   password, key or token anywhere in the project or its history. Git doesn't copy hooks when you clone, so this
+   step is needed on each new computer. `.env` files are also ignored by `.gitignore`. Keep secrets only in a
+   `.env` file (never committed) and, for the score bot, in GitHub Actions secrets.
+
 ## Retiring the old Mac
 
 The old Mac has a `gh` sign-in for `matthewpilnik-droid`. To remove it:
