@@ -701,6 +701,32 @@ for w, cs in LEAGUE.get("off", {}).items():
                  f"Valid names: {sorted(c for c in by_ref if c != REPLACEMENT)}")
     off_weeks[str(int(w))] = names
 
+# Provisional referee assignments read from Football Zebras (display only; never used for scoring).
+assign_file = ROOT / "data" / "assignments.json"
+assignments_out = {w: {"games": {gid: x["referee"] for gid, x in v["games"].items()},
+                       "off": v.get("off", []), "complete": v.get("complete", False), "source": v.get("source", "")}
+                   for w, v in (json.loads(assign_file.read_text()).get("weeks", {}).items() if assign_file.exists() else [])}
+
+# Who's off each week. A list the commissioner saved in league.json wins. Otherwise it is worked out from the
+# assignments: a real crew with no assigned game is off. Only when that week's assignments read cleanly (every
+# game matched) and every assigned referee is a known crew; otherwise we don't guess. This feeds the page's
+# projections and warnings only. A played week is scored from the real games, so it can't change any score.
+off_source = {w: "commissioner" for w in off_weeks}
+off_derived = {}
+real_crews = {c for c in by_ref if c != REPLACEMENT}
+for w, a in assignments_out.items():
+    worked = set(a["games"].values())
+    if not a["complete"] or not worked <= real_crews:
+        continue
+    cand = sorted(real_crews - worked)
+    if len(cand) > 6:               # a normal week has 1-4 crews off; more means something is off with the read
+        continue
+    off_derived[w] = cand
+    if w not in off_weeks:
+        off_weeks[w] = cand
+        off_source[w] = "assignments"
+        print(f"Week {w}: off list worked out from Football Zebras' assignments: {', '.join(cand) or 'nobody'}")
+
 if drafted:
     names = [t["name"].strip() for t in teams_cfg]
     managers = {t["name"].strip(): t.get("manager", "") for t in teams_cfg}
@@ -738,11 +764,6 @@ scored_espn = sorted(games[g]["espn"] for g in g_cur if games[g]["espn"])
 # overturned) or "stood" (coach's challenge failed); flags also carry their call details.
 # ---- League weeks' games, for the commissioner page ------------------------------
 # ESPN's kickoff times (saved by fetch_assignments.py) beat nflverse's, which lag when a game is swapped or flexed.
-# Provisional referee assignments read from Football Zebras (display only; never used for scoring).
-assign_file = ROOT / "data" / "assignments.json"
-assignments_out = {w: {"games": {gid: x["referee"] for gid, x in v["games"].items()},
-                       "off": v.get("off", []), "complete": v.get("complete", False), "source": v.get("source", "")}
-                   for w, v in (json.loads(assign_file.read_text()).get("weeks", {}).items() if assign_file.exists() else [])}
 kick_file = ROOT / "data" / "kickoffs.json"
 espn_kick = json.loads(kick_file.read_text()) if kick_file.exists() else {}
 schedule_out = collections.defaultdict(list)
@@ -808,6 +829,8 @@ json.dump({
     "crews": crew_list,
     "draft": draft,
     "off_weeks": off_weeks,
+    "off_source": off_source,
+    "off_derived": off_derived,
     "week_games": week_games,
     "top_flags": top_flags,
     "sightings": sightings,

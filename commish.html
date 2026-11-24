@@ -62,7 +62,8 @@ ol.how li { margin: 4px 0; }
         <span class="muted">Due by <b id="lu-deadline"></b>. Check who has the week off at
         <a href="https://www.footballzebras.com/category/assignments/" target="_blank" rel="noopener">Football Zebras</a>.</span></div>
       <h3 style="margin:14px 0 4px">Off this week</h3>
-      <p class="muted">Tick every crew whose referee isn't on Football Zebras' assignments for this week. The league page shows the list to everyone and flags anyone starting one. Leave it empty until assignments post.</p>
+      <p class="muted">The league page now works out who's off by itself from Football Zebras' assignments. You only need to tick here to correct it (a substitution, a ground stop); a list you save wins. Leave it empty to use the automatic one.</p>
+      <p class="muted" id="off-auto"></p>
       <div id="off-rows" class="offgrid"></div>
       <h3 style="margin:14px 0 4px">Starters</h3>
       <p class="muted">Ticked = starting. Current starters are pre-ticked; only change the teams that texted you. A lineup stands until it's changed.</p>
@@ -225,6 +226,11 @@ ol.how li { margin: 4px 0; }
   const offNow = () => off[String(week())] || [];
   function drawOff() {
     const cur = offNow();
+    const auto = (D.off_derived || {})[String(week())];
+    $('#off-auto').innerHTML = auto
+      ? `From the assignments: <b>${auto.length ? auto.map(esc).join(', ') : 'nobody'}</b> ${auto.length > 1 ? 'are' : 'is'} off. ` +
+        (cur.length ? (sameSet(cur, auto) ? 'Your saved list matches.' : '<span class="warn">Your saved list is different, and yours wins.</span>') : 'Used automatically, since you haven\'t saved a list.')
+      : 'No clean set of assignments read for this week yet, so nothing is worked out automatically.';
     $('#off-rows').innerHTML = crews.filter(c => c !== REPL).slice().sort().map(c =>
       `<label class="pick"><input type="checkbox" data-off="1" value="${esc(c)}" ${cur.includes(c) ? 'checked' : ''}> ${esc(c)}</label>`).join('');
   }
