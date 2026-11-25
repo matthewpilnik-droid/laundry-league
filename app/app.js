@@ -361,7 +361,7 @@
     return h('div', { class: 'card stack' },
       h('h2', null, 'Enter your code'),
       msg,
-      h('div', null, h('label', { class: 'label', for: 'code' }, '6-digit code'),
+      h('div', null, h('label', { class: 'label', for: 'code' }, 'Code from your email'),
         h('input', { id: 'code', class: 'code', type: 'text', inputmode: 'numeric', autocomplete: 'one-time-code', maxlength: 8, value: si.code,
           oninput: (e) => { si.code = e.target.value; },
           onkeydown: (e) => { if (e.key === 'Enter') checkCode(); } })),

@@ -149,6 +149,7 @@ ok('a malformed email is refused before any request', !t.fake.calls.some((c) => 
 t.type('#email', 'bryan@example.com'); t.click(t.btn('Send code'));
 await t.waitFor(() => t.$('#code'), 'code screen');
 const NEUTRAL = t.$('.notice').textContent;
+ok('the code box is labelled "Code from your email" and the page never promises a code length', /Code from your email/.test(t.text()) && !/6-digit|6 digit/i.test(t.text()), t.text().slice(0, 300));
 ok('code requested for a known email, with sign-ups OFF (shouldCreateUser false)', JSON.stringify(t.fake.calls.find((c) => c[0] === 'otp')[1]) === JSON.stringify({ email: 'bryan@example.com', options: { shouldCreateUser: false } }));
 ok('neutral message: "If that email is on the league..." (and it does not promise a code length)', /If that email is on the league/.test(NEUTRAL), NEUTRAL);
 let t2 = await start({ otpError: { status: 422, message: 'Signups not allowed for otp' } });
