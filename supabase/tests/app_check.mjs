@@ -77,6 +77,7 @@ function makeFake(o = {}) {
       const st = { table, eqs: [], single: false };
       const run = async () => {
         f.calls.push(['from', table, st.eqs.slice()]);
+        if (o.slow && o.slow[table]) await new Promise((r) => setTimeout(r, o.slow[table]));     // a slow answer, to test sign-out mid-load
         if (f.errors[table]) return { data: null, error: { message: f.errors[table] } };
         let rows = (tables[table] || []).filter((r) => st.eqs.every(([c, v]) => r[c] === v));
         return st.single ? { data: rows[0], error: null } : { data: rows, error: null };
@@ -85,6 +86,7 @@ function makeFake(o = {}) {
       return b;
     },
     rpc: async (name, args) => { f.rpcCalls.push([name, args]);
+      if (name === 'effective_lineup' && f.effError) return { data: null, error: { message: 'boom' } };
       if (name === 'effective_lineup') {
         if (o.effDelay && o.effDelay[args.p_week]) await new Promise((r) => setTimeout(r, o.effDelay[args.p_week]));   // a slow answer, to test overlapping requests
         if (o.effFor) return { data: [o.effFor(args.p_team_id, args.p_week)], error: null };
@@ -258,6 +260,35 @@ await t.waitFor(() => t.$('.weeknav h2').textContent === 'Week 13' && t.$$('.cre
 await new Promise((r) => setTimeout(r, 400));                       // let the slower Week 13 answer arrive too
 ok('the page still says Week 13 and shows Week 13\'s lineup (Hussey starts, Novak does not)', t.$('.weeknav h2').textContent === 'Week 13' && t.crewCard('John Hussey').classList.contains('start') && !t.crewCard('Scott Novak').classList.contains('start'), t.$$('.crew').map((c) => c.className).join(' | '));
 ok('the draft belongs to Week 13 and holds Week 13\'s lineup', /\|13$/.test(t.L._state.draft.key) && t.L._state.draft.starters.join() === 'John Hussey,2012 Replacement Refs', JSON.stringify(t.L._state.draft));
+
+console.log('\nAfter a successful save, a failed refresh must not look like a failed save');
+t = await start(signedIn('u-bry'));
+await t.waitFor(() => t.crewCard('Scott Novak'));
+t.click([...t.crewCard('John Hussey').querySelectorAll('button')][0]); t.click([...t.crewCard('2012 Replacement Refs').querySelectorAll('button')][0]);
+await t.waitFor(() => !t.btn('Save lineup').disabled);
+t.fake.errors.weeks = 'network down';                              // the schedule refresh that follows the save will fail
+t.click(t.btn('Save lineup'));
+await t.waitFor(() => t.fake.rpcCalls.some((c) => c[0] === 'set_lineup'), 'save');
+await new Promise((r) => setTimeout(r, 150));
+ok('schedule refresh fails after a good save: the editor is still there (3 crews, not blank)', t.$$('.crew').length === 3, t.text().slice(0, 200));
+ok('...and the page says Saved, not "can\'t reach the server"', /Saved\./.test(t.text()) && !/reach the league server/.test(t.text()), t.text().slice(0, 300));
+t = await start(signedIn('u-bry'));
+await t.waitFor(() => t.crewCard('Scott Novak'));
+t.click([...t.crewCard('John Hussey').querySelectorAll('button')][0]); t.click([...t.crewCard('2012 Replacement Refs').querySelectorAll('button')][0]);
+await t.waitFor(() => !t.btn('Save lineup').disabled);
+t.fake.effError = true;                                            // reloading the lineup after the save will fail
+t.click(t.btn('Save lineup'));
+await t.waitFor(() => /was saved/.test(t.text()), 'saved-but-could-not-reload message');
+ok('lineup reload fails after a good save: the page says it WAS saved and to refresh (never "save failed")', /Your lineup was saved/.test(t.text()) && !/reach the league server/.test(t.text()), t.text().slice(0, 300));
+
+console.log('\nSigning out while the league is still loading');
+t = await start({ ...signedIn('u-bry'), slow: { teams: 250 } });
+await t.waitFor(() => t.btn('Sign out'), 'sign out button while loading');
+t.click(t.btn('Sign out'));
+await t.waitFor(() => t.$('#email'), 'sign-in screen');
+await new Promise((r) => setTimeout(r, 500));                      // let the slow load finish in the background
+ok('after the slow load finishes, the page is STILL the sign-in screen (no half-built league screen)', !!t.$('#email') && !/Week 1\d/.test(t.text()), t.text().slice(0, 200));
+ok('...and no league data was left behind in the page state', t.L._state.view === 'signin' && t.L._state.league === null && t.L._state.teams.length === 0, t.L._state.view);
 
 console.log('\nTapping while a lineup is still loading');
 t = await start(signedIn('u-bry'));

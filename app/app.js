@@ -52,6 +52,7 @@
     draft: null,             // {key, starters, captain}
     msg: null,               // {kind: 'ok'|'err'|'warn', text}
     busy: false, confirm: null, justSaved: false, audit: [], now: Date.now(), sig: '', fatal: null,
+    gen: 0,                  // bumped on every sign-out: an answer that arrives for an earlier "generation" is thrown away
   };
   LL._state = S;
 
@@ -145,21 +146,27 @@
 
   // ------------------------------------------------------------------ data loading
   async function loadAll() {
+    // If you sign out while this is still loading, everything it fetches is thrown away (nothing is written to the page).
+    const gen = S.gen, gone = () => gen !== S.gen;
     S.view = 'loading'; render();
     try {
       const uid = S.session.user.id;
       const mem = await q(sb.from('league_members').select('league_id,role,team_id').eq('user_id', uid));
+      if (gone()) return;
       if (!mem.length) { S.view = 'outsider'; return render(); }
-      S.me = mem[0];
-      S.league = await q(sb.from('leagues').select('id,name,season,start_week,captain_start_week,playoff_week').eq('id', S.me.league_id).single());
+      const me = mem[0];
+      const league = await q(sb.from('leagues').select('id,name,season,start_week,captain_start_week,playoff_week').eq('id', me.league_id).single());
+      if (gone()) return;
       const [teams, roster, members] = await Promise.all([
-        q(sb.from('teams').select('id,name,manager_name').eq('league_id', S.league.id).order('manager_name')),
+        q(sb.from('teams').select('id,name,manager_name').eq('league_id', league.id).order('manager_name')),
         q(sb.from('roster').select('team_id,slot,crew').order('slot')),
         q(sb.from('league_members').select('user_id,role,team_id')),
       ]);
-      S.teams = teams; S.members = members; S.roster = {};
+      if (gone()) return;
+      S.me = me; S.league = league; S.teams = teams; S.members = members; S.roster = {};
       roster.forEach((r) => { (S.roster[r.team_id] = S.roster[r.team_id] || []).push(r); });
       await refreshSchedule();
+      if (gone()) return;
       const pubWeek = S.pub && S.pub.current_week;
       const open = Object.values(S.weeks).filter((w) => new Date(w.ends_at) > S.now).map((w) => w.week).sort((a, b) => a - b)[0];
       S.week = clampWeek(pubWeek || open || S.league.start_week);
@@ -168,16 +175,19 @@
       render();
       await refreshTab();
     } catch (e) {
+      if (gone()) return;
       S.view = 'error'; S.fatal = friendly(e); render();
     }
   }
 
   async function refreshSchedule() {
+    const gen = S.gen, season = S.league.season;
     const [weeks, slots, pub] = await Promise.all([
-      q(sb.from('weeks').select('week,starts_at,ends_at').eq('season', S.league.season)),
-      q(sb.from('game_slots').select('week,crew,kickoff_at').eq('season', S.league.season)),
+      q(sb.from('weeks').select('week,starts_at,ends_at').eq('season', season)),
+      q(sb.from('game_slots').select('week,crew,kickoff_at').eq('season', season)),
       fetch(CFG.dataUrl || 'data.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
     ]);
+    if (gen !== S.gen) return;                        // signed out while this was loading
     S.weeks = {}; weeks.forEach((w) => { S.weeks[w.week] = w; });
     S.slots = {}; slots.forEach((s) => { S.slots[s.week + '|' + s.crew] = s; });
     S.pub = pub;
@@ -198,8 +208,8 @@
   async function refreshTab() {
     // Remember what we were asked about. If you move to another week, team or tab while an answer is on its way,
     // that answer is for the wrong place and must be thrown away (a newer call is already fetching the right one).
-    const week = S.week, tab = S.tab, team = S.cTeam;
-    const stale = () => S.week !== week || S.tab !== tab || S.cTeam !== team;
+    const week = S.week, tab = S.tab, team = S.cTeam, gen = S.gen;
+    const stale = () => S.week !== week || S.tab !== tab || S.cTeam !== team || S.gen !== gen;
     try {
       if (S.tab === 'week' || S.tab === 'commish') {
         const tid = S.tab === 'week' ? S.me.team_id : S.cTeam;
@@ -254,6 +264,7 @@
     resetToSignIn();
   }
   function resetToSignIn() {
+    S.gen += 1;               // anything still loading from before this moment must now be ignored
     Object.assign(S, { session: null, me: null, league: null, teams: [], roster: {}, members: [], weeks: {}, slots: {}, pub: null,
       eff: {}, draft: null, msg: null, confirm: null, audit: [], view: 'signin', tab: 'week',
       signin: { step: 'email', email: '', code: '', msg: null, busy: false } });
@@ -311,14 +322,17 @@
     S.busy = true; S.msg = null; render();
     try {
       await q(sb.rpc('set_lineup', { p_team_id: teamId, p_week: S.week, p_starters: starters, p_captain: d.captain }));
-      S.eff = {}; S.confirm = null; S.draft = null;
-      await refreshSchedule();
-      S.busy = false;
-      await refreshTab();
-      S.msg = null; S.justSaved = true; render();
     } catch (e) {
-      S.busy = false; S.confirm = null; S.msg = { kind: 'err', text: friendly(e) }; render();
+      S.busy = false; S.confirm = null; S.msg = { kind: 'err', text: friendly(e) }; return render();
     }
+    // Saved. Everything below only refreshes what is on screen, so a failure here must never look like a failed save.
+    S.eff = {}; S.confirm = null; S.draft = null;
+    try { await refreshSchedule(); } catch (e) { /* keep the schedule we already have */ }
+    S.busy = false;
+    await refreshTab();
+    if (S.draft) { S.msg = null; S.justSaved = true; }
+    else S.msg = { kind: 'warn', text: 'Your lineup was saved, but the page could not reload it. Refresh the page to see it.' };
+    render();
   }
 
   // ------------------------------------------------------------------ views
@@ -379,7 +393,10 @@
   /** The lineup editor, for one team and the selected week. Used by "My week" and by the commissioner. */
   function editor(teamId, asCommish) {
     const team = teamById(teamId), key = teamId + '|' + S.week, cur = S.eff[key];
-    if (!cur || !S.draft || S.draft.key !== key) return h('p', { class: 'muted' }, 'Loading lineup…');
+    if (!cur || !S.draft || S.draft.key !== key) {
+      // Still loading, or the load failed: show any message too, otherwise a failure looks like an endless "Loading…".
+      return h('div', null, S.msg ? h('p', { class: 'notice ' + S.msg.kind, role: 'status' }, S.msg.text) : null, h('p', { class: 'muted' }, 'Loading lineup…'));
+    }
     const d = S.draft, st = weekState(S.week), cap = captainsOn(S.week);
     const closed = !asCommish && st !== 'open';
     const why = { past: 'This week is finished, so lineups are closed. Ask the commissioner if something needs fixing.',
