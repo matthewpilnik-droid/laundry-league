@@ -360,6 +360,13 @@
       h('button', { 'aria-label': 'Next week', disabled: S.week >= S.league.playoff_week, onclick: () => go(1) }, '›'));
   }
 
+  function offStarterWarnings(teamId, d) {
+    const working = crewsOf(teamId).filter((c) => d.starters.indexOf(c) < 0 && !isOff(S.week, c));
+    if (!working.length) return [];                 // nobody better to start: the open-spot rule credits the empty spot instead
+    return d.starters.filter((c) => isOff(S.week, c)).map((c) =>
+      c + ' has no game this week, and ' + working.join(' or ') + ' ' + (working.length > 1 ? 'do' : 'does') + '. A starter with no game scores 0. You can still save.');
+  }
+
   /** The lineup editor, for one team and the selected week. Used by "My week" and by the commissioner. */
   function editor(teamId, asCommish) {
     const team = teamById(teamId), key = teamId + '|' + S.week, cur = S.eff[key];
@@ -384,6 +391,8 @@
     return h('div', null,
       closed ? h('p', { class: 'notice' }, why) : null,
       asCommish && (st === 'past' || crewsOf(teamId).some((c) => kickedOff(S.week, c))) ? h('p', { class: 'small muted' }, "You're the commissioner: locks and finished weeks don't stop you. Changes to them ask you to confirm and are logged.") : null,
+      // A starter with no game scores 0 when a crew that DOES play is sitting on the bench (the scorer treats that as a lineup mistake).
+      offStarterWarnings(teamId, d).map((w) => h('p', { class: 'notice' }, w)),
       cap && d.captain && isOff(S.week, d.captain) ? h('p', { class: 'notice' }, d.captain + ' has no game this week, so the captain bonus will earn little or nothing. You can still save.') : null,
       S.msg ? h('p', { class: 'notice ' + S.msg.kind, role: 'status' }, S.msg.text) : null,
       h('div', { class: 'crews' }, crews),

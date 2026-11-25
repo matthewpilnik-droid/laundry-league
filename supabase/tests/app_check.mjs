@@ -344,6 +344,20 @@ t = await start(signedIn('u-mat'));
 await t.waitFor(() => t.crewCard('Alex Moore'));
 ok('no warning when the captain has a game', !/has no game this week, so the captain bonus/.test(t.text()));
 
+console.log('\nStarting a crew with no game while a working crew sits on the bench');
+t = await start(signedIn('u-mat'));
+await t.waitFor(() => t.crewCard('Alex Moore') && t.crewCard('Alan Eck'));
+ok('no warning at first (both starters play)', !/A starter with no game scores 0/.test(t.text()));
+t.click(btnAt('Ron Torbert', 0)); t.click(btnAt('Alan Eck', 0));      // bench Ron (plays), start Alan Eck (off)
+await t.waitFor(() => /Alan Eck has no game this week, and Ron Torbert does\. A starter with no game scores 0\. You can still save\./.test(t.text()), 'bench warning');
+ok('...and Save is NOT blocked', !t.btn('Save lineup').disabled);
+const offBoth = { ...PUB, off_weeks: { 11: ['Alan Eck', 'Ron Torbert'] } };
+t = await start({ ...signedIn('u-mat'), pub: offBoth });
+await t.waitFor(() => t.crewCard('Alex Moore') && t.crewCard('Alan Eck'));
+t.click(btnAt('Ron Torbert', 0)); t.click(btnAt('Alan Eck', 0));      // starter Eck is off, but the only bench crew (Ron) is off too
+await t.waitFor(() => t.crewCard('Alan Eck').classList.contains('start'));
+ok('no warning when every crew on the bench is also off (the open-spot rule covers it)', !/A starter with no game scores 0/.test(t.text()));
+
 console.log('\nCommissioner changing an UNLOCKED week saves without a confirm step');
 t = await start(signedIn('u-mat'));
 await t.waitFor(() => t.crewCard('Alex Moore'));
