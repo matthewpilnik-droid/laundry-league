@@ -20,7 +20,8 @@ import datetime, json, os, pathlib, sys, urllib.error, urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CACHE = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "cache"
 OUT = CACHE / "lineups_db.json"
-LIMIT = 5000                      # a season is a few hundred rows; hitting this means something is wrong
+PAGE = 1000                       # rows asked for per request. Supabase silently cuts every answer at its own cap (1,000 by default),
+                                  # so we never trust one answer to be the whole list: we ask for the total and read until we have it all
 
 
 def config():
@@ -38,15 +39,39 @@ def config():
     return url, key
 
 
-def get(url, key, path):
-    req = urllib.request.Request(url + path, headers={"apikey": key, "Authorization": "Bearer " + key})
+def get(url, key, path, extra_headers=None, want_headers=False):
+    req = urllib.request.Request(url + path, headers={"apikey": key, "Authorization": "Bearer " + key, **(extra_headers or {})})
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
-            return json.loads(r.read().decode())
+            body = json.loads(r.read().decode())
+            return (body, r.headers) if want_headers else body
     except urllib.error.HTTPError as e:
         raise RuntimeError(f"GET {path.split('?')[0]} failed ({e.code}): {e.read().decode().replace(key, '<key>')[:200]}")
     except urllib.error.URLError as e:
         raise RuntimeError(f"could not reach Supabase: {e.reason}")
+
+
+def get_all(url, key, path):
+    """Every row of a list, however long. Asks for a page at a time and for the TOTAL (the Content-Range answer, like
+    '0-999/2500'), and keeps going until it holds that many. A server that stops early, or a total that doesn't add up,
+    is an error: a cut-off list must never be returned as if it were complete."""
+    rows, total = [], None
+    while total is None or len(rows) < total:
+        page, headers = get(url, key, path, {"Range-Unit": "items", "Range": f"{len(rows)}-{len(rows) + PAGE - 1}", "Prefer": "count=exact"}, True)
+        span = headers.get("Content-Range") or ""
+        try:
+            total = int(span.rsplit("/", 1)[1])
+        except (IndexError, ValueError):
+            raise RuntimeError(f"the server did not say how many rows there are (Content-Range: {span!r}); not trusting a possibly cut-off list")
+        if not page and len(rows) < total:
+            raise RuntimeError(f"the list was cut off: got {len(rows)} of {total} rows and the server stopped answering")
+        rows += page
+    if len(rows) != total:
+        raise RuntimeError(f"the list is incomplete or changed while reading: got {len(rows)}, expected {total}")
+    ids = [r.get("id") for r in rows]
+    if ids != sorted(set(ids)):
+        raise RuntimeError("the rows came back out of order or repeated; not trusting the list")
+    return rows
 
 
 def fetch():
@@ -55,9 +80,7 @@ def fetch():
     if len(leagues) != 1:
         raise RuntimeError(f"expected exactly one league in the project, found {len(leagues)}; not guessing which one")
     teams = {t["id"]: t["name"] for t in get(url, key, "/rest/v1/teams?select=id,name&league_id=eq." + leagues[0]["id"])}
-    rows = get(url, key, f"/rest/v1/lineups?select=id,team_id,week,starters,captain,created_at&order=id&limit={LIMIT}")
-    if len(rows) >= LIMIT:
-        raise RuntimeError(f"{len(rows)} lineup rows: more than expected, refusing to read a possibly cut-off list")
+    rows = get_all(url, key, "/rest/v1/lineups?select=id,team_id,week,starters,captain,created_at&order=id")
     entries = [{"id": r["id"], "week": r["week"], "team": teams.get(r["team_id"], "?unknown team?"),
                 "start": r["starters"], "captain": r["captain"], "created_at": r["created_at"]} for r in rows]
     return {"fetched_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
