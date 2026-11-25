@@ -53,7 +53,9 @@ def build(league, db=None, name="out"):
     out = tmp / (name + ".json")
     r = subprocess.run([sys.executable, "-I", "scripts/build_data.py", "cache", str(out)], cwd=work, capture_output=True, text=True)
     data = json.loads(out.read_text()) if r.returncode == 0 and out.exists() else None
-    if data: data.pop("generated_at", None)
+    if data:
+        data.pop("generated_at", None)
+        build.switch = data.pop("lineups_from_db_week", "MISSING")      # the setting as published in data.json (checked on its own)
     return data, r.stdout + r.stderr, r.returncode
 
 def app_rows(entries, start_id=1):
@@ -75,6 +77,7 @@ def with_switch(w): l = without_switch(); l["lineups_from_db_week"] = w; return 
 
 base, log, code = build(without_switch(), name="base")
 check("baseline builds from league.json", base is not None, log[-300:])
+check("data.json publishes the setting as null when it is not set", build.switch is None, build.switch)
 ENT = LEAGUE["lineups"]
 rows = app_rows(ENT)
 print("  (baseline has %d league.json lineup entries, weeks %s)" % (len(ENT), sorted({e["week"] for e in ENT})))
@@ -83,6 +86,7 @@ print("\nFaithful copies must reproduce today's scores exactly")
 d, log, _ = build(with_switch(8), db(rows), "all")
 check("switch at Week 8, app holds every lineup: identical to baseline", d == base, first_diff(d, base))
 check("...and the log says weeks 8+ come from the app", "week 8 and later come from the app" in log, log[-300:])
+check("data.json publishes the setting (8) when it is set, so the app can tell which weeks scoring ignores", build.switch == 8, build.switch)
 for w in (9, 10, 11, 12):
     d, log, _ = build(with_switch(w), db([r for r in rows if r["week"] >= w]), "sw%d" % w)
     check("switch at Week %d, app holds only lineups from Week %d on: identical" % (w, w), d == base, first_diff(d, base))
@@ -98,8 +102,11 @@ bad_past = copy.deepcopy(rows) + [{"id": 900, "week": 9, "team": ENT[0]["team"],
 bad_past[-1]["start"] = [c for c in ENT[0]["start"]]
 other = [c for t in LEAGUE["teams"] if t["name"] == ENT[0]["team"] for c in t["crews"]]
 bad_past[-1]["start"] = other[:2][::-1] if other[:2] != ENT[0]["start"] else other[1:3]
-d, _, _ = build(with_switch(12), db(bad_past), "pastedit")
+d, log, _ = build(with_switch(12), db(bad_past), "pastedit")
 check("an app row for Week 9 is IGNORED when the switch is at Week 12 (past weeks cannot change)", d == base, first_diff(d, base))
+check("...and the build SAYS so: names the ignored row's week and team", "ignored by scoring" in log and "Week 9" in log and ENT[0]["team"] in log, log[-500:])
+d, log, _ = build(with_switch(8), db(rows), "noignored")
+check("no ignored-rows message when every app row is at or after the switch", "ignored by scoring" not in log, log[-300:])
 
 print("\nAfter the switch the app is the ONLY source (a lineup only texted, never entered in the app, is ignored)")
 for sw in (11, 12):

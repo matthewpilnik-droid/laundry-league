@@ -365,6 +365,10 @@
       h('button', { 'aria-label': 'Next week', disabled: S.week >= S.league.playoff_week, onclick: () => go(1) }, '›'));
   }
 
+  /** The first week scored from the app's lineups (published in data.json), or null while league.json decides every week. */
+  function cutoverWeek() {
+    return S.pub && Number.isInteger(S.pub.lineups_from_db_week) ? S.pub.lineups_from_db_week : null;
+  }
   function offStarterWarnings(teamId, d) {
     const working = crewsOf(teamId).filter((c) => d.starters.indexOf(c) < 0 && !isOff(S.week, c));
     if (!working.length) return [];                 // nobody better to start: the open-spot rule credits the empty spot instead
@@ -398,6 +402,7 @@
       asCommish && (st === 'past' || crewsOf(teamId).some((c) => kickedOff(S.week, c))) ? h('p', { class: 'small muted' }, "You're the commissioner: locks and finished weeks don't stop you. Changes to them ask you to confirm and are logged.") : null,
       // A starter with no game scores 0 when a crew that DOES play is sitting on the bench (the scorer treats that as a lineup mistake).
       offStarterWarnings(teamId, d).map((w) => h('p', { class: 'notice' }, w)),
+      cutoverWeek() !== null && S.week < cutoverWeek() ? h('p', { class: 'notice' }, 'Scoring uses league.json for weeks before Week ' + cutoverWeek() + ", so a change here won't affect scores. Make this change in league.json instead.") : null,
       cap && d.captain && isOff(S.week, d.captain) ? h('p', { class: 'notice' }, d.captain + ' has no game this week, so the captain bonus will earn little or nothing. You can still save.') : null,
       S.msg ? h('p', { class: 'notice ' + S.msg.kind, role: 'status' }, S.msg.text) : null,
       h('div', { class: 'crews' }, crews),

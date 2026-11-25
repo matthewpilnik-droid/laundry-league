@@ -803,6 +803,12 @@ if drafted:
         else:
             lineups_use = [e for e in lineups_cfg if e["week"] < FROM_DB] + [e for e in db_entries if e["week"] >= FROM_DB]
             print(f"lineups: week {FROM_DB} and later come from the app (read {db_fetched}); earlier weeks from league.json")
+            # App rows for weeks BEFORE the switch never count (those weeks score from league.json). Say so instead of staying silent.
+            ignored = [e for e in db_entries if e["week"] < FROM_DB]
+            if ignored:
+                print(f"::warning::lineups: {len(ignored)} app lineup row(s) are for weeks before week {FROM_DB} and are ignored by scoring (those weeks use league.json):")
+                for e in ignored:
+                    print(f"  Week {e['week']}, {e['team']}: {e['start']} captain {e['captain'] or 'none'}")
     real_starters, real_captains = weekly_starters(init, lineups_use, START)
     league = play_season(names, managers, init, real_starters, START, real_captains, project=True)
     # Shadow report (printed only, never changes a score): where would the app's lineups and league.json disagree?
@@ -893,6 +899,7 @@ json.dump({
     "open_spot_pct": OPEN_PCT,
     "captain_multiplier": CAPTAIN_MULT, "captain_start_week": CAPTAIN_START,
     "lineup_deadline": LEAGUE.get("lineup_deadline", ""),
+    "lineups_from_db_week": FROM_DB,          # null until the app takes over lineups; the app uses it to warn about earlier weeks
     "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
     "updated": max(games[g]["gameday"] for g in g_cur) if g_cur else None,
     "last_week": last,

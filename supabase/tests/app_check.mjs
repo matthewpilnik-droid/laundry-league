@@ -373,6 +373,22 @@ t.click(btnAt('Ron Torbert', 0)); t.click(btnAt('Alan Eck', 0));      // starter
 await t.waitFor(() => t.crewCard('Alan Eck').classList.contains('start'));
 ok('no warning when every crew on the bench is also off (the open-spot rule covers it)', !/A starter with no game scores 0/.test(t.text()));
 
+console.log('\nWeeks before the cutover: the app says scoring will not use a change');
+t = await start({ ...signedIn('u-mat'), pub: { ...PUB, lineups_from_db_week: 11 } });
+await t.waitFor(() => t.crewCard('Alex Moore'));
+ok('a week AT the cutover (11): no notice', !/Scoring uses league\.json/.test(t.text()));
+t.click(t.btn('Previous week'));
+await t.waitFor(() => t.$('.weeknav h2').textContent === 'Week 10' && t.$$('.crew').length === 3, 'week 10');
+ok('a week BEFORE the cutover (10): notice says scoring uses league.json, so this change will not affect scores', /Scoring uses league\.json for weeks before Week 11, so a change here won't affect scores/.test(t.text()), t.text().slice(0, 300));
+t.click([...t.crewCard('Ron Torbert').querySelectorAll('button')][0]); t.click([...t.crewCard('Alan Eck').querySelectorAll('button')][0]);
+await t.waitFor(() => t.btn('Save correction') && !t.btn('Save correction').disabled, 'correction button');
+ok('...it is a notice only: the commissioner can still save a correction', !t.btn('Save correction').disabled);
+t = await start({ ...signedIn('u-mat'), pub: { ...PUB, lineups_from_db_week: null } });
+await t.waitFor(() => t.crewCard('Alex Moore'));
+t.click(t.btn('Previous week'));
+await t.waitFor(() => t.$('.weeknav h2').textContent === 'Week 10' && t.$$('.crew').length === 3, 'week 10 (no switch)');
+ok('no cutover set (today): no notice on any week', !/Scoring uses league\.json/.test(t.text()));
+
 console.log('\nCommissioner changing an UNLOCKED week saves without a confirm step');
 t = await start(signedIn('u-mat'));
 await t.waitFor(() => t.crewCard('Alex Moore'));
