@@ -7,8 +7,9 @@ This script only DOWNLOADS. It does not judge: build_data.py checks every row an
 
 If anything goes wrong (Supabase down, wrong key, more than one league in the project) it deletes any old
 lineups_db.json, prints a warning, and exits with an error. Deleting matters: a stale file must never be mistaken
-for fresh data. build_data.py then falls back to the lineups in league.json. Callers (GitHub's bot) should let this
-step fail without stopping the score update.
+for fresh data. What build_data.py does next depends on league.json: if `lineups_from_db_week` is NOT set it simply uses
+league.json's lineups; if it IS set, the build STOPS so the site keeps its last good results (scoring from league.json alone
+could flip published results). Callers (GitHub's bot) should let THIS step fail without stopping, and let the build decide.
 
 The key is the Supabase SECRET key (read-only use here). It comes from SUPABASE_URL / SUPABASE_SECRET_KEY in the
 environment, or from the gitignored local files .env.rehearsal and .env.rehearsal-bot. It is never printed.
@@ -68,7 +69,7 @@ if __name__ == "__main__":
         data = fetch()
     except (RuntimeError, ValueError, KeyError) as e:
         OUT.unlink(missing_ok=True)
-        print(f"::warning::lineups: could not read lineups from the app ({e}); build will use league.json")
+        print(f"::warning::lineups: could not read lineups from the app ({e}); if lineups_from_db_week is set the build will stop and keep the last good results, otherwise it uses league.json")
         sys.exit(1)
     CACHE.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(data, indent=1) + "\n")
