@@ -135,11 +135,17 @@ d3, _, _ = build(without_switch(), db(changed), "shadowdiff2")
 check("shadow mode: scores unchanged", d3 == base, first_diff(d3, base))
 
 print("\nBad data must never crash the build or silently change a score")
+# The switch is ON but the app's lineups can't be read. Scoring those weeks from league.json alone could flip published results
+# (and flip them back on the next good run), so the build must STOP and publish nothing; the site keeps its last good results.
 d, log, code = build(with_switch(8), None, "nofile")
-check("switch set but no app file: builds, falls back to league.json, identical", code == 0 and d == base and "could not be read" in log, log[-300:])
+check("switch set but no app file: the build STOPS (nothing published) with a clear message", code != 0 and d is None and "could not be read" in log and "last good results" in log, log[-300:])
 for label, content in (("corrupt JSON", "{not json"), ("wrong shape (a list)", "[1,2,3]"), ("entries is not a list", '{"entries": 5}'), ("empty file", "")):
     d, log, code = build(with_switch(8), content, "bad")
-    check("%s: builds, falls back, identical" % label, code == 0 and d == base, log[-300:])
+    check("%s: the build STOPS (nothing published)" % label, code != 0 and d is None and "could not be read" in log, log[-300:])
+d, log, code = build(without_switch(), None, "nofile_off")
+check("switch OFF and no app file: builds normally, identical to baseline (today's real situation)", code == 0 and d == base, first_diff(d, base))
+d, log, code = build(without_switch(), "{not json", "bad_off")
+check("switch OFF and a corrupt app file: still builds normally (the app is only watched)", code == 0 and d == base, first_diff(d, base))
 junk = [{"id": 801, "week": 12, "team": "No Such Team", "start": ["Scott Novak", "John Hussey"], "captain": None},
         {"id": 802, "week": 12, "team": team, "start": [roster[0], roster[0]], "captain": None},
         {"id": 803, "week": 12, "team": team, "start": [roster[0], next(c for t in LEAGUE["teams"] if t["name"] != team for c in t["crews"])], "captain": None},

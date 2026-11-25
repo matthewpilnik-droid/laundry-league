@@ -795,7 +795,11 @@ if drafted:
     lineups_use = lineups_cfg
     if FROM_DB is not None:
         if db_entries is None:
-            print(f"::warning::lineups: lineups_from_db_week is {FROM_DB} but the app's lineups could not be read; using league.json for every week")
+            # Scoring these weeks from league.json alone could flip published results, then flip them back on the next good run.
+            # Stop instead: nothing is written, the bot publishes nothing, and the site keeps its last good results.
+            sys.exit(f"lineups problem - lineups_from_db_week is {FROM_DB} but the app's lineups could not be read. "
+                     f"Stopping so the site keeps its last good results instead of showing scores built from league.json alone. "
+                     f"(To score from league.json on purpose, remove lineups_from_db_week from league.json.)")
         else:
             lineups_use = [e for e in lineups_cfg if e["week"] < FROM_DB] + [e for e in db_entries if e["week"] >= FROM_DB]
             print(f"lineups: week {FROM_DB} and later come from the app (read {db_fetched}); earlier weeks from league.json")
