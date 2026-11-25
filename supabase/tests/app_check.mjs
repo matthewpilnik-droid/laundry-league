@@ -85,7 +85,11 @@ function makeFake(o = {}) {
       return b;
     },
     rpc: async (name, args) => { f.rpcCalls.push([name, args]);
-      if (name === 'effective_lineup') return { data: [lineups[args.p_team_id] || { starters: [], captain: null, from_week: null }], error: null };
+      if (name === 'effective_lineup') {
+        if (o.effDelay && o.effDelay[args.p_week]) await new Promise((r) => setTimeout(r, o.effDelay[args.p_week]));   // a slow answer, to test overlapping requests
+        if (o.effFor) return { data: [o.effFor(args.p_team_id, args.p_week)], error: null };
+        return { data: [lineups[args.p_team_id] || { starters: [], captain: null, from_week: null }], error: null };
+      }
       if (name === 'lineup_effect_range') return { data: [{ from_week: args.p_week, to_week: args.p_week + 1 }], error: null };
       if (name === 'set_lineup') return f.setLineupError ? { data: null, error: { message: f.setLineupError } } : { data: 99, error: null };
       return { data: null, error: { message: 'unknown rpc' } }; },
@@ -243,6 +247,17 @@ await t.waitFor(() => t.$('.weeknav h2').textContent === 'Week 18' && t.$$('.cre
 ok('week stepper stops at the last week of the season', t.btn('Next week').disabled);
 await t.waitFor(() => /not been loaded|Schedule not loaded/.test(t.text()), 'no-schedule notice');
 ok('a week with no schedule row is closed ("fail closed"), with an explanation', t.$$('.crew button').every((b) => b.disabled));
+
+console.log('\nTwo quick week changes: the first answer arriving after the page has moved on must not land on the wrong week');
+t = await start({ ...signedIn('u-bry'), effDelay: { 13: 150 },
+  effFor: (team, week) => week === 12 ? { starters: ['Scott Novak', '2012 Replacement Refs'], captain: null, from_week: 12 }
+                                      : { starters: ['John Hussey', '2012 Replacement Refs'], captain: null, from_week: week === 13 ? 13 : 10 } });
+await t.waitFor(() => t.crewCard('Scott Novak'));
+t.click(t.btn('Next week')); t.click(t.btn('Next week'));          // Week 12 answers quickly, Week 13 answers later
+await t.waitFor(() => t.$('.weeknav h2').textContent === 'Week 13' && t.$$('.crew').length === 3, 'week 13');
+await new Promise((r) => setTimeout(r, 400));                       // let the slower Week 13 answer arrive too
+ok('the page still says Week 13 and shows Week 13\'s lineup (Hussey starts, Novak does not)', t.$('.weeknav h2').textContent === 'Week 13' && t.crewCard('John Hussey').classList.contains('start') && !t.crewCard('Scott Novak').classList.contains('start'), t.$$('.crew').map((c) => c.className).join(' | '));
+ok('the draft belongs to Week 13 and holds Week 13\'s lineup', /\|13$/.test(t.L._state.draft.key) && t.L._state.draft.starters.join() === 'John Hussey,2012 Replacement Refs', JSON.stringify(t.L._state.draft));
 
 console.log('\nTapping while a lineup is still loading');
 t = await start(signedIn('u-bry'));

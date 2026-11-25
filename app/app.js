@@ -196,12 +196,17 @@
 
   /** Load whatever the current tab needs, then draw. */
   async function refreshTab() {
+    // Remember what we were asked about. If you move to another week, team or tab while an answer is on its way,
+    // that answer is for the wrong place and must be thrown away (a newer call is already fetching the right one).
+    const week = S.week, tab = S.tab, team = S.cTeam;
+    const stale = () => S.week !== week || S.tab !== tab || S.cTeam !== team;
     try {
       if (S.tab === 'week' || S.tab === 'commish') {
         const tid = S.tab === 'week' ? S.me.team_id : S.cTeam;
         if (tid) {
-          const e = await getEff(tid, S.week);
-          const key = tid + '|' + S.week;
+          const e = await getEff(tid, week);
+          if (stale()) return;
+          const key = tid + '|' + week;
           if (!S.draft || S.draft.key !== key) S.draft = { key, starters: e.starters.slice(), captain: e.captain || null };
         }
         if (S.tab === 'commish') S.audit = await q(sb.from('audit_log').select('action,actor,detail,created_at').order('created_at', { ascending: false }).limit(25));
