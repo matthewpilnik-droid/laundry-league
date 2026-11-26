@@ -16,9 +16,9 @@
  "captain_multiplier": 1.5,
  "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-25T21:38Z",
- "updated": "2026-11-23",
- "last_week": 11,
+ "generated_at": "2026-11-26T08:09Z",
+ "updated": "2026-11-25",
+ "last_week": 12,
  "weeks_played": [
   1,
   2,
@@ -30,7 +30,8 @@
   8,
   9,
   10,
-  11
+  11,
+  12
  ],
  "current_week": 12,
  "calibration_games": 272,
@@ -288,7 +289,8 @@
   "401873075",
   "401873076",
   "401873077",
-  "401873078"
+  "401873078",
+  "401873079"
  ],
  "crews": [
   {
@@ -1447,9 +1449,9 @@
    "g25": 16,
    "flags25": 13.3,
    "ppg25": 65.3,
-   "g26": 9,
-   "pts26": 786.3,
-   "ppg26": 87.4,
+   "g26": 10,
+   "pts26": 919.9,
+   "ppg26": 92.0,
    "weeks": {
     "1": {
      "game": "NO @ DET",
@@ -1532,6 +1534,15 @@
      "pts": 89.2,
      "gid": "2026_10_KC_ATL",
      "note": "Ground stop: moved from HOU @ CLE"
+    },
+    "12": {
+     "game": "GB @ LA",
+     "flags": 16,
+     "yards": 113,
+     "overturns": 2,
+     "stood": 0,
+     "pts": 133.6,
+     "gid": "2026_12_GB_LA"
     }
    }
   },
@@ -2136,293 +2147,44 @@
  },
  "week_games": [
   {
-   "referee": "Clete Blakeman",
-   "game": "TEN @ DAL",
-   "day": "Sunday",
-   "flags": 21,
-   "yards": 188,
-   "overturns": 1,
-   "stood": 1,
-   "pts": 101.1,
-   "top": {
-    "type": "Taunting",
-    "team": "DAL",
-    "player": "D.Kendrick",
-    "yards": 15,
-    "pts": 15.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "12:59"
-   }
-  },
-  {
-   "referee": "Craig Wrolstad",
-   "game": "JAX @ NYG",
-   "day": "Sunday",
-   "flags": 22,
-   "yards": 153,
-   "overturns": 3,
-   "stood": 2,
-   "pts": 75.6,
-   "top": {
-    "type": "Illegal Forward Pass",
-    "team": "JAX",
-    "player": "T.Lawrence",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "06:00"
-   }
-  },
-  {
-   "referee": "Adrian Hill",
-   "game": "TB @ DET",
-   "day": "Sunday",
-   "flags": 17,
-   "yards": 130,
-   "overturns": 1,
+   "referee": "Alan Eck",
+   "game": "GB @ LA",
+   "day": "Wednesday",
+   "flags": 16,
+   "yards": 113,
+   "overturns": 2,
    "stood": 0,
-   "pts": 71.6,
-   "top": {
-    "type": "Illegal Blindside Block",
-    "team": "DET",
-    "player": "M.Rodriguez",
-    "yards": 12,
-    "pts": 8.4,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "02:41"
-   }
-  },
-  {
-   "referee": "Land Clark",
-   "game": "PIT @ PHI",
-   "day": "Sunday",
-   "flags": 12,
-   "yards": 74,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 68.8,
+   "pts": 133.6,
    "top": {
     "type": "Disqualification",
-    "team": "PIT",
-    "player": "D.Metcalf",
-    "yards": 15,
-    "pts": 25.0,
+    "team": "LA",
+    "player": "K.Kinchens",
+    "yards": 0,
+    "pts": 66.0,
     "tier": "ejection",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "3",
-    "clock": "04:58"
-   }
-  },
-  {
-   "referee": "Carl Cheffers",
-   "game": "LV @ DEN",
-   "day": "Sunday",
-   "flags": 11,
-   "yards": 73,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 67.1,
-   "top": {
-    "type": "Illegal Forward Pass",
-    "team": "LV",
-    "player": "F.Mendoza",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "05:18"
-   }
-  },
-  {
-   "referee": "Alex Moore",
-   "game": "MIN @ SF",
-   "day": "Sunday",
-   "flags": 10,
-   "yards": 72,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 65.7,
-   "top": {
-    "type": "Illegal Double-Team Block",
-    "team": "MIN",
-    "player": "D.Dallas",
-    "yards": 13,
-    "pts": 24.6,
-    "tier": "unicorn",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "02:09"
-   }
-  },
-  {
-   "referee": "Alex Kemp",
-   "game": "NYJ @ LAC",
-   "day": "Sunday",
-   "flags": 15,
-   "yards": 68,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 60.9,
-   "top": {
-    "type": "Player Out of Bounds on Kick",
-    "team": "LAC",
-    "player": "J.Armour-Davis",
-    "yards": 5,
-    "pts": 13.0,
-    "tier": "rare",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "09:47"
-   }
-  },
-  {
-   "referee": "Brad Rogers",
-   "game": "NO @ CHI",
-   "day": "Sunday",
-   "flags": 13,
-   "yards": 45,
-   "overturns": 1,
-   "stood": 2,
-   "pts": 49.5,
-   "top": {
-    "type": "Illegal Use of Hands",
-    "team": "NO",
-    "player": "K.McKinstry",
-    "yards": 0,
-    "pts": 6.0,
-    "tier": "uncommon",
-    "status": "declined",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "11:59"
-   }
-  },
-  {
-   "referee": "Shawn Hochuli",
-   "game": "BAL @ CAR",
-   "day": "Sunday",
-   "flags": 12,
-   "yards": 95,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 43.0,
-   "top": {
-    "type": "Illegal Use of Hands",
-    "team": "CAR",
-    "player": "J.Phillips",
-    "yards": 0,
-    "pts": 9.0,
-    "tier": "uncommon",
-    "status": "declined",
-    "clutch": true,
-    "qtr": "4",
-    "clock": "01:38"
-   }
-  },
-  {
-   "referee": "Bill Vinovich",
-   "game": "CIN @ WAS",
-   "day": "Monday",
-   "flags": 10,
-   "yards": 79,
-   "overturns": 0,
-   "stood": 0,
-   "pts": 41.2,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "CIN",
-    "player": "S.Bozeman",
-    "yards": 10,
-    "pts": 8.0,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "2",
-    "clock": "04:43"
-   }
-  },
-  {
-   "referee": "Scott Novak",
-   "game": "MIA @ BUF",
-   "day": "Sunday",
-   "flags": 12,
-   "yards": 73,
-   "overturns": 1,
-   "stood": 0,
-   "pts": 39.1,
-   "top": {
-    "type": "Unnecessary Roughness",
-    "team": "MIA",
-    "player": "K.Allen",
-    "yards": 15,
-    "pts": 5.0,
-    "tier": "common",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "1",
-    "clock": "08:16"
-   }
-  },
-  {
-   "referee": "Brad Allen",
-   "game": "ARI @ KC",
-   "day": "Sunday",
-   "flags": 8,
-   "yards": 40,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 30.0,
-   "top": {
-    "type": "Intentional Grounding",
-    "team": "KC",
-    "player": "P.Mahomes",
-    "yards": 10,
-    "pts": 12.0,
-    "tier": "uncommon",
-    "status": "accepted",
+    "status": "offsetting",
     "clutch": true,
     "qtr": "2",
-    "clock": "00:16"
-   }
-  },
-  {
-   "referee": "Shawn Smith",
-   "game": "IND @ HOU",
-   "day": "Thursday",
-   "flags": 6,
-   "yards": 38,
-   "overturns": 2,
-   "stood": 0,
-   "pts": 19.1,
-   "top": {
-    "type": "Illegal Block Above the Waist",
-    "team": "HOU",
-    "player": "C.Muma",
-    "yards": 9,
-    "pts": 7.8,
-    "tier": "uncommon",
-    "status": "accepted",
-    "clutch": false,
-    "qtr": "4",
-    "clock": "07:03"
+    "clock": "02:00"
    }
   }
  ],
  "top_flags": [
+  {
+   "type": "Disqualification",
+   "team": "LA",
+   "player": "K.Kinchens",
+   "yards": 0,
+   "pts": 66.0,
+   "tier": "ejection",
+   "status": "offsetting",
+   "clutch": true,
+   "qtr": "2",
+   "clock": "02:00",
+   "week": 12,
+   "referee": "Alan Eck",
+   "game": "GB @ LA"
+  },
   {
    "type": "Fair Catch Interference",
    "team": "ARI",
@@ -2527,21 +2289,6 @@
    "week": 6,
    "referee": "Shawn Smith",
    "game": "BUF @ LV"
-  },
-  {
-   "type": "Defensive Delay of Game",
-   "team": "DEN",
-   "player": "T.Hufanga",
-   "yards": 5,
-   "pts": 34.5,
-   "tier": "unicorn",
-   "status": "accepted",
-   "clutch": true,
-   "qtr": "2",
-   "clock": "00:16",
-   "week": 2,
-   "referee": "John Hussey",
-   "game": "JAX @ DEN"
   }
  ],
  "sightings": [
@@ -3174,6 +2921,21 @@
    "week": 11,
    "referee": "Alex Moore",
    "game": "MIN @ SF"
+  },
+  {
+   "type": "Disqualification",
+   "team": "LA",
+   "player": "K.Kinchens",
+   "yards": 0,
+   "pts": 66.0,
+   "tier": "ejection",
+   "status": "offsetting",
+   "clutch": true,
+   "qtr": "2",
+   "clock": "02:00",
+   "week": 12,
+   "referee": "Alan Eck",
+   "game": "GB @ LA"
   }
  ],
  "ledger": {
@@ -14989,6 +14751,228 @@
     "clock": "07:15",
     "pts": 4.0
    }
+  ],
+  "2026_12_GB_LA": [
+   {
+    "k": "flag",
+    "type": "Defensive Pass Interference",
+    "team": "GB",
+    "player": "B.Cisse",
+    "yards": 37,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "11:59",
+    "pts": 9.4
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Contact",
+    "team": "LA",
+    "player": "E.Forbes",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "07:28",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "GB",
+    "player": "D.Wyatt",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "1",
+    "clock": "06:23",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "LA",
+    "player": "B.Murray",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "06:41",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Disqualification",
+    "team": "LA",
+    "player": "K.Kinchens",
+    "yards": 0,
+    "tier": "ejection",
+    "status": "offsetting",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "02:00",
+    "pts": 66.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "GB",
+    "player": "M.Golden",
+    "yards": 0,
+    "tier": "common",
+    "status": "offsetting",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "02:00",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Neutral Zone Infraction",
+    "team": "GB",
+    "player": "B.Sorrell",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "00:12",
+    "pts": 10.5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Holding",
+    "team": "GB",
+    "player": "J.Bullard",
+    "yards": 1,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "07:53",
+    "pts": 2.2
+   },
+   {
+    "k": "over",
+    "qtr": "3",
+    "clock": "07:53",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Too Many Men on Field",
+    "team": "GB",
+    "player": "",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "02:41",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "GB",
+    "player": "K.Johnson",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:57",
+    "pts": 3.0
+   },
+   {
+    "k": "over",
+    "qtr": "4",
+    "clock": "11:57",
+    "pts": -5
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Holding",
+    "team": "LA",
+    "player": "B.Limmer",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "08:14",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Too Many Men on Field",
+    "team": "GB",
+    "player": "",
+    "yards": 5,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:35",
+    "pts": 7.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Too Many Men on Field",
+    "team": "GB",
+    "player": "",
+    "yards": 0,
+    "tier": "uncommon",
+    "status": "declined",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "03:26",
+    "pts": 6.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "LA",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:27",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Defensive Offside",
+    "team": "GB",
+    "player": "D.Dennis-Sutton",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "02:27",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "LA",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "4",
+    "clock": "00:30",
+    "pts": 4.5
+   }
   ]
  },
  "teams": [
@@ -16546,9 +16530,9 @@
        },
        {
         "crew": "Alan Eck",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 133.6,
+        "game": "GB @ LA",
+        "status": "final",
         "starter": true
        },
        {
@@ -16559,7 +16543,7 @@
         "starter": false
        }
       ],
-      "pts": 0.0,
+      "pts": 133.6,
       "proj": {
        "crews": [
         {
@@ -16571,13 +16555,13 @@
         },
         {
          "crew": "Alan Eck",
-         "avg": 87.4,
-         "pts": 87.4,
+         "avg": 92.0,
+         "pts": 92.0,
          "flag": "",
          "captain": false
         }
        ],
-       "pts": 216.7,
+       "pts": 221.3,
        "assigned": true
       }
      },
@@ -21193,9 +21177,9 @@
         },
         {
          "crew": "Alan Eck",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 133.6,
+         "game": "GB @ LA",
+         "status": "final",
          "starter": false
         }
        ],
@@ -23703,8 +23687,8 @@
    {
     "gid": "2026_12_GB_LA",
     "game": "GB @ LA",
-    "referee": "",
-    "played": false,
+    "referee": "Alan Eck",
+    "played": true,
     "day": "Wednesday",
     "date": "2026-11-25",
     "time": "20:00"
