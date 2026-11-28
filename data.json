@@ -16,8 +16,8 @@
  "captain_multiplier": 1.5,
  "captain_start_week": 11,
  "lineup_deadline": "Thursday kickoff",
- "generated_at": "2026-11-27T21:11Z",
- "updated": "2026-11-26",
+ "generated_at": "2026-11-28T07:41Z",
+ "updated": "2026-11-27",
  "last_week": 12,
  "weeks_played": [
   1,
@@ -293,7 +293,8 @@
   "401873079",
   "401873080",
   "401873081",
-  "401873082"
+  "401873082",
+  "401873083"
  ],
  "crews": [
   {
@@ -1978,9 +1979,9 @@
    "g25": 15,
    "flags25": 12.9,
    "ppg25": 57.9,
-   "g26": 10,
-   "pts26": 660.3,
-   "ppg26": 66.0,
+   "g26": 11,
+   "pts26": 694.8,
+   "ppg26": 63.2,
    "weeks": {
     "1": {
      "game": "CHI @ CAR",
@@ -2072,6 +2073,15 @@
      "stood": 0,
      "pts": 30.0,
      "gid": "2026_11_ARI_KC"
+    },
+    "12": {
+     "game": "DEN @ PIT",
+     "flags": 8,
+     "yards": 65,
+     "overturns": 0,
+     "stood": 0,
+     "pts": 34.5,
+     "gid": "2026_12_DEN_PIT"
     }
    }
   }
@@ -2262,6 +2272,28 @@
     "clutch": false,
     "qtr": "2",
     "clock": "12:25"
+   }
+  },
+  {
+   "referee": "Brad Allen",
+   "game": "DEN @ PIT",
+   "day": "Friday",
+   "flags": 8,
+   "yards": 65,
+   "overturns": 0,
+   "stood": 0,
+   "pts": 34.5,
+   "top": {
+    "type": "Unsportsmanlike Conduct",
+    "team": "PIT",
+    "player": "J.Ramsey",
+    "yards": 15,
+    "pts": 9.0,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:11"
    }
   }
  ],
@@ -15804,6 +15836,112 @@
     "clock": "01:32",
     "pts": 6.0
    }
+  ],
+  "2026_12_DEN_PIT": [
+   {
+    "k": "flag",
+    "type": "Delay of Game",
+    "team": "DEN",
+    "player": "",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "11:35",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Roughing the Passer",
+    "team": "DEN",
+    "player": "M.Roach",
+    "yards": 15,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "2",
+    "clock": "02:58",
+    "pts": 5.0
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Contact",
+    "team": "PIT",
+    "player": "J.Dean",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": true,
+    "qtr": "2",
+    "clock": "01:02",
+    "pts": 4.5
+   },
+   {
+    "k": "flag",
+    "type": "Illegal Contact",
+    "team": "DEN",
+    "player": "P.Surtain",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "14:01",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "DEN",
+    "player": "Q.Meinerz",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "12:25",
+    "pts": 3.0
+   },
+   {
+    "k": "flag",
+    "type": "Offensive Pass Interference",
+    "team": "DEN",
+    "player": "C.Sutton",
+    "yards": 10,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "3",
+    "clock": "00:56",
+    "pts": 4.0
+   },
+   {
+    "k": "flag",
+    "type": "Unsportsmanlike Conduct",
+    "team": "PIT",
+    "player": "J.Ramsey",
+    "yards": 15,
+    "tier": "uncommon",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "11:11",
+    "pts": 9.0
+   },
+   {
+    "k": "flag",
+    "type": "False Start",
+    "team": "DEN",
+    "player": "M.McGlinchey",
+    "yards": 5,
+    "tier": "common",
+    "status": "accepted",
+    "clutch": false,
+    "qtr": "4",
+    "clock": "09:19",
+    "pts": 3.0
+   }
   ]
  },
  "teams": [
@@ -17406,9 +17544,9 @@
       "crews": [
        {
         "crew": "Brad Allen",
-        "pts": 0,
-        "game": null,
-        "status": "pending",
+        "pts": 34.5,
+        "game": "DEN @ PIT",
+        "status": "final",
         "starter": true
        },
        {
@@ -17428,13 +17566,13 @@
         "starter": false
        }
       ],
-      "pts": 0.0,
+      "pts": 34.5,
       "proj": {
        "crews": [
         {
          "crew": "Brad Allen",
-         "avg": 66.0,
-         "pts": 66.0,
+         "avg": 63.2,
+         "pts": 63.2,
          "flag": "",
          "captain": false
         },
@@ -17446,7 +17584,7 @@
          "captain": true
         }
        ],
-       "pts": 175.9,
+       "pts": 173.1,
        "assigned": true
       }
      },
@@ -22066,9 +22204,9 @@
         },
         {
          "crew": "Brad Allen",
-         "pts": 0,
-         "game": null,
-         "status": "pending",
+         "pts": 34.5,
+         "game": "DEN @ PIT",
+         "status": "final",
          "starter": false
         }
        ],
@@ -24509,8 +24647,8 @@
    {
     "gid": "2026_12_DEN_PIT",
     "game": "DEN @ PIT",
-    "referee": "",
-    "played": false,
+    "referee": "Brad Allen",
+    "played": true,
     "day": "Friday",
     "date": "2026-11-27",
     "time": "15:00"
